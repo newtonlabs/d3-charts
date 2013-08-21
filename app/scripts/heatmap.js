@@ -27,8 +27,17 @@ this.d3.charts.heatmap = function() {
 
     selection.each(function(data) {
       console.log('creating visualization on selection');
+      var svg = d3.select(this).append("svg")
+        .attr("width",  chartWidth  + margin.left + margin.right)
+        .attr("height", chartHeight + margin.top  + margin.bottom);
+
+      svg.append("rect")
+        .attr("height", height)
+        .attr("width", width)
+        .attr("style", "fill:blue;stroke:gray;stroke-width:2;fill-opacity:0.1;stroke-opacity:0.9");
 
     });
+
   }
 
   // Getters and Setters
