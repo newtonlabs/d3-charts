@@ -27,8 +27,8 @@ d3.tsv("constants/data.tsv", function(error, data) {
 var heatmapChart = d3.charts.heatmap();
 var populate = function(category, obj) {
   var data = {
-    xaxis: obj.xAxis,
-    yaxis: obj.yAxis,
+    xAxis: obj.xAxis,
+    yAxis: obj.yAxis,
     color: obj.color,
     trend: obj.trend,
     value: obj.value,
@@ -39,7 +39,7 @@ var populate = function(category, obj) {
   category.data.push(data);
 };
 
-d3.csv("constants/heatmap_data.csv", function(error, data) {
+d3.csv("data/heatMap_data.csv", function(error, data) {
   console.log(data);
 
   // Maintain order from the JSON object
