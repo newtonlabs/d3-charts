@@ -10,18 +10,17 @@ this.d3.charts.heatmap = function() {
   var width = 1500,
     height = 500,
     controlHeight = 50,
-    margin = { top: 40, right: 10, bottom: 10, left: 175 },
-    buckets = 3;
+    margin = { top: 40, right: 10, bottom: 10, left: 175 };
 
   // Rewrite with native reduce
   var uniqueProperties = function(data, property) {
     return _.reduce(data, function(memo, d) {
-      if (! _.find(memo, function(o) {return d[property] === o})) {
+      if (! _.find(memo, function(o) {return d[property] === o;})) {
         memo.push(d[property]);
       }
       return memo;
     },[]);
-  }
+  };
 
   function my(selection) {
     var chartWidth   = width  - margin.left - margin.right,
@@ -32,8 +31,8 @@ this.d3.charts.heatmap = function() {
       var rows    = uniqueProperties(data[0].data, 'xAxis');
       var columns = uniqueProperties(data[0].data, 'yAxis');
 
-      var x = d3.scale.ordinal().domain(rows).rangeRoundBands([0, chartWidth], .2, .2);
-      var y = d3.scale.ordinal().domain(columns).rangeRoundBands([0, chartHeight], .2, .2);
+      var x = d3.scale.ordinal().domain(rows).rangeRoundBands([0, chartWidth], 0.2, 0.2);
+      var y = d3.scale.ordinal().domain(columns).rangeRoundBands([0, chartHeight], 0.2, 0.2);
       var yAxis = d3.svg.axis().scale(y).orient("left");
       var xAxis = d3.svg.axis().scale(x).orient("top");
 
@@ -41,7 +40,7 @@ this.d3.charts.heatmap = function() {
         .attr("width",  chartWidth  + margin.left + margin.right)
         .attr("height", chartHeight + margin.top  + margin.bottom);
 
-      var background = svg.append("rect")
+      svg.append("rect")
         .attr("height", height)
         .attr("width", width)
         .attr("style", "stroke:gray;stroke-width:2;fill-opacity:0.05;stroke-opacity:0.9; fill:white");
@@ -50,13 +49,13 @@ this.d3.charts.heatmap = function() {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       heatmap.selectAll("rect").data(data[0].data).enter().append("rect")
-        .attr("x", function(d) { return x(d.xAxis)})
-        .attr("y", function(d) { return y(d.yAxis)})
+        .attr("x", function(d) { return x(d.xAxis);})
+        .attr("y", function(d) { return y(d.yAxis);})
         .attr("rx", 10)
         .attr("ry", 10)
         .attr("width",  x.rangeBand())
         .attr("height", y.rangeBand())
-        .attr("style", function(d) {return "fill:"+d.color+";stroke:gray;stroke-width:2;fill-opacity:.75;stroke-opacity:0.9"})
+        .attr("style", function(d) {return "fill:"+d.color+";stroke:gray;stroke-width:2;fill-opacity:.75;stroke-opacity:0.9";});
 
       heatmap.append("g")
         .attr("class", "y axis")
