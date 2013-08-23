@@ -63,10 +63,6 @@ d3.csv("data/heatMap_data.csv", function(error, data) {
   d3.select("#heatmap").datum(scrubbed).call(heatmapChart);
 });
 
-var trans = d3.charts.transition();
-d3.select('#transition').datum([]).call(trans);
-
-
 
 var barChart = d3.charts.barchart();
 d3.csv("data/barchart_data.csv", function(error, data) {

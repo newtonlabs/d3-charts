@@ -7,7 +7,7 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 this.d3.charts.heatmap = function() {
  'use strict';
 
-  var width = 1300,
+  var width = 1500,
     height = 500,
     controlHeight = 50,
     margin = { top: 140, right: 10, bottom: 10, left: 175 };
@@ -39,9 +39,10 @@ this.d3.charts.heatmap = function() {
         var yAxis = d3.svg.axis().scale(y).orient("left");
         var xAxis = d3.svg.axis().scale(x).orient("top");
 
-        var rect = heatmap.selectAll("rect").data(data);
+        var rect = heatmap.selectAll("g.heatmap rect").data(data);
 
-        rect.enter().append("rect");
+        rect.enter().append("rect")
+          .attr("style", function(d) {return "fill:"+d.color+";stroke:gray;stroke-width:2;fill-opacity:.75;stroke-opacity:0.9";});
 
         rect
           .attr("x", function(d) { return x(d.xAxis);})
@@ -50,10 +51,9 @@ this.d3.charts.heatmap = function() {
           .attr("ry", 10)
           .attr("width",  x.rangeBand())
           .attr("height", y.rangeBand())
-          .attr("style", function(d) {return "fill:white;stroke:gray;stroke-width:2;fill-opacity:.75;stroke-opacity:0.9";})
           .transition().style("fill", function(d) {return d.color});
 
-        // rect.exit().remove();
+        rect.exit().remove();
 
         heatmap.append("g")
           .attr("class", "y axis")
@@ -79,7 +79,7 @@ this.d3.charts.heatmap = function() {
 
         chart(svg, chartData);
 
-        d3.select(this).transition().duration(5000)
+        d3.select(this).transition()
           .call(brush.extent([brushStart, brushEnd]))
           .call(brush.event);
       };
@@ -92,7 +92,7 @@ this.d3.charts.heatmap = function() {
         .attr("width",  chartWidth  + margin.left + margin.right)
         .attr("height", chartHeight + margin.top  + margin.bottom);
 
-      var heatmap = svg.append("g").attr("id", "heatmap")
+      var heatmap = svg.append("g").attr("class", "heatmap")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       svg.append("rect")
@@ -118,13 +118,13 @@ this.d3.charts.heatmap = function() {
       control.append("g")
         .attr("class", "x brush")
         .call(brush)
-    // .call(brush.event)
+        .call(brush.event)
         .selectAll("rect")
         .attr("y", 0)
         .attr("height", chartHeight2);
 
     });
-    
+
   }
 
   // Getters and Setters
