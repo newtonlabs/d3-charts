@@ -7,7 +7,7 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 this.d3.charts.heatmap = function() {
  'use strict';
 
-  var width = 1500,
+  var width = 1300,
     height = 500,
     controlHeight = 50,
     margin = { top: 140, right: 10, bottom: 10, left: 175 };
@@ -44,13 +44,14 @@ this.d3.charts.heatmap = function() {
         rect.enter().append("rect");
 
         rect
-          .attr("x", function(d) { console.log ("here"); return x(d.xAxis);})
+          .attr("x", function(d) { return x(d.xAxis);})
           .attr("y", function(d) { return y(d.yAxis);})
           .attr("rx", 10)
           .attr("ry", 10)
           .attr("width",  x.rangeBand())
           .attr("height", y.rangeBand())
-          .attr("style", function(d) {return "fill:"+d.color+";stroke:gray;stroke-width:2;fill-opacity:.75;stroke-opacity:0.9";});
+          .attr("style", function(d) {return "fill:white;stroke:gray;stroke-width:2;fill-opacity:.75;stroke-opacity:0.9";})
+          .transition().duration(500).style("fill", function(d) {return d.color});
 
         // rect.exit().remove();
 
@@ -78,7 +79,7 @@ this.d3.charts.heatmap = function() {
 
         chart(svg, chartData);
 
-        d3.select(this).transition()
+        d3.select(this).transition().duration(500)
           .call(brush.extent([brushStart, brushEnd]))
           // .call(brush.event);
       };

@@ -78,22 +78,22 @@ svg.append("g")
   // .selectAll(".tick")
   //   .classed("minor", function(d) { return d.getHours(); });
 
-// svg.append("g")
-//     .attr("class", "x axis")
-//     .attr("transform", "translate(0," + height + ")")
-//     .call(d3.svg.axis()
-//       .scale(x)
-//       .orient("bottom")
-//       .ticks(d3.time.days)
-//       .tickPadding(0))
-//   .selectAll("text")
-//     .attr("x", 6)
-//     .style("text-anchor", null);
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.svg.axis()
+      .scale(x)
+      .orient("bottom")
+      .ticks(d3.time.days)
+      .tickPadding(0))
+  .selectAll("text")
+    .attr("x", 6)
+    .style("text-anchor", null);
 
 var gBrush = svg.append("g")
     .attr("class", "brush")
     .call(brush)
-    // .call(brush.event);
+    .call(brush.event);
 
 gBrush.selectAll("rect")
     .attr("height", height);
@@ -112,9 +112,11 @@ function brushended() {
     extent1[1] = d3.time.day.ceil(extent0[1]);
   }
 
-  d3.select(this).transition()
-      .call(brush.extent(extent1));
-      // .call(brush.event);
+  console.log(this);
+
+  d3.select(this).transition().duration(1000)
+      .call(brush.extent(extent1))
+      .call(brush.event);
 }
 
 </script>
