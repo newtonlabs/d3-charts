@@ -86,25 +86,26 @@ d3.csv("data/barchart_data.csv", function(error, data) {
   };
   
   var monthValue = function(data, month, xAxis) {
-    data = _.filter(data, function(d){ return ((d.Category.substring(4,6) == month) && (d.xAxis == xAxis)); });
+    data = _.filter(data, function(d){ return ((d.category.substring(4,6) == month) && (d.xAxis == xAxis)); });
     return _.reduce(data, function(memo, num){ return memo + Math.abs(Number(num.value)); }, 0);
   }
-  
-  var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   
   //filter for yAxis - "There can be only one"
   data = _.filter(data, function(d){ return d.yAxis == 'Funded Loans'; });
   
-  //filter for august
-  //data = _.filter(data, function(d){ return d.Category.substring(4,6) == '08'; });
+  //filter for per month
+  //data = _.filter(data, function(d){ return d.category.substring(4,6) == '08'; });
   
-  var scrubbed = [];
-  var rows = uniqueProperties(data, 'xAxis');
-  var months = uniqueMonths(data, 'Category');
+  var scrubbed = [],
+    month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    rows = uniqueProperties(data, 'xAxis'),
+    months = uniqueMonths(data, 'category');
   
   rows.forEach(function(r) {
     var obj = {
       xAxis: r
+      //yAxis: data[0].yAxis,
+      //target: data[0].target      
     }
     months.forEach(function(m) {
       obj[month[parseInt(m)-1]] = monthValue(data, m, r);
