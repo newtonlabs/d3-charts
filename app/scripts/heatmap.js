@@ -51,7 +51,7 @@ this.d3.charts.heatmap = function() {
           .attr("width",  x.rangeBand())
           .attr("height", y.rangeBand())
           .attr("style", function(d) {return "fill:white;stroke:gray;stroke-width:2;fill-opacity:.75;stroke-opacity:0.9";})
-          .transition().duration(500).style("fill", function(d) {return d.color});
+          .transition().style("fill", function(d) {return d.color});
 
         // rect.exit().remove();
 
@@ -79,9 +79,9 @@ this.d3.charts.heatmap = function() {
 
         chart(svg, chartData);
 
-        d3.select(this).transition().duration(500)
+        d3.select(this).transition().duration(5000)
           .call(brush.extent([brushStart, brushEnd]))
-          // .call(brush.event);
+          .call(brush.event);
       };
 
       var brush = d3.svg.brush()
@@ -124,6 +124,7 @@ this.d3.charts.heatmap = function() {
         .attr("height", chartHeight2);
 
     });
+    
   }
 
   // Getters and Setters

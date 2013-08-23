@@ -1,4 +1,4 @@
-Category,xAxis,yAxis,value,Trend,Target,Color,ID
+category,xAxis,yAxis,value,trend,target,color,id
 20120101,Team 1,Net Promoter Score,12,null,null,#ccccc,1
 20120102,Team 1,Net Promoter Score,3,null,null,white,2
 20120103,Team 1,Net Promoter Score,135,null,null,red,3
