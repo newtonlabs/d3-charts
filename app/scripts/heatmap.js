@@ -10,12 +10,12 @@ this.d3.charts.heatmap = function() {
   var width = 1500,
     height = 500,
     controlHeight = 50,
-    margin = { top: 40, right: 10, bottom: 10, left: 175 };
+    margin = { top: 140, right: 10, bottom: 10, left: 175 };
 
   // Rewrite with native reduce
   var uniqueProperties = function(data, property) {
     return _.reduce(data, function(memo, d) {
-      if (! _.find(memo, function(o) {return d[property] === o;})) {
+      if (! memo.filter(function(o) { return d[property] === o;}).length) {
         memo.push(d[property]);
       }
       return memo;
@@ -23,18 +23,37 @@ this.d3.charts.heatmap = function() {
   };
 
   function my(selection) {
-    var chartWidth   = width  - margin.left - margin.right,
-        chartHeight  = height - margin.top  - margin.bottom;
+    var chartWidth    = width  - margin.left - margin.right,
+        chartHeight   = height - margin.top  - margin.bottom,
+        chartHeight2  = controlHeight;
 
     selection.each(function(data) {
-
       var rows    = uniqueProperties(data[0].data, 'xAxis');
       var columns = uniqueProperties(data[0].data, 'yAxis');
+      var categories = uniqueProperties(data, 'name');
 
       var x = d3.scale.ordinal().domain(rows).rangeRoundBands([0, chartWidth], 0.2, 0.2);
       var y = d3.scale.ordinal().domain(columns).rangeRoundBands([0, chartHeight], 0.2, 0.2);
+      var x2 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, chartWidth], 0.2, 0.2);
+      var invertx2 = d3.scale.quantize().domain([0, chartWidth]).range(categories);
+
       var yAxis = d3.svg.axis().scale(y).orient("left");
       var xAxis = d3.svg.axis().scale(x).orient("top");
+      var xAxis2 = d3.svg.axis().scale(x2).orient("top");
+
+      var brushended = function() {
+        if (!d3.event.sourceEvent) return; // only transition after input
+        var brushStart = x2(invertx2(brush.extent()[0]));
+        var brushEnd   = brushStart + x2.rangeBand();
+
+        d3.select(this).transition()
+          .call(brush.extent([brushStart, brushEnd]))
+            // .call(brush.event);
+      };
+
+      var brush = d3.svg.brush()
+        .x(x2)
+        .on("brushend", brushended);
 
       var svg = d3.select(this).append("svg")
         .attr("width",  chartWidth  + margin.left + margin.right)
@@ -47,6 +66,11 @@ this.d3.charts.heatmap = function() {
 
       var heatmap = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      heatmap.append("rect")
+        .attr("height", height)
+        .attr("width", width)
+        .attr("style", "stroke:gray;stroke-width:2;fill-opacity:0.05;stroke-opacity:0.9; fill:white");
 
       heatmap.selectAll("rect").data(data[0].data).enter().append("rect")
         .attr("x", function(d) { return x(d.xAxis);})
@@ -65,6 +89,35 @@ this.d3.charts.heatmap = function() {
         .attr("class", "x axis")
         .call(xAxis);
 
+      var control = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + 40  + ")");
+
+      control.append("rect")
+        .attr("height", chartHeight2)
+        .attr("width",  chartWidth)
+        .attr("style", "stroke:gray;stroke-width:2;fill-opacity:0.2;stroke-opacity:0.3; fill:gray");
+
+      control.append("g")
+        .attr("class", "x grid")
+        .attr("transform", "translate(0," + chartHeight2 + ")")
+        .call(d3.svg.axis()
+            .scale(x2)
+            .orient("bottom")
+            // .ticks(d3.time.hours, 12)
+            .tickSize(-height)
+            .tickFormat(""))
+
+      control.append("g")
+        .attr("class", "x axis")
+        .call(xAxis2);
+
+      control.append("g")
+        .attr("class", "x brush")
+        .call(brush)
+    // .call(brush.event)
+        .selectAll("rect")
+        .attr("y", 0)
+        .attr("height", chartHeight2);
     });
 
   }

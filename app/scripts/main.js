@@ -40,7 +40,7 @@ var populate = function(category, obj) {
 };
 
 d3.csv("data/heatMap_data.csv", function(error, data) {
-  console.log(data);
+  // console.log(data);
 
   // Maintain order from the JSON object
   var scrubbed = _.reduce(data, function(memo, obj) {
