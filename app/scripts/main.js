@@ -63,3 +63,54 @@ d3.csv("data/heatMap_data.csv", function(error, data) {
   d3.select("#heatmap").datum(scrubbed).call(heatmapChart);
 });
 
+
+var barChart = d3.charts.barchart();
+d3.csv("data/barchart_data.csv", function(error, data) {
+
+  var uniqueProperties = function(data, property) {
+    return _.reduce(data, function(memo, d) {
+      if (! _.find(memo, function(o) {return d[property].trim() === o;})) {
+        memo.push(d[property]);
+      }
+      return memo;
+    },[]);
+  };
+  
+  var uniqueMonths = function(data, property) {
+    return _.reduce(data, function(memo, d) {
+      if (! _.find(memo, function(o) {return d[property].substring(4,6) === o;})) {
+        memo.push(d[property].substring(4,6));
+      }
+      return memo;
+    },[]);
+  };
+  
+  var monthValue = function(data, month, xAxis) {
+    data = _.filter(data, function(d){ return ((d.Category.substring(4,6) == month) && (d.xAxis == xAxis)); });
+    return _.reduce(data, function(memo, num){ return memo + Math.abs(Number(num.value)); }, 0);
+  }
+  
+  var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  
+  //filter for yAxis - "There can be only one"
+  data = _.filter(data, function(d){ return d.yAxis == 'Funded Loans'; });
+  
+  //filter for august
+  //data = _.filter(data, function(d){ return d.Category.substring(4,6) == '08'; });
+  
+  var scrubbed = [];
+  var rows = uniqueProperties(data, 'xAxis');
+  var months = uniqueMonths(data, 'Category');
+  
+  rows.forEach(function(r) {
+    var obj = {
+      xAxis: r
+    }
+    months.forEach(function(m) {
+      obj[month[parseInt(m)-1]] = monthValue(data, m, r);
+    });
+    scrubbed.push(obj);
+  });
+  
+  d3.select("#barchart").datum(scrubbed).call(barChart);
+});
