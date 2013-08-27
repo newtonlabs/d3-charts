@@ -104,9 +104,9 @@ d3.csv("data/barchart_data.csv", function(error, data) {
 
   rows.forEach(function(r) {
     var obj = {
-      xAxis: r
-      //yAxis: data[0].yAxis,
-      //target: data[0].target
+      xAxis: r,
+      yAxis: data[0].yAxis,
+      target: data[0].target
     }
     months.forEach(function(m) {
       obj[month[parseInt(m)-1]] = monthValue(data, m, r);
