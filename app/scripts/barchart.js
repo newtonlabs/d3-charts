@@ -41,6 +41,7 @@ this.d3.charts.barchart = function() {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     selection.each(function(data) {
+    
       var groups = d3.keys(data[0]).filter(function(key) { return ((key !== "xAxis") && (key !== "yAxis") && (key !== "target")); });
       
       data.forEach(function(d) {
@@ -49,22 +50,32 @@ this.d3.charts.barchart = function() {
 
       x0.domain(data.map(function(d) { return d.xAxis; }));
       x1.domain(groups).rangeRoundBands([0, x0.rangeBand()]);
-      y.domain([0, d3.max(data, function(d) { return d3.max(d.group, function(d) { return d.value; }); })]);
+      
+      var d3Min =    d3.min(data, function (d) {
+          return d3.min(d.group, function (d) {
+              return d.value;
+          });
+      });
+      if (d3Min > 0)
+        d3Min = 0;
+      
+      var d3Max =  d3.max(data, function (d) {
+           return d3.max(d.group, function (d) {
+               return d.value;
+           });
+      });
+      var target = Number(data[0].target);
 
-      svg.append("g")
-          .attr("class", "x axis")
-          .attr("transform", "translate(0," + chartHeight + ")")
-          .call(xAxis);
+      if (d3Max < target)
+        d3Max = target;
+      
+      y.domain([ d3Min,d3Max ]);
 
-      svg.append("g")
-          .attr("class", "y axis")
-          .call(yAxis)
-        .append("text")
-          .attr("y", -20)
-          .attr("dy", ".71em")
-          .style("text-anchor", "start")
-          .text(data[0].yAxis);
-          
+      var xAxisTransform =  chartHeight;
+      if(d3Min < 0 && 0 < d3Max) {
+          xAxisTransform = chartHeight * (d3Max / (d3Max - d3Min));
+      }      
+     
       var cat = svg.selectAll(".cat")
           .data(data)
         .enter().append("g")
@@ -76,26 +87,38 @@ this.d3.charts.barchart = function() {
         .enter().append("rect")
           .attr("width", x1.rangeBand())
           .attr("x", function(d) { return x1(d.name); })
-          .attr("y", function(d) { return y(d.value); })
-          .attr("height", function(d) { return chartHeight - y(d.value); })
-          .style("fill", function(d) { return color(d.name); });
+            .attr("y", function (d) {
+                if(d.value < 0)
+                    return y(0);
+                return y(d.value);
+            })
+            .attr("height", function (d) {
+                if(d.value < 0) {         
+                    return y(d.value+d3Max);
+                }
+                return chartHeight - y(d.value+d3Min);
+            })
+          .style("fill", function(d) { return color(d.name); }); 
+          
+      svg.append("g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(0," + xAxisTransform + ")") // this line moves x-axis
+            .call(xAxis);
 
-      // var line = d3.svg.line()
-        // .x(function(d, i) {
-          // console.log(d);
-          // return x0(i); })
-        // .y(function(d, i) { return y(400000); }); 
-
-      // svg.append("path")
-          // .datum(data)
-          // .attr("style", function(d) {return "fill:none;stroke:gray;stroke-width:2;";})
-          // .attr("d", line);          
+      svg.append("g")
+            .attr("class", "y axis")        
+            .call(yAxis)
+            .append("text")
+            .attr("y", -20)
+            .attr("dy", ".71em")
+            .style("text-anchor", "start")
+            .text(data[0].yAxis);          
           
       var line = svg.append("line")
                   .attr("x1", 0)
-                  .attr("y1", y(data[0].target))
+                  .attr("y1", y(target))
                   .attr("x2", width)
-                  .attr("y2", y(data[0].target))
+                  .attr("y2", y(target))
                   .attr("style", function(d) {return "fill:none;stroke-dasharray:5,5;stroke:gray;stroke-width:2;";});
           
       // var legend = svg.selectAll(".legend")

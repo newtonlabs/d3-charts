@@ -87,7 +87,7 @@ d3.csv("data/barchart_data.csv", function(error, data) {
 
   var monthValue = function(data, month, xAxis) {
     data = _.filter(data, function(d){ return ((d.category.substring(4,6) == month) && (d.xAxis == xAxis)); });
-    return _.reduce(data, function(memo, num){ return memo + Math.abs(Number(num.value)); }, 0);
+    return _.reduce(data, function(memo, num){ return memo + Number(num.value); }, 0);
   }
 
 
@@ -95,7 +95,7 @@ d3.csv("data/barchart_data.csv", function(error, data) {
   data = _.filter(data, function(d){ return d.yAxis == 'Funded Loans'; });
 
   //filter for per month
-  //data = _.filter(data, function(d){ return d.category.substring(4,6) == '08'; });
+  //data = _.filter(data, function(d){ return d.category.substring(4,6) == '03'; });
 
   var scrubbed = [],
     month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
