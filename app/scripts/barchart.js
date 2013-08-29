@@ -7,18 +7,16 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 this.d3.charts.barchart = function() {
  'use strict';
 
-  var width = 960,
+  var width = 1500,
     height = 500,
-    controlHeight = 50,
     svg = {},
-    margin = {top: 10,  right: 10, bottom: 100, left: 40},
-    color = d3.scale.category10();
+    margin = { top: 20, right: 100, bottom: 10, left: 250 },
+    color = d3.scale.category20();
 
   function my(selection) {
 
-    var margin = {top: 20, right: 20, bottom: 30, left: 40},
-        width = 960 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+    var chartWidth    = width  - margin.left - margin.right,
+        chartHeight   = height - margin.top  - margin.bottom;
 
     var x0 = d3.scale.ordinal()
         .rangeRoundBands([0, width], .1);
@@ -26,10 +24,7 @@ this.d3.charts.barchart = function() {
     var x1 = d3.scale.ordinal();
 
     var y = d3.scale.linear()
-        .range([height, 0]);
-
-    var color = d3.scale.ordinal()
-        .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+        .range([chartHeight, 0]);
 
     var xAxis = d3.svg.axis()
         .scale(x0)
@@ -47,31 +42,40 @@ this.d3.charts.barchart = function() {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     selection.each(function(data) {
-
-      var groups = d3.keys(data[0]).filter(function(key) { return key !== "xAxis"; });
+      var groups = d3.keys(data[0]).filter(function(key) { return ((key !== "xAxis") && (key !== "yAxis") && (key !== "target")); });
 
       data.forEach(function(d) {
-        d.ages = groups.map(function(name) { return {name: name, value: +d[name]}; });
+        d.group = groups.map(function(name) { return {name: name, value: +d[name]}; });
       });
 
       x0.domain(data.map(function(d) { return d.xAxis; }));
       x1.domain(groups).rangeRoundBands([0, x0.rangeBand()]);
-      y.domain([0, d3.max(data, function(d) { return d3.max(d.ages, function(d) { return d.value; }); })]);
 
-      svg.append("g")
-          .attr("class", "x axis")
-          .attr("transform", "translate(0," + height + ")")
-          .call(xAxis);
+      var d3Min =    d3.min(data, function (d) {
+          return d3.min(d.group, function (d) {
+              return d.value;
+          });
+      });
+      if (d3Min > 0)
+        d3Min = 0;
 
-      svg.append("g")
-          .attr("class", "y axis")
-          .call(yAxis)
-        .append("text")
-          .attr("transform", "rotate(-90)")
-          .attr("y", 6)
-          .attr("dy", ".71em")
-          .style("text-anchor", "end");
-          //.text("yAxis");
+      var d3Max =  d3.max(data, function (d) {
+           return d3.max(d.group, function (d) {
+               return d.value;
+           });
+      });
+      var target = Number(data[0].target);
+
+      if (d3Max < target)
+        d3Max = target;
+
+      y.domain([ d3Min,d3Max ]);
+
+
+      var xAxisTransform =  chartHeight;
+      if(d3Min < 0 && 0 < d3Max) {
+          xAxisTransform = chartHeight * (d3Max / (d3Max - d3Min));
+      }
 
       var cat = svg.selectAll(".cat")
           .data(data)
@@ -80,33 +84,62 @@ this.d3.charts.barchart = function() {
           .attr("transform", function(d) { return "translate(" + x0(d.xAxis) + ",0)"; });
 
       cat.selectAll("rect")
-          .data(function(d) { return d.ages; })
+          .data(function(d) { return d.group; })
         .enter().append("rect")
           .attr("width", x1.rangeBand())
           .attr("x", function(d) { return x1(d.name); })
-          .attr("y", function(d) { return y(d.value); })
-          .attr("height", function(d) { return height - y(d.value); })
+            .attr("y", function (d) {
+                if(d.value < 0)
+                    return y(0);
+                return y(d.value);
+            })
+            .attr("height", function (d) {
+                if(d.value < 0) {
+                    return y(d.value+d3Max);
+                }
+                return chartHeight - y(d.value+d3Min);
+            })
           .style("fill", function(d) { return color(d.name); });
 
-      var legend = svg.selectAll(".legend")
-          .data(groups.slice().reverse())
-        .enter().append("g")
-          .attr("class", "legend")
-          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+      svg.append("g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(0," + xAxisTransform + ")") // this line moves x-axis
+            .call(xAxis);
 
-      legend.append("rect")
-          .attr("x", width - 18)
-          .attr("width", 18)
-          .attr("height", 18)
-          .style("fill", color);
+      svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+            .append("text")
+            .attr("y", -20)
+            .attr("dy", ".71em")
+            .style("text-anchor", "start")
+            .text(data[0].yAxis);
 
-      legend.append("text")
-          .attr("x", width - 24)
-          .attr("y", 9)
-          .attr("dy", ".35em")
-          .style("text-anchor", "end")
-          .text(function(d) { return d; });
+      var line = svg.append("line")
+                  .attr("x1", 0)
+                  .attr("y1", y(target))
+                  .attr("x2", width)
+                  .attr("y2", y(target))
+                  .attr("style", function(d) {return "fill:none;stroke-dasharray:5,5;stroke:gray;stroke-width:2;";});
 
+      // var legend = svg.selectAll(".legend")
+          // .data(groups.slice().reverse())
+        // .enter().append("g")
+          // .attr("class", "legend")
+          // .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+      // legend.append("rect")
+          // .attr("x", width - 18)
+          // .attr("width", 18)
+          // .attr("height", 18)
+          // .style("fill", color);
+
+      // legend.append("text")
+          // .attr("x", width - 24)
+          // .attr("y", 9)
+          // .attr("dy", ".35em")
+          // .style("text-anchor", "end")
+          // .text(function(d) { return d; });
     });
 
   }
