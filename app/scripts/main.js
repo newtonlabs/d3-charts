@@ -4,7 +4,7 @@ var timeseriesChart = d3.charts.timeseries();
 
 var parseDate = d3.time.format("%Y%m%d").parse;
 
-d3.tsv("constants/data.tsv", function(error, data) {
+d3.tsv("data/timeseries_old_data.tsv", function(error, data) {
   var series = d3.keys(data[0]).filter(function(key) { return key !== "date"; })
 
   data.forEach(function(d) {
@@ -115,5 +115,5 @@ d3.csv("data/barchart_data.csv", function(error, data) {
   });
 
   d3.select("#barchart").datum(scrubbed).call(barChart);
-  console.log(barChart.svg());
+  // console.log(barChart.svg());
 });
