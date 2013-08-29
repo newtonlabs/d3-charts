@@ -30,7 +30,7 @@ this.d3.charts.heatmap = function() {
         chartHeight   = height - margin.top  - margin.bottom,
         chartHeight2  = controlHeight;
 
-    var chart = function(heatmap, data) {
+    var drawHeatmap = function(heatmap, data) {
       var rows    = uniqueProperties(data, 'xAxis');
       var columns = uniqueProperties(data, 'yAxis');
 
@@ -65,6 +65,7 @@ this.d3.charts.heatmap = function() {
       heatmap.select(".y.axis").transition().call(yAxis);
 
     };
+    
 
     selection.each(function(data) {
       var categories = uniqueProperties(data, 'name');
@@ -87,7 +88,7 @@ this.d3.charts.heatmap = function() {
 
         var chartData = _.find(data, function(d) {return d.name == clicked}).data;
 
-        chart(heatmap, chartData);
+        drawHeatmap(heatmap, chartData);
 
         d3.select(this).transition()
           .call(brush.extent([brushStart, brushEnd]))
@@ -103,7 +104,7 @@ this.d3.charts.heatmap = function() {
         .attr("width", width)
         .attr("style", "stroke:gray;stroke-width:2;fill-opacity:0.05;stroke-opacity:0.9; fill:white");
 
-      chart(heatmap, data[0].data);
+      drawHeatmap(heatmap, data[0].data);
 
       var control = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + 40  + ")");
