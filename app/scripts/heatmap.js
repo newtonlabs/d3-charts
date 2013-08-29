@@ -62,7 +62,7 @@ this.d3.charts.heatmap = function() {
 
       heatmap.selectAll(".y.axis").data(rows).enter().append("g")
         .attr("class", "y axis")
-      heatmap.select(".y.axis").call(yAxis);
+      heatmap.select(".y.axis").transition().call(yAxis);
 
     };
 
