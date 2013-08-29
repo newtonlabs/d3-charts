@@ -7,7 +7,7 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 this.d3.charts.heatmap = function() {
  'use strict';
 
-  var width = 1500,
+  var width = 960,
     height = 500,
     controlHeight = 50,
     svg = {},
@@ -23,52 +23,61 @@ this.d3.charts.heatmap = function() {
     },[]);
   };
 
+
+
   function my(selection) {
     var chartWidth    = width  - margin.left - margin.right,
         chartHeight   = height - margin.top  - margin.bottom,
         chartHeight2  = controlHeight;
 
+    var chart = function(heatmap, data) {
+      var rows    = uniqueProperties(data, 'xAxis');
+      var columns = uniqueProperties(data, 'yAxis');
+
+      var x = d3.scale.ordinal().domain(rows).rangeRoundBands([0, chartWidth], 0.2, 0.2);
+      var y = d3.scale.ordinal().domain(columns).rangeRoundBands([0, chartHeight], 0.2, 0.2);
+
+      var yAxis = d3.svg.axis().scale(y).orient("left");
+      var xAxis = d3.svg.axis().scale(x).orient("top");
+
+      var rect = heatmap.selectAll("g.heatmap rect").data(data);
+
+      rect.enter().append("rect")
+        .attr("style", function(d) {return "fill:"+d.color+";stroke:gray;stroke-width:2;fill-opacity:.75;stroke-opacity:0.9";});
+
+      rect
+        .attr("x", function(d) { return x(d.xAxis);})
+        .attr("y", function(d) { return y(d.yAxis);})
+        .attr("rx", 10)
+        .attr("ry", 10)
+        .attr("width",  x.rangeBand())
+        .attr("height", y.rangeBand())
+        .transition().style("fill", function(d) {return d.color});
+
+      rect.exit().remove();
+
+      heatmap.selectAll(".x.axis").data(rows).enter().append("g")
+        .attr("class", "x axis")
+      heatmap.select(".x.axis").transition().call(xAxis);
+
+      heatmap.selectAll(".y.axis").data(rows).enter().append("g")
+        .attr("class", "y axis")
+      heatmap.select(".y.axis").call(yAxis);
+
+    };
+
     selection.each(function(data) {
-
-      var chart = function(heatmap, data) {
-        var rows    = uniqueProperties(data, 'xAxis');
-        var columns = uniqueProperties(data, 'yAxis');
-
-        var x = d3.scale.ordinal().domain(rows).rangeRoundBands([0, chartWidth], 0.2, 0.2);
-        var y = d3.scale.ordinal().domain(columns).rangeRoundBands([0, chartHeight], 0.2, 0.2);
-
-        var yAxis = d3.svg.axis().scale(y).orient("left");
-        var xAxis = d3.svg.axis().scale(x).orient("top");
-
-        var rect = heatmap.selectAll("g.heatmap rect").data(data);
-
-        rect.enter().append("rect")
-          .attr("style", function(d) {return "fill:"+d.color+";stroke:gray;stroke-width:2;fill-opacity:.75;stroke-opacity:0.9";});
-
-        rect
-          .attr("x", function(d) { return x(d.xAxis);})
-          .attr("y", function(d) { return y(d.yAxis);})
-          .attr("rx", 10)
-          .attr("ry", 10)
-          .attr("width",  x.rangeBand())
-          .attr("height", y.rangeBand())
-          .transition().style("fill", function(d) {return d.color});
-
-        rect.exit().remove();
-
-        heatmap.append("g")
-          .attr("class", "y axis")
-          .call(yAxis);
-
-        heatmap.append("g")
-          .attr("class", "x axis")
-          .call(xAxis);
-      };
-
       var categories = uniqueProperties(data, 'name');
       var x2 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, chartWidth], 0.2, 0.2);
       var invertx2 = d3.scale.quantize().domain([0, chartWidth]).range(categories);
       var xAxis2 = d3.svg.axis().scale(x2).orient("top").tickSize([0]);
+
+      svg = d3.select(this).append("svg")
+        .attr("width",  chartWidth  + margin.left + margin.right)
+        .attr("height", chartHeight + margin.top  + margin.bottom);
+
+      var heatmap = svg.append("g").attr("class", "heatmap")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       var brushended = function() {
         if (!d3.event.sourceEvent) return; // only transition after input
@@ -78,7 +87,7 @@ this.d3.charts.heatmap = function() {
 
         var chartData = _.find(data, function(d) {return d.name == clicked}).data;
 
-        chart(svg, chartData);
+        chart(heatmap, chartData);
 
         d3.select(this).transition()
           .call(brush.extent([brushStart, brushEnd]))
@@ -88,13 +97,6 @@ this.d3.charts.heatmap = function() {
       var brush = d3.svg.brush()
         .x(x2)
         .on("brushend", brushended);
-
-      svg = d3.select(this).append("svg")
-        .attr("width",  chartWidth  + margin.left + margin.right)
-        .attr("height", chartHeight + margin.top  + margin.bottom);
-
-      var heatmap = svg.append("g").attr("class", "heatmap")
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       svg.append("rect")
         .attr("height", height)
@@ -125,7 +127,6 @@ this.d3.charts.heatmap = function() {
         .attr("height", chartHeight2);
 
     });
-
   }
 
   // Getters and Setters
@@ -148,8 +149,3 @@ this.d3.charts.heatmap = function() {
   return my;
 };
 
-
-      // var background = heatmap.append("rect")
-      //   .attr("height", chartHeight)
-      //   .attr("width", chartWidth)
-      //   .attr("style", ";stroke:gray;stroke-width:2;fill-opacity:0.05;stroke-opacity:0.9; fill:white");
