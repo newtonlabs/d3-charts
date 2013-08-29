@@ -19,7 +19,8 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'app',
-        dist: 'dist'
+        dist: 'dist',
+        build: 'build'
     };
 
     grunt.initConfig({
@@ -183,15 +184,23 @@ module.exports = function (grunt) {
         },
         // not used since Uglify task does concat,
         // but still available if needed
-        /*concat: {
-            dist: {}
-        },*/
+        concat: {
+            // dist: {},
+            js: {
+              src: ['<%= yeoman.app %>/scripts/library/*.js'],
+              dest: '<%= yeoman.build %>/d3.charts.js'
+            }
+        },
         // not enabled since usemin task does concat and uglify
         // check index.html to edit your build targets
         // enable this task if you prefer defining your build targets here
-        /*uglify: {
-            dist: {}
-        },*/
+        uglify: {
+            // dist: {},
+            js: {
+              src: ['<%= yeoman.app %>/scripts/library/*.js'],
+              dest: '<%= yeoman.build %>/d3.charts.min.js'
+            }
+        },
         rev: {
             dist: {
                 files: {
