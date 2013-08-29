@@ -4,8 +4,16 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 @import 'sass-bootstrap/lib/bootstrap';
 
 .hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
+    margin: auto 0 auto;
+    width: 960px;
+}
+
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+.sidebar-nav {
+  padding: 9px 0;
 }
 
 .axis path,

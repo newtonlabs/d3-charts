@@ -7,11 +7,11 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 this.d3.charts.heatmap = function() {
  'use strict';
 
-  var width = 1960,
+  var width = 960,
     height = 500,
     controlHeight = 50,
     svg = {},
-    margin = { top: 140, right: 10, bottom: 10, left: 175 };
+    margin = { top: 140, right: 10, bottom: 10, left: 200 };
 
   // Rewrite with native reduce
   var uniqueProperties = function(data, property) {
@@ -111,11 +111,6 @@ this.d3.charts.heatmap = function() {
       var brush = d3.svg.brush()
         .x(x2)
         .on("brushend", brushended);
-
-      svg.append("rect")
-        .attr("height", height)
-        .attr("width", width)
-        .attr("style", "stroke:gray;stroke-width:2;fill-opacity:0.05;stroke-opacity:0.9; fill:white");
 
       drawHeatmap(heatmap, data[0].data);
 

@@ -1,28 +1,28 @@
 "use strict";
 
-// var timeseriesChart = d3.charts.timeseries();
+var timeseriesChart = d3.charts.timeseries();
 
-// var parseDate = d3.time.format("%Y%m%d").parse;
+var parseDate = d3.time.format("%Y%m%d").parse;
 
-// d3.tsv("constants/data.tsv", function(error, data) {
-//   var series = d3.keys(data[0]).filter(function(key) { return key !== "date"; })
+d3.tsv("constants/data.tsv", function(error, data) {
+  var series = d3.keys(data[0]).filter(function(key) { return key !== "date"; })
 
-//   data.forEach(function(d) {
-//     d.date = parseDate(d.date)
-//   })
+  data.forEach(function(d) {
+    d.date = parseDate(d.date)
+  })
 
-//   var scrubbed = _.map(series, function(name) {
-//     return {
-//       series: name,
-//       data: _.map(data, function(d) {
-//         return {date: d.date, value: +d[name]};
-//       })
-//     };
-//   });
+  var scrubbed = _.map(series, function(name) {
+    return {
+      series: name,
+      data: _.map(data, function(d) {
+        return {date: d.date, value: +d[name]};
+      })
+    };
+  });
 
-//  d3.select("#timeseries").datum(scrubbed).call(timeseriesChart);
-//  console.log(timeseriesChart.svg());
-// });
+ d3.select("#timeseries").datum(scrubbed).call(timeseriesChart);
+ console.log(timeseriesChart.svg());
+});
 
 
 var heatmapChart = d3.charts.heatmap();
@@ -40,7 +40,7 @@ var populate = function(category, obj) {
   category.data.push(data);
 };
 
-d3.csv("data/heatMap_data.csv", function(error, data) {
+d3.csv("data/heatMap_data_small.csv", function(error, data) {
   // Maintain order from the JSON object
   var scrubbed = _.reduce(data, function(memo, obj) {
 
@@ -64,56 +64,56 @@ d3.csv("data/heatMap_data.csv", function(error, data) {
 });
 
 
-// var barChart = d3.charts.barchart();
-// d3.csv("data/barchart_data.csv", function(error, data) {
+var barChart = d3.charts.barchart();
+d3.csv("data/barchart_data.csv", function(error, data) {
 
-//   var uniqueProperties = function(data, property) {
-//     return _.reduce(data, function(memo, d) {
-//       if (! _.find(memo, function(o) {return d[property].trim() === o;})) {
-//         memo.push(d[property]);
-//       }
-//       return memo;
-//     },[]);
-//   };
+  var uniqueProperties = function(data, property) {
+    return _.reduce(data, function(memo, d) {
+      if (! _.find(memo, function(o) {return d[property].trim() === o;})) {
+        memo.push(d[property]);
+      }
+      return memo;
+    },[]);
+  };
 
-//   var uniqueMonths = function(data, property) {
-//     return _.reduce(data, function(memo, d) {
-//       if (! _.find(memo, function(o) {return d[property].substring(4,6) === o;})) {
-//         memo.push(d[property].substring(4,6));
-//       }
-//       return memo;
-//     },[]);
-//   };
+  var uniqueMonths = function(data, property) {
+    return _.reduce(data, function(memo, d) {
+      if (! _.find(memo, function(o) {return d[property].substring(4,6) === o;})) {
+        memo.push(d[property].substring(4,6));
+      }
+      return memo;
+    },[]);
+  };
 
-//   var monthValue = function(data, month, xAxis) {
-//     data = _.filter(data, function(d){ return ((d.category.substring(4,6) == month) && (d.xAxis == xAxis)); });
-//     return _.reduce(data, function(memo, num){ return memo + Number(num.value); }, 0);
-//   }
+  var monthValue = function(data, month, xAxis) {
+    data = _.filter(data, function(d){ return ((d.category.substring(4,6) == month) && (d.xAxis == xAxis)); });
+    return _.reduce(data, function(memo, num){ return memo + Number(num.value); }, 0);
+  }
 
 
-//   //filter for yAxis - "There can be only one"
-//   data = _.filter(data, function(d){ return d.yAxis == 'Funded Loans'; });
+  //filter for yAxis - "There can be only one"
+  data = _.filter(data, function(d){ return d.yAxis == 'Funded Loans'; });
 
-//   //filter for per month
-//   //data = _.filter(data, function(d){ return d.category.substring(4,6) == '03'; });
+  //filter for per month
+  //data = _.filter(data, function(d){ return d.category.substring(4,6) == '03'; });
 
-//   var scrubbed = [],
-//     month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-//     rows = uniqueProperties(data, 'xAxis'),
-//     months = uniqueMonths(data, 'category');
+  var scrubbed = [],
+    month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    rows = uniqueProperties(data, 'xAxis'),
+    months = uniqueMonths(data, 'category');
 
-//   rows.forEach(function(r) {
-//     var obj = {
-//       xAxis: r,
-//       yAxis: data[0].yAxis,
-//       target: data[0].target
-//     }
-//     months.forEach(function(m) {
-//       obj[month[parseInt(m)-1]] = monthValue(data, m, r);
-//     });
-//     scrubbed.push(obj);
-//   });
+  rows.forEach(function(r) {
+    var obj = {
+      xAxis: r,
+      yAxis: data[0].yAxis,
+      target: data[0].target
+    }
+    months.forEach(function(m) {
+      obj[month[parseInt(m)-1]] = monthValue(data, m, r);
+    });
+    scrubbed.push(obj);
+  });
 
-//   d3.select("#barchart").datum(scrubbed).call(barChart);
-//   console.log(barChart.svg());
-// });
+  d3.select("#barchart").datum(scrubbed).call(barChart);
+  console.log(barChart.svg());
+});
