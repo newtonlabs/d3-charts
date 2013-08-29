@@ -7,7 +7,7 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 this.d3.charts.heatmap = function() {
  'use strict';
 
-  var width = 960,
+  var width = 1960,
     height = 500,
     controlHeight = 50,
     svg = {},
@@ -22,8 +22,6 @@ this.d3.charts.heatmap = function() {
       return memo;
     },[]);
   };
-
-
 
   function my(selection) {
     var chartWidth    = width  - margin.left - margin.right,
@@ -40,7 +38,7 @@ this.d3.charts.heatmap = function() {
       var yAxis = d3.svg.axis().scale(y).orient("left");
       var xAxis = d3.svg.axis().scale(x).orient("top");
 
-      var rect = heatmap.selectAll("g.heatmap rect").data(data);
+      var rect  = heatmap.selectAll("g.heatmap rect").data(data);
 
       rect.enter().append("rect")
         .attr("style", function(d) {return "fill:"+d.color+";stroke:gray;stroke-width:2;fill-opacity:.75;stroke-opacity:0.9";});
@@ -52,20 +50,35 @@ this.d3.charts.heatmap = function() {
         .attr("ry", 10)
         .attr("width",  x.rangeBand())
         .attr("height", y.rangeBand())
-        .transition().style("fill", function(d) {return d.color});
+        .transition().style("fill", function(d) {return d.color;});
 
       rect.exit().remove();
 
+
+      var value = heatmap.selectAll("g.heatmap .cell.value").data(data);
+
+      value.enter().append("text");
+
+      value
+        .attr("text-anchor", "middle")
+        .attr("x", function(d) { return x(d.xAxis);})
+        .attr("y", function(d) { return y(d.yAxis);})
+        .attr("dy", function() { return y.rangeBand()/2;})
+        .attr("dx", function() { return x.rangeBand()/2;})
+        .attr('class', 'cell value')
+        .text(function(d) {return Number(d.value).toFixed(2);});
+
+      value.exit().remove();
+
       heatmap.selectAll(".x.axis").data(rows).enter().append("g")
-        .attr("class", "x axis")
+        .attr("class", "x axis");
       heatmap.select(".x.axis").transition().call(xAxis);
 
       heatmap.selectAll(".y.axis").data(rows).enter().append("g")
-        .attr("class", "y axis")
+        .attr("class", "y axis");
       heatmap.select(".y.axis").transition().call(yAxis);
 
     };
-    
 
     selection.each(function(data) {
       var categories = uniqueProperties(data, 'name');
