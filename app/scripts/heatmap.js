@@ -10,6 +10,7 @@ this.d3.charts.heatmap = function() {
   var width = 1500,
     height = 500,
     controlHeight = 50,
+    svg = {},
     margin = { top: 140, right: 10, bottom: 10, left: 175 };
 
   // Rewrite with native reduce
@@ -88,7 +89,7 @@ this.d3.charts.heatmap = function() {
         .x(x2)
         .on("brushend", brushended);
 
-      var svg = d3.select(this).append("svg")
+      svg = d3.select(this).append("svg")
         .attr("width",  chartWidth  + margin.left + margin.right)
         .attr("height", chartHeight + margin.top  + margin.bottom);
 
@@ -138,6 +139,10 @@ this.d3.charts.heatmap = function() {
     if (!arguments.length) { return height; }
     height = value;
     return my;
+  };
+
+  my.svg = function() {
+    return svg;
   };
 
   return my;

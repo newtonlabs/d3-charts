@@ -11,6 +11,7 @@ this.d3.charts.timeseries = function() {
     height = 500,
     controlHeight = 50,
     margin = {top: 10,  right: 10, bottom: 100, left: 40},
+    svg = {},
     color = d3.scale.category10();
 
   function my(selection) {
@@ -45,7 +46,7 @@ this.d3.charts.timeseries = function() {
         .x(function(d) { return x2(d.date); })
         .y(function(d) { return y2(d.value); });
 
-      var svg = d3.select(this).append("svg")
+      svg = d3.select(this).append("svg")
         .attr("width",  chartWidth  + margin.left + margin.right)
         .attr("height", chartHeight + margin.top  + margin.bottom);
 
@@ -100,6 +101,8 @@ this.d3.charts.timeseries = function() {
         .selectAll("rect")
         .attr("y", -6)
         .attr("height", chartHeight2 + 7);
+
+      console.log(svg);
     });
   }
 
@@ -114,6 +117,10 @@ this.d3.charts.timeseries = function() {
     if (!arguments.length) { return height; }
     height = value;
     return my;
+  };
+
+  my.svg = function() {
+    return svg;
   };
 
   return my;

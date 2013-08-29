@@ -10,11 +10,12 @@ this.d3.charts.barchart = function() {
   var width = 960,
     height = 500,
     controlHeight = 50,
+    svg = {},
     margin = {top: 10,  right: 10, bottom: 100, left: 40},
     color = d3.scale.category10();
 
   function my(selection) {
-  
+
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
@@ -39,16 +40,16 @@ this.d3.charts.barchart = function() {
         .orient("left")
         .tickFormat(d3.format(".2s"));
 
-    var svg = d3.select("body").append("svg")
+    svg = d3.select("body").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     selection.each(function(data) {
-    
+
       var groups = d3.keys(data[0]).filter(function(key) { return key !== "xAxis"; });
-      
+
       data.forEach(function(d) {
         d.ages = groups.map(function(name) { return {name: name, value: +d[name]}; });
       });
@@ -71,7 +72,7 @@ this.d3.charts.barchart = function() {
           .attr("dy", ".71em")
           .style("text-anchor", "end");
           //.text("yAxis");
-          
+
       var cat = svg.selectAll(".cat")
           .data(data)
         .enter().append("g")
@@ -104,10 +105,10 @@ this.d3.charts.barchart = function() {
           .attr("y", 9)
           .attr("dy", ".35em")
           .style("text-anchor", "end")
-          .text(function(d) { return d; });        
+          .text(function(d) { return d; });
 
     });
-  
+
   }
 
   // Getters and Setters
@@ -121,6 +122,10 @@ this.d3.charts.barchart = function() {
     if (!arguments.length) { return height; }
     height = value;
     return my;
+  };
+
+  my.svg = function() {
+    return svg;
   };
 
   return my;

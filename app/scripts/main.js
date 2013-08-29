@@ -21,6 +21,7 @@ d3.tsv("constants/data.tsv", function(error, data) {
   });
 
  d3.select("#timeseries").datum(scrubbed).call(timeseriesChart);
+ console.log(timeseriesChart.svg());
 });
 
 
@@ -40,8 +41,6 @@ var populate = function(category, obj) {
 };
 
 d3.csv("data/heatMap_data.csv", function(error, data) {
-  // console.log(data);
-
   // Maintain order from the JSON object
   var scrubbed = _.reduce(data, function(memo, obj) {
 
@@ -61,6 +60,7 @@ d3.csv("data/heatMap_data.csv", function(error, data) {
   },[]);
 
   d3.select("#heatmap").datum(scrubbed).call(heatmapChart);
+  console.log(heatmapChart.svg());
 });
 
 
@@ -115,4 +115,5 @@ d3.csv("data/barchart_data.csv", function(error, data) {
   });
 
   d3.select("#barchart").datum(scrubbed).call(barChart);
+  console.log(barChart.svg());
 });
