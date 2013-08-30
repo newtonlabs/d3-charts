@@ -101,8 +101,6 @@ this.d3.charts.timeseries = function() {
         .selectAll("rect")
         .attr("y", -6)
         .attr("height", chartHeight2 + 7);
-
-      console.log(svg);
     });
   }
 
