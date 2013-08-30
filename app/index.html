@@ -3,81 +3,44 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css({.tmp,app}) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
-        <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <!-- endbuild -->
-    </head>
-    <body>
- <body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+</head>
+<body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">D3 Charts</a>
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-            </p>
-            <ul class="nav">
-              <li class="active"><a href="#">Heat Map</a></li>
-              <li><a href="timeseries.html">TimeSeries</a></li>
-              <li><a href="barchart.html">BarChart</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="brand" href="#">D3 Charts</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav" id="navigation">
+          </ul>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="container-fluid">
-      <div class="span9">
-        <h1>Heat Map</h1>
-        <div class="hero-unit">
-          <div id="heatmap"></div>
-        </div>
-      </div>
+  <div class="container-fluid">
+    <div class="span9">
+      <h1>D3 Charts</h1>
+      <h4> Select a chart in the navigation above </h4>
     </div>
+  </div>
 
-    <!-- build:js scripts/main.js -->
-    <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/underscore/underscore-min.js"></script>
-    <script src="bower_components/d3/d3.min.js"></script>
-    <script src="scripts/library/timeseries.js"></script>
-    <script src="scripts/library/heatmap.js"></script>
-    <script src="scripts/library/barchart.js"></script>
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
-
-    <!-- build:js(.tmp) scripts/coffee.js -->
-    <!-- endbuild -->
-
-    <!-- build:js scripts/plugins.js -->
-    <script src="bower_components/sass-bootstrap/js/bootstrap-affix.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-alert.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-modal.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-transition.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-button.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-popover.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-typeahead.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-carousel.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="bower_components/sass-bootstrap/js/bootstrap-tab.js"></script>
-    <!-- endbuild -->
+  <!-- build:js scripts/main.js -->
+  <script src="bower_components/d3/d3.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
 </body>
 </html>
