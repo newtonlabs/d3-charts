@@ -34,5 +34,4 @@ d3.csv("data/timeseries_data.csv", function(error, data) {
 
   d3.select("#timeseries").datum([scrubbed]).call(timeseriesChart);
 
-
 });
