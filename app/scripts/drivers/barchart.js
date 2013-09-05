@@ -19,35 +19,30 @@ d3.csv("data/barchart_data.csv", function(error, data) {
     },[]);
   };
 
-  var monthValue = function(data, month, xAxis) {
-    data = _.filter(data, function(d){ return ((d.category.substring(4,6) == month) && (d.xAxis == xAxis)); });
-    return _.reduce(data, function(memo, num){ return memo + Number(num.value); }, 0);
+  var categoryValue = function(data, category, xAxis) {
+          data = _.filter(data, function(d){ return ((d.category == category) && (d.xAxis == xAxis)); });
+          return _.reduce(data, function(memo, num){ return memo + Number(num.value); }, 0);
   }
 
 
-  //filter for yAxis - "There can be only one"
-  data = _.filter(data, function(d){ return d.yAxis == 'Funded Loans'; });
+          data = _.filter(data, function(d){ return ((d.yAxis == 'Net Promoter Score') && (d.category == 'January')); }); //&& (d.category == 'January')
 
-  //filter for per month
-  //data = _.filter(data, function(d){ return d.category.substring(4,6) == '03'; });
+          var scrubbed = [],
+            rows = d3.utilities.uniqueProperties(data, 'xAxis'),
+            categories = d3.utilities.uniqueProperties(data, 'category');
 
-  var scrubbed = [],
-    month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-    rows = uniqueProperties(data, 'xAxis'),
-    months = uniqueMonths(data, 'category');
-
-  rows.forEach(function(r) {
-    var obj = {
-      xAxis: r,
-      yAxis: data[0].yAxis,
-      target: data[0].target
-    }
-    months.forEach(function(m) {
-      obj[month[parseInt(m)-1]] = monthValue(data, m, r);
-    });
-    scrubbed.push(obj);
-  });
-
+          rows.forEach(function(r) {
+            var obj = {
+              xAxis: r,
+              yAxis: data[0].yAxis,
+              target: data[0].target
+            }
+            categories.forEach(function(c) {
+              obj[c] = categoryValue(data, c, r);
+            });
+            scrubbed.push(obj);
+          }); 
+  
   d3.select("#barchart").datum(scrubbed).call(barChart);
   // console.log(barChart.svg());
 });

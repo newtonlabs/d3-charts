@@ -7,10 +7,10 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 this.d3.charts.barchart = function() {
  'use strict';
 
-  var width = 1500,
-    height = 500,
+  var width = 600,
+    height = 400,
     svg = {},
-    margin = { top: 20, right: 100, bottom: 10, left: 250 },
+    margin = { top: 20, right: 100, bottom: 10, left: 0 },
     color = d3.scale.category20();
 
   function my(selection) {
@@ -35,11 +35,9 @@ this.d3.charts.barchart = function() {
         .orient("left")
         .tickFormat(d3.format(".2s"));
 
-    svg = d3.select("body").append("svg")
+    svg = d3.select(selection[0][0]).append("svg")
         .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr("height", height + margin.top + margin.bottom);
 
     selection.each(function(data) {
       var groups = d3.keys(data[0]).filter(function(key) { return ((key !== "xAxis") && (key !== "yAxis") && (key !== "target")); });
