@@ -7,10 +7,10 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 this.d3.charts.barchart = function() {
  'use strict';
 
-  var width = 1500,
-    height = 500,
+  var width = 600,
+    height = 400,
     svg = {},
-    margin = { top: 20, right: 100, bottom: 10, left: 250 },
+    margin = { top: 50, right: 20, bottom: 0, left: 75 },
     color = d3.scale.category20();
 
   function my(selection) {
@@ -32,18 +32,18 @@ this.d3.charts.barchart = function() {
 
     var yAxis = d3.svg.axis()
         .scale(y)
-        .orient("left")
-        .tickFormat(d3.format(".2s"));
-
-    svg = d3.select("body").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .orient("left");
 
     selection.each(function(data) {
-      var groups = d3.keys(data[0]).filter(function(key) { return ((key !== "xAxis") && (key !== "yAxis") && (key !== "target")); });
+      var groups = d3.keys(data[0]).filter(function(key) { return ((key !== "xAxis") && (key !== "yAxis") && (key !== "target") && (key !== "group")); });
 
+      svg = d3.select(this).append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom);
+
+      var context = svg.append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      
       data.forEach(function(d) {
         d.group = groups.map(function(name) { return {name: name, value: +d[name]}; });
       });
@@ -70,14 +70,13 @@ this.d3.charts.barchart = function() {
         d3Max = target;
 
       y.domain([ d3Min,d3Max ]);
-
-
+      
       var xAxisTransform =  chartHeight;
       if(d3Min < 0 && 0 < d3Max) {
           xAxisTransform = chartHeight * (d3Max / (d3Max - d3Min));
-      }
-
-      var cat = svg.selectAll(".cat")
+      }                      
+      
+      var cat = context.selectAll(".cat")
           .data(data)
         .enter().append("g")
           .attr("class", "g")
@@ -101,21 +100,20 @@ this.d3.charts.barchart = function() {
             })
           .style("fill", function(d) { return color(d.name); });
 
-      svg.append("g")
-            .attr("class", "y axis")
+      context.append("g")
+            .attr("class", "x axis")
             .attr("transform", "translate(0," + xAxisTransform + ")") // this line moves x-axis
             .call(xAxis);
 
-      svg.append("g")
+      context.append("g")
             .attr("class", "y axis")
             .call(yAxis)
             .append("text")
             .attr("y", -20)
-            .attr("dy", ".71em")
             .style("text-anchor", "start")
             .text(data[0].yAxis);
 
-      var line = svg.append("line")
+      var line = context.append("line")
                   .attr("x1", 0)
                   .attr("y1", y(target))
                   .attr("x2", width)
@@ -173,11 +171,11 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 this.d3.charts.heatmap = function() {
  'use strict';
 
-  var width = 1960,
+  var width = 960,
     height = 500,
     controlHeight = 50,
     svg = {},
-    margin = { top: 140, right: 10, bottom: 10, left: 175 };
+    margin = { top: 140, right: 10, bottom: 10, left: 200 };
 
   // Rewrite with native reduce
   var uniqueProperties = function(data, property) {
@@ -277,11 +275,6 @@ this.d3.charts.heatmap = function() {
       var brush = d3.svg.brush()
         .x(x2)
         .on("brushend", brushended);
-
-      svg.append("rect")
-        .attr("height", height)
-        .attr("width", width)
-        .attr("style", "stroke:gray;stroke-width:2;fill-opacity:0.05;stroke-opacity:0.9; fill:white");
 
       drawHeatmap(heatmap, data[0].data);
 
@@ -433,8 +426,6 @@ this.d3.charts.timeseries = function() {
         .selectAll("rect")
         .attr("y", -6)
         .attr("height", chartHeight2 + 7);
-
-      console.log(svg);
     });
   }
 
@@ -457,3 +448,20 @@ this.d3.charts.timeseries = function() {
 
   return my;
 };
+
+/*jslint browser: true*/
+/*global $, jQuery, d3, _*/
+
+if (d3.utilities === null || typeof(d3.utilities) !== "object") { d3.utilities = {}; }
+
+// Based on http://bost.ocks.org/mike/chart/
+this.d3.utilities = {
+  uniqueProperties: function(data, property) {
+    return _.reduce(data, function(memo, d) {
+      if (! memo.filter(function(o) { return d[property] === o;}).length) {
+        memo.push(d[property]);
+      }
+      return memo;
+    },[]);
+  }
+}
