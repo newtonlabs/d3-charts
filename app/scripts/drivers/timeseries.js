@@ -11,7 +11,9 @@ var aggregate = function(data, category, stack) {
     }), function(d) {
       test.push({
         date: parseDate(d.xAxis),
-        value: +d.value
+        value: +d.value,
+        color: d.color,
+        target: d.target
       })
     })
   return test;

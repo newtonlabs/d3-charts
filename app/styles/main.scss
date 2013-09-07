@@ -11,6 +11,7 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 body {
   padding-top: 60px;
   padding-bottom: 40px;
+  background-color: #f5f6f8;
 }
 .sidebar-nav {
   padding: 9px 0;
@@ -50,4 +51,49 @@ body {
 
 .grid .minor.tick line {
   stroke-opacity: .5;
+}
+
+.timeseries {
+  background-color: #fff;
+}
+
+.timeseries .line {
+  stroke-width: 3px;
+  stroke: #e3e3e3;
+  fill: none;
+}
+
+.timeseries .timeline {
+  stroke-width: 1.5px;
+  stroke: #e3e3e3;
+  fill: none;
+}
+
+.timeseries .circle {
+  stroke-width: 3;
+  fill: #ffffff;
+}
+
+.timeseries .x.axis {
+  font-size: 11px;
+  fill: #196cd6;
+  font-weight: bold;
+}
+
+.timeseries .target {
+  stroke: #00397e;
+  fill:none;
+  stroke-width:2;  
+}
+
+.timeseries .tick.major line {
+  stroke: #f5f6f8;
+}
+
+.timeseries .grid .tick {
+    stroke: red;
+    opacity: 0.7;
+}
+.timeseries .grid path {
+      stroke-width: 0;
 }
