@@ -11,12 +11,11 @@ d3.csv("data/barchart_data.csv", function(error, data) {
   };
 
   var categoryValue = function(data, category, xAxis) {
-    data = _.filter(data, function(d){ return ((d.category == category) && (d.xAxis == xAxis)); });
+    data = _.filter(data, {category: category, xAxis: xAxis});
     return _.reduce(data, function(memo, num){ return memo + Number(num.value); }, 0);
   }
 
-
-  data = _.filter(data, function(d){ return ((d.yAxis == 'Net Promoter Score') && (d.category == 'January')); }); //&& (d.category == 'January')
+  data = _.filter(data, function(d){ return ((d.yAxis == 'Net Promoter Score') && (d.category == 'January')); });
 
   var scrubbed = [],
   rows = d3.utilities.uniqueProperties(data, 'xAxis'),
