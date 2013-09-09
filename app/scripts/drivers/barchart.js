@@ -10,15 +10,6 @@ d3.csv("data/barchart_data.csv", function(error, data) {
     },[]);
   };
 
-  var uniqueMonths = function(data, property) {
-    return _.reduce(data, function(memo, d) {
-      if (! _.find(memo, function(o) {return d[property].substring(4,6) === o;})) {
-        memo.push(d[property].substring(4,6));
-      }
-      return memo;
-    },[]);
-  };
-
   var categoryValue = function(data, category, xAxis) {
     data = _.filter(data, function(d){ return ((d.category == category) && (d.xAxis == xAxis)); });
     return _.reduce(data, function(memo, num){ return memo + Number(num.value); }, 0);
