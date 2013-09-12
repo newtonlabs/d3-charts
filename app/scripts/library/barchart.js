@@ -64,10 +64,10 @@ this.d3.charts.barchart = function() {
                return d.value;
            });
       });
-      var target = Number(data[0].target);
+      //var target = Number(data[0].target);
 
-      if (d3Max < target)
-        d3Max = target;
+      // if (d3Max < target)
+      //   d3Max = target;
 
       y.domain([ d3Min,d3Max ]);
       
@@ -113,12 +113,13 @@ this.d3.charts.barchart = function() {
             .style("text-anchor", "start")
             .text(data[0].yAxis);
 
-      var line = context.append("line")
-                  .attr("x1", 0)
-                  .attr("y1", y(target))
-                  .attr("x2", width)
-                  .attr("y2", y(target))
-                  .attr("style", function(d) {return "fill:none;stroke-dasharray:5,5;stroke:gray;stroke-width:2;";});
+      // No target for now
+      // var line = context.append("line")
+      //             .attr("x1", 0)
+      //             .attr("y1", y(target))
+      //             .attr("x2", width)
+      //             .attr("y2", y(target))
+      //             .attr("style", function(d) {return "fill:none;stroke-dasharray:5,5;stroke:gray;stroke-width:2;";});
 
       // var legend = svg.selectAll(".legend")
           // .data(groups.slice().reverse())
