@@ -100,7 +100,7 @@ this.d3.charts.timeseries = function() {
         .attr("class", "target")
         .attr("x1", 0)
         .attr("y1", y(target))
-        .attr("x2", width)
+        .attr("x2", chartWidth)
         .attr("y2", y(target));
 
       focus.selectAll("path").data(data).enter().append("path")
@@ -126,12 +126,12 @@ this.d3.charts.timeseries = function() {
           .attr("class", "y axis")
           .call(yAxis);
 
-      focus.append("g")
-        .attr("class", "grids")
-        .call(make_y_axis()
-          .tickSize(-width, 0, 0)
-          .tickFormat("")
-        );
+      // focus.append("g")
+        // .attr("class", "grids")
+        // .call(make_y_axis()
+          // .tickSize(-width, 0, 0)
+          // .tickFormat("")
+        // );
 
       context.selectAll("path").data(data).enter().append("path")
         .attr("class", "timeline")

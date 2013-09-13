@@ -54,7 +54,11 @@ body {
 }
 
 .timeseries {
-  background-color: #fff;
+}
+
+.timeseries .focus,
+.timeseries .context {
+  fill: #ffffff;
 }
 
 .timeseries .line {
@@ -80,6 +84,17 @@ body {
   font-weight: normal;
 }
 
+.timeseries .y.axis {
+  font-size: 14px;
+  fill: #196cd6;
+  font-weight: normal;
+}
+
+.timeseries .y.axis .tick.major {
+  font-size: 11px;
+  font-weight: normal;
+}
+
 .timeseries .target {
   stroke: #00397e;
   fill:none;
@@ -96,6 +111,19 @@ body {
 }
 .timeseries .grid path {
       stroke-width: 0;
+}
+
+.timeseries .x.axis line,
+.timeseries .x.axis path,
+.timeseries .y.axis line,
+.timeseries .y.axis path {
+  display: none;
+}
+
+.timeseries .brush .extent {
+  stroke: #196cd6;
+  fill: #196cd6;
+  fill-opacity: .125;
 }
 
 
@@ -132,7 +160,6 @@ body {
 .barchart .y.axis path {
   display: none;
 }
-
 
 .heatmap {
   
