@@ -52,7 +52,7 @@ this.d3.charts.timeseries = function() {
         .x(function(d) { return x2(d.date); })
         .y(function(d) { return y2(d.value); });
         
-      var target = Number(data[0].data[0].target);
+      // var target = Number(data[0].data[0].target);
 
       svg = d3.select(this).append("svg")
         .attr("class", "timeseries")  //for namespacing css
@@ -82,12 +82,12 @@ this.d3.charts.timeseries = function() {
         .attr("class", "chart2")
         .attr("transform", "translate(" + margin.left + "," + (chartHeight + chartHeight2 - margin.top)  + ")");
         
-      focus.append("line")
-        .attr("class", "target")      
-        .attr("x1", 0)
-        .attr("y1", y(target))
-        .attr("x2", width)
-        .attr("y2", y(target));
+      // focus.append("line")
+      //   .attr("class", "target")      
+      //   .attr("x1", 0)
+      //   .attr("y1", y(target))
+      //   .attr("x2", width)
+      //   .attr("y2", y(target));
         
       focus.selectAll("path").data(data).enter().append("path")
         .attr("clip-path", "url(#clip)")
