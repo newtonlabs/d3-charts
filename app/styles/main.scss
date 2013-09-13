@@ -77,7 +77,7 @@ body {
 .timeseries .x.axis {
   font-size: 11px;
   fill: #196cd6;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .timeseries .target {
@@ -96,4 +96,39 @@ body {
 }
 .timeseries .grid path {
       stroke-width: 0;
+}
+
+
+.barchart {
+  background-color: #ffffff;
+}
+
+.barchart .target {
+  stroke: #00397e;
+  fill:none;
+  stroke-width:2;  
+}
+
+.barchart .x.axis {
+  font-size: 11px;
+  fill: #196cd6;
+  font-weight: normal;
+}
+
+.barchart .y.axis {
+  font-size: 14px;
+  fill: #196cd6;
+  font-weight: normal;
+}
+
+.barchart .y.axis .tick.major {
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.barchart .x.axis line,
+.barchart .x.axis path,
+.barchart .y.axis line,
+.barchart .y.axis path {
+  display: none;
 }

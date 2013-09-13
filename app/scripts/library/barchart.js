@@ -10,8 +10,8 @@ this.d3.charts.barchart = function() {
   var width = 600,
     height = 400,
     svg = {},
-    margin = { top: 50, right: 20, bottom: 0, left: 75 },
-    color = d3.scale.category20();
+    margin = { top: 50, right: 20, bottom: 0, left: 75 };
+    //color = d3.scale.category20();
 
   function my(selection) {
 
@@ -19,7 +19,7 @@ this.d3.charts.barchart = function() {
         chartHeight   = height - margin.top  - margin.bottom;
 
     var x0 = d3.scale.ordinal()
-        .rangeRoundBands([0, width], .1);
+        .rangeRoundBands([0, width], .3);
 
     var x1 = d3.scale.ordinal();
 
@@ -38,6 +38,7 @@ this.d3.charts.barchart = function() {
       var groups = d3.keys(data[0]).filter(function(key) { return ((key !== "xAxis") && (key !== "yAxis") && (key !== "target") && (key !== "group")); });
 
       svg = d3.select(this).append("svg")
+          .attr("class", "barchart")  //for namespacing css
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom);
 
@@ -45,7 +46,7 @@ this.d3.charts.barchart = function() {
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
       
       data.forEach(function(d) {
-        d.group = groups.map(function(name) { return {name: name, value: +d[name]}; });
+        d.group = groups.map(function(name) { return {name: name, value: +d[name].value, color: d[name].color}; });
       });
 
       x0.domain(data.map(function(d) { return d.xAxis; }));
@@ -64,10 +65,10 @@ this.d3.charts.barchart = function() {
                return d.value;
            });
       });
-      //var target = Number(data[0].target);
+      var target = Number(data[0].target);
 
-      // if (d3Max < target)
-      //   d3Max = target;
+      if (d3Max < target)
+        d3Max = target;
 
       y.domain([ d3Min,d3Max ]);
       
@@ -98,7 +99,7 @@ this.d3.charts.barchart = function() {
                 }
                 return chartHeight - y(d.value+d3Min);
             })
-          .style("fill", function(d) { return color(d.name); });
+          .style("fill", function(d) { console.log(d); return d.color; });
 
       context.append("g")
             .attr("class", "x axis")
@@ -113,13 +114,12 @@ this.d3.charts.barchart = function() {
             .style("text-anchor", "start")
             .text(data[0].yAxis);
 
-      // No target for now
-      // var line = context.append("line")
-      //             .attr("x1", 0)
-      //             .attr("y1", y(target))
-      //             .attr("x2", width)
-      //             .attr("y2", y(target))
-      //             .attr("style", function(d) {return "fill:none;stroke-dasharray:5,5;stroke:gray;stroke-width:2;";});
+      var line = context.append("line")
+                  .attr("class", "target")  
+                  .attr("x1", 0)
+                  .attr("y1", y(target))
+                  .attr("x2", width)
+                  .attr("y2", y(target));
 
       // var legend = svg.selectAll(".legend")
           // .data(groups.slice().reverse())
