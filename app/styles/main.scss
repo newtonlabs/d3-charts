@@ -132,3 +132,58 @@ body {
 .barchart .y.axis path {
   display: none;
 }
+
+
+.heatmap {
+  
+}
+
+.heatmap .square {
+  stroke: #f5f6f8;
+  stroke-width:2;
+  stroke-opacity:0.9;
+}
+
+.heatmap .cell {
+  fill: #ffffff;
+  font-size: 11px;
+}
+
+.heatmap .x.axis {
+  font-size: 11px;
+  fill: #196cd6;
+  font-weight: normal;
+}
+
+.heatmap .y.axis {
+  font-size: 14px;
+  fill: #196cd6;
+  font-weight: normal;
+}
+
+.heatmap .y.axis .tick.major {
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.heatmap .x.axis line,
+.heatmap .x.axis path,
+.heatmap .y.axis line,
+.heatmap .y.axis path {
+  display: none;
+}
+
+.heatmap .timeline rect {
+  fill:#fcfcfc;
+}
+
+.heatmap .timeline .x.axis text {
+  fill: #aeb3b9;
+  font-size: 12px;
+}
+
+.heatmap .brush .extent {
+  stroke: #196cd6;
+  fill: #196cd6;
+  fill-opacity: .125;
+}
