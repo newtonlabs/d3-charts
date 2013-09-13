@@ -32,8 +32,8 @@ this.d3.charts.heatmap = function() {
       var rows    = uniqueProperties(data, 'xAxis');
       var columns = uniqueProperties(data, 'yAxis');
 
-      var x = d3.scale.ordinal().domain(rows).rangeRoundBands([0, chartWidth], 0.2, 0.2);
-      var y = d3.scale.ordinal().domain(columns).rangeRoundBands([0, chartHeight], 0.2, 0.2);
+      var x = d3.scale.ordinal().domain(rows).rangeRoundBands([0, chartWidth], 0, 0);
+      var y = d3.scale.ordinal().domain(columns).rangeRoundBands([0, chartHeight], 0, 0);
 
       var yAxis = d3.svg.axis().scale(y).orient("left");
       var xAxis = d3.svg.axis().scale(x).orient("top");
@@ -41,13 +41,14 @@ this.d3.charts.heatmap = function() {
       var rect  = heatmap.selectAll("g.heatmap rect").data(data);
 
       rect.enter().append("rect")
-        .attr("style", function(d) {return "fill:"+d.color+";stroke:gray;stroke-width:2;fill-opacity:.75;stroke-opacity:0.9";});
+        .attr("class", "square")
+        .attr("style", function(d) {return "fill:"+d.color});
 
       rect
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
-        .attr("rx", 10)
-        .attr("ry", 10)
+        .attr("rx", 0)
+        .attr("ry", 0)
         .attr("width",  x.rangeBand())
         .attr("height", y.rangeBand())
         .transition().style("fill", function(d) {return d.color;});
@@ -87,6 +88,7 @@ this.d3.charts.heatmap = function() {
       var xAxis2 = d3.svg.axis().scale(x2).orient("top").tickSize([0]);
 
       svg = d3.select(this).append("svg")
+        .attr("class", "heatmap")
         .attr("width",  chartWidth  + margin.left + margin.right)
         .attr("height", chartHeight + margin.top  + margin.bottom);
 
@@ -115,12 +117,12 @@ this.d3.charts.heatmap = function() {
       drawHeatmap(heatmap, data[0].data);
 
       var control = svg.append("g")
+        .attr("class", "timeline")
         .attr("transform", "translate(" + margin.left + "," + 40  + ")");
 
       control.append("rect")
         .attr("height", chartHeight2)
-        .attr("width",  chartWidth)
-        .attr("style", "stroke:gray;stroke-width:2;fill-opacity:0.2;stroke-opacity:0.3; fill:gray");
+        .attr("width",  chartWidth);
 
       control.append("g")
         .attr("class", "x axis")

@@ -13,7 +13,7 @@ var populate = function(category, obj) {
   category.data.push(data);
 };
 
-d3.csv("../data/heatMap_data_small.csv", function(error, data) {
+d3.csv("../data/heatMap_data.csv", function(error, data) {
   // Maintain order from the JSON object
   var scrubbed = _.reduce(data, function(memo, obj) {
 
