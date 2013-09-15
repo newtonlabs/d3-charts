@@ -26,16 +26,7 @@ this.d3.charts.timeseries = function() {
         xAxis2 = d3.svg.axis().scale(x2).orient("bottom"),
         yAxis  = d3.svg.axis().scale(y).orient("left");
 
-      function make_y_axis() {
-        return d3.svg.axis()
-          .scale(y)
-          .orient("left")
-          .ticks(10)
-      }
-
     selection.each(function(data) {
-
-      //color.domain(_.map(data, function(d) {return d.series; }));
       x.domain(d3.extent(data[0].data, function(d) { return d.date; }));
       y.domain([
         d3.min(data, function(d) { return d3.min(d.data, function(c) {return c.value; }); }),
@@ -69,14 +60,17 @@ this.d3.charts.timeseries = function() {
         .attr("class", "chart1")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      var brush = d3.svg.brush().x(x2).on("brush", function() {
+      var brushing = function() {
         x.domain(brush.empty() ? x2.domain() : brush.extent());
         focus.selectAll("path").data(data).attr("d", function(d) {return line(d.data);});
         focus.selectAll("circle").data(data[0].data)
           .attr("cx", function(d) { return x(d.date); })
           .attr("cy", function(d) { return y(d.value); });
         focus.select(".x.axis").call(xAxis);
-      });
+      }
+
+      var brush = d3.svg.brush().x(x2)
+        .on("brush", brushing);
 
       var context = svg.append("g")
         .attr("class", "chart2")
@@ -126,13 +120,6 @@ this.d3.charts.timeseries = function() {
           .attr("class", "y axis")
           .call(yAxis);
 
-      // focus.append("g")
-        // .attr("class", "grids")
-        // .call(make_y_axis()
-          // .tickSize(-width, 0, 0)
-          // .tickFormat("")
-        // );
-
       context.selectAll("path").data(data).enter().append("path")
         .attr("class", "timeline")
         .attr("d", function(d) { return line2(d.data); });
@@ -142,12 +129,19 @@ this.d3.charts.timeseries = function() {
         .attr("transform", "translate(0," + chartHeight2 + ")")
         .call(xAxis2);
 
+      var brushStart = x2.domain()[0];
+      var brushEnd   = new Date();
+      brushEnd.setTime(brushStart.getTime() + (24 * 60 * 60 * 1000 * 30)); // 30 days
+      brush.extent([brushStart, brushEnd]);
+
       context.append("g")
         .attr("class", "x brush")
         .call(brush)
         .selectAll("rect")
-        .attr("y", -6)
-        .attr("height", chartHeight2 + 7);
+        .attr("height", chartHeight2);
+
+      brushing();
+
     });
   }
 
