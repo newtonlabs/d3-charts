@@ -107,7 +107,7 @@ this.d3.charts.barchart = function() {
           }
           return chartHeight - y(d.value+d3Min);
         })
-        .style("fill", function(d) { console.log(d); return d.color; });
+        .style("fill", function(d) { return d.color; });
 
       context.append("g")
         .attr("class", "x axis")
