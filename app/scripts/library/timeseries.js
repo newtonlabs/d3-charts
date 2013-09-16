@@ -10,7 +10,7 @@ this.d3.charts.timeseries = function() {
   var width = 960,
     height = 500,
     controlHeight = 50,
-    margin = {top: 10,  right: 10, bottom: 100, left: 40},
+    margin = {top: 10,  right: 10, bottom: 100, left: 80},
     svg = {};
     //color = d3.scale.category10();
 
@@ -26,16 +26,7 @@ this.d3.charts.timeseries = function() {
         xAxis2 = d3.svg.axis().scale(x2).orient("bottom"),
         yAxis  = d3.svg.axis().scale(y).orient("left");
 
-      function make_y_axis() {        
-        return d3.svg.axis()
-          .scale(y)
-          .orient("left")
-          .ticks(10)
-      }
-        
     selection.each(function(data) {
-
-      //color.domain(_.map(data, function(d) {return d.series; }));
       x.domain(d3.extent(data[0].data, function(d) { return d.date; }));
       y.domain([
         d3.min(data, function(d) { return d3.min(d.data, function(c) {return c.value; }); }),
@@ -51,8 +42,8 @@ this.d3.charts.timeseries = function() {
       var line2 = d3.svg.line()//.interpolate("basis")
         .x(function(d) { return x2(d.date); })
         .y(function(d) { return y2(d.value); });
-        
-      // var target = Number(data[0].data[0].target);
+
+      var target = Number(data[0].data[0].target);
 
       svg = d3.select(this).append("svg")
         .attr("class", "timeseries")  //for namespacing css
@@ -69,35 +60,52 @@ this.d3.charts.timeseries = function() {
         .attr("class", "chart1")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      var brush = d3.svg.brush().x(x2).on("brush", function() {
+      var brushing = function() {
         x.domain(brush.empty() ? x2.domain() : brush.extent());
         focus.selectAll("path").data(data).attr("d", function(d) {return line(d.data);});
         focus.selectAll("circle").data(data[0].data)
           .attr("cx", function(d) { return x(d.date); })
           .attr("cy", function(d) { return y(d.value); });
         focus.select(".x.axis").call(xAxis);
-      });
+      }
+
+      var brush = d3.svg.brush().x(x2)
+        .on("brush", brushing);
 
       var context = svg.append("g")
         .attr("class", "chart2")
         .attr("transform", "translate(" + margin.left + "," + (chartHeight + chartHeight2 - margin.top)  + ")");
-        
-      // focus.append("line")
-      //   .attr("class", "target")      
-      //   .attr("x1", 0)
-      //   .attr("y1", y(target))
-      //   .attr("x2", width)
-      //   .attr("y2", y(target));
-        
+
+      focus.append("rect")
+        .attr("class","focus")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", chartWidth)
+        .attr("height", chartHeight)
+
+      context.append("rect")
+        .attr("class","context")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", chartWidth)
+        .attr("height", chartHeight2)
+
+      focus.append("line")
+        .attr("class", "target")
+        .attr("x1", 0)
+        .attr("y1", y(target))
+        .attr("x2", chartWidth)
+        .attr("y2", y(target));
+
       focus.selectAll("path").data(data).enter().append("path")
         .attr("clip-path", "url(#clip)")
         .attr("class", "line")
         .attr("d", function(d) {return line(d.data); });
-        
+
       focus.selectAll("circle")
-          .data(data[0].data)
-          .enter().append("circle")
+          .data(data[0].data).enter().append("circle")
           .attr("class", "circle")
+          .attr("clip-path", "url(#clip)")
           .style("stroke", function(d) { return d.color; })
           .attr("cx", function(d) { return x(d.date); })
           .attr("cy", function(d) { return y(d.value); })
@@ -111,13 +119,6 @@ this.d3.charts.timeseries = function() {
       focus.append("g")
           .attr("class", "y axis")
           .call(yAxis);
-          
-      focus.append("g")         
-        .attr("class", "grids")
-        .call(make_y_axis()
-          .tickSize(-width, 0, 0)
-          .tickFormat("")
-        );           
 
       context.selectAll("path").data(data).enter().append("path")
         .attr("class", "timeline")
@@ -128,12 +129,19 @@ this.d3.charts.timeseries = function() {
         .attr("transform", "translate(0," + chartHeight2 + ")")
         .call(xAxis2);
 
+      var brushStart = x2.domain()[0];
+      var brushEnd   = new Date();
+      brushEnd.setTime(brushStart.getTime() + (24 * 60 * 60 * 1000 * 30)); // 30 days
+      brush.extent([brushStart, brushEnd]);
+
       context.append("g")
         .attr("class", "x brush")
         .call(brush)
         .selectAll("rect")
-        .attr("y", -6)
-        .attr("height", chartHeight2 + 7);        
+        .attr("height", chartHeight2);
+
+      brushing();
+
     });
   }
 

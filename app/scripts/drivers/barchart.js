@@ -8,14 +8,10 @@ d3.csv("data/barchart_data.csv", function(error, data) {
       }
       return memo;
     },[]);
-  };
-
-  var categoryValue = function(data, category, xAxis) {
-    data = _.filter(data, {category: category, xAxis: xAxis});
-    return _.reduce(data, function(memo, num){ return memo + Number(num.value); }, 0);
-  }
+  }; 
 
   data = _.filter(data, function(d){ return ((d.yAxis == 'Net Promoter Score') && (d.category == 'January')); });
+  //data = _.filter(data, function(d){ return ((d.yAxis == 'Net Promoter Score')); });
 
   var scrubbed = [],
   rows = d3.utilities.uniqueProperties(data, 'xAxis'),
@@ -28,7 +24,8 @@ d3.csv("data/barchart_data.csv", function(error, data) {
       target: data[0].target
     }
     categories.forEach(function(c) {
-      obj[c] = categoryValue(data, c, r);
+      catData = _.filter(data, {category: c, xAxis: r});
+      obj[c] = {value: catData[0].value, color: catData[0].color};
     });
     scrubbed.push(obj);
   }); 

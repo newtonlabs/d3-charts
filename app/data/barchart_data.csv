@@ -1,721 +1,721 @@
 category,xAxis,yAxis,value,trend,target,color,id
-January,Team 1,Net Promoter Score,12,null,5000,#ccccc,1
-February,Team 1 ,Net Promoter Score,3,null,5000,white,2
-March,Team 1,Net Promoter Score,135,null,5000,red,3
-April,Team 1,Net Promoter Score,98,null,5000,#ccccc,4
-May,Team 1,Net Promoter Score,648,null,5000,white,5
-June,Team 1,Net Promoter Score,123,null,5000,red,6
-July,Team 1,Net Promoter Score,415.1333333,null,5000,#ccccc,7
-August,Team 1,Net Promoter Score,485.2190476,null,5000,white,8
-September,Team 1,Net Promoter Score,555.3047619,null,5000,red,9
-October,Team 1,Net Promoter Score,625.3904762,null,5000,#ccccc,10
-November,Team 1,Net Promoter Score,695.4761905,null,5000,white,11
-December,Team 1,Net Promoter Score,765.5619048,null,5000,red,12
-January,Team 2,Net Promoter Score,835.647619,null,5000,#ccccc,13
-February,Team 2,Net Promoter Score,905.7333333,null,5000,white,14
-March,Team 2,Net Promoter Score,975.8190476,null,5000,red,15
-April,Team 2,Net Promoter Score,1045.904762,null,5000,#ccccc,16
-May,Team 2,Net Promoter Score,1115.990476,null,5000,white,17
-June,Team 2,Net Promoter Score,1186.07619,null,5000,red,18
-July,Team 2,Net Promoter Score,1256.161905,null,5000,#ccccc,19
-August,Team 2,Net Promoter Score,1326.247619,null,5000,white,20
-September,Team 2,Net Promoter Score,1396.333333,null,5000,red,21
-October,Team 2,Net Promoter Score,1466.419048,null,5000,#ccccc,22
-November,Team 2,Net Promoter Score,1536.504762,null,5000,white,23
-December,Team 2,Net Promoter Score,1606.590476,null,5000,red,24
-January,Team 3,Net Promoter Score,1676.67619,null,5000,#ccccc,25
-February,Team 3,Net Promoter Score,1746.761905,null,5000,white,26
-March,Team 3,Net Promoter Score,1816.847619,null,5000,red,27
-April,Team 3,Net Promoter Score,1886.933333,null,5000,#ccccc,28
-May,Team 3,Net Promoter Score,1957.019048,null,5000,white,29
-June,Team 3,Net Promoter Score,2027.104762,null,5000,red,30
-July,Team 3,Net Promoter Score,2097.190476,null,5000,#ccccc,31
-August,Team 3,Net Promoter Score,2167.27619,null,5000,white,32
-September,Team 3,Net Promoter Score,2237.361905,null,5000,red,33
-October,Team 3,Net Promoter Score,2307.447619,null,5000,#ccccc,34
-November,Team 3,Net Promoter Score,2377.533333,null,5000,white,35
-December,Team 3,Net Promoter Score,2447.619048,null,5000,red,36
-January,Team 4,Net Promoter Score,2517.704762,null,5000,#ccccc,37
-February,Team 4,Net Promoter Score,2587.790476,null,5000,white,38
-March,Team 4,Net Promoter Score,2657.87619,null,5000,red,39
-April,Team 4,Net Promoter Score,2727.961905,null,5000,#ccccc,40
-May,Team 4,Net Promoter Score,2798.047619,null,5000,white,41
-June,Team 4,Net Promoter Score,2868.133333,null,5000,red,42
-July,Team 4,Net Promoter Score,2938.219048,null,5000,#ccccc,43
-August,Team 4,Net Promoter Score,3008.304762,null,5000,white,44
-September,Team 4,Net Promoter Score,3078.390476,null,5000,red,45
-October,Team 4,Net Promoter Score,3148.47619,null,5000,#ccccc,46
-November,Team 4,Net Promoter Score,3218.561905,null,5000,white,47
-December,Team 4,Net Promoter Score,3288.647619,null,5000,red,48
-January,Team 5,Net Promoter Score,3358.733333,null,5000,#ccccc,49
-February,Team 5,Net Promoter Score,3428.819048,null,5000,white,50
-March,Team 5,Net Promoter Score,3498.904762,null,5000,red,51
-April,Team 5,Net Promoter Score,3568.990476,null,5000,#ccccc,52
-May,Team 5,Net Promoter Score,3639.07619,null,5000,white,53
-June,Team 5,Net Promoter Score,3709.161905,null,5000,red,54
-July,Team 5,Net Promoter Score,3779.247619,null,5000,#ccccc,55
-August,Team 5,Net Promoter Score,3849.333333,null,5000,white,56
-September,Team 5,Net Promoter Score,3919.419048,null,5000,red,57
-October,Team 5,Net Promoter Score,3989.504762,null,5000,#ccccc,58
-November,Team 5,Net Promoter Score,4059.590476,null,5000,white,59
-December,Team 5,Net Promoter Score,4129.67619,null,5000,red,60
-January,Team 6,Net Promoter Score,4199.761905,null,5000,#ccccc,61
-February,Team 6,Net Promoter Score,4269.847619,null,5000,white,62
-March,Team 6,Net Promoter Score,4339.933333,null,5000,red,63
-April,Team 6,Net Promoter Score,4410.019048,null,5000,#ccccc,64
-May,Team 6,Net Promoter Score,4480.104762,null,5000,white,65
-June,Team 6,Net Promoter Score,4550.190476,null,5000,red,66
-July,Team 6,Net Promoter Score,4620.27619,null,5000,#ccccc,67
-August,Team 6,Net Promoter Score,4690.361905,null,5000,white,68
-September,Team 6,Net Promoter Score,4760.447619,null,5000,red,69
-October,Team 6,Net Promoter Score,4830.533333,null,5000,#ccccc,70
-November,Team 6,Net Promoter Score,4900.619048,null,5000,white,71
-December,Team 6,Net Promoter Score,4970.704762,null,5000,red,72
-January,Team 7,Net Promoter Score,5040.790476,null,5000,#ccccc,73
-February,Team 7,Net Promoter Score,5110.87619,null,5000,white,74
-March,Team 7,Net Promoter Score,5180.961905,null,5000,red,75
-April,Team 7,Net Promoter Score,5251.047619,null,5000,#ccccc,76
-May,Team 7,Net Promoter Score,5321.133333,null,5000,white,77
-June,Team 7,Net Promoter Score,5391.219048,null,5000,red,78
-July,Team 7,Net Promoter Score,5461.304762,null,5000,#ccccc,79
-August,Team 7,Net Promoter Score,5531.390476,null,5000,white,80
-September,Team 7,Net Promoter Score,5601.47619,null,5000,red,81
-October,Team 7,Net Promoter Score,5671.561905,null,5000,#ccccc,82
-November,Team 7,Net Promoter Score,5741.647619,null,5000,white,83
-December,Team 7,Net Promoter Score,5811.733333,null,5000,red,84
-January,Team 8,Net Promoter Score,5881.819048,null,5000,#ccccc,85
-February,Team 8,Net Promoter Score,5951.904762,null,5000,white,86
-March,Team 8,Net Promoter Score,6021.990476,null,5000,red,87
-April,Team 8,Net Promoter Score,6092.07619,null,5000,#ccccc,88
-May,Team 8,Net Promoter Score,6162.161905,null,5000,white,89
-June,Team 8,Net Promoter Score,6232.247619,null,5000,red,90
-July,Team 8,Net Promoter Score,6302.333333,null,5000,#ccccc,91
-August,Team 8,Net Promoter Score,6372.419048,null,5000,white,92
-September,Team 8,Net Promoter Score,6442.504762,null,5000,red,93
-October,Team 8,Net Promoter Score,1,null,5000,#ccccc,94
-November,Team 8,Net Promoter Score,3,null,5000,white,95
-December,Team 8,Net Promoter Score,6,null,5000,red,96
-January,Team 9,Net Promoter Score,9,null,5000,#ccccc,97
-February,Team 9,Net Promoter Score,4,null,5000,white,98
-March,Team 9,Net Promoter Score,-2427.943915,null,5000,red,99
-April,Team 9,Net Promoter Score,-3477.366138,null,5000,#ccccc,100
-May,Team 9,Net Promoter Score,-4526.78836,null,5000,white,101
-June,Team 9,Net Promoter Score,-5576.210582,null,5000,red,102
-July,Team 9,Net Promoter Score,-6625.632804,null,5000,#ccccc,103
-August,Team 9,Net Promoter Score,-7675.055026,null,5000,white,104
-September,Team 9,Net Promoter Score,-8724.477249,null,5000,red,105
-October,Team 9,Net Promoter Score,-9773.899471,null,5000,#ccccc,106
-November,Team 9,Net Promoter Score,-10823.32169,null,5000,white,107
-December,Team 9,Net Promoter Score,-11872.74392,null,5000,red,108
-January,Team 10,Net Promoter Score,-12922.16614,null,5000,#ccccc,109
-February,Team 10,Net Promoter Score,-13971.58836,null,5000,white,110
-March,Team 10,Net Promoter Score,-15021.01058,null,5000,red,111
-April,Team 10,Net Promoter Score,-16070.4328,null,5000,#ccccc,112
-May,Team 10,Net Promoter Score,-17119.85503,null,5000,white,113
-June,Team 10,Net Promoter Score,-18169.27725,null,5000,red,114
-July,Team 10,Net Promoter Score,-19218.69947,null,5000,#ccccc,115
-August,Team 10,Net Promoter Score,-20268.12169,null,5000,white,116
-September,Team 10,Net Promoter Score,-21317.54392,null,5000,red,117
-October,Team 10,Net Promoter Score,-22366.96614,null,5000,#ccccc,118
-November,Team 10,Net Promoter Score,-23416.38836,null,5000,white,119
-December,Team 10,Net Promoter Score,-24465.81058,null,5000,red,120
-January,Team 11,Net Promoter Score,-25515.2328,null,5000,#ccccc,121
-February,Team 11,Net Promoter Score,-26564.65503,null,5000,white,122
-March,Team 11,Net Promoter Score,-27614.07725,null,5000,red,123
-April,Team 11,Net Promoter Score,-28663.49947,null,5000,#ccccc,124
-May,Team 11,Net Promoter Score,-29712.92169,null,5000,white,125
-June,Team 11,Net Promoter Score,-30762.34392,null,5000,red,126
-July,Team 11,Net Promoter Score,-31811.76614,null,5000,#ccccc,127
-August,Team 11,Net Promoter Score,-32861.18836,null,5000,white,128
-September,Team 11,Net Promoter Score,-33910.61058,null,5000,red,129
-October,Team 11,Net Promoter Score,-34960.0328,null,5000,#ccccc,130
-November,Team 11,Net Promoter Score,-36009.45503,null,5000,white,131
-December,Team 11,Net Promoter Score,-37058.87725,null,5000,red,132
-January,Team 12,Net Promoter Score,-38108.29947,null,5000,#ccccc,133
-February,Team 12,Net Promoter Score,-39157.72169,null,5000,white,134
-March,Team 12,Net Promoter Score,-40207.14392,null,5000,red,135
-April,Team 12,Net Promoter Score,-41256.56614,null,5000,#ccccc,136
-May,Team 12,Net Promoter Score,-42305.98836,null,5000,white,137
-June,Team 12,Net Promoter Score,-43355.41058,null,5000,red,138
-July,Team 12,Net Promoter Score,-44404.8328,null,5000,#ccccc,139
-August,Team 12,Net Promoter Score,-45454.25503,null,5000,white,140
-September,Team 12,Net Promoter Score,-46503.67725,null,5000,red,141
-October,Team 12,Net Promoter Score,-47553.09947,null,5000,#ccccc,142
-November,Team 12,Net Promoter Score,-48602.52169,null,5000,white,143
-December,Team 12,Net Promoter Score,-49651.94392,null,5000,red,144
-January,Team 13,Net Promoter Score,-50701.36614,null,5000,#ccccc,145
-February,Team 13,Net Promoter Score,-51750.78836,null,5000,white,146
-March,Team 13,Net Promoter Score,-52800.21058,null,5000,red,147
-April,Team 13,Net Promoter Score,-53849.6328,null,5000,#ccccc,148
-May,Team 13,Net Promoter Score,46,null,5000,white,149
-June,Team 13,Net Promoter Score,65,null,5000,red,150
-July,Team 13,Net Promoter Score,94,null,5000,#ccccc,151
-August,Team 13,Net Promoter Score,84,null,5000,white,152
-September,Team 13,Net Promoter Score,108,null,5000,red,153
-October,Team 13,Net Promoter Score,122.3,null,5000,#ccccc,154
-November,Team 13,Net Promoter Score,136.6,null,5000,white,155
-December,Team 13,Net Promoter Score,150.9,null,5000,red,156
-January,Team 14,Net Promoter Score,165.2,null,5000,#ccccc,157
-February,Team 14,Net Promoter Score,179.5,null,5000,white,158
-March,Team 14,Net Promoter Score,193.8,null,5000,red,159
-April,Team 14,Net Promoter Score,208.1,null,5000,#ccccc,160
-May,Team 14,Net Promoter Score,222.4,null,5000,white,161
-June,Team 14,Net Promoter Score,236.7,null,5000,red,162
-July,Team 14,Net Promoter Score,251,null,5000,#ccccc,163
-August,Team 14,Net Promoter Score,265.3,null,5000,white,164
-September,Team 14,Net Promoter Score,279.6,null,5000,red,165
-October,Team 14,Net Promoter Score,293.9,null,5000,#ccccc,166
-November,Team 14,Net Promoter Score,308.2,null,5000,white,167
-December,Team 14,Net Promoter Score,322.5,null,5000,red,168
-January,Team 15,Net Promoter Score,336.8,null,5000,#ccccc,169
-February,Team 15,Net Promoter Score,351.1,null,5000,white,170
-March,Team 15,Net Promoter Score,365.4,null,5000,red,171
-April,Team 15,Net Promoter Score,379.7,null,5000,#ccccc,172
-May,Team 15,Net Promoter Score,394,null,5000,white,173
-June,Team 15,Net Promoter Score,408.3,null,5000,red,174
-July,Team 15,Net Promoter Score,422.6,null,5000,#ccccc,175
-August,Team 15,Net Promoter Score,436.9,null,5000,white,176
-September,Team 15,Net Promoter Score,451.2,null,5000,red,177
-October,Team 15,Net Promoter Score,465.5,null,5000,#ccccc,178
-November,Team 15,Net Promoter Score,479.8,null,5000,white,179
-December,Team 15,Net Promoter Score,494.1,null,5000,red,180
-January,Team 16,Net Promoter Score,508.4,null,5000,#ccccc,181
-February,Team 16,Net Promoter Score,522.7,null,5000,white,182
-March,Team 16,Net Promoter Score,537,null,5000,red,183
-April,Team 16,Net Promoter Score,551.3,null,5000,#ccccc,184
-May,Team 16,Net Promoter Score,565.6,null,5000,white,185
-June,Team 16,Net Promoter Score,579.9,null,5000,red,186
-July,Team 16,Net Promoter Score,594.2,null,5000,#ccccc,187
-August,Team 16,Net Promoter Score,608.5,null,5000,white,188
-September,Team 16,Net Promoter Score,622.8,null,5000,red,189
-October,Team 16,Net Promoter Score,637.1,null,5000,#ccccc,190
-November,Team 16,Net Promoter Score,651.4,null,5000,white,191
-December,Team 16,Net Promoter Score,665.7,null,5000,red,192
-January,Team 17,Net Promoter Score,680,null,5000,#ccccc,193
-February,Team 17,Net Promoter Score,694.3,null,5000,white,194
-March,Team 17,Net Promoter Score,708.6,null,5000,red,195
-April,Team 17,Net Promoter Score,722.9,null,5000,#ccccc,196
-May,Team 17,Net Promoter Score,737.2,null,5000,white,197
-June,Team 17,Net Promoter Score,751.5,null,5000,red,198
-July,Team 17,Net Promoter Score,765.8,null,5000,#ccccc,199
-August,Team 17,Net Promoter Score,780.1,null,5000,white,200
-September,Team 17,Net Promoter Score,794.4,null,5000,red,201
-October,Team 17,Net Promoter Score,808.7,null,5000,#ccccc,202
-November,Team 17,Net Promoter Score,823,null,5000,white,203
-December,Team 17,Net Promoter Score,837.3,null,5000,red,204
-January,Team 18,Net Promoter Score,851.6,null,5000,#ccccc,205
-February,Team 18,Net Promoter Score,865.9,null,5000,white,206
-March,Team 18,Net Promoter Score,880.2,null,5000,red,207
-April,Team 18,Net Promoter Score,894.5,null,5000,#ccccc,208
-May,Team 18,Net Promoter Score,908.8,null,5000,white,209
-June,Team 18,Net Promoter Score,923.1,null,5000,red,210
-July,Team 18,Net Promoter Score,937.4,null,5000,#ccccc,211
-August,Team 18,Net Promoter Score,951.7,null,5000,white,212
-September,Team 18,Net Promoter Score,966,null,5000,red,213
-October,Team 18,Net Promoter Score,980.3,null,5000,#ccccc,214
-November,Team 18,Net Promoter Score,994.6,null,5000,white,215
-December,Team 18,Net Promoter Score,1008.9,null,5000,red,216
-January,Team 19,Net Promoter Score,1023.2,null,5000,#ccccc,217
-February,Team 19,Net Promoter Score,1037.5,null,5000,white,218
-March,Team 19,Net Promoter Score,1051.8,null,5000,red,219
-April,Team 19,Net Promoter Score,1066.1,null,5000,#ccccc,220
-May,Team 19,Net Promoter Score,1080.4,null,5000,white,221
-June,Team 19,Net Promoter Score,1094.7,null,5000,red,222
-July,Team 19,Net Promoter Score,1109,null,5000,#ccccc,223
-August,Team 19,Net Promoter Score,1123.3,null,5000,white,224
-September,Team 19,Net Promoter Score,1137.6,null,5000,red,225
-October,Team 19,Net Promoter Score,1151.9,null,5000,#ccccc,226
-November,Team 19,Net Promoter Score,1166.2,null,5000,white,227
-December,Team 19,Net Promoter Score,1180.5,null,5000,red,228
-January,Team 20,Net Promoter Score,1194.8,null,5000,#ccccc,229
-February,Team 20,Net Promoter Score,1209.1,null,5000,white,230
-March,Team 20,Net Promoter Score,1223.4,null,5000,red,231
-April,Team 20,Net Promoter Score,1237.7,null,5000,#ccccc,232
-May,Team 20,Net Promoter Score,1252,null,5000,white,233
-June,Team 20,Net Promoter Score,1266.3,null,5000,red,234
-July,Team 20,Net Promoter Score,1280.6,null,5000,#ccccc,235
-August,Team 20,Net Promoter Score,1294.9,null,5000,white,236
-September,Team 20,Net Promoter Score,1309.2,null,5000,red,237
-October,Team 20,Net Promoter Score,1323.5,null,5000,#ccccc,238
-November,Team 20,Net Promoter Score,1337.8,null,5000,white,239
-December,Team 20,Net Promoter Score,1352.1,null,5000,red,240
-January,Team 1,Funded Loans,12,null,5000,#ccccc,367
-February,Team 1 ,Funded Loans,3,null,5000,white,368
-March,Team 1,Funded Loans,135,null,5000,red,369
-April,Team 1,Funded Loans,98,null,5000,#ccccc,370
-May,Team 1,Funded Loans,648,null,5000,white,371
-June,Team 1,Funded Loans,123,null,5000,red,372
-July,Team 1,Funded Loans,415.1333333,null,5000,#ccccc,373
-August,Team 1,Funded Loans,485.2190476,null,5000,white,374
-September,Team 1,Funded Loans,555.3047619,null,5000,red,375
-October,Team 1,Funded Loans,625.3904762,null,5000,#ccccc,376
-November,Team 1,Funded Loans,695.4761905,null,5000,white,377
-December,Team 1,Funded Loans,765.5619048,null,5000,red,378
-January,Team 2,Funded Loans,835.647619,null,5000,#ccccc,379
-February,Team 2,Funded Loans,905.7333333,null,5000,white,380
-March,Team 2,Funded Loans,975.8190476,null,5000,red,381
-April,Team 2,Funded Loans,1045.904762,null,5000,#ccccc,382
-May,Team 2,Funded Loans,1115.990476,null,5000,white,383
-June,Team 2,Funded Loans,1186.07619,null,5000,red,384
-July,Team 2,Funded Loans,1256.161905,null,5000,#ccccc,385
-August,Team 2,Funded Loans,1326.247619,null,5000,white,386
-September,Team 2,Funded Loans,1396.333333,null,5000,red,387
-October,Team 2,Funded Loans,1466.419048,null,5000,#ccccc,388
-November,Team 2,Funded Loans,1536.504762,null,5000,white,389
-December,Team 2,Funded Loans,1606.590476,null,5000,red,390
-January,Team 3,Funded Loans,1676.67619,null,5000,#ccccc,391
-February,Team 3,Funded Loans,1746.761905,null,5000,white,392
-March,Team 3,Funded Loans,1816.847619,null,5000,red,393
-April,Team 3,Funded Loans,1886.933333,null,5000,#ccccc,394
-May,Team 3,Funded Loans,1957.019048,null,5000,white,395
-June,Team 3,Funded Loans,2027.104762,null,5000,red,396
-July,Team 3,Funded Loans,2097.190476,null,5000,#ccccc,397
-August,Team 3,Funded Loans,2167.27619,null,5000,white,398
-September,Team 3,Funded Loans,2237.361905,null,5000,red,399
-October,Team 3,Funded Loans,2307.447619,null,5000,#ccccc,400
-November,Team 3,Funded Loans,2377.533333,null,5000,white,401
-December,Team 3,Funded Loans,2447.619048,null,5000,red,402
-January,Team 4,Funded Loans,2517.704762,null,5000,#ccccc,403
-February,Team 4,Funded Loans,2587.790476,null,5000,white,404
-March,Team 4,Funded Loans,2657.87619,null,5000,red,405
-April,Team 4,Funded Loans,2727.961905,null,5000,#ccccc,406
-May,Team 4,Funded Loans,2798.047619,null,5000,white,407
-June,Team 4,Funded Loans,2868.133333,null,5000,red,408
-July,Team 4,Funded Loans,2938.219048,null,5000,#ccccc,409
-August,Team 4,Funded Loans,3008.304762,null,5000,white,410
-September,Team 4,Funded Loans,3078.390476,null,5000,red,411
-October,Team 4,Funded Loans,3148.47619,null,5000,#ccccc,412
-November,Team 4,Funded Loans,3218.561905,null,5000,white,413
-December,Team 4,Funded Loans,3288.647619,null,5000,red,414
-January,Team 5,Funded Loans,3358.733333,null,5000,#ccccc,415
-February,Team 5,Funded Loans,3428.819048,null,5000,white,416
-March,Team 5,Funded Loans,3498.904762,null,5000,red,417
-April,Team 5,Funded Loans,3568.990476,null,5000,#ccccc,418
-May,Team 5,Funded Loans,3639.07619,null,5000,white,419
-June,Team 5,Funded Loans,3709.161905,null,5000,red,420
-July,Team 5,Funded Loans,3779.247619,null,5000,#ccccc,421
-August,Team 5,Funded Loans,3849.333333,null,5000,white,422
-September,Team 5,Funded Loans,3919.419048,null,5000,red,423
-October,Team 5,Funded Loans,3989.504762,null,5000,#ccccc,424
-November,Team 5,Funded Loans,4059.590476,null,5000,white,425
-December,Team 5,Funded Loans,4129.67619,null,5000,red,426
-January,Team 6,Funded Loans,4199.761905,null,5000,#ccccc,427
-February,Team 6,Funded Loans,4269.847619,null,5000,white,428
-March,Team 6,Funded Loans,4339.933333,null,5000,red,429
-April,Team 6,Funded Loans,4410.019048,null,5000,#ccccc,430
-May,Team 6,Funded Loans,4480.104762,null,5000,white,431
-June,Team 6,Funded Loans,4550.190476,null,5000,red,432
-July,Team 6,Funded Loans,4620.27619,null,5000,#ccccc,433
-August,Team 6,Funded Loans,4690.361905,null,5000,white,434
-September,Team 6,Funded Loans,4760.447619,null,5000,red,435
-October,Team 6,Funded Loans,4830.533333,null,5000,#ccccc,436
-November,Team 6,Funded Loans,4900.619048,null,5000,white,437
-December,Team 6,Funded Loans,4970.704762,null,5000,red,438
-January,Team 7,Funded Loans,5040.790476,null,5000,#ccccc,439
-February,Team 7,Funded Loans,5110.87619,null,5000,white,440
-March,Team 7,Funded Loans,5180.961905,null,5000,red,441
-April,Team 7,Funded Loans,5251.047619,null,5000,#ccccc,442
-May,Team 7,Funded Loans,5321.133333,null,5000,white,443
-June,Team 7,Funded Loans,5391.219048,null,5000,red,444
-July,Team 7,Funded Loans,5461.304762,null,5000,#ccccc,445
-August,Team 7,Funded Loans,5531.390476,null,5000,white,446
-September,Team 7,Funded Loans,5601.47619,null,5000,red,447
-October,Team 7,Funded Loans,5671.561905,null,5000,#ccccc,448
-November,Team 7,Funded Loans,5741.647619,null,5000,white,449
-December,Team 7,Funded Loans,5811.733333,null,5000,red,450
-January,Team 8,Funded Loans,5881.819048,null,5000,#ccccc,451
-February,Team 8,Funded Loans,5951.904762,null,5000,white,452
-March,Team 8,Funded Loans,6021.990476,null,5000,red,453
-April,Team 8,Funded Loans,6092.07619,null,5000,#ccccc,454
-May,Team 8,Funded Loans,6162.161905,null,5000,white,455
-June,Team 8,Funded Loans,6232.247619,null,5000,red,456
-July,Team 8,Funded Loans,6302.333333,null,5000,#ccccc,457
-August,Team 8,Funded Loans,6372.419048,null,5000,white,458
-September,Team 8,Funded Loans,6442.504762,null,5000,red,459
-October,Team 8,Funded Loans,1,null,5000,#ccccc,460
-November,Team 8,Funded Loans,3,null,5000,white,461
-December,Team 8,Funded Loans,6,null,5000,red,462
-January,Team 9,Funded Loans,9,null,5000,#ccccc,463
-February,Team 9,Funded Loans,4,null,5000,white,464
-March,Team 9,Funded Loans,-2427.943915,null,5000,red,465
-April,Team 9,Funded Loans,-3477.366138,null,5000,#ccccc,466
-May,Team 9,Funded Loans,-4526.78836,null,5000,white,467
-June,Team 9,Funded Loans,-5576.210582,null,5000,red,468
-July,Team 9,Funded Loans,-6625.632804,null,5000,#ccccc,469
-August,Team 9,Funded Loans,-7675.055026,null,5000,white,470
-September,Team 9,Funded Loans,-8724.477249,null,5000,red,471
-October,Team 9,Funded Loans,-9773.899471,null,5000,#ccccc,472
-November,Team 9,Funded Loans,-10823.32169,null,5000,white,473
-December,Team 9,Funded Loans,-11872.74392,null,5000,red,474
-January,Team 10,Funded Loans,-12922.16614,null,5000,#ccccc,475
-February,Team 10,Funded Loans,-13971.58836,null,5000,white,476
-March,Team 10,Funded Loans,-15021.01058,null,5000,red,477
-April,Team 10,Funded Loans,-16070.4328,null,5000,#ccccc,478
-May,Team 10,Funded Loans,-17119.85503,null,5000,white,479
-June,Team 10,Funded Loans,-18169.27725,null,5000,red,480
-July,Team 10,Funded Loans,-19218.69947,null,5000,#ccccc,481
-August,Team 10,Funded Loans,-20268.12169,null,5000,white,482
-September,Team 10,Funded Loans,-21317.54392,null,5000,red,483
-October,Team 10,Funded Loans,-22366.96614,null,5000,#ccccc,484
-November,Team 10,Funded Loans,-23416.38836,null,5000,white,485
-December,Team 10,Funded Loans,-24465.81058,null,5000,red,486
-January,Team 11,Funded Loans,-25515.2328,null,5000,#ccccc,487
-February,Team 11,Funded Loans,-26564.65503,null,5000,white,488
-March,Team 11,Funded Loans,-27614.07725,null,5000,red,489
-April,Team 11,Funded Loans,-28663.49947,null,5000,#ccccc,490
-May,Team 11,Funded Loans,-29712.92169,null,5000,white,491
-June,Team 11,Funded Loans,-30762.34392,null,5000,red,492
-July,Team 11,Funded Loans,-31811.76614,null,5000,#ccccc,493
-August,Team 11,Funded Loans,-32861.18836,null,5000,white,494
-September,Team 11,Funded Loans,-33910.61058,null,5000,red,495
-October,Team 11,Funded Loans,-34960.0328,null,5000,#ccccc,496
-November,Team 11,Funded Loans,-36009.45503,null,5000,white,497
-December,Team 11,Funded Loans,-37058.87725,null,5000,red,498
-January,Team 12,Funded Loans,-38108.29947,null,5000,#ccccc,499
-February,Team 12,Funded Loans,-39157.72169,null,5000,white,500
-March,Team 12,Funded Loans,-40207.14392,null,5000,red,501
-April,Team 12,Funded Loans,-41256.56614,null,5000,#ccccc,502
-May,Team 12,Funded Loans,-42305.98836,null,5000,white,503
-June,Team 12,Funded Loans,-43355.41058,null,5000,red,504
-July,Team 12,Funded Loans,-44404.8328,null,5000,#ccccc,505
-August,Team 12,Funded Loans,-45454.25503,null,5000,white,506
-September,Team 12,Funded Loans,-46503.67725,null,5000,red,507
-October,Team 12,Funded Loans,-47553.09947,null,5000,#ccccc,508
-November,Team 12,Funded Loans,-48602.52169,null,5000,white,509
-December,Team 12,Funded Loans,-49651.94392,null,5000,red,510
-January,Team 13,Funded Loans,-50701.36614,null,5000,#ccccc,511
-February,Team 13,Funded Loans,-51750.78836,null,5000,white,512
-March,Team 13,Funded Loans,-52800.21058,null,5000,red,513
-April,Team 13,Funded Loans,-53849.6328,null,5000,#ccccc,514
-May,Team 13,Funded Loans,46,null,5000,white,515
-June,Team 13,Funded Loans,65,null,5000,red,516
-July,Team 13,Funded Loans,94,null,5000,#ccccc,517
-August,Team 13,Funded Loans,84,null,5000,white,518
-September,Team 13,Funded Loans,108,null,5000,red,519
-October,Team 13,Funded Loans,122.3,null,5000,#ccccc,520
-November,Team 13,Funded Loans,136.6,null,5000,white,521
-December,Team 13,Funded Loans,150.9,null,5000,red,522
-January,Team 14,Funded Loans,165.2,null,5000,#ccccc,523
-February,Team 14,Funded Loans,179.5,null,5000,white,524
-March,Team 14,Funded Loans,193.8,null,5000,red,525
-April,Team 14,Funded Loans,208.1,null,5000,#ccccc,526
-May,Team 14,Funded Loans,222.4,null,5000,white,527
-June,Team 14,Funded Loans,236.7,null,5000,red,528
-July,Team 14,Funded Loans,251,null,5000,#ccccc,529
-August,Team 14,Funded Loans,265.3,null,5000,white,530
-September,Team 14,Funded Loans,279.6,null,5000,red,531
-October,Team 14,Funded Loans,293.9,null,5000,#ccccc,532
-November,Team 14,Funded Loans,308.2,null,5000,white,533
-December,Team 14,Funded Loans,322.5,null,5000,red,534
-January,Team 15,Funded Loans,336.8,null,5000,#ccccc,535
-February,Team 15,Funded Loans,351.1,null,5000,white,536
-March,Team 15,Funded Loans,365.4,null,5000,red,537
-April,Team 15,Funded Loans,379.7,null,5000,#ccccc,538
-May,Team 15,Funded Loans,394,null,5000,white,539
-June,Team 15,Funded Loans,408.3,null,5000,red,540
-July,Team 15,Funded Loans,422.6,null,5000,#ccccc,541
-August,Team 15,Funded Loans,436.9,null,5000,white,542
-September,Team 15,Funded Loans,451.2,null,5000,red,543
-October,Team 15,Funded Loans,465.5,null,5000,#ccccc,544
-November,Team 15,Funded Loans,479.8,null,5000,white,545
-December,Team 15,Funded Loans,494.1,null,5000,red,546
-January,Team 16,Funded Loans,508.4,null,5000,#ccccc,547
-February,Team 16,Funded Loans,522.7,null,5000,white,548
-March,Team 16,Funded Loans,537,null,5000,red,549
-April,Team 16,Funded Loans,551.3,null,5000,#ccccc,550
-May,Team 16,Funded Loans,565.6,null,5000,white,551
-June,Team 16,Funded Loans,579.9,null,5000,red,552
-July,Team 16,Funded Loans,594.2,null,5000,#ccccc,553
-August,Team 16,Funded Loans,608.5,null,5000,white,554
-September,Team 16,Funded Loans,622.8,null,5000,red,555
-October,Team 16,Funded Loans,637.1,null,5000,#ccccc,556
-November,Team 16,Funded Loans,651.4,null,5000,white,557
-December,Team 16,Funded Loans,665.7,null,5000,red,558
-January,Team 17,Funded Loans,680,null,5000,#ccccc,559
-February,Team 17,Funded Loans,694.3,null,5000,white,560
-March,Team 17,Funded Loans,708.6,null,5000,red,561
-April,Team 17,Funded Loans,722.9,null,5000,#ccccc,562
-May,Team 17,Funded Loans,737.2,null,5000,white,563
-June,Team 17,Funded Loans,751.5,null,5000,red,564
-July,Team 17,Funded Loans,765.8,null,5000,#ccccc,565
-August,Team 17,Funded Loans,780.1,null,5000,white,566
-September,Team 17,Funded Loans,794.4,null,5000,red,567
-October,Team 17,Funded Loans,808.7,null,5000,#ccccc,568
-November,Team 17,Funded Loans,823,null,5000,white,569
-December,Team 17,Funded Loans,837.3,null,5000,red,570
-January,Team 18,Funded Loans,851.6,null,5000,#ccccc,571
-February,Team 18,Funded Loans,865.9,null,5000,white,572
-March,Team 18,Funded Loans,880.2,null,5000,red,573
-April,Team 18,Funded Loans,894.5,null,5000,#ccccc,574
-May,Team 18,Funded Loans,908.8,null,5000,white,575
-June,Team 18,Funded Loans,923.1,null,5000,red,576
-July,Team 18,Funded Loans,937.4,null,5000,#ccccc,577
-August,Team 18,Funded Loans,951.7,null,5000,white,578
-September,Team 18,Funded Loans,966,null,5000,red,579
-October,Team 18,Funded Loans,980.3,null,5000,#ccccc,580
-November,Team 18,Funded Loans,994.6,null,5000,white,581
-December,Team 18,Funded Loans,1008.9,null,5000,red,582
-January,Team 19,Funded Loans,1023.2,null,5000,#ccccc,583
-February,Team 19,Funded Loans,1037.5,null,5000,white,584
-March,Team 19,Funded Loans,1051.8,null,5000,red,585
-April,Team 19,Funded Loans,1066.1,null,5000,#ccccc,586
-May,Team 19,Funded Loans,1080.4,null,5000,white,587
-June,Team 19,Funded Loans,1094.7,null,5000,red,588
-July,Team 19,Funded Loans,1109,null,5000,#ccccc,589
-August,Team 19,Funded Loans,1123.3,null,5000,white,590
-September,Team 19,Funded Loans,1137.6,null,5000,red,591
-October,Team 19,Funded Loans,1151.9,null,5000,#ccccc,592
-November,Team 19,Funded Loans,1166.2,null,5000,white,593
-December,Team 19,Funded Loans,1180.5,null,5000,red,594
-January,Team 20,Funded Loans,1194.8,null,5000,#ccccc,595
-February,Team 20,Funded Loans,1209.1,null,5000,white,596
-March,Team 20,Funded Loans,1223.4,null,5000,red,597
-April,Team 20,Funded Loans,1237.7,null,5000,#ccccc,598
-May,Team 20,Funded Loans,1252,null,5000,white,599
-June,Team 20,Funded Loans,1266.3,null,5000,red,600
-July,Team 20,Funded Loans,1280.6,null,5000,#ccccc,601
-August,Team 20,Funded Loans,1294.9,null,5000,white,602
-September,Team 20,Funded Loans,1309.2,null,5000,red,603
-October,Team 20,Funded Loans,1323.5,null,5000,#ccccc,604
-November,Team 20,Funded Loans,1337.8,null,5000,white,605
-December,Team 20,Funded Loans,1352.1,null,5000,red,606
-January,Team 1,Cycle Time (Refinance),12,null,5000,#ccccc,733
-February,Team 1 ,Cycle Time (Refinance),3,null,5000,white,734
-March,Team 1,Cycle Time (Refinance),135,null,5000,red,735
-April,Team 1,Cycle Time (Refinance),98,null,5000,#ccccc,736
-May,Team 1,Cycle Time (Refinance),648,null,5000,white,737
-June,Team 1,Cycle Time (Refinance),123,null,5000,red,738
-July,Team 1,Cycle Time (Refinance),415.1333333,null,5000,#ccccc,739
-August,Team 1,Cycle Time (Refinance),485.2190476,null,5000,white,740
-September,Team 1,Cycle Time (Refinance),555.3047619,null,5000,red,741
-October,Team 1,Cycle Time (Refinance),625.3904762,null,5000,#ccccc,742
-November,Team 1,Cycle Time (Refinance),695.4761905,null,5000,white,743
-December,Team 1,Cycle Time (Refinance),765.5619048,null,5000,red,744
-January,Team 2,Cycle Time (Refinance),835.647619,null,5000,#ccccc,745
-February,Team 2,Cycle Time (Refinance),905.7333333,null,5000,white,746
-March,Team 2,Cycle Time (Refinance),975.8190476,null,5000,red,747
-April,Team 2,Cycle Time (Refinance),1045.904762,null,5000,#ccccc,748
-May,Team 2,Cycle Time (Refinance),1115.990476,null,5000,white,749
-June,Team 2,Cycle Time (Refinance),1186.07619,null,5000,red,750
-July,Team 2,Cycle Time (Refinance),1256.161905,null,5000,#ccccc,751
-August,Team 2,Cycle Time (Refinance),1326.247619,null,5000,white,752
-September,Team 2,Cycle Time (Refinance),1396.333333,null,5000,red,753
-October,Team 2,Cycle Time (Refinance),1466.419048,null,5000,#ccccc,754
-November,Team 2,Cycle Time (Refinance),1536.504762,null,5000,white,755
-December,Team 2,Cycle Time (Refinance),1606.590476,null,5000,red,756
-January,Team 3,Cycle Time (Refinance),1676.67619,null,5000,#ccccc,757
-February,Team 3,Cycle Time (Refinance),1746.761905,null,5000,white,758
-March,Team 3,Cycle Time (Refinance),1816.847619,null,5000,red,759
-April,Team 3,Cycle Time (Refinance),1886.933333,null,5000,#ccccc,760
-May,Team 3,Cycle Time (Refinance),1957.019048,null,5000,white,761
-June,Team 3,Cycle Time (Refinance),2027.104762,null,5000,red,762
-July,Team 3,Cycle Time (Refinance),2097.190476,null,5000,#ccccc,763
-August,Team 3,Cycle Time (Refinance),2167.27619,null,5000,white,764
-September,Team 3,Cycle Time (Refinance),2237.361905,null,5000,red,765
-October,Team 3,Cycle Time (Refinance),2307.447619,null,5000,#ccccc,766
-November,Team 3,Cycle Time (Refinance),2377.533333,null,5000,white,767
-December,Team 3,Cycle Time (Refinance),2447.619048,null,5000,red,768
-January,Team 4,Cycle Time (Refinance),2517.704762,null,5000,#ccccc,769
-February,Team 4,Cycle Time (Refinance),2587.790476,null,5000,white,770
-March,Team 4,Cycle Time (Refinance),2657.87619,null,5000,red,771
-April,Team 4,Cycle Time (Refinance),2727.961905,null,5000,#ccccc,772
-May,Team 4,Cycle Time (Refinance),2798.047619,null,5000,white,773
-June,Team 4,Cycle Time (Refinance),2868.133333,null,5000,red,774
-July,Team 4,Cycle Time (Refinance),2938.219048,null,5000,#ccccc,775
-August,Team 4,Cycle Time (Refinance),3008.304762,null,5000,white,776
-September,Team 4,Cycle Time (Refinance),3078.390476,null,5000,red,777
-October,Team 4,Cycle Time (Refinance),3148.47619,null,5000,#ccccc,778
-November,Team 4,Cycle Time (Refinance),3218.561905,null,5000,white,779
-December,Team 4,Cycle Time (Refinance),3288.647619,null,5000,red,780
-January,Team 5,Cycle Time (Refinance),3358.733333,null,5000,#ccccc,781
-February,Team 5,Cycle Time (Refinance),3428.819048,null,5000,white,782
-March,Team 5,Cycle Time (Refinance),3498.904762,null,5000,red,783
-April,Team 5,Cycle Time (Refinance),3568.990476,null,5000,#ccccc,784
-May,Team 5,Cycle Time (Refinance),3639.07619,null,5000,white,785
-June,Team 5,Cycle Time (Refinance),3709.161905,null,5000,red,786
-July,Team 5,Cycle Time (Refinance),3779.247619,null,5000,#ccccc,787
-August,Team 5,Cycle Time (Refinance),3849.333333,null,5000,white,788
-September,Team 5,Cycle Time (Refinance),3919.419048,null,5000,red,789
-October,Team 5,Cycle Time (Refinance),3989.504762,null,5000,#ccccc,790
-November,Team 5,Cycle Time (Refinance),4059.590476,null,5000,white,791
-December,Team 5,Cycle Time (Refinance),4129.67619,null,5000,red,792
-January,Team 6,Cycle Time (Refinance),4199.761905,null,5000,#ccccc,793
-February,Team 6,Cycle Time (Refinance),4269.847619,null,5000,white,794
-March,Team 6,Cycle Time (Refinance),4339.933333,null,5000,red,795
-April,Team 6,Cycle Time (Refinance),4410.019048,null,5000,#ccccc,796
-May,Team 6,Cycle Time (Refinance),4480.104762,null,5000,white,797
-June,Team 6,Cycle Time (Refinance),4550.190476,null,5000,red,798
-July,Team 6,Cycle Time (Refinance),4620.27619,null,5000,#ccccc,799
-August,Team 6,Cycle Time (Refinance),4690.361905,null,5000,white,800
-September,Team 6,Cycle Time (Refinance),4760.447619,null,5000,red,801
-October,Team 6,Cycle Time (Refinance),4830.533333,null,5000,#ccccc,802
-November,Team 6,Cycle Time (Refinance),4900.619048,null,5000,white,803
-December,Team 6,Cycle Time (Refinance),4970.704762,null,5000,red,804
-January,Team 7,Cycle Time (Refinance),5040.790476,null,5000,#ccccc,805
-February,Team 7,Cycle Time (Refinance),5110.87619,null,5000,white,806
-March,Team 7,Cycle Time (Refinance),5180.961905,null,5000,red,807
-April,Team 7,Cycle Time (Refinance),5251.047619,null,5000,#ccccc,808
-May,Team 7,Cycle Time (Refinance),5321.133333,null,5000,white,809
-June,Team 7,Cycle Time (Refinance),5391.219048,null,5000,red,810
-July,Team 7,Cycle Time (Refinance),5461.304762,null,5000,#ccccc,811
-August,Team 7,Cycle Time (Refinance),5531.390476,null,5000,white,812
-September,Team 7,Cycle Time (Refinance),5601.47619,null,5000,red,813
-October,Team 7,Cycle Time (Refinance),5671.561905,null,5000,#ccccc,814
-November,Team 7,Cycle Time (Refinance),5741.647619,null,5000,white,815
-December,Team 7,Cycle Time (Refinance),5811.733333,null,5000,red,816
-January,Team 8,Cycle Time (Refinance),5881.819048,null,5000,#ccccc,817
-February,Team 8,Cycle Time (Refinance),5951.904762,null,5000,white,818
-March,Team 8,Cycle Time (Refinance),6021.990476,null,5000,red,819
-April,Team 8,Cycle Time (Refinance),6092.07619,null,5000,#ccccc,820
-May,Team 8,Cycle Time (Refinance),6162.161905,null,5000,white,821
-June,Team 8,Cycle Time (Refinance),6232.247619,null,5000,red,822
-July,Team 8,Cycle Time (Refinance),6302.333333,null,5000,#ccccc,823
-August,Team 8,Cycle Time (Refinance),6372.419048,null,5000,white,824
-September,Team 8,Cycle Time (Refinance),6442.504762,null,5000,red,825
-October,Team 8,Cycle Time (Refinance),1,null,5000,#ccccc,826
-November,Team 8,Cycle Time (Refinance),3,null,5000,white,827
-December,Team 8,Cycle Time (Refinance),6,null,5000,red,828
-January,Team 9,Cycle Time (Refinance),9,null,5000,#ccccc,829
-February,Team 9,Cycle Time (Refinance),4,null,5000,white,830
-March,Team 9,Cycle Time (Refinance),-2427.943915,null,5000,red,831
-April,Team 9,Cycle Time (Refinance),-3477.366138,null,5000,#ccccc,832
-May,Team 9,Cycle Time (Refinance),-4526.78836,null,5000,white,833
-June,Team 9,Cycle Time (Refinance),-5576.210582,null,5000,red,834
-July,Team 9,Cycle Time (Refinance),-6625.632804,null,5000,#ccccc,835
-August,Team 9,Cycle Time (Refinance),-7675.055026,null,5000,white,836
-September,Team 9,Cycle Time (Refinance),-8724.477249,null,5000,red,837
-October,Team 9,Cycle Time (Refinance),-9773.899471,null,5000,#ccccc,838
-November,Team 9,Cycle Time (Refinance),-10823.32169,null,5000,white,839
-December,Team 9,Cycle Time (Refinance),-11872.74392,null,5000,red,840
-January,Team 10,Cycle Time (Refinance),-12922.16614,null,5000,#ccccc,841
-February,Team 10,Cycle Time (Refinance),-13971.58836,null,5000,white,842
-March,Team 10,Cycle Time (Refinance),-15021.01058,null,5000,red,843
-April,Team 10,Cycle Time (Refinance),-16070.4328,null,5000,#ccccc,844
-May,Team 10,Cycle Time (Refinance),-17119.85503,null,5000,white,845
-June,Team 10,Cycle Time (Refinance),-18169.27725,null,5000,red,846
-July,Team 10,Cycle Time (Refinance),-19218.69947,null,5000,#ccccc,847
-August,Team 10,Cycle Time (Refinance),-20268.12169,null,5000,white,848
-September,Team 10,Cycle Time (Refinance),-21317.54392,null,5000,red,849
-October,Team 10,Cycle Time (Refinance),-22366.96614,null,5000,#ccccc,850
-November,Team 10,Cycle Time (Refinance),-23416.38836,null,5000,white,851
-December,Team 10,Cycle Time (Refinance),-24465.81058,null,5000,red,852
-January,Team 11,Cycle Time (Refinance),-25515.2328,null,5000,#ccccc,853
-February,Team 11,Cycle Time (Refinance),-26564.65503,null,5000,white,854
-March,Team 11,Cycle Time (Refinance),-27614.07725,null,5000,red,855
-April,Team 11,Cycle Time (Refinance),-28663.49947,null,5000,#ccccc,856
-May,Team 11,Cycle Time (Refinance),-29712.92169,null,5000,white,857
-June,Team 11,Cycle Time (Refinance),-30762.34392,null,5000,red,858
-July,Team 11,Cycle Time (Refinance),-31811.76614,null,5000,#ccccc,859
-August,Team 11,Cycle Time (Refinance),-32861.18836,null,5000,white,860
-September,Team 11,Cycle Time (Refinance),-33910.61058,null,5000,red,861
-October,Team 11,Cycle Time (Refinance),-34960.0328,null,5000,#ccccc,862
-November,Team 11,Cycle Time (Refinance),-36009.45503,null,5000,white,863
-December,Team 11,Cycle Time (Refinance),-37058.87725,null,5000,red,864
-January,Team 12,Cycle Time (Refinance),-38108.29947,null,5000,#ccccc,865
-February,Team 12,Cycle Time (Refinance),-39157.72169,null,5000,white,866
-March,Team 12,Cycle Time (Refinance),-40207.14392,null,5000,red,867
-April,Team 12,Cycle Time (Refinance),-41256.56614,null,5000,#ccccc,868
-May,Team 12,Cycle Time (Refinance),-42305.98836,null,5000,white,869
-June,Team 12,Cycle Time (Refinance),-43355.41058,null,5000,red,870
-July,Team 12,Cycle Time (Refinance),-44404.8328,null,5000,#ccccc,871
-August,Team 12,Cycle Time (Refinance),-45454.25503,null,5000,white,872
-September,Team 12,Cycle Time (Refinance),-46503.67725,null,5000,red,873
-October,Team 12,Cycle Time (Refinance),-47553.09947,null,5000,#ccccc,874
-November,Team 12,Cycle Time (Refinance),-48602.52169,null,5000,white,875
-December,Team 12,Cycle Time (Refinance),-49651.94392,null,5000,red,876
-January,Team 13,Cycle Time (Refinance),-50701.36614,null,5000,#ccccc,877
-February,Team 13,Cycle Time (Refinance),-51750.78836,null,5000,white,878
-March,Team 13,Cycle Time (Refinance),-52800.21058,null,5000,red,879
-April,Team 13,Cycle Time (Refinance),-53849.6328,null,5000,#ccccc,880
-May,Team 13,Cycle Time (Refinance),46,null,5000,white,881
-June,Team 13,Cycle Time (Refinance),65,null,5000,red,882
-July,Team 13,Cycle Time (Refinance),94,null,5000,#ccccc,883
-August,Team 13,Cycle Time (Refinance),84,null,5000,white,884
-September,Team 13,Cycle Time (Refinance),108,null,5000,red,885
-October,Team 13,Cycle Time (Refinance),122.3,null,5000,#ccccc,886
-November,Team 13,Cycle Time (Refinance),136.6,null,5000,white,887
-December,Team 13,Cycle Time (Refinance),150.9,null,5000,red,888
-January,Team 14,Cycle Time (Refinance),165.2,null,5000,#ccccc,889
-February,Team 14,Cycle Time (Refinance),179.5,null,5000,white,890
-March,Team 14,Cycle Time (Refinance),193.8,null,5000,red,891
-April,Team 14,Cycle Time (Refinance),208.1,null,5000,#ccccc,892
-May,Team 14,Cycle Time (Refinance),222.4,null,5000,white,893
-June,Team 14,Cycle Time (Refinance),236.7,null,5000,red,894
-July,Team 14,Cycle Time (Refinance),251,null,5000,#ccccc,895
-August,Team 14,Cycle Time (Refinance),265.3,null,5000,white,896
-September,Team 14,Cycle Time (Refinance),279.6,null,5000,red,897
-October,Team 14,Cycle Time (Refinance),293.9,null,5000,#ccccc,898
-November,Team 14,Cycle Time (Refinance),308.2,null,5000,white,899
-December,Team 14,Cycle Time (Refinance),322.5,null,5000,red,900
-January,Team 15,Cycle Time (Refinance),336.8,null,5000,#ccccc,901
-February,Team 15,Cycle Time (Refinance),351.1,null,5000,white,902
-March,Team 15,Cycle Time (Refinance),365.4,null,5000,red,903
-April,Team 15,Cycle Time (Refinance),379.7,null,5000,#ccccc,904
-May,Team 15,Cycle Time (Refinance),394,null,5000,white,905
-June,Team 15,Cycle Time (Refinance),408.3,null,5000,red,906
-July,Team 15,Cycle Time (Refinance),422.6,null,5000,#ccccc,907
-August,Team 15,Cycle Time (Refinance),436.9,null,5000,white,908
-September,Team 15,Cycle Time (Refinance),451.2,null,5000,red,909
-October,Team 15,Cycle Time (Refinance),465.5,null,5000,#ccccc,910
-November,Team 15,Cycle Time (Refinance),479.8,null,5000,white,911
-December,Team 15,Cycle Time (Refinance),494.1,null,5000,red,912
-January,Team 16,Cycle Time (Refinance),508.4,null,5000,#ccccc,913
-February,Team 16,Cycle Time (Refinance),522.7,null,5000,white,914
-March,Team 16,Cycle Time (Refinance),537,null,5000,red,915
-April,Team 16,Cycle Time (Refinance),551.3,null,5000,#ccccc,916
-May,Team 16,Cycle Time (Refinance),565.6,null,5000,white,917
-June,Team 16,Cycle Time (Refinance),579.9,null,5000,red,918
-July,Team 16,Cycle Time (Refinance),594.2,null,5000,#ccccc,919
-August,Team 16,Cycle Time (Refinance),608.5,null,5000,white,920
-September,Team 16,Cycle Time (Refinance),622.8,null,5000,red,921
-October,Team 16,Cycle Time (Refinance),637.1,null,5000,#ccccc,922
-November,Team 16,Cycle Time (Refinance),651.4,null,5000,white,923
-December,Team 16,Cycle Time (Refinance),665.7,null,5000,red,924
-January,Team 17,Cycle Time (Refinance),680,null,5000,#ccccc,925
-February,Team 17,Cycle Time (Refinance),694.3,null,5000,white,926
-March,Team 17,Cycle Time (Refinance),708.6,null,5000,red,927
-April,Team 17,Cycle Time (Refinance),722.9,null,5000,#ccccc,928
-May,Team 17,Cycle Time (Refinance),737.2,null,5000,white,929
-June,Team 17,Cycle Time (Refinance),751.5,null,5000,red,930
-July,Team 17,Cycle Time (Refinance),765.8,null,5000,#ccccc,931
-August,Team 17,Cycle Time (Refinance),780.1,null,5000,white,932
-September,Team 17,Cycle Time (Refinance),794.4,null,5000,red,933
-October,Team 17,Cycle Time (Refinance),808.7,null,5000,#ccccc,934
-November,Team 17,Cycle Time (Refinance),823,null,5000,white,935
-December,Team 17,Cycle Time (Refinance),837.3,null,5000,red,936
-January,Team 18,Cycle Time (Refinance),851.6,null,5000,#ccccc,937
-February,Team 18,Cycle Time (Refinance),865.9,null,5000,white,938
-March,Team 18,Cycle Time (Refinance),880.2,null,5000,red,939
-April,Team 18,Cycle Time (Refinance),894.5,null,5000,#ccccc,940
-May,Team 18,Cycle Time (Refinance),908.8,null,5000,white,941
-June,Team 18,Cycle Time (Refinance),923.1,null,5000,red,942
-July,Team 18,Cycle Time (Refinance),937.4,null,5000,#ccccc,943
-August,Team 18,Cycle Time (Refinance),951.7,null,5000,white,944
-September,Team 18,Cycle Time (Refinance),966,null,5000,red,945
-October,Team 18,Cycle Time (Refinance),980.3,null,5000,#ccccc,946
-November,Team 18,Cycle Time (Refinance),994.6,null,5000,white,947
-December,Team 18,Cycle Time (Refinance),1008.9,null,5000,red,948
-January,Team 19,Cycle Time (Refinance),1023.2,null,5000,#ccccc,949
-February,Team 19,Cycle Time (Refinance),1037.5,null,5000,white,950
-March,Team 19,Cycle Time (Refinance),1051.8,null,5000,red,951
-April,Team 19,Cycle Time (Refinance),1066.1,null,5000,#ccccc,952
-May,Team 19,Cycle Time (Refinance),1080.4,null,5000,white,953
-June,Team 19,Cycle Time (Refinance),1094.7,null,5000,red,954
-July,Team 19,Cycle Time (Refinance),1109,null,5000,#ccccc,955
-August,Team 19,Cycle Time (Refinance),1123.3,null,5000,white,956
-September,Team 19,Cycle Time (Refinance),1137.6,null,5000,red,957
-October,Team 19,Cycle Time (Refinance),1151.9,null,5000,#ccccc,958
-November,Team 19,Cycle Time (Refinance),1166.2,null,5000,white,959
-December,Team 19,Cycle Time (Refinance),1180.5,null,5000,red,960
-January,Team 20,Cycle Time (Refinance),1194.8,null,5000,#ccccc,961
-February,Team 20,Cycle Time (Refinance),1209.1,null,5000,white,962
-March,Team 20,Cycle Time (Refinance),1223.4,null,5000,red,963
-April,Team 20,Cycle Time (Refinance),1237.7,null,5000,#ccccc,964
-May,Team 20,Cycle Time (Refinance),1252,null,5000,white,965
-June,Team 20,Cycle Time (Refinance),1266.3,null,5000,red,966
-July,Team 20,Cycle Time (Refinance),1280.6,null,5000,#ccccc,967
-August,Team 20,Cycle Time (Refinance),1294.9,null,5000,white,968
-September,Team 20,Cycle Time (Refinance),1309.2,null,5000,red,969
-October,Team 20,Cycle Time (Refinance),1323.5,null,5000,#ccccc,970
-November,Team 20,Cycle Time (Refinance),1337.8,null,5000,white,971
-December,Team 20,Cycle Time (Refinance),1352.1,null,5000,red,972
+January,Team 1,Net Promoter Score,12,null,5000,#fdbb03,1
+February,Team 1,Net Promoter Score,3,null,5000,#fdbb03,2
+March,Team 1,Net Promoter Score,135,null,5000,#e54d35,3
+April,Team 1,Net Promoter Score,98,null,5000,#fdbb03,4
+May,Team 1,Net Promoter Score,648,null,5000,#e54d35,5
+June,Team 1,Net Promoter Score,123,null,5000,#fdbb03,6
+July,Team 1,Net Promoter Score,415.1333333,null,5000,#d3e513,7
+August,Team 1,Net Promoter Score,485.2190476,null,5000,#e54d35,8
+September,Team 1,Net Promoter Score,555.3047619,null,5000,#d3e513,9
+October,Team 1,Net Promoter Score,625.3904762,null,5000,#e54d35,10
+November,Team 1,Net Promoter Score,695.4761905,null,5000,#fdbb03,11
+December,Team 1,Net Promoter Score,765.5619048,null,5000,#e54d35,12
+January,Team 2,Net Promoter Score,835.647619,null,5000,#e54d35,13
+February,Team 2,Net Promoter Score,905.7333333,null,5000,#fdbb03,14
+March,Team 2,Net Promoter Score,975.8190476,null,5000,#d3e513,15
+April,Team 2,Net Promoter Score,1045.904762,null,5000,#e54d35,16
+May,Team 2,Net Promoter Score,1115.990476,null,5000,#e54d35,17
+June,Team 2,Net Promoter Score,1186.07619,null,5000,#e54d35,18
+July,Team 2,Net Promoter Score,1256.161905,null,5000,#e54d35,19
+August,Team 2,Net Promoter Score,1326.247619,null,5000,#e54d35,20
+September,Team 2,Net Promoter Score,1396.333333,null,5000,#e54d35,21
+October,Team 2,Net Promoter Score,1466.419048,null,5000,#d3e513,22
+November,Team 2,Net Promoter Score,1536.504762,null,5000,#d3e513,23
+December,Team 2,Net Promoter Score,1606.590476,null,5000,#fdbb03,24
+January,Team 3,Net Promoter Score,1676.67619,null,5000,#fdbb03,25
+February,Team 3,Net Promoter Score,1746.761905,null,5000,#d3e513,26
+March,Team 3,Net Promoter Score,1816.847619,null,5000,#e54d35,27
+April,Team 3,Net Promoter Score,1886.933333,null,5000,#fdbb03,28
+May,Team 3,Net Promoter Score,1957.019048,null,5000,#e54d35,29
+June,Team 3,Net Promoter Score,2027.104762,null,5000,#e54d35,30
+July,Team 3,Net Promoter Score,2097.190476,null,5000,#d3e513,31
+August,Team 3,Net Promoter Score,2167.27619,null,5000,#e54d35,32
+September,Team 3,Net Promoter Score,2237.361905,null,5000,#e54d35,33
+October,Team 3,Net Promoter Score,2307.447619,null,5000,#e54d35,34
+November,Team 3,Net Promoter Score,2377.533333,null,5000,#e54d35,35
+December,Team 3,Net Promoter Score,2447.619048,null,5000,#fdbb03,36
+January,Team 4,Net Promoter Score,2517.704762,null,5000,#e54d35,37
+February,Team 4,Net Promoter Score,2587.790476,null,5000,#e54d35,38
+March,Team 4,Net Promoter Score,2657.87619,null,5000,#fdbb03,39
+April,Team 4,Net Promoter Score,2727.961905,null,5000,#e54d35,40
+May,Team 4,Net Promoter Score,2798.047619,null,5000,#e54d35,41
+June,Team 4,Net Promoter Score,2868.133333,null,5000,#e54d35,42
+July,Team 4,Net Promoter Score,2938.219048,null,5000,#e54d35,43
+August,Team 4,Net Promoter Score,3008.304762,null,5000,#d3e513,44
+September,Team 4,Net Promoter Score,3078.390476,null,5000,#d3e513,45
+October,Team 4,Net Promoter Score,3148.47619,null,5000,#e54d35,46
+November,Team 4,Net Promoter Score,3218.561905,null,5000,#e54d35,47
+December,Team 4,Net Promoter Score,3288.647619,null,5000,#fdbb03,48
+January,Team 5,Net Promoter Score,3358.733333,null,5000,#d3e513,49
+February,Team 5,Net Promoter Score,3428.819048,null,5000,#d3e513,50
+March,Team 5,Net Promoter Score,3498.904762,null,5000,#e54d35,51
+April,Team 5,Net Promoter Score,3568.990476,null,5000,#e54d35,52
+May,Team 5,Net Promoter Score,3639.07619,null,5000,#e54d35,53
+June,Team 5,Net Promoter Score,3709.161905,null,5000,#fdbb03,54
+July,Team 5,Net Promoter Score,3779.247619,null,5000,#e54d35,55
+August,Team 5,Net Promoter Score,3849.333333,null,5000,#e54d35,56
+September,Team 5,Net Promoter Score,3919.419048,null,5000,#fdbb03,57
+October,Team 5,Net Promoter Score,3989.504762,null,5000,#e54d35,58
+November,Team 5,Net Promoter Score,4059.590476,null,5000,#fdbb03,59
+December,Team 5,Net Promoter Score,4129.67619,null,5000,#e54d35,60
+January,Team 6,Net Promoter Score,4199.761905,null,5000,#e54d35,61
+February,Team 6,Net Promoter Score,4269.847619,null,5000,#e54d35,62
+March,Team 6,Net Promoter Score,4339.933333,null,5000,#e54d35,63
+April,Team 6,Net Promoter Score,4410.019048,null,5000,#fdbb03,64
+May,Team 6,Net Promoter Score,4480.104762,null,5000,#fdbb03,65
+June,Team 6,Net Promoter Score,4550.190476,null,5000,#fdbb03,66
+July,Team 6,Net Promoter Score,4620.27619,null,5000,#d3e513,67
+August,Team 6,Net Promoter Score,4690.361905,null,5000,#e54d35,68
+September,Team 6,Net Promoter Score,4760.447619,null,5000,#e54d35,69
+October,Team 6,Net Promoter Score,4830.533333,null,5000,#fdbb03,70
+November,Team 6,Net Promoter Score,4900.619048,null,5000,#e54d35,71
+December,Team 6,Net Promoter Score,4970.704762,null,5000,#e54d35,72
+January,Team 7,Net Promoter Score,5040.790476,null,5000,#d3e513,73
+February,Team 7,Net Promoter Score,5110.87619,null,5000,#e54d35,74
+March,Team 7,Net Promoter Score,5180.961905,null,5000,#e54d35,75
+April,Team 7,Net Promoter Score,5251.047619,null,5000,#e54d35,76
+May,Team 7,Net Promoter Score,5321.133333,null,5000,#e54d35,77
+June,Team 7,Net Promoter Score,5391.219048,null,5000,#d3e513,78
+July,Team 7,Net Promoter Score,5461.304762,null,5000,#fdbb03,79
+August,Team 7,Net Promoter Score,5531.390476,null,5000,#d3e513,80
+September,Team 7,Net Promoter Score,5601.47619,null,5000,#d3e513,81
+October,Team 7,Net Promoter Score,5671.561905,null,5000,#fdbb03,82
+November,Team 7,Net Promoter Score,5741.647619,null,5000,#d3e513,83
+December,Team 7,Net Promoter Score,5811.733333,null,5000,#d3e513,84
+January,Team 8,Net Promoter Score,5881.819048,null,5000,#e54d35,85
+February,Team 8,Net Promoter Score,5951.904762,null,5000,#e54d35,86
+March,Team 8,Net Promoter Score,6021.990476,null,5000,#e54d35,87
+April,Team 8,Net Promoter Score,6092.07619,null,5000,#e54d35,88
+May,Team 8,Net Promoter Score,6162.161905,null,5000,#e54d35,89
+June,Team 8,Net Promoter Score,6232.247619,null,5000,#fdbb03,90
+July,Team 8,Net Promoter Score,6302.333333,null,5000,#d3e513,91
+August,Team 8,Net Promoter Score,6372.419048,null,5000,#fdbb03,92
+September,Team 8,Net Promoter Score,6442.504762,null,5000,#fdbb03,93
+October,Team 8,Net Promoter Score,1,null,5000,#d3e513,94
+November,Team 8,Net Promoter Score,3,null,5000,#fdbb03,95
+December,Team 8,Net Promoter Score,6,null,5000,#e54d35,96
+January,Team 9,Net Promoter Score,9,null,5000,#fdbb03,97
+February,Team 9,Net Promoter Score,4,null,5000,#e54d35,98
+March,Team 9,Net Promoter Score,-2427.943915,null,5000,#d3e513,99
+April,Team 9,Net Promoter Score,-3477.366138,null,5000,#e54d35,100
+May,Team 9,Net Promoter Score,-4526.78836,null,5000,#e54d35,101
+June,Team 9,Net Promoter Score,-5576.210582,null,5000,#e54d35,102
+July,Team 9,Net Promoter Score,-6625.632804,null,5000,#d3e513,103
+August,Team 9,Net Promoter Score,-7675.055026,null,5000,#fdbb03,104
+September,Team 9,Net Promoter Score,-8724.477249,null,5000,#e54d35,105
+October,Team 9,Net Promoter Score,-9773.899471,null,5000,#e54d35,106
+November,Team 9,Net Promoter Score,-10823.32169,null,5000,#e54d35,107
+December,Team 9,Net Promoter Score,-11872.74392,null,5000,#d3e513,108
+January,Team 10,Net Promoter Score,-12922.16614,null,5000,#e54d35,109
+February,Team 10,Net Promoter Score,-13971.58836,null,5000,#fdbb03,110
+March,Team 10,Net Promoter Score,-15021.01058,null,5000,#d3e513,111
+April,Team 10,Net Promoter Score,-16070.4328,null,5000,#fdbb03,112
+May,Team 10,Net Promoter Score,-17119.85503,null,5000,#e54d35,113
+June,Team 10,Net Promoter Score,-18169.27725,null,5000,#e54d35,114
+July,Team 10,Net Promoter Score,-19218.69947,null,5000,#e54d35,115
+August,Team 10,Net Promoter Score,-20268.12169,null,5000,#e54d35,116
+September,Team 10,Net Promoter Score,-21317.54392,null,5000,#e54d35,117
+October,Team 10,Net Promoter Score,-22366.96614,null,5000,#d3e513,118
+November,Team 10,Net Promoter Score,-23416.38836,null,5000,#d3e513,119
+December,Team 10,Net Promoter Score,-24465.81058,null,5000,#e54d35,120
+January,Team 11,Net Promoter Score,-25515.2328,null,5000,#e54d35,121
+February,Team 11,Net Promoter Score,-26564.65503,null,5000,#fdbb03,122
+March,Team 11,Net Promoter Score,-27614.07725,null,5000,#d3e513,123
+April,Team 11,Net Promoter Score,-28663.49947,null,5000,#d3e513,124
+May,Team 11,Net Promoter Score,-29712.92169,null,5000,#e54d35,125
+June,Team 11,Net Promoter Score,-30762.34392,null,5000,#fdbb03,126
+July,Team 11,Net Promoter Score,-31811.76614,null,5000,#fdbb03,127
+August,Team 11,Net Promoter Score,-32861.18836,null,5000,#e54d35,128
+September,Team 11,Net Promoter Score,-33910.61058,null,5000,#d3e513,129
+October,Team 11,Net Promoter Score,-34960.0328,null,5000,#fdbb03,130
+November,Team 11,Net Promoter Score,-36009.45503,null,5000,#e54d35,131
+December,Team 11,Net Promoter Score,-37058.87725,null,5000,#e54d35,132
+January,Team 12,Net Promoter Score,-38108.29947,null,5000,#d3e513,133
+February,Team 12,Net Promoter Score,-39157.72169,null,5000,#e54d35,134
+March,Team 12,Net Promoter Score,-40207.14392,null,5000,#e54d35,135
+April,Team 12,Net Promoter Score,-41256.56614,null,5000,#fdbb03,136
+May,Team 12,Net Promoter Score,-42305.98836,null,5000,#e54d35,137
+June,Team 12,Net Promoter Score,-43355.41058,null,5000,#fdbb03,138
+July,Team 12,Net Promoter Score,-44404.8328,null,5000,#e54d35,139
+August,Team 12,Net Promoter Score,-45454.25503,null,5000,#fdbb03,140
+September,Team 12,Net Promoter Score,-46503.67725,null,5000,#e54d35,141
+October,Team 12,Net Promoter Score,-47553.09947,null,5000,#e54d35,142
+November,Team 12,Net Promoter Score,-48602.52169,null,5000,#e54d35,143
+December,Team 12,Net Promoter Score,-49651.94392,null,5000,#fdbb03,144
+January,Team 13,Net Promoter Score,-50701.36614,null,5000,#e54d35,145
+February,Team 13,Net Promoter Score,-51750.78836,null,5000,#fdbb03,146
+March,Team 13,Net Promoter Score,-52800.21058,null,5000,#fdbb03,147
+April,Team 13,Net Promoter Score,-53849.6328,null,5000,#d3e513,148
+May,Team 13,Net Promoter Score,46,null,5000,#e54d35,149
+June,Team 13,Net Promoter Score,65,null,5000,#d3e513,150
+July,Team 13,Net Promoter Score,94,null,5000,#d3e513,151
+August,Team 13,Net Promoter Score,84,null,5000,#e54d35,152
+September,Team 13,Net Promoter Score,108,null,5000,#e54d35,153
+October,Team 13,Net Promoter Score,122.3,null,5000,#e54d35,154
+November,Team 13,Net Promoter Score,136.6,null,5000,#fdbb03,155
+December,Team 13,Net Promoter Score,150.9,null,5000,#e54d35,156
+January,Team 14,Net Promoter Score,165.2,null,5000,#e54d35,157
+February,Team 14,Net Promoter Score,179.5,null,5000,#e54d35,158
+March,Team 14,Net Promoter Score,193.8,null,5000,#fdbb03,159
+April,Team 14,Net Promoter Score,208.1,null,5000,#e54d35,160
+May,Team 14,Net Promoter Score,222.4,null,5000,#d3e513,161
+June,Team 14,Net Promoter Score,236.7,null,5000,#e54d35,162
+July,Team 14,Net Promoter Score,251,null,5000,#e54d35,163
+August,Team 14,Net Promoter Score,265.3,null,5000,#fdbb03,164
+September,Team 14,Net Promoter Score,279.6,null,5000,#e54d35,165
+October,Team 14,Net Promoter Score,293.9,null,5000,#e54d35,166
+November,Team 14,Net Promoter Score,308.2,null,5000,#fdbb03,167
+December,Team 14,Net Promoter Score,322.5,null,5000,#d3e513,168
+January,Team 15,Net Promoter Score,336.8,null,5000,#fdbb03,169
+February,Team 15,Net Promoter Score,351.1,null,5000,#fdbb03,170
+March,Team 15,Net Promoter Score,365.4,null,5000,#e54d35,171
+April,Team 15,Net Promoter Score,379.7,null,5000,#d3e513,172
+May,Team 15,Net Promoter Score,394,null,5000,#e54d35,173
+June,Team 15,Net Promoter Score,408.3,null,5000,#fdbb03,174
+July,Team 15,Net Promoter Score,422.6,null,5000,#fdbb03,175
+August,Team 15,Net Promoter Score,436.9,null,5000,#e54d35,176
+September,Team 15,Net Promoter Score,451.2,null,5000,#fdbb03,177
+October,Team 15,Net Promoter Score,465.5,null,5000,#d3e513,178
+November,Team 15,Net Promoter Score,479.8,null,5000,#e54d35,179
+December,Team 15,Net Promoter Score,494.1,null,5000,#d3e513,180
+January,Team 16,Net Promoter Score,508.4,null,5000,#d3e513,181
+February,Team 16,Net Promoter Score,522.7,null,5000,#d3e513,182
+March,Team 16,Net Promoter Score,537,null,5000,#d3e513,183
+April,Team 16,Net Promoter Score,551.3,null,5000,#d3e513,184
+May,Team 16,Net Promoter Score,565.6,null,5000,#d3e513,185
+June,Team 16,Net Promoter Score,579.9,null,5000,#e54d35,186
+July,Team 16,Net Promoter Score,594.2,null,5000,#e54d35,187
+August,Team 16,Net Promoter Score,608.5,null,5000,#e54d35,188
+September,Team 16,Net Promoter Score,622.8,null,5000,#fdbb03,189
+October,Team 16,Net Promoter Score,637.1,null,5000,#d3e513,190
+November,Team 16,Net Promoter Score,651.4,null,5000,#fdbb03,191
+December,Team 16,Net Promoter Score,665.7,null,5000,#fdbb03,192
+January,Team 17,Net Promoter Score,680,null,5000,#d3e513,193
+February,Team 17,Net Promoter Score,694.3,null,5000,#e54d35,194
+March,Team 17,Net Promoter Score,708.6,null,5000,#e54d35,195
+April,Team 17,Net Promoter Score,722.9,null,5000,#e54d35,196
+May,Team 17,Net Promoter Score,737.2,null,5000,#e54d35,197
+June,Team 17,Net Promoter Score,751.5,null,5000,#fdbb03,198
+July,Team 17,Net Promoter Score,765.8,null,5000,#fdbb03,199
+August,Team 17,Net Promoter Score,780.1,null,5000,#e54d35,200
+September,Team 17,Net Promoter Score,794.4,null,5000,#e54d35,201
+October,Team 17,Net Promoter Score,808.7,null,5000,#fdbb03,202
+November,Team 17,Net Promoter Score,823,null,5000,#e54d35,203
+December,Team 17,Net Promoter Score,837.3,null,5000,#d3e513,204
+January,Team 18,Net Promoter Score,851.6,null,5000,#fdbb03,205
+February,Team 18,Net Promoter Score,865.9,null,5000,#fdbb03,206
+March,Team 18,Net Promoter Score,880.2,null,5000,#fdbb03,207
+April,Team 18,Net Promoter Score,894.5,null,5000,#d3e513,208
+May,Team 18,Net Promoter Score,908.8,null,5000,#e54d35,209
+June,Team 18,Net Promoter Score,923.1,null,5000,#e54d35,210
+July,Team 18,Net Promoter Score,937.4,null,5000,#e54d35,211
+August,Team 18,Net Promoter Score,951.7,null,5000,#fdbb03,212
+September,Team 18,Net Promoter Score,966,null,5000,#e54d35,213
+October,Team 18,Net Promoter Score,980.3,null,5000,#d3e513,214
+November,Team 18,Net Promoter Score,994.6,null,5000,#fdbb03,215
+December,Team 18,Net Promoter Score,1008.9,null,5000,#e54d35,216
+January,Team 19,Net Promoter Score,1023.2,null,5000,#e54d35,217
+February,Team 19,Net Promoter Score,1037.5,null,5000,#e54d35,218
+March,Team 19,Net Promoter Score,1051.8,null,5000,#d3e513,219
+April,Team 19,Net Promoter Score,1066.1,null,5000,#fdbb03,220
+May,Team 19,Net Promoter Score,1080.4,null,5000,#e54d35,221
+June,Team 19,Net Promoter Score,1094.7,null,5000,#fdbb03,222
+July,Team 19,Net Promoter Score,1109,null,5000,#d3e513,223
+August,Team 19,Net Promoter Score,1123.3,null,5000,#e54d35,224
+September,Team 19,Net Promoter Score,1137.6,null,5000,#d3e513,225
+October,Team 19,Net Promoter Score,1151.9,null,5000,#fdbb03,226
+November,Team 19,Net Promoter Score,1166.2,null,5000,#e54d35,227
+December,Team 19,Net Promoter Score,1180.5,null,5000,#e54d35,228
+January,Team 20,Net Promoter Score,1194.8,null,5000,#e54d35,229
+February,Team 20,Net Promoter Score,1209.1,null,5000,#e54d35,230
+March,Team 20,Net Promoter Score,1223.4,null,5000,#fdbb03,231
+April,Team 20,Net Promoter Score,1237.7,null,5000,#fdbb03,232
+May,Team 20,Net Promoter Score,1252,null,5000,#e54d35,233
+June,Team 20,Net Promoter Score,1266.3,null,5000,#e54d35,234
+July,Team 20,Net Promoter Score,1280.6,null,5000,#d3e513,235
+August,Team 20,Net Promoter Score,1294.9,null,5000,#fdbb03,236
+September,Team 20,Net Promoter Score,1309.2,null,5000,#e54d35,237
+October,Team 20,Net Promoter Score,1323.5,null,5000,#e54d35,238
+November,Team 20,Net Promoter Score,1337.8,null,5000,#fdbb03,239
+December,Team 20,Net Promoter Score,1352.1,null,5000,#e54d35,240
+January,Team 1,Funded Loans,12,null,5000,#d3e513,367
+February,Team 1 ,Funded Loans,3,null,5000,#e54d35,368
+March,Team 1,Funded Loans,135,null,5000,#d3e513,369
+April,Team 1,Funded Loans,98,null,5000,#e54d35,370
+May,Team 1,Funded Loans,648,null,5000,#d3e513,371
+June,Team 1,Funded Loans,123,null,5000,#e54d35,372
+July,Team 1,Funded Loans,415.1333333,null,5000,#e54d35,373
+August,Team 1,Funded Loans,485.2190476,null,5000,#fdbb03,374
+September,Team 1,Funded Loans,555.3047619,null,5000,#fdbb03,375
+October,Team 1,Funded Loans,625.3904762,null,5000,#e54d35,376
+November,Team 1,Funded Loans,695.4761905,null,5000,#e54d35,377
+December,Team 1,Funded Loans,765.5619048,null,5000,#e54d35,378
+January,Team 2,Funded Loans,835.647619,null,5000,#e54d35,379
+February,Team 2,Funded Loans,905.7333333,null,5000,#e54d35,380
+March,Team 2,Funded Loans,975.8190476,null,5000,#d3e513,381
+April,Team 2,Funded Loans,1045.904762,null,5000,#e54d35,382
+May,Team 2,Funded Loans,1115.990476,null,5000,#e54d35,383
+June,Team 2,Funded Loans,1186.07619,null,5000,#d3e513,384
+July,Team 2,Funded Loans,1256.161905,null,5000,#e54d35,385
+August,Team 2,Funded Loans,1326.247619,null,5000,#e54d35,386
+September,Team 2,Funded Loans,1396.333333,null,5000,#fdbb03,387
+October,Team 2,Funded Loans,1466.419048,null,5000,#fdbb03,388
+November,Team 2,Funded Loans,1536.504762,null,5000,#e54d35,389
+December,Team 2,Funded Loans,1606.590476,null,5000,#e54d35,390
+January,Team 3,Funded Loans,1676.67619,null,5000,#e54d35,391
+February,Team 3,Funded Loans,1746.761905,null,5000,#e54d35,392
+March,Team 3,Funded Loans,1816.847619,null,5000,#e54d35,393
+April,Team 3,Funded Loans,1886.933333,null,5000,#fdbb03,394
+May,Team 3,Funded Loans,1957.019048,null,5000,#fdbb03,395
+June,Team 3,Funded Loans,2027.104762,null,5000,#e54d35,396
+July,Team 3,Funded Loans,2097.190476,null,5000,#d3e513,397
+August,Team 3,Funded Loans,2167.27619,null,5000,#fdbb03,398
+September,Team 3,Funded Loans,2237.361905,null,5000,#fdbb03,399
+October,Team 3,Funded Loans,2307.447619,null,5000,#e54d35,400
+November,Team 3,Funded Loans,2377.533333,null,5000,#e54d35,401
+December,Team 3,Funded Loans,2447.619048,null,5000,#d3e513,402
+January,Team 4,Funded Loans,2517.704762,null,5000,#fdbb03,403
+February,Team 4,Funded Loans,2587.790476,null,5000,#e54d35,404
+March,Team 4,Funded Loans,2657.87619,null,5000,#e54d35,405
+April,Team 4,Funded Loans,2727.961905,null,5000,#d3e513,406
+May,Team 4,Funded Loans,2798.047619,null,5000,#e54d35,407
+June,Team 4,Funded Loans,2868.133333,null,5000,#d3e513,408
+July,Team 4,Funded Loans,2938.219048,null,5000,#e54d35,409
+August,Team 4,Funded Loans,3008.304762,null,5000,#e54d35,410
+September,Team 4,Funded Loans,3078.390476,null,5000,#fdbb03,411
+October,Team 4,Funded Loans,3148.47619,null,5000,#fdbb03,412
+November,Team 4,Funded Loans,3218.561905,null,5000,#d3e513,413
+December,Team 4,Funded Loans,3288.647619,null,5000,#fdbb03,414
+January,Team 5,Funded Loans,3358.733333,null,5000,#d3e513,415
+February,Team 5,Funded Loans,3428.819048,null,5000,#fdbb03,416
+March,Team 5,Funded Loans,3498.904762,null,5000,#fdbb03,417
+April,Team 5,Funded Loans,3568.990476,null,5000,#e54d35,418
+May,Team 5,Funded Loans,3639.07619,null,5000,#fdbb03,419
+June,Team 5,Funded Loans,3709.161905,null,5000,#d3e513,420
+July,Team 5,Funded Loans,3779.247619,null,5000,#e54d35,421
+August,Team 5,Funded Loans,3849.333333,null,5000,#fdbb03,422
+September,Team 5,Funded Loans,3919.419048,null,5000,#fdbb03,423
+October,Team 5,Funded Loans,3989.504762,null,5000,#e54d35,424
+November,Team 5,Funded Loans,4059.590476,null,5000,#d3e513,425
+December,Team 5,Funded Loans,4129.67619,null,5000,#e54d35,426
+January,Team 6,Funded Loans,4199.761905,null,5000,#fdbb03,427
+February,Team 6,Funded Loans,4269.847619,null,5000,#e54d35,428
+March,Team 6,Funded Loans,4339.933333,null,5000,#e54d35,429
+April,Team 6,Funded Loans,4410.019048,null,5000,#e54d35,430
+May,Team 6,Funded Loans,4480.104762,null,5000,#e54d35,431
+June,Team 6,Funded Loans,4550.190476,null,5000,#fdbb03,432
+July,Team 6,Funded Loans,4620.27619,null,5000,#fdbb03,433
+August,Team 6,Funded Loans,4690.361905,null,5000,#e54d35,434
+September,Team 6,Funded Loans,4760.447619,null,5000,#fdbb03,435
+October,Team 6,Funded Loans,4830.533333,null,5000,#e54d35,436
+November,Team 6,Funded Loans,4900.619048,null,5000,#e54d35,437
+December,Team 6,Funded Loans,4970.704762,null,5000,#e54d35,438
+January,Team 7,Funded Loans,5040.790476,null,5000,#e54d35,439
+February,Team 7,Funded Loans,5110.87619,null,5000,#e54d35,440
+March,Team 7,Funded Loans,5180.961905,null,5000,#fdbb03,441
+April,Team 7,Funded Loans,5251.047619,null,5000,#fdbb03,442
+May,Team 7,Funded Loans,5321.133333,null,5000,#d3e513,443
+June,Team 7,Funded Loans,5391.219048,null,5000,#fdbb03,444
+July,Team 7,Funded Loans,5461.304762,null,5000,#d3e513,445
+August,Team 7,Funded Loans,5531.390476,null,5000,#fdbb03,446
+September,Team 7,Funded Loans,5601.47619,null,5000,#e54d35,447
+October,Team 7,Funded Loans,5671.561905,null,5000,#e54d35,448
+November,Team 7,Funded Loans,5741.647619,null,5000,#e54d35,449
+December,Team 7,Funded Loans,5811.733333,null,5000,#fdbb03,450
+January,Team 8,Funded Loans,5881.819048,null,5000,#e54d35,451
+February,Team 8,Funded Loans,5951.904762,null,5000,#e54d35,452
+March,Team 8,Funded Loans,6021.990476,null,5000,#e54d35,453
+April,Team 8,Funded Loans,6092.07619,null,5000,#fdbb03,454
+May,Team 8,Funded Loans,6162.161905,null,5000,#e54d35,455
+June,Team 8,Funded Loans,6232.247619,null,5000,#e54d35,456
+July,Team 8,Funded Loans,6302.333333,null,5000,#fdbb03,457
+August,Team 8,Funded Loans,6372.419048,null,5000,#d3e513,458
+September,Team 8,Funded Loans,6442.504762,null,5000,#e54d35,459
+October,Team 8,Funded Loans,1,null,5000,#e54d35,460
+November,Team 8,Funded Loans,3,null,5000,#e54d35,461
+December,Team 8,Funded Loans,6,null,5000,#e54d35,462
+January,Team 9,Funded Loans,9,null,5000,#fdbb03,463
+February,Team 9,Funded Loans,4,null,5000,#e54d35,464
+March,Team 9,Funded Loans,-2427.943915,null,5000,#d3e513,465
+April,Team 9,Funded Loans,-3477.366138,null,5000,#fdbb03,466
+May,Team 9,Funded Loans,-4526.78836,null,5000,#e54d35,467
+June,Team 9,Funded Loans,-5576.210582,null,5000,#e54d35,468
+July,Team 9,Funded Loans,-6625.632804,null,5000,#fdbb03,469
+August,Team 9,Funded Loans,-7675.055026,null,5000,#e54d35,470
+September,Team 9,Funded Loans,-8724.477249,null,5000,#e54d35,471
+October,Team 9,Funded Loans,-9773.899471,null,5000,#e54d35,472
+November,Team 9,Funded Loans,-10823.32169,null,5000,#e54d35,473
+December,Team 9,Funded Loans,-11872.74392,null,5000,#d3e513,474
+January,Team 10,Funded Loans,-12922.16614,null,5000,#fdbb03,475
+February,Team 10,Funded Loans,-13971.58836,null,5000,#d3e513,476
+March,Team 10,Funded Loans,-15021.01058,null,5000,#d3e513,477
+April,Team 10,Funded Loans,-16070.4328,null,5000,#e54d35,478
+May,Team 10,Funded Loans,-17119.85503,null,5000,#e54d35,479
+June,Team 10,Funded Loans,-18169.27725,null,5000,#e54d35,480
+July,Team 10,Funded Loans,-19218.69947,null,5000,#e54d35,481
+August,Team 10,Funded Loans,-20268.12169,null,5000,#e54d35,482
+September,Team 10,Funded Loans,-21317.54392,null,5000,#fdbb03,483
+October,Team 10,Funded Loans,-22366.96614,null,5000,#e54d35,484
+November,Team 10,Funded Loans,-23416.38836,null,5000,#e54d35,485
+December,Team 10,Funded Loans,-24465.81058,null,5000,#d3e513,486
+January,Team 11,Funded Loans,-25515.2328,null,5000,#fdbb03,487
+February,Team 11,Funded Loans,-26564.65503,null,5000,#e54d35,488
+March,Team 11,Funded Loans,-27614.07725,null,5000,#e54d35,489
+April,Team 11,Funded Loans,-28663.49947,null,5000,#fdbb03,490
+May,Team 11,Funded Loans,-29712.92169,null,5000,#e54d35,491
+June,Team 11,Funded Loans,-30762.34392,null,5000,#fdbb03,492
+July,Team 11,Funded Loans,-31811.76614,null,5000,#e54d35,493
+August,Team 11,Funded Loans,-32861.18836,null,5000,#fdbb03,494
+September,Team 11,Funded Loans,-33910.61058,null,5000,#e54d35,495
+October,Team 11,Funded Loans,-34960.0328,null,5000,#e54d35,496
+November,Team 11,Funded Loans,-36009.45503,null,5000,#e54d35,497
+December,Team 11,Funded Loans,-37058.87725,null,5000,#d3e513,498
+January,Team 12,Funded Loans,-38108.29947,null,5000,#e54d35,499
+February,Team 12,Funded Loans,-39157.72169,null,5000,#d3e513,500
+March,Team 12,Funded Loans,-40207.14392,null,5000,#fdbb03,501
+April,Team 12,Funded Loans,-41256.56614,null,5000,#e54d35,502
+May,Team 12,Funded Loans,-42305.98836,null,5000,#e54d35,503
+June,Team 12,Funded Loans,-43355.41058,null,5000,#d3e513,504
+July,Team 12,Funded Loans,-44404.8328,null,5000,#e54d35,505
+August,Team 12,Funded Loans,-45454.25503,null,5000,#e54d35,506
+September,Team 12,Funded Loans,-46503.67725,null,5000,#e54d35,507
+October,Team 12,Funded Loans,-47553.09947,null,5000,#e54d35,508
+November,Team 12,Funded Loans,-48602.52169,null,5000,#d3e513,509
+December,Team 12,Funded Loans,-49651.94392,null,5000,#fdbb03,510
+January,Team 13,Funded Loans,-50701.36614,null,5000,#d3e513,511
+February,Team 13,Funded Loans,-51750.78836,null,5000,#fdbb03,512
+March,Team 13,Funded Loans,-52800.21058,null,5000,#e54d35,513
+April,Team 13,Funded Loans,-53849.6328,null,5000,#d3e513,514
+May,Team 13,Funded Loans,46,null,5000,#fdbb03,515
+June,Team 13,Funded Loans,65,null,5000,#e54d35,516
+July,Team 13,Funded Loans,94,null,5000,#fdbb03,517
+August,Team 13,Funded Loans,84,null,5000,#e54d35,518
+September,Team 13,Funded Loans,108,null,5000,#e54d35,519
+October,Team 13,Funded Loans,122.3,null,5000,#fdbb03,520
+November,Team 13,Funded Loans,136.6,null,5000,#e54d35,521
+December,Team 13,Funded Loans,150.9,null,5000,#e54d35,522
+January,Team 14,Funded Loans,165.2,null,5000,#e54d35,523
+February,Team 14,Funded Loans,179.5,null,5000,#fdbb03,524
+March,Team 14,Funded Loans,193.8,null,5000,#e54d35,525
+April,Team 14,Funded Loans,208.1,null,5000,#d3e513,526
+May,Team 14,Funded Loans,222.4,null,5000,#fdbb03,527
+June,Team 14,Funded Loans,236.7,null,5000,#fdbb03,528
+July,Team 14,Funded Loans,251,null,5000,#d3e513,529
+August,Team 14,Funded Loans,265.3,null,5000,#fdbb03,530
+September,Team 14,Funded Loans,279.6,null,5000,#fdbb03,531
+October,Team 14,Funded Loans,293.9,null,5000,#fdbb03,532
+November,Team 14,Funded Loans,308.2,null,5000,#e54d35,533
+December,Team 14,Funded Loans,322.5,null,5000,#fdbb03,534
+January,Team 15,Funded Loans,336.8,null,5000,#e54d35,535
+February,Team 15,Funded Loans,351.1,null,5000,#e54d35,536
+March,Team 15,Funded Loans,365.4,null,5000,#e54d35,537
+April,Team 15,Funded Loans,379.7,null,5000,#e54d35,538
+May,Team 15,Funded Loans,394,null,5000,#fdbb03,539
+June,Team 15,Funded Loans,408.3,null,5000,#fdbb03,540
+July,Team 15,Funded Loans,422.6,null,5000,#fdbb03,541
+August,Team 15,Funded Loans,436.9,null,5000,#fdbb03,542
+September,Team 15,Funded Loans,451.2,null,5000,#fdbb03,543
+October,Team 15,Funded Loans,465.5,null,5000,#fdbb03,544
+November,Team 15,Funded Loans,479.8,null,5000,#fdbb03,545
+December,Team 15,Funded Loans,494.1,null,5000,#fdbb03,546
+January,Team 16,Funded Loans,508.4,null,5000,#d3e513,547
+February,Team 16,Funded Loans,522.7,null,5000,#d3e513,548
+March,Team 16,Funded Loans,537,null,5000,#fdbb03,549
+April,Team 16,Funded Loans,551.3,null,5000,#fdbb03,550
+May,Team 16,Funded Loans,565.6,null,5000,#e54d35,551
+June,Team 16,Funded Loans,579.9,null,5000,#d3e513,552
+July,Team 16,Funded Loans,594.2,null,5000,#e54d35,553
+August,Team 16,Funded Loans,608.5,null,5000,#d3e513,554
+September,Team 16,Funded Loans,622.8,null,5000,#e54d35,555
+October,Team 16,Funded Loans,637.1,null,5000,#fdbb03,556
+November,Team 16,Funded Loans,651.4,null,5000,#e54d35,557
+December,Team 16,Funded Loans,665.7,null,5000,#e54d35,558
+January,Team 17,Funded Loans,680,null,5000,#e54d35,559
+February,Team 17,Funded Loans,694.3,null,5000,#e54d35,560
+March,Team 17,Funded Loans,708.6,null,5000,#e54d35,561
+April,Team 17,Funded Loans,722.9,null,5000,#d3e513,562
+May,Team 17,Funded Loans,737.2,null,5000,#e54d35,563
+June,Team 17,Funded Loans,751.5,null,5000,#e54d35,564
+July,Team 17,Funded Loans,765.8,null,5000,#d3e513,565
+August,Team 17,Funded Loans,780.1,null,5000,#fdbb03,566
+September,Team 17,Funded Loans,794.4,null,5000,#d3e513,567
+October,Team 17,Funded Loans,808.7,null,5000,#e54d35,568
+November,Team 17,Funded Loans,823,null,5000,#e54d35,569
+December,Team 17,Funded Loans,837.3,null,5000,#e54d35,570
+January,Team 18,Funded Loans,851.6,null,5000,#d3e513,571
+February,Team 18,Funded Loans,865.9,null,5000,#fdbb03,572
+March,Team 18,Funded Loans,880.2,null,5000,#fdbb03,573
+April,Team 18,Funded Loans,894.5,null,5000,#e54d35,574
+May,Team 18,Funded Loans,908.8,null,5000,#e54d35,575
+June,Team 18,Funded Loans,923.1,null,5000,#d3e513,576
+July,Team 18,Funded Loans,937.4,null,5000,#fdbb03,577
+August,Team 18,Funded Loans,951.7,null,5000,#e54d35,578
+September,Team 18,Funded Loans,966,null,5000,#e54d35,579
+October,Team 18,Funded Loans,980.3,null,5000,#d3e513,580
+November,Team 18,Funded Loans,994.6,null,5000,#e54d35,581
+December,Team 18,Funded Loans,1008.9,null,5000,#e54d35,582
+January,Team 19,Funded Loans,1023.2,null,5000,#fdbb03,583
+February,Team 19,Funded Loans,1037.5,null,5000,#d3e513,584
+March,Team 19,Funded Loans,1051.8,null,5000,#d3e513,585
+April,Team 19,Funded Loans,1066.1,null,5000,#e54d35,586
+May,Team 19,Funded Loans,1080.4,null,5000,#e54d35,587
+June,Team 19,Funded Loans,1094.7,null,5000,#d3e513,588
+July,Team 19,Funded Loans,1109,null,5000,#d3e513,589
+August,Team 19,Funded Loans,1123.3,null,5000,#d3e513,590
+September,Team 19,Funded Loans,1137.6,null,5000,#e54d35,591
+October,Team 19,Funded Loans,1151.9,null,5000,#fdbb03,592
+November,Team 19,Funded Loans,1166.2,null,5000,#d3e513,593
+December,Team 19,Funded Loans,1180.5,null,5000,#fdbb03,594
+January,Team 20,Funded Loans,1194.8,null,5000,#d3e513,595
+February,Team 20,Funded Loans,1209.1,null,5000,#e54d35,596
+March,Team 20,Funded Loans,1223.4,null,5000,#e54d35,597
+April,Team 20,Funded Loans,1237.7,null,5000,#d3e513,598
+May,Team 20,Funded Loans,1252,null,5000,#fdbb03,599
+June,Team 20,Funded Loans,1266.3,null,5000,#d3e513,600
+July,Team 20,Funded Loans,1280.6,null,5000,#e54d35,601
+August,Team 20,Funded Loans,1294.9,null,5000,#e54d35,602
+September,Team 20,Funded Loans,1309.2,null,5000,#fdbb03,603
+October,Team 20,Funded Loans,1323.5,null,5000,#fdbb03,604
+November,Team 20,Funded Loans,1337.8,null,5000,#fdbb03,605
+December,Team 20,Funded Loans,1352.1,null,5000,#e54d35,606
+January,Team 1,Cycle Time (Refinance),12,null,5000,#fdbb03,733
+February,Team 1 ,Cycle Time (Refinance),3,null,5000,#e54d35,734
+March,Team 1,Cycle Time (Refinance),135,null,5000,#d3e513,735
+April,Team 1,Cycle Time (Refinance),98,null,5000,#e54d35,736
+May,Team 1,Cycle Time (Refinance),648,null,5000,#fdbb03,737
+June,Team 1,Cycle Time (Refinance),123,null,5000,#e54d35,738
+July,Team 1,Cycle Time (Refinance),415.1333333,null,5000,#fdbb03,739
+August,Team 1,Cycle Time (Refinance),485.2190476,null,5000,#e54d35,740
+September,Team 1,Cycle Time (Refinance),555.3047619,null,5000,#e54d35,741
+October,Team 1,Cycle Time (Refinance),625.3904762,null,5000,#e54d35,742
+November,Team 1,Cycle Time (Refinance),695.4761905,null,5000,#e54d35,743
+December,Team 1,Cycle Time (Refinance),765.5619048,null,5000,#d3e513,744
+January,Team 2,Cycle Time (Refinance),835.647619,null,5000,#e54d35,745
+February,Team 2,Cycle Time (Refinance),905.7333333,null,5000,#fdbb03,746
+March,Team 2,Cycle Time (Refinance),975.8190476,null,5000,#fdbb03,747
+April,Team 2,Cycle Time (Refinance),1045.904762,null,5000,#fdbb03,748
+May,Team 2,Cycle Time (Refinance),1115.990476,null,5000,#e54d35,749
+June,Team 2,Cycle Time (Refinance),1186.07619,null,5000,#e54d35,750
+July,Team 2,Cycle Time (Refinance),1256.161905,null,5000,#fdbb03,751
+August,Team 2,Cycle Time (Refinance),1326.247619,null,5000,#e54d35,752
+September,Team 2,Cycle Time (Refinance),1396.333333,null,5000,#fdbb03,753
+October,Team 2,Cycle Time (Refinance),1466.419048,null,5000,#d3e513,754
+November,Team 2,Cycle Time (Refinance),1536.504762,null,5000,#e54d35,755
+December,Team 2,Cycle Time (Refinance),1606.590476,null,5000,#fdbb03,756
+January,Team 3,Cycle Time (Refinance),1676.67619,null,5000,#e54d35,757
+February,Team 3,Cycle Time (Refinance),1746.761905,null,5000,#fdbb03,758
+March,Team 3,Cycle Time (Refinance),1816.847619,null,5000,#fdbb03,759
+April,Team 3,Cycle Time (Refinance),1886.933333,null,5000,#e54d35,760
+May,Team 3,Cycle Time (Refinance),1957.019048,null,5000,#e54d35,761
+June,Team 3,Cycle Time (Refinance),2027.104762,null,5000,#fdbb03,762
+July,Team 3,Cycle Time (Refinance),2097.190476,null,5000,#e54d35,763
+August,Team 3,Cycle Time (Refinance),2167.27619,null,5000,#fdbb03,764
+September,Team 3,Cycle Time (Refinance),2237.361905,null,5000,#d3e513,765
+October,Team 3,Cycle Time (Refinance),2307.447619,null,5000,#fdbb03,766
+November,Team 3,Cycle Time (Refinance),2377.533333,null,5000,#e54d35,767
+December,Team 3,Cycle Time (Refinance),2447.619048,null,5000,#e54d35,768
+January,Team 4,Cycle Time (Refinance),2517.704762,null,5000,#fdbb03,769
+February,Team 4,Cycle Time (Refinance),2587.790476,null,5000,#e54d35,770
+March,Team 4,Cycle Time (Refinance),2657.87619,null,5000,#fdbb03,771
+April,Team 4,Cycle Time (Refinance),2727.961905,null,5000,#e54d35,772
+May,Team 4,Cycle Time (Refinance),2798.047619,null,5000,#e54d35,773
+June,Team 4,Cycle Time (Refinance),2868.133333,null,5000,#d3e513,774
+July,Team 4,Cycle Time (Refinance),2938.219048,null,5000,#e54d35,775
+August,Team 4,Cycle Time (Refinance),3008.304762,null,5000,#d3e513,776
+September,Team 4,Cycle Time (Refinance),3078.390476,null,5000,#e54d35,777
+October,Team 4,Cycle Time (Refinance),3148.47619,null,5000,#e54d35,778
+November,Team 4,Cycle Time (Refinance),3218.561905,null,5000,#e54d35,779
+December,Team 4,Cycle Time (Refinance),3288.647619,null,5000,#fdbb03,780
+January,Team 5,Cycle Time (Refinance),3358.733333,null,5000,#fdbb03,781
+February,Team 5,Cycle Time (Refinance),3428.819048,null,5000,#e54d35,782
+March,Team 5,Cycle Time (Refinance),3498.904762,null,5000,#e54d35,783
+April,Team 5,Cycle Time (Refinance),3568.990476,null,5000,#fdbb03,784
+May,Team 5,Cycle Time (Refinance),3639.07619,null,5000,#d3e513,785
+June,Team 5,Cycle Time (Refinance),3709.161905,null,5000,#e54d35,786
+July,Team 5,Cycle Time (Refinance),3779.247619,null,5000,#d3e513,787
+August,Team 5,Cycle Time (Refinance),3849.333333,null,5000,#e54d35,788
+September,Team 5,Cycle Time (Refinance),3919.419048,null,5000,#fdbb03,789
+October,Team 5,Cycle Time (Refinance),3989.504762,null,5000,#e54d35,790
+November,Team 5,Cycle Time (Refinance),4059.590476,null,5000,#fdbb03,791
+December,Team 5,Cycle Time (Refinance),4129.67619,null,5000,#e54d35,792
+January,Team 6,Cycle Time (Refinance),4199.761905,null,5000,#d3e513,793
+February,Team 6,Cycle Time (Refinance),4269.847619,null,5000,#d3e513,794
+March,Team 6,Cycle Time (Refinance),4339.933333,null,5000,#e54d35,795
+April,Team 6,Cycle Time (Refinance),4410.019048,null,5000,#d3e513,796
+May,Team 6,Cycle Time (Refinance),4480.104762,null,5000,#d3e513,797
+June,Team 6,Cycle Time (Refinance),4550.190476,null,5000,#d3e513,798
+July,Team 6,Cycle Time (Refinance),4620.27619,null,5000,#e54d35,799
+August,Team 6,Cycle Time (Refinance),4690.361905,null,5000,#e54d35,800
+September,Team 6,Cycle Time (Refinance),4760.447619,null,5000,#e54d35,801
+October,Team 6,Cycle Time (Refinance),4830.533333,null,5000,#e54d35,802
+November,Team 6,Cycle Time (Refinance),4900.619048,null,5000,#e54d35,803
+December,Team 6,Cycle Time (Refinance),4970.704762,null,5000,#e54d35,804
+January,Team 7,Cycle Time (Refinance),5040.790476,null,5000,#d3e513,805
+February,Team 7,Cycle Time (Refinance),5110.87619,null,5000,#e54d35,806
+March,Team 7,Cycle Time (Refinance),5180.961905,null,5000,#fdbb03,807
+April,Team 7,Cycle Time (Refinance),5251.047619,null,5000,#e54d35,808
+May,Team 7,Cycle Time (Refinance),5321.133333,null,5000,#d3e513,809
+June,Team 7,Cycle Time (Refinance),5391.219048,null,5000,#e54d35,810
+July,Team 7,Cycle Time (Refinance),5461.304762,null,5000,#fdbb03,811
+August,Team 7,Cycle Time (Refinance),5531.390476,null,5000,#e54d35,812
+September,Team 7,Cycle Time (Refinance),5601.47619,null,5000,#fdbb03,813
+October,Team 7,Cycle Time (Refinance),5671.561905,null,5000,#fdbb03,814
+November,Team 7,Cycle Time (Refinance),5741.647619,null,5000,#fdbb03,815
+December,Team 7,Cycle Time (Refinance),5811.733333,null,5000,#e54d35,816
+January,Team 8,Cycle Time (Refinance),5881.819048,null,5000,#e54d35,817
+February,Team 8,Cycle Time (Refinance),5951.904762,null,5000,#fdbb03,818
+March,Team 8,Cycle Time (Refinance),6021.990476,null,5000,#fdbb03,819
+April,Team 8,Cycle Time (Refinance),6092.07619,null,5000,#e54d35,820
+May,Team 8,Cycle Time (Refinance),6162.161905,null,5000,#fdbb03,821
+June,Team 8,Cycle Time (Refinance),6232.247619,null,5000,#fdbb03,822
+July,Team 8,Cycle Time (Refinance),6302.333333,null,5000,#fdbb03,823
+August,Team 8,Cycle Time (Refinance),6372.419048,null,5000,#e54d35,824
+September,Team 8,Cycle Time (Refinance),6442.504762,null,5000,#fdbb03,825
+October,Team 8,Cycle Time (Refinance),1,null,5000,#d3e513,826
+November,Team 8,Cycle Time (Refinance),3,null,5000,#d3e513,827
+December,Team 8,Cycle Time (Refinance),6,null,5000,#fdbb03,828
+January,Team 9,Cycle Time (Refinance),9,null,5000,#fdbb03,829
+February,Team 9,Cycle Time (Refinance),4,null,5000,#fdbb03,830
+March,Team 9,Cycle Time (Refinance),-2427.943915,null,5000,#e54d35,831
+April,Team 9,Cycle Time (Refinance),-3477.366138,null,5000,#fdbb03,832
+May,Team 9,Cycle Time (Refinance),-4526.78836,null,5000,#fdbb03,833
+June,Team 9,Cycle Time (Refinance),-5576.210582,null,5000,#e54d35,834
+July,Team 9,Cycle Time (Refinance),-6625.632804,null,5000,#e54d35,835
+August,Team 9,Cycle Time (Refinance),-7675.055026,null,5000,#e54d35,836
+September,Team 9,Cycle Time (Refinance),-8724.477249,null,5000,#e54d35,837
+October,Team 9,Cycle Time (Refinance),-9773.899471,null,5000,#fdbb03,838
+November,Team 9,Cycle Time (Refinance),-10823.32169,null,5000,#fdbb03,839
+December,Team 9,Cycle Time (Refinance),-11872.74392,null,5000,#e54d35,840
+January,Team 10,Cycle Time (Refinance),-12922.16614,null,5000,#e54d35,841
+February,Team 10,Cycle Time (Refinance),-13971.58836,null,5000,#fdbb03,842
+March,Team 10,Cycle Time (Refinance),-15021.01058,null,5000,#fdbb03,843
+April,Team 10,Cycle Time (Refinance),-16070.4328,null,5000,#e54d35,844
+May,Team 10,Cycle Time (Refinance),-17119.85503,null,5000,#e54d35,845
+June,Team 10,Cycle Time (Refinance),-18169.27725,null,5000,#d3e513,846
+July,Team 10,Cycle Time (Refinance),-19218.69947,null,5000,#e54d35,847
+August,Team 10,Cycle Time (Refinance),-20268.12169,null,5000,#e54d35,848
+September,Team 10,Cycle Time (Refinance),-21317.54392,null,5000,#e54d35,849
+October,Team 10,Cycle Time (Refinance),-22366.96614,null,5000,#e54d35,850
+November,Team 10,Cycle Time (Refinance),-23416.38836,null,5000,#e54d35,851
+December,Team 10,Cycle Time (Refinance),-24465.81058,null,5000,#fdbb03,852
+January,Team 11,Cycle Time (Refinance),-25515.2328,null,5000,#e54d35,853
+February,Team 11,Cycle Time (Refinance),-26564.65503,null,5000,#fdbb03,854
+March,Team 11,Cycle Time (Refinance),-27614.07725,null,5000,#d3e513,855
+April,Team 11,Cycle Time (Refinance),-28663.49947,null,5000,#e54d35,856
+May,Team 11,Cycle Time (Refinance),-29712.92169,null,5000,#fdbb03,857
+June,Team 11,Cycle Time (Refinance),-30762.34392,null,5000,#fdbb03,858
+July,Team 11,Cycle Time (Refinance),-31811.76614,null,5000,#e54d35,859
+August,Team 11,Cycle Time (Refinance),-32861.18836,null,5000,#fdbb03,860
+September,Team 11,Cycle Time (Refinance),-33910.61058,null,5000,#fdbb03,861
+October,Team 11,Cycle Time (Refinance),-34960.0328,null,5000,#e54d35,862
+November,Team 11,Cycle Time (Refinance),-36009.45503,null,5000,#fdbb03,863
+December,Team 11,Cycle Time (Refinance),-37058.87725,null,5000,#d3e513,864
+January,Team 12,Cycle Time (Refinance),-38108.29947,null,5000,#e54d35,865
+February,Team 12,Cycle Time (Refinance),-39157.72169,null,5000,#fdbb03,866
+March,Team 12,Cycle Time (Refinance),-40207.14392,null,5000,#d3e513,867
+April,Team 12,Cycle Time (Refinance),-41256.56614,null,5000,#e54d35,868
+May,Team 12,Cycle Time (Refinance),-42305.98836,null,5000,#e54d35,869
+June,Team 12,Cycle Time (Refinance),-43355.41058,null,5000,#e54d35,870
+July,Team 12,Cycle Time (Refinance),-44404.8328,null,5000,#e54d35,871
+August,Team 12,Cycle Time (Refinance),-45454.25503,null,5000,#d3e513,872
+September,Team 12,Cycle Time (Refinance),-46503.67725,null,5000,#fdbb03,873
+October,Team 12,Cycle Time (Refinance),-47553.09947,null,5000,#fdbb03,874
+November,Team 12,Cycle Time (Refinance),-48602.52169,null,5000,#fdbb03,875
+December,Team 12,Cycle Time (Refinance),-49651.94392,null,5000,#d3e513,876
+January,Team 13,Cycle Time (Refinance),-50701.36614,null,5000,#e54d35,877
+February,Team 13,Cycle Time (Refinance),-51750.78836,null,5000,#e54d35,878
+March,Team 13,Cycle Time (Refinance),-52800.21058,null,5000,#fdbb03,879
+April,Team 13,Cycle Time (Refinance),-53849.6328,null,5000,#d3e513,880
+May,Team 13,Cycle Time (Refinance),46,null,5000,#d3e513,881
+June,Team 13,Cycle Time (Refinance),65,null,5000,#fdbb03,882
+July,Team 13,Cycle Time (Refinance),94,null,5000,#e54d35,883
+August,Team 13,Cycle Time (Refinance),84,null,5000,#e54d35,884
+September,Team 13,Cycle Time (Refinance),108,null,5000,#d3e513,885
+October,Team 13,Cycle Time (Refinance),122.3,null,5000,#d3e513,886
+November,Team 13,Cycle Time (Refinance),136.6,null,5000,#d3e513,887
+December,Team 13,Cycle Time (Refinance),150.9,null,5000,#e54d35,888
+January,Team 14,Cycle Time (Refinance),165.2,null,5000,#fdbb03,889
+February,Team 14,Cycle Time (Refinance),179.5,null,5000,#fdbb03,890
+March,Team 14,Cycle Time (Refinance),193.8,null,5000,#e54d35,891
+April,Team 14,Cycle Time (Refinance),208.1,null,5000,#e54d35,892
+May,Team 14,Cycle Time (Refinance),222.4,null,5000,#fdbb03,893
+June,Team 14,Cycle Time (Refinance),236.7,null,5000,#e54d35,894
+July,Team 14,Cycle Time (Refinance),251,null,5000,#e54d35,895
+August,Team 14,Cycle Time (Refinance),265.3,null,5000,#e54d35,896
+September,Team 14,Cycle Time (Refinance),279.6,null,5000,#d3e513,897
+October,Team 14,Cycle Time (Refinance),293.9,null,5000,#e54d35,898
+November,Team 14,Cycle Time (Refinance),308.2,null,5000,#e54d35,899
+December,Team 14,Cycle Time (Refinance),322.5,null,5000,#fdbb03,900
+January,Team 15,Cycle Time (Refinance),336.8,null,5000,#d3e513,901
+February,Team 15,Cycle Time (Refinance),351.1,null,5000,#e54d35,902
+March,Team 15,Cycle Time (Refinance),365.4,null,5000,#d3e513,903
+April,Team 15,Cycle Time (Refinance),379.7,null,5000,#e54d35,904
+May,Team 15,Cycle Time (Refinance),394,null,5000,#e54d35,905
+June,Team 15,Cycle Time (Refinance),408.3,null,5000,#e54d35,906
+July,Team 15,Cycle Time (Refinance),422.6,null,5000,#d3e513,907
+August,Team 15,Cycle Time (Refinance),436.9,null,5000,#e54d35,908
+September,Team 15,Cycle Time (Refinance),451.2,null,5000,#e54d35,909
+October,Team 15,Cycle Time (Refinance),465.5,null,5000,#e54d35,910
+November,Team 15,Cycle Time (Refinance),479.8,null,5000,#e54d35,911
+December,Team 15,Cycle Time (Refinance),494.1,null,5000,#e54d35,912
+January,Team 16,Cycle Time (Refinance),508.4,null,5000,#fdbb03,913
+February,Team 16,Cycle Time (Refinance),522.7,null,5000,#d3e513,914
+March,Team 16,Cycle Time (Refinance),537,null,5000,#e54d35,915
+April,Team 16,Cycle Time (Refinance),551.3,null,5000,#e54d35,916
+May,Team 16,Cycle Time (Refinance),565.6,null,5000,#d3e513,917
+June,Team 16,Cycle Time (Refinance),579.9,null,5000,#e54d35,918
+July,Team 16,Cycle Time (Refinance),594.2,null,5000,#e54d35,919
+August,Team 16,Cycle Time (Refinance),608.5,null,5000,#e54d35,920
+September,Team 16,Cycle Time (Refinance),622.8,null,5000,#fdbb03,921
+October,Team 16,Cycle Time (Refinance),637.1,null,5000,#fdbb03,922
+November,Team 16,Cycle Time (Refinance),651.4,null,5000,#e54d35,923
+December,Team 16,Cycle Time (Refinance),665.7,null,5000,#d3e513,924
+January,Team 17,Cycle Time (Refinance),680,null,5000,#e54d35,925
+February,Team 17,Cycle Time (Refinance),694.3,null,5000,#fdbb03,926
+March,Team 17,Cycle Time (Refinance),708.6,null,5000,#e54d35,927
+April,Team 17,Cycle Time (Refinance),722.9,null,5000,#e54d35,928
+May,Team 17,Cycle Time (Refinance),737.2,null,5000,#e54d35,929
+June,Team 17,Cycle Time (Refinance),751.5,null,5000,#d3e513,930
+July,Team 17,Cycle Time (Refinance),765.8,null,5000,#fdbb03,931
+August,Team 17,Cycle Time (Refinance),780.1,null,5000,#e54d35,932
+September,Team 17,Cycle Time (Refinance),794.4,null,5000,#fdbb03,933
+October,Team 17,Cycle Time (Refinance),808.7,null,5000,#d3e513,934
+November,Team 17,Cycle Time (Refinance),823,null,5000,#d3e513,935
+December,Team 17,Cycle Time (Refinance),837.3,null,5000,#e54d35,936
+January,Team 18,Cycle Time (Refinance),851.6,null,5000,#fdbb03,937
+February,Team 18,Cycle Time (Refinance),865.9,null,5000,#e54d35,938
+March,Team 18,Cycle Time (Refinance),880.2,null,5000,#e54d35,939
+April,Team 18,Cycle Time (Refinance),894.5,null,5000,#fdbb03,940
+May,Team 18,Cycle Time (Refinance),908.8,null,5000,#e54d35,941
+June,Team 18,Cycle Time (Refinance),923.1,null,5000,#e54d35,942
+July,Team 18,Cycle Time (Refinance),937.4,null,5000,#d3e513,943
+August,Team 18,Cycle Time (Refinance),951.7,null,5000,#e54d35,944
+September,Team 18,Cycle Time (Refinance),966,null,5000,#e54d35,945
+October,Team 18,Cycle Time (Refinance),980.3,null,5000,#e54d35,946
+November,Team 18,Cycle Time (Refinance),994.6,null,5000,#e54d35,947
+December,Team 18,Cycle Time (Refinance),1008.9,null,5000,#d3e513,948
+January,Team 19,Cycle Time (Refinance),1023.2,null,5000,#d3e513,949
+February,Team 19,Cycle Time (Refinance),1037.5,null,5000,#fdbb03,950
+March,Team 19,Cycle Time (Refinance),1051.8,null,5000,#e54d35,951
+April,Team 19,Cycle Time (Refinance),1066.1,null,5000,#e54d35,952
+May,Team 19,Cycle Time (Refinance),1080.4,null,5000,#e54d35,953
+June,Team 19,Cycle Time (Refinance),1094.7,null,5000,#d3e513,954
+July,Team 19,Cycle Time (Refinance),1109,null,5000,#e54d35,955
+August,Team 19,Cycle Time (Refinance),1123.3,null,5000,#fdbb03,956
+September,Team 19,Cycle Time (Refinance),1137.6,null,5000,#fdbb03,957
+October,Team 19,Cycle Time (Refinance),1151.9,null,5000,#fdbb03,958
+November,Team 19,Cycle Time (Refinance),1166.2,null,5000,#e54d35,959
+December,Team 19,Cycle Time (Refinance),1180.5,null,5000,#d3e513,960
+January,Team 20,Cycle Time (Refinance),1194.8,null,5000,#fdbb03,961
+February,Team 20,Cycle Time (Refinance),1209.1,null,5000,#e54d35,962
+March,Team 20,Cycle Time (Refinance),1223.4,null,5000,#fdbb03,963
+April,Team 20,Cycle Time (Refinance),1237.7,null,5000,#e54d35,964
+May,Team 20,Cycle Time (Refinance),1252,null,5000,#e54d35,965
+June,Team 20,Cycle Time (Refinance),1266.3,null,5000,#fdbb03,966
+July,Team 20,Cycle Time (Refinance),1280.6,null,5000,#d3e513,967
+August,Team 20,Cycle Time (Refinance),1294.9,null,5000,#fdbb03,968
+September,Team 20,Cycle Time (Refinance),1309.2,null,5000,#fdbb03,969
+October,Team 20,Cycle Time (Refinance),1323.5,null,5000,#e54d35,970
+November,Team 20,Cycle Time (Refinance),1337.8,null,5000,#d3e513,971
+December,Team 20,Cycle Time (Refinance),1352.1,null,5000,#e54d35,972
