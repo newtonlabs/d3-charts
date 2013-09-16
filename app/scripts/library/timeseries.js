@@ -15,6 +15,10 @@ this.d3.charts.timeseries = function() {
     //color = d3.scale.category10();
 
   function my(selection) {
+    var target;
+    var hasTarget = function(){
+      return typeof(target) !== 'undefined';
+    }
     var chartWidth   = width  - margin.left - margin.right,
         chartHeight  = height - margin.top  - margin.bottom,
         chartHeight2 = controlHeight,
@@ -43,8 +47,10 @@ this.d3.charts.timeseries = function() {
         .x(function(d) { return x2(d.date); })
         .y(function(d) { return y2(d.value); });
 
-      var target = Number(data[0].data[0].target);
-
+      if (typeof(data[0].data[0].target) !== 'undefined') {
+        target = Number(data[0].data[0].target);
+      }
+      
       svg = d3.select(this).append("svg")
         .attr("class", "timeseries")  //for namespacing css
         .attr("width",  chartWidth  + margin.left + margin.right)
@@ -90,12 +96,15 @@ this.d3.charts.timeseries = function() {
         .attr("width", chartWidth)
         .attr("height", chartHeight2)
 
-      focus.append("line")
-        .attr("class", "target")
-        .attr("x1", 0)
-        .attr("y1", y(target))
-        .attr("x2", chartWidth)
-        .attr("y2", y(target));
+      if (hasTarget()) {
+        focus.append("line")
+          .attr("class", "target")
+          .attr("x1", 0)
+          .attr("y1", y(target))
+          .attr("x2", chartWidth)
+          .attr("y2", y(target));
+      }
+      
 
       focus.selectAll("path").data(data).enter().append("path")
         .attr("clip-path", "url(#clip)")

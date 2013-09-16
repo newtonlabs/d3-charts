@@ -1,7 +1,7 @@
 /*jslint browser: true*/
 /*global $, jQuery, d3, _*/
 
-  if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
+if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 
 // Based on http://bost.ocks.org/mike/chart/
 this.d3.charts.barchart = function() {
@@ -14,9 +14,14 @@ this.d3.charts.barchart = function() {
   //color = d3.scale.category20();
 
   function my(selection) {
+    var target;
 
-    var chartWidth    = width  - margin.left - margin.right,
-    chartHeight   = height - margin.top  - margin.bottom;
+    var hasTarget = function(){
+      return typeof(target) !== 'undefined';
+    }
+    
+    var chartWidth  = width - margin.left - margin.right,
+        chartHeight = height - margin.top  - margin.bottom;
 
     var x0 = d3.scale.ordinal()
       .rangeRoundBands([0, width], .3);
@@ -52,7 +57,7 @@ this.d3.charts.barchart = function() {
       x0.domain(data.map(function(d) { return d.xAxis; }));
       x1.domain(groups).rangeRoundBands([0, x0.rangeBand()]);
 
-      var d3Min =    d3.min(data, function (d) {
+      var d3Min = d3.min(data, function (d) {
         return d3.min(d.group, function (d) {
           return d.value;
         });
@@ -60,15 +65,18 @@ this.d3.charts.barchart = function() {
       if (d3Min > 0)
         d3Min = 0;
 
-      var d3Max =  d3.max(data, function (d) {
+      var d3Max = d3.max(data, function (d) {
         return d3.max(d.group, function (d) {
           return d.value;
         });
       });
-      var target = Number(data[0].target);
 
-      if (d3Max < target)
+      if (typeof(data[0].target) !== 'undefined') {
+        target = Number(data[0].target);
+      }
+      if (hasTarget() && d3Max < target) {
         d3Max = target;
+      }
 
       y.domain([ d3Min,d3Max ]);
       
@@ -114,13 +122,15 @@ this.d3.charts.barchart = function() {
         .style("text-anchor", "start")
         .text(data[0].yAxis);
 
-      var line = context.append("line")
-        .attr("class", "target")  
-        .attr("x1", 0)
-        .attr("y1", y(target))
-        .attr("x2", width)
-        .attr("y2", y(target));
-
+      if (hasTarget()) {
+        var line = context.append("line")
+          .attr("class", "target")  
+          .attr("x1", 0)
+          .attr("y1", y(target))
+          .attr("x2", width)
+          .attr("y2", y(target));
+      }
+      
       // var legend = svg.selectAll(".legend")
       // .data(groups.slice().reverse())
       // .enter().append("g")
