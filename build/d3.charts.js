@@ -349,6 +349,7 @@ this.d3.charts.timeseries = function() {
     height = 500,
     controlHeight = 50,
     margin = {top: 10,  right: 10, bottom: 100, left: 80},
+    dataRadius = 4,
     svg = {};
     //color = d3.scale.category10();
 
@@ -357,6 +358,11 @@ this.d3.charts.timeseries = function() {
     var hasTarget = function(){
       return typeof(target) !== 'undefined';
     }
+
+    var padDomain = function(upperRange, upperDomain, pad) {
+      return (pad / upperRange * upperDomain);
+    }
+
     var chartWidth   = width  - margin.left - margin.right,
         chartHeight  = height - margin.top  - margin.bottom,
         chartHeight2 = controlHeight,
@@ -369,11 +375,12 @@ this.d3.charts.timeseries = function() {
         yAxis  = d3.svg.axis().scale(y).orient("left");
 
     selection.each(function(data) {
+      var lowerDomain = d3.min(data, function(d) { return d3.min(d.data, function(c) {return c.value; }); });
+      var upperDomain = d3.max(data, function(d) { return d3.max(d.data, function(c) {return c.value; }); });
+      var padding = padDomain(y.range()[0], upperDomain, dataRadius * 2);
+
       x.domain(d3.extent(data[0].data, function(d) { return d.date; }));
-      y.domain([
-        d3.min(data, function(d) { return d3.min(d.data, function(c) {return c.value; }); }),
-        d3.max(data, function(d) { return d3.max(d.data, function(c) {return c.value; }); })
-      ]);
+      y.domain([lowerDomain - padding, upperDomain + padding]);
       x2.domain(x.domain());
       y2.domain(y.domain());
 
@@ -388,7 +395,7 @@ this.d3.charts.timeseries = function() {
       if (typeof(data[0].data[0].target) !== 'undefined') {
         target = Number(data[0].data[0].target);
       }
-      
+
       svg = d3.select(this).append("svg")
         .attr("class", "timeseries")  //for namespacing css
         .attr("width",  chartWidth  + margin.left + margin.right)
@@ -442,7 +449,6 @@ this.d3.charts.timeseries = function() {
           .attr("x2", chartWidth)
           .attr("y2", y(target));
       }
-      
 
       focus.selectAll("path").data(data).enter().append("path")
         .attr("clip-path", "url(#clip)")
@@ -456,7 +462,7 @@ this.d3.charts.timeseries = function() {
           .style("stroke", function(d) { return d.color; })
           .attr("cx", function(d) { return x(d.date); })
           .attr("cy", function(d) { return y(d.value); })
-          .attr("r", 4);
+          .attr("r", dataRadius);
 
       focus.append("g")
         .attr("class", "x axis")
