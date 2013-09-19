@@ -10,6 +10,7 @@ this.d3.charts.timeseries = function() {
   var width = 960,
     height = 500,
     controlHeight = 50,
+    xAxisHeight = 30,
     margin = {top: 25,  right: 10, bottom: 100, left: 80},
     dataRadius = 4,
     svg = {};
@@ -87,7 +88,7 @@ this.d3.charts.timeseries = function() {
 
       var context = svg.append("g")
         .attr("class", "chart2")
-        .attr("transform", "translate(" + margin.left + "," + (chartHeight + chartHeight2 + margin.top)  + ")");
+        .attr("transform", "translate(" + margin.left + "," + (chartHeight + margin.top + xAxisHeight)  + ")");
 
       focus.append("rect")
         .attr("class","focus")
