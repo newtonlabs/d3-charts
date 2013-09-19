@@ -10,7 +10,7 @@ this.d3.charts.timeseries = function() {
   var width = 960,
     height = 500,
     controlHeight = 50,
-    margin = {top: 10,  right: 10, bottom: 100, left: 80},
+    margin = {top: 25,  right: 10, bottom: 100, left: 80},
     dataRadius = 4,
     svg = {};
     //color = d3.scale.category10();
@@ -87,7 +87,7 @@ this.d3.charts.timeseries = function() {
 
       var context = svg.append("g")
         .attr("class", "chart2")
-        .attr("transform", "translate(" + margin.left + "," + (chartHeight + chartHeight2 - margin.top)  + ")");
+        .attr("transform", "translate(" + margin.left + "," + (chartHeight + chartHeight2 + margin.top)  + ")");
 
       focus.append("rect")
         .attr("class","focus")
@@ -133,7 +133,11 @@ this.d3.charts.timeseries = function() {
 
       focus.append("g")
           .attr("class", "y axis")
-          .call(yAxis);
+          .call(yAxis)
+          .append("text")
+          .attr("y", -10)
+          .style("text-anchor", "start")
+          .text(data[0].series);
 
       context.selectAll("path").data(data).enter().append("path")
         .attr("class", "timeline")
