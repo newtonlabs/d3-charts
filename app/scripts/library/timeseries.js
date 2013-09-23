@@ -80,6 +80,9 @@ this.d3.charts.timeseries = function() {
         focus.selectAll("circle").data(data[0].data)
           .attr("cx", function(d) { return x(d.date); })
           .attr("cy", function(d) { return y(d.value); });
+        // focus.selectAll("text").data(data[0].data)
+        //   .attr("x", function(d) { return x(d.date);})
+        //   .attr("y", function(d) { return y(d.value);})
         focus.select(".x.axis").call(xAxis);
       }
 
@@ -119,13 +122,21 @@ this.d3.charts.timeseries = function() {
         .attr("d", function(d) {return line(d.data); });
 
       focus.selectAll("circle")
-          .data(data[0].data).enter().append("circle")
-          .attr("class", "circle")
-          .attr("clip-path", "url(#clip)")
-          .style("stroke", function(d) { return d.color; })
-          .attr("cx", function(d) { return x(d.date); })
-          .attr("cy", function(d) { return y(d.value); })
-          .attr("r", dataRadius);
+        .data(data[0].data).enter().append("circle")
+        .attr("class", "circle")
+        .attr("clip-path", "url(#clip)")
+        .style("stroke", function(d) { return d.color; })
+        .attr("cx", function(d) { return x(d.date); })
+        .attr("cy", function(d) { return y(d.value); })
+        .attr("r", dataRadius);
+
+      // focus.selectAll("text")
+      //   .data(data[0].data).enter().append("text")
+      //   .attr("text-anchor", "middle")
+      //   .attr("clip-path", "url(#clip)")
+      //   .attr("x", function(d) { return x(d.date);})
+      //   .attr("y", function(d) { return y(d.value);})
+      //   .text(function(d) {return d.value;} );
 
       focus.append("g")
         .attr("class", "x axis")
