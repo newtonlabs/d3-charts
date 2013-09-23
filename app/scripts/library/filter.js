@@ -4,7 +4,7 @@
 if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 
 // Based on http://bost.ocks.org/mike/chart/
-this.d3.charts.heatmap = function() {
+this.d3.charts.filter = function() {
  'use strict';
 
   var width = 960,
@@ -49,11 +49,12 @@ this.d3.charts.heatmap = function() {
         .attr("y", function(d) { return y(d.yAxis);})
         .attr("rx", 0)
         .attr("ry", 0)
-        .attr("width", x.rangeBand())
+        .attr("width",  x.rangeBand())
         .attr("height", y.rangeBand())
         .transition().style("fill", function(d) {return d.color;});
 
       rect.exit().remove();
+
 
       var value = heatmap.selectAll("g.heatmap .cell.value").data(data);
 
@@ -66,7 +67,7 @@ this.d3.charts.heatmap = function() {
         .attr("dy", function() { return y.rangeBand()/2;})
         .attr("dx", function() { return x.rangeBand()/2;})
         .attr('class', 'cell value')
-        .text(function(d) {return d.value;} );
+        .text(function(d) {return Number(d.value).toFixed(2);});
 
       value.exit().remove();
 
