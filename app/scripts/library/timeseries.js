@@ -85,15 +85,15 @@ this.d3.charts.timeseries = function() {
           .attr("cx", function(d) { return x(d.date); })
           .attr("cy", function(d) { return y(d.value); });
 
-        if (dataInDomain.length < 20) {
-          focus.selectAll(".bubbletext").data(data[0].data)
-            .attr("x", function(d) { return x(d.date);})
-            .attr("y", function(d) { return y(d.value);})
-            .text(function(d) {return d.value;} );
-        }
-        else {
-          focus.selectAll(".bubbletext").data([]).exit().text("");
-        }
+        // if (dataInDomain.length < 20) {
+        //   focus.selectAll(".bubbletext").data(data[0].data)
+        //     .attr("x", function(d) { return x(d.date);})
+        //     .attr("y", function(d) { return y(d.value);})
+        //     .text(function(d) {return d.value;} );
+        // }
+        // else {
+        //   focus.selectAll(".bubbletext").data([]).exit().text("");
+        // }
 
         focus.select(".x.axis").call(xAxis);
       }
@@ -142,14 +142,14 @@ this.d3.charts.timeseries = function() {
         .attr("cy", function(d) { return y(d.value); })
         .attr("r", dataRadius);
 
-      focus.selectAll("text")
-        .data(data[0].data).enter().append("text")
-        .attr("text-anchor", "middle")
-        .attr("clip-path", "url(#clip)")
-        .attr("x", function(d) { return x(d.date);})
-        .attr("y", function(d) { return y(d.value);})
-        .attr("class", "bubbletext")
-        // .text(function(d) {return d.value;} );
+      // focus.selectAll("text")
+      //   .data(data[0].data).enter().append("text")
+      //   .attr("text-anchor", "middle")
+      //   .attr("clip-path", "url(#clip)")
+      //   .attr("x", function(d) { return x(d.date);})
+      //   .attr("y", function(d) { return y(d.value);})
+      //   .attr("class", "bubbletext")
+      //   // .text(function(d) {return d.value;} );
 
       focus.append("g")
         .attr("class", "x axis")

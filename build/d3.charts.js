@@ -7,7 +7,7 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 this.d3.charts.barchart = function() {
   'use strict';
 
-  var width = 600,
+  var width = 1200,
   height = 400,
   svg = {},
   margin = { top: 50, right: 20, bottom: 0, left: 75 };
@@ -133,16 +133,15 @@ this.d3.charts.barchart = function() {
 
       // console.log(data);
 
-      cat.selectAll("text")
-        .data(function(d) {return d.group}).enter().append("text")
-        .attr("text-anchor", "middle")
-        .attr("x", function (d) {return x1(d.name);})
-        .attr("y", function (d) {return y(d.value);})
-        // .attr("dx", function (d) {return x1(d.name);})
-        .attr("dy", function (d) {return (d.value < 20) ? 15 : -5})
-        .attr("class", "bartext")
-        .text(function(d) {return d.value});
-        // .text(function(d) {return d.value;} );
+      // cat.selectAll("text")
+      //   .data(function(d) {return d.group}).enter().append("text")
+      //   .attr("text-anchor", "middle")
+      //   .attr("x", function (d) {return x1(d.name);})
+      //   .attr("y", function (d) {return y(d.value);})
+      //   // .attr("dx", function (d) {return x1(d.name);})
+      //   .attr("dy", function (d) {return (d.value < 20) ? 15 : -5})
+      //   .attr("class", "bartext")
+      //   .text(function(d) {return d.value});
 
       // var legend = svg.selectAll(".legend")
       // .data(groups.slice().reverse())
@@ -600,15 +599,15 @@ this.d3.charts.timeseries = function() {
           .attr("cx", function(d) { return x(d.date); })
           .attr("cy", function(d) { return y(d.value); });
 
-        if (dataInDomain.length < 20) {
-          focus.selectAll(".bubbletext").data(data[0].data)
-            .attr("x", function(d) { return x(d.date);})
-            .attr("y", function(d) { return y(d.value);})
-            .text(function(d) {return d.value;} );
-        }
-        else {
-          focus.selectAll(".bubbletext").data([]).exit().text("");
-        }
+        // if (dataInDomain.length < 20) {
+        //   focus.selectAll(".bubbletext").data(data[0].data)
+        //     .attr("x", function(d) { return x(d.date);})
+        //     .attr("y", function(d) { return y(d.value);})
+        //     .text(function(d) {return d.value;} );
+        // }
+        // else {
+        //   focus.selectAll(".bubbletext").data([]).exit().text("");
+        // }
 
         focus.select(".x.axis").call(xAxis);
       }
@@ -657,14 +656,14 @@ this.d3.charts.timeseries = function() {
         .attr("cy", function(d) { return y(d.value); })
         .attr("r", dataRadius);
 
-      focus.selectAll("text")
-        .data(data[0].data).enter().append("text")
-        .attr("text-anchor", "middle")
-        .attr("clip-path", "url(#clip)")
-        .attr("x", function(d) { return x(d.date);})
-        .attr("y", function(d) { return y(d.value);})
-        .attr("class", "bubbletext")
-        // .text(function(d) {return d.value;} );
+      // focus.selectAll("text")
+      //   .data(data[0].data).enter().append("text")
+      //   .attr("text-anchor", "middle")
+      //   .attr("clip-path", "url(#clip)")
+      //   .attr("x", function(d) { return x(d.date);})
+      //   .attr("y", function(d) { return y(d.value);})
+      //   .attr("class", "bubbletext")
+      //   // .text(function(d) {return d.value;} );
 
       focus.append("g")
         .attr("class", "x axis")
