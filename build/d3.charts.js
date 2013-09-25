@@ -136,8 +136,10 @@ this.d3.charts.barchart = function() {
       cat.selectAll("text")
         .data(function(d) {return d.group}).enter().append("text")
         .attr("text-anchor", "middle")
-        .attr("x", function(d) { return x1(d.name);})
+        .attr("x", function (d) {return x1(d.name);})
         .attr("y", function (d) {return y(d.value);})
+        // .attr("dx", function (d) {return x1(d.name);})
+        .attr("dy", function (d) {return (d.value < 20) ? 15 : -5})
         .attr("class", "bartext")
         .text(function(d) {return d.value});
         // .text(function(d) {return d.value;} );
