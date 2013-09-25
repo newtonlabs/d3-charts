@@ -175,8 +175,8 @@ this.d3.charts.timeseries = function() {
 
       var brushStart = x2.domain()[0];
       var brushEnd   = new Date();
-      brushEnd.setTime(brushStart.getTime() + (24 * 60 * 60 * 1000 * 30)); // 30 days
-      brush.extent([brushStart, brushEnd]);
+      // brushEnd.setTime(brushStart.getTime() + (24 * 60 * 60 * 1000 * 30)); // 30 days
+      brush.extent([x2.domain()[0], x2.domain()[1]]);
 
       context.append("g")
         .attr("class", "x brush")
@@ -184,7 +184,7 @@ this.d3.charts.timeseries = function() {
         .selectAll("rect")
         .attr("height", chartHeight2);
 
-      brushing();
+      // brushing();
 
     });
   }

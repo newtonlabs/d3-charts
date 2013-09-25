@@ -19,7 +19,7 @@ this.d3.charts.barchart = function() {
     var hasTarget = function(){
       return typeof(target) !== 'undefined';
     }
-    
+
     var chartWidth  = width - margin.left - margin.right,
         chartHeight = height - margin.top  - margin.bottom;
 
@@ -49,7 +49,7 @@ this.d3.charts.barchart = function() {
 
       var context = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-      
+
       data.forEach(function(d) {
         d.group = groups.map(function(name) { return {name: name, value: +d[name].value, color: d[name].color}; });
       });
@@ -79,12 +79,12 @@ this.d3.charts.barchart = function() {
       }
 
       y.domain([ d3Min,d3Max ]);
-      
+
       var xAxisTransform =  chartHeight;
       if(d3Min < 0 && 0 < d3Max) {
         xAxisTransform = chartHeight * (d3Max / (d3Max - d3Min));
-      }                      
-      
+      }
+
       var cat = context.selectAll(".cat")
         .data(data)
         .enter().append("g")
@@ -124,13 +124,24 @@ this.d3.charts.barchart = function() {
 
       if (hasTarget()) {
         var line = context.append("line")
-          .attr("class", "target")  
+          .attr("class", "target")
           .attr("x1", 0)
           .attr("y1", y(target))
           .attr("x2", width)
           .attr("y2", y(target));
-      }
-      
+      };
+
+      // console.log(data);
+
+      cat.selectAll("text")
+        .data(function(d) {return d.group}).enter().append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", function(d) { return x1(d.name);})
+        .attr("y", function (d) {return y(d.value);})
+        .attr("class", "bartext")
+        .text(function(d) {return d.value});
+        // .text(function(d) {return d.value;} );
+
       // var legend = svg.selectAll(".legend")
       // .data(groups.slice().reverse())
       // .enter().append("g")
