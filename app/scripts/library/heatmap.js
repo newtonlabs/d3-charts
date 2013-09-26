@@ -76,7 +76,35 @@ this.d3.charts.heatmap = function() {
 
       heatmap.selectAll(".y.axis").data(rows).enter().append("g")
         .attr("class", "y axis");
-      heatmap.select(".y.axis").transition().call(yAxis);
+      //heatmap.select(".y.axis").transition().call(yAxis);
+      
+      heatmap.selectAll(".y.axis").remove();      
+      
+      heatmap.append("svg:g")
+        .attr("class", "y axis")
+        .call(yAxis)
+      .selectAll("g")
+        .append("svg:foreignObject")
+            .attr("width",'150px')
+            .attr("height",'40px')
+            .attr("x", -160)
+            .attr("y", -20)
+            .attr("style","text-align: right;")
+        .append("xhtml:div")
+            .attr("style","height:40px;width:150px;vertical-align:middle;display:table-cell;")
+            .html(function(schema) {return schema;});
+
+      heatmap.selectAll(".y.axis g text").remove();
+      
+      // heatmap.select(".y.axis").transition().call(yAxis)
+                // .selectAll("g")
+                // .append("svg:foreignObject")
+                    // .attr("width",'300px')
+                    // .attr("height",'50px')
+                    // .attr("x", 0)
+                    // .attr("y", 0)                    
+                // .append("xhtml:div")
+                    // .html(function(d) {return d;});      
 
     };
 
