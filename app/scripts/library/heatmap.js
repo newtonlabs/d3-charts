@@ -91,7 +91,6 @@ this.d3.charts.heatmap = function() {
             .attr("y", -20)
             .attr("style","text-align: right;")
         .append("xhtml:div")
-            .attr("style","height:40px;width:150px;vertical-align:middle;display:table-cell;")
             .html(function(schema) {return schema;});
 
       heatmap.selectAll(".y.axis g text").remove();

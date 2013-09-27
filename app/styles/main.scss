@@ -80,19 +80,27 @@ body {
 
 .timeseries .x.axis {
   font-size: 11px;
-  fill: #196cd6;
+  fill: #000000;
   font-weight: normal;
 }
 
 .timeseries .y.axis {
   font-size: 14px;
-  fill: #196cd6;
+  fill: #000000;
   font-weight: normal;
 }
 
 .timeseries .y.axis .tick.major {
   font-size: 11px;
   font-weight: normal;
+}
+
+.timeseries .y.axis div {
+  color: #000000;
+  height:40px;
+  width:150px;
+  vertical-align:middle;
+  display:table-cell;
 }
 
 .timeseries .target {
@@ -121,8 +129,8 @@ body {
 }
 
 .timeseries .brush .extent {
-  stroke: #196cd6;
-  fill: #196cd6;
+  stroke: #000000;
+  fill: #000000;
   fill-opacity: .125;
 }
 
@@ -139,19 +147,27 @@ body {
 
 .barchart .x.axis {
   font-size: 11px;
-  fill: #196cd6;
+  fill: #000000;
   font-weight: normal;
 }
 
 .barchart .y.axis {
   font-size: 14px;
-  fill: #196cd6;
+  fill: #000000;
   font-weight: normal;
 }
 
 .barchart .y.axis .tick.major {
   font-size: 11px;
   font-weight: normal;
+}
+
+.barchart .y.axis div {
+  color: #000000;
+  height:40px;
+  width:150px;
+  vertical-align:middle;
+  display:table-cell;
 }
 
 .barchart .x.axis line,
@@ -178,19 +194,27 @@ body {
 
 .heatmap .x.axis {
   font-size: 11px;
-  fill: #196cd6;
+  fill: #000000;
   font-weight: normal;
 }
 
 .heatmap .y.axis {
   font-size: 14px;
-  fill: #196cd6;
+  fill: #000000;
   font-weight: normal;
 }
 
 .heatmap .y.axis .tick.major {
   font-size: 11px;
   font-weight: normal;
+}
+
+.heatmap .y.axis div {
+  color: #000000;
+  height:40px;
+  width:150px;
+  vertical-align:middle;
+  display:table-cell;
 }
 
 .heatmap .x.axis line,
@@ -210,7 +234,14 @@ body {
 }
 
 .heatmap .brush .extent {
-  stroke: #196cd6;
-  fill: #196cd6;
+  stroke: #000000;
+  fill: #000000;
   fill-opacity: .125;
+}
+
+.click {
+  color: #196cd6 !important;
+  fill: #196cd6 !important;
+  text-decoration: underline;
+  cursor: pointer;
 }

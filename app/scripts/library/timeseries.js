@@ -155,14 +155,21 @@ this.d3.charts.timeseries = function() {
         .attr("class", "x axis")
         .attr("transform", "translate(0," + chartHeight + ")")
         .call(xAxis);
+          
+      focus.append("svg:g")
+        .attr("class", "y axis")
+        .call(yAxis)
+      .selectAll("g")
+        .append("svg:foreignObject")
+            .attr("width",'150px')
+            .attr("height",'40px')
+            .attr("x", -160)
+            .attr("y", -20)
+            .attr("style","text-align: right;")
+        .append("xhtml:div")
+            .html(function(schema) {return schema;});
 
-      focus.append("g")
-          .attr("class", "y axis")
-          .call(yAxis)
-          .append("text")
-          .attr("y", -10)
-          .style("text-anchor", "start")
-          .text(data[0].series);
+      focus.selectAll(".y.axis g text").remove();          
 
       context.selectAll("path").data(data).enter().append("path")
         .attr("class", "timeline")
