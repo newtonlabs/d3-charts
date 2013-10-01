@@ -6,11 +6,13 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 // Based on http://bost.ocks.org/mike/chart/
 this.d3.charts.groupStack = function() {
   'use strict';
-  function my(selection) {
-    var width = 960,
+      var width = 960,
       height = 500,
-      svg = {},
-      margin = {top: 40, right: 10, bottom: 20, left: 50};
+      svg = {};
+
+  function my(selection) {
+    var margin = {top: 40, right: 10, bottom: 20, left: 50};
+
 
     selection.each(function(data) {
       var stack = d3.layout.stack(),
