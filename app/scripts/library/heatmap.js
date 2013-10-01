@@ -77,9 +77,9 @@ this.d3.charts.heatmap = function() {
       heatmap.selectAll(".y.axis").data(rows).enter().append("g")
         .attr("class", "y axis");
       //heatmap.select(".y.axis").transition().call(yAxis);
-      
-      heatmap.selectAll(".y.axis").remove();      
-      
+
+      heatmap.selectAll(".y.axis").remove();
+
       heatmap.append("svg:g")
         .attr("class", "y axis")
         .call(yAxis)
@@ -94,18 +94,14 @@ this.d3.charts.heatmap = function() {
             .html(function(schema) {return schema;});
 
       heatmap.selectAll(".y.axis g text").remove();
-      
-      // heatmap.select(".y.axis").transition().call(yAxis)
-                // .selectAll("g")
-                // .append("svg:foreignObject")
-                    // .attr("width",'300px')
-                    // .attr("height",'50px')
-                    // .attr("x", 0)
-                    // .attr("y", 0)                    
-                // .append("xhtml:div")
-                    // .html(function(d) {return d;});      
 
     };
+
+    var setMetaData = function(meta, clicked) {
+      var category = meta.selectAll('category').data([clicked]);
+      category.enter().append("category");
+      category.text(function(d) { return d;});
+    }
 
     selection.each(function(data) {
       var categories = uniqueProperties(data, 'name');
@@ -121,6 +117,8 @@ this.d3.charts.heatmap = function() {
       var heatmap = svg.append("g").attr("class", "heatmap")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+      var meta = svg.append("meta-data");
+
       var brushended = function() {
         // if (!d3.event || !d3.event.sourceEvent) return; // only transition after input
         var clicked = invertx2(brush.extent()[0]);
@@ -130,6 +128,7 @@ this.d3.charts.heatmap = function() {
         var chartData = _.find(data, function(d) {return d.name == clicked}).data;
 
         drawHeatmap(heatmap, chartData);
+        setMetaData(meta, clicked);
 
         d3.select(this).transition()
           .call(brush.extent([brushStart, brushEnd]))
