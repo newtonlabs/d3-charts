@@ -485,7 +485,7 @@ this.d3.charts.heatmap = function() {
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       var brushended = function() {
-        // if (!d3.event || !d3.event.sourceEvent) return; // only transition after input
+        if (!d3.event || !d3.event.sourceEvent) return; // only transition after input
         var clicked = invertx2(brush.extent()[0]);
         var brushStart = x2(clicked);
         var brushEnd   = brushStart + x2.rangeBand();
