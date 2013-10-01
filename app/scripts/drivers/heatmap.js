@@ -32,5 +32,7 @@ d3.csv("../data/heatMap_data.csv", function(error, data) {
     return memo
   },[]);
 
+  console.log(scrubbed);
+
   d3.select("#heatmap").datum(scrubbed).call(heatmapChart);
 });
