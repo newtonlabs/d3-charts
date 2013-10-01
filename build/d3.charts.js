@@ -379,22 +379,18 @@ this.d3.charts.heatmap = function() {
 
       heatmap.selectAll(".y.axis").data(rows).enter().append("g")
         .attr("class", "y axis");
-      //heatmap.select(".y.axis").transition().call(yAxis);
+      heatmap.select(".y.axis").transition().call(yAxis);
 
-      heatmap.selectAll(".y.axis").remove();
-
-      heatmap.append("svg:g")
-        .attr("class", "y axis")
-        .call(yAxis)
-      .selectAll("g")
-        .append("svg:foreignObject")
-            .attr("width",'150px')
-            .attr("height",'40px')
-            .attr("x", -160)
-            .attr("y", -20)
-            .attr("style","text-align: right;")
-        .append("xhtml:div")
-            .html(function(schema) {return schema;});
+      heatmap.select(".y.axis")
+        .selectAll("g")
+          .append("svg:foreignObject")
+              .attr("width",'150px')
+              .attr("height",'40px')
+              .attr("x", -160)
+              .attr("y", -20)
+              .attr("style","text-align: right;")
+          .append("xhtml:div")
+              .html(function(schema) {return schema;});
 
       heatmap.selectAll(".y.axis g text").remove();
 
