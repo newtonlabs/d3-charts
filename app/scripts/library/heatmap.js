@@ -120,7 +120,7 @@ this.d3.charts.heatmap = function() {
       var meta = svg.append("meta-data");
 
       var brushended = function() {
-        // if (!d3.event || !d3.event.sourceEvent) return; // only transition after input
+        if (!d3.event || !d3.event.sourceEvent) return; // only transition after input
         var clicked = invertx2(brush.extent()[0]);
         var brushStart = x2(clicked);
         var brushEnd   = brushStart + x2.rangeBand();
