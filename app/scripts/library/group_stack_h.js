@@ -48,10 +48,12 @@ this.d3.charts.groupStack = function() {
           .orient("left");
 
       svg = d3.select(this).append("svg")
+          .attr("class", "groupStack")
           .attr("width",  chartWidth  + margin.left + margin.right)
           .attr("height", chartHeight + margin.top  + margin.bottom)
         .append("g")
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+          .attr("class", "groupStack");
 
       var layer = svg.selectAll(".layer")
           .data(layers)
