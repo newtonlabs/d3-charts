@@ -11,7 +11,7 @@ this.d3.charts.groupStack = function() {
       svg = {};
 
   function my(selection) {
-    var margin = {top: 40, right: 10, bottom: 20, left: 50};
+    var margin = {top: 40, right: 10, bottom: 20, left: 100};
 
 
     selection.each(function(data) {
@@ -47,7 +47,7 @@ this.d3.charts.groupStack = function() {
           .tickPadding(6)
           .orient("left");
 
-      var svg = d3.select(this).append("svg")
+      svg = d3.select(this).append("svg")
           .attr("width",  chartWidth  + margin.left + margin.right)
           .attr("height", chartHeight + margin.top  + margin.bottom)
         .append("g")
