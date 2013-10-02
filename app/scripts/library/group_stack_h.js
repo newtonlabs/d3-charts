@@ -6,10 +6,10 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 // Based on http://bost.ocks.org/mike/chart/
 this.d3.charts.groupStack = function() {
   'use strict';
-      var width = 960,
-      height = 500,
-      svg = {},
-      margin = {top: 40, right: 10, bottom: 20, left: 100};
+  var width = 960,
+  height = 500,
+  svg = {},
+  margin = {top: 40, right: 10, bottom: 20, left: 100};
 
   function my(selection) {
     var chartWidth    = width  - margin.left - margin.right,
@@ -49,11 +49,12 @@ this.d3.charts.groupStack = function() {
           .attr("class", "groupStack")
           .attr("width",  chartWidth  + margin.left + margin.right)
           .attr("height", chartHeight + margin.top  + margin.bottom)
-        .append("g")
+
+      var bar = svg.append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
           .attr("class", "groupStack");
 
-      var layer = svg.selectAll(".layer")
+      var layer = bar.selectAll(".layer")
           .data(layers)
         .enter().append("g")
           .attr("class", "layer")
@@ -72,12 +73,12 @@ this.d3.charts.groupStack = function() {
           .attr("x", function(d) { return x(d.y0); })
           .attr("width", function(d) { return x(d.y); });
 
-      svg.append("g")
+      bar.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + chartHeight + ")")
         .call(xAxis);
 
-      svg.append("g")
+      bar.append("g")
         .attr("class", "y axis")
         .call(yAxis);
     });
