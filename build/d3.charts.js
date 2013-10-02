@@ -252,20 +252,18 @@ this.d3.charts.groupStack = function() {
   'use strict';
       var width = 960,
       height = 500,
-      svg = {};
+      svg = {},
+      margin = {top: 40, right: 10, bottom: 20, left: 100};
 
   function my(selection) {
-    var margin = {top: 40, right: 10, bottom: 20, left: 100};
-
+    var chartWidth    = width  - margin.left - margin.right,
+        chartHeight   = height - margin.top  - margin.bottom;
 
     selection.each(function(data) {
       var stack = d3.layout.stack(),
           layers = stack(data),
           labels = _.map(layers[0], function(d) { return d.x; }),
           yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
-
-      var chartWidth  = width  - margin.left - margin.right,
-          chartHeight = height - margin.top  - margin.bottom;
 
       var y = d3.scale.ordinal()
           .domain(labels)
