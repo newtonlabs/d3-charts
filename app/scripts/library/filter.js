@@ -12,8 +12,9 @@ this.d3.charts.filter = function() {
 
   function my(selection) {
     selection.each(function(data) {
-      svg = d3.select(this).append("select")
-      var options = svg.selectAll("option").data(data)
+      svg = d3.select(this).append("div");
+      var select = svg.append("select");
+      var options = select.selectAll("option").data(data);
       options.enter().append("option")
         .attr("value", function(d) { return d; })
         .attr("subcategory", function(d) { return d; })
