@@ -9,7 +9,7 @@ this.d3.charts.groupStack = function() {
   var width = 960,
   height = 500,
   svg = {},
-  margin = {top: 40, right: 10, bottom: 20, left: 100};
+  margin = {top: 40, right: 10, bottom: 20, left: 200};
 
   function my(selection) {
     var chartWidth    = width  - margin.left - margin.right,
@@ -31,7 +31,7 @@ this.d3.charts.groupStack = function() {
 
       var color = d3.scale.linear()
           .domain([0, layers.length - 1])
-          .range(["#aad", "#556"]);
+          .range(["#004372", "#767fa1"]);
 
       var xAxis = d3.svg.axis()
           .scale(x)
