@@ -290,6 +290,7 @@ this.d3.charts.filter = function() {
 
   function my(selection) {
     selection.each(function(data) {
+      data.unshift("pick something");
       svg = d3.select(this).append("div");
       var select = svg.append("select");
       var options = select.selectAll("option").data(data);
@@ -297,6 +298,7 @@ this.d3.charts.filter = function() {
         .attr("value", function(d) { return d; })
         .attr("subcategory", function(d) { return d; })
         .text(function(d) { return d; });
+
     });
   }
 
