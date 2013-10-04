@@ -71,7 +71,7 @@ this.d3.charts.groupStack = function() {
       rect.transition()
           .delay(function(d, i) { return i * 10; })
           .attr("x", function(d) { return x(d.y0); })
-          .attr("width", function(d) { return x(d.y); });
+          .attr("width", function(d) { return x(d.y); });        
 
       bar.append("g")
         .attr("class", "x axis")
@@ -81,6 +81,33 @@ this.d3.charts.groupStack = function() {
       bar.append("g")
         .attr("class", "y axis")
         .call(yAxis);
+        
+      var text = layer.selectAll("text")
+        .data(function(d) { return d; })
+      .enter().append("text")
+        .attr("x", function(d) { return x(d.y)+5; })
+        .attr("y", function(d) { return y(d.y)+y.rangeBand()/2+4; })
+        .attr("class","value")
+        .text(function(d, i) { return d.y+d.y0; });
+        
+      var legend = svg.selectAll(".legend")
+      .data(layers)
+      .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+      legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", function(d, i) { return color(i); });
+
+      legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d[0].category; });        
     });
   }
 
