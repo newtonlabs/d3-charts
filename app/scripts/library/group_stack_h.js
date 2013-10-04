@@ -29,6 +29,10 @@ this.d3.charts.groupStack = function() {
           .domain([0, yStackMax])
           .range([0, chartWidth]);
 
+      var color = d3.scale.linear()
+          .domain([0, layers.length - 1])
+          .range(["#a8c1e5", "#2563bf"]);          
+          
       var xAxis = d3.svg.axis()
           .scale(x)
           .tickSize(0)
@@ -54,7 +58,8 @@ this.d3.charts.groupStack = function() {
           .data(layers)
         .enter().append("g")
           .attr("class", "layer")
-          .style("fill", function(d, i) { return d[i].color; });
+          //.style("fill", function(d, i) { return d[i].color; });
+          .style("fill", function(d, i) { return color(i); });
 
       var rect = layer.selectAll("rect")
           .data(function(d) { return d; })
@@ -96,7 +101,8 @@ this.d3.charts.groupStack = function() {
       .attr("x", width - 18)
       .attr("width", 18)
       .attr("height", 18)
-      .style("fill", function(d, i) { return d[i].color; });
+      //.style("fill", function(d, i) { return d[i].color; });
+      .style("fill", function(d, i) { return color(i); });
 
       legend.append("text")
       .attr("x", width - 24)
