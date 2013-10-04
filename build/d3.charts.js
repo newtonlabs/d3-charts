@@ -590,7 +590,7 @@ this.d3.charts.heatmap = function() {
         .attr("height", y.rangeBand())
         .attr("x", function(d) {return x(d)})
         .attr("y", function(d) {return y(y.domain()[0])})
-        .attr("style","text-align: center;")
+        .attr("style", "line-height:"+y.rangeBand()+"px")
 
       topBar.exit().remove();
       topText.exit().remove();
@@ -610,6 +610,7 @@ this.d3.charts.heatmap = function() {
         .attr("ry", 0)
         .attr("width",  margin.left)
         .attr("height", y.rangeBand())
+        .attr("style", "line-height:"+y.rangeBand())
         .attr("class", function(d,i) {
           var n = i%2;
           return (n > 0) ? "left primary" : "left alternate"
@@ -625,7 +626,7 @@ this.d3.charts.heatmap = function() {
         .attr("height", y.rangeBand())
         .attr("x", function(d) {return x(x.domain()[0])})
         .attr("y", function(d) {return y(d)})
-        .attr("style","text-align: left;")
+        .attr("style", "line-height:"+y.rangeBand()+"px")
 
       leftBar.exit().remove();
       leftText.exit().remove();
