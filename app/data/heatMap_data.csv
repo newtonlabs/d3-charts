@@ -1,1189 +1,131 @@
 category,xAxis,yAxis,value,trend,target,color,ID
-20120101,Team 1,Net Promoter Score,12,0,null,#fdbb03,1
-20120101,Team 1,Funded Loans,15,45,null,#fdbb03,2
-20120101,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),32,90,null,#e54d35,3
-20120101,Team 1,Cycle Time (Purchase),20,135,null,#fdbb03,4
-20120101,Team 1,Technical Error Rate,68,180,null,#e54d35,5
-20120101,Team 2,Net Promoter Score,123,135,null,#fdbb03,6
-20120101,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),198,45,null,#d3e513,8
-20120101,Team 2,Cycle Time (Purchase),2,0,null,#e54d35,9
-20120101,Team 2,Technical Error Rate,0,0,null,#d3e513,10
-20120101,Team 3,Net Promoter Score,79.06666667,45,null,#e54d35,11
-20120101,Team 3,Funded Loans,83.87878788,90,null,#fdbb03,12
-20120101,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),88.69090909,135,null,#e54d35,13
-20120101,Team 3,Cycle Time (Purchase),93.5030303,180,null,#e54d35,14
-20120101,Team 3,Technical Error Rate,98.31515152,135,null,#fdbb03,15
-20120101,Team 4,Net Promoter Score,103.1272727,90,null,#d3e513,16
-20120101,Team 4,Funded Loans,107.9393939,45,null,#e54d35,17
-20120101,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),112.7515152,0,null,#e54d35,18
-20120101,Team 4,Cycle Time (Purchase),117.5636364,0,null,#e54d35,19
-20120101,Team 4,Technical Error Rate,122.3757576,45,null,#e54d35,20
-20120101,Team 5,Net Promoter Score,12,90,null,#e54d35,21
-20120101,Team 5,Funded Loans,15,135,null,#e54d35,22
-20120101,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),32,180,null,#d3e513,23
-20120101,Team 5,Cycle Time (Purchase),20,135,null,#d3e513,24
-20120101,Team 5,Technical Error Rate,68,90,null,#fdbb03,25
-20120101,Team 6,Net Promoter Score,123,45,null,#fdbb03,26
-20120101,Team 6,Funded Loans,56,0,null,#d3e513,27
-20120101,Team 6,Cycle Time (Purchase),2,45,null,#e54d35,29
-20120101,Team 6,Technical Error Rate,0,90,null,#fdbb03,30
-20120101,Team 7,Net Promoter Score,79.06666667,135,null,#e54d35,31
-20120101,Team 7,Funded Loans,83.87878788,180,null,#e54d35,32
-20120101,Team 7,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),88.69090909,135,null,#d3e513,33
-20120101,Team 7,Cycle Time (Purchase),93.5030303,90,null,#e54d35,34
-20120101,Team 7,Technical Error Rate,98.31515152,45,null,#e54d35,35
-20120101,Team 8,Net Promoter Score,76.1959596,0,null,#e54d35,36
-20120101,Team 8,Funded Loans,75.09605142,0,null,#e54d35,37
-20120101,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),73.99614325,45,null,#fdbb03,38
-20120101,Team 8,Cycle Time (Purchase),72.89623508,90,null,#e54d35,39
-20120101,Team 8,Technical Error Rate,71.79632691,135,null,#e54d35,40
-20120101,Team 9,Net Promoter Score,63.37730552,180,null,#fdbb03,41
-20120101,Team 9,Funded Loans,59.15738554,135,null,#e54d35,42
-20120101,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),54.93746556,90,null,#e54d35,43
-20120101,Team 9,Technical Error Rate,46.49762561,0,null,#e54d35,45
-20120101,Team 10,Net Promoter Score,48.28684432,0,null,#e54d35,46
-20120101,Team 10,Funded Loans,45.25501162,45,null,#d3e513,47
-20120101,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),42.22317891,90,null,#d3e513,48
-20120101,Team 10,Cycle Time (Purchase),39.19134621,135,null,#e54d35,49
-20120101,Team 10,Technical Error Rate,36.1595135,180,null,#e54d35,50
-20120101,Team 11,Net Promoter Score,46.1356072,135,null,#fdbb03,51
-20120101,Team 11,Funded Loans,44.75841914,90,null,#d3e513,52
-20120101,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),43.38123107,45,null,#d3e513,53
-20120101,Team 11,Cycle Time (Purchase),42.004043,0,null,#e54d35,54
-20120101,Team 11,Technical Error Rate,40.62685493,0,null,#e54d35,55
-20120101,Team 12,Funded Loans,72.89623508,90,null,#e54d35,57
-20120101,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),71.79632691,135,null,#fdbb03,58
-20120101,Team 12,Cycle Time (Purchase),63.37730552,180,null,#e54d35,59
-20120101,Team 12,Technical Error Rate,59.15738554,135,null,#e54d35,60
-20120101,Team 13,Net Promoter Score,54.93746556,90,null,#fdbb03,61
-20120101,Team 13,Funded Loans,50.71754559,45,null,#e54d35,62
-20120101,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),46.49762561,0,null,#fdbb03,63
-20120101,Team 13,Cycle Time (Purchase),48.28684432,0,null,#e54d35,64
-20120101,Team 13,Technical Error Rate,54.89098552,45,null,#e54d35,65
-20120101,Team 14,Net Promoter Score,54.60060255,90,null,#e54d35,66
-20120101,Team 14,Funded Loans,54.31021959,135,null,#e54d35,67
-20120101,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),54.01983663,180,null,#fdbb03,68
-20120101,Team 14,Technical Error Rate,53.4390707,90,null,#fdbb03,70
-20120101,Team 15,Net Promoter Score,53.14868773,45,null,#fdbb03,71
-20120101,Team 15,Funded Loans,52.85830477,0,null,#d3e513,72
-20120101,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),52.56792181,0,null,#e54d35,73
-20120101,Team 15,Cycle Time (Purchase),52.27753884,45,null,#e54d35,74
-20120101,Team 15,Technical Error Rate,51.98715588,90,null,#fdbb03,75
-20120101,Team 16,Net Promoter Score,51.69677291,135,null,#e54d35,76
-20120101,Team 16,Funded Loans,51.40638995,180,null,#e54d35,77
-20120101,Team 16,Cycle Time (Purchase),50.82562402,90,null,#d3e513,79
-20120101,Team 16,Technical Error Rate,50.53524106,45,null,#e54d35,80
-20120101,Team 17,Net Promoter Score,50.24485809,0,null,#e54d35,81
-20120101,Team 17,Funded Loans,49.95447513,0,null,#e54d35,82
-20120101,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),49.66409217,45,null,#e54d35,83
-20120101,Team 17,Technical Error Rate,49.08332624,135,null,#d3e513,85
-20120101,Team 18,Net Promoter Score,48.79294328,180,null,#fdbb03,86
-20120101,Team 18,Funded Loans,48.50256031,135,null,#d3e513,87
-20120101,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),48.21217735,90,null,#d3e513,88
-20120101,Team 18,Cycle Time (Purchase),47.92179438,45,null,#fdbb03,89
-20120101,Team 18,Technical Error Rate,47.63141142,0,null,#d3e513,90
-20120101,Team 19,Net Promoter Score,47.34102846,0,null,#d3e513,91
-20120101,Team 19,Funded Loans,47.05064549,45,null,#e54d35,92
-20120101,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),46.76026253,90,null,#e54d35,93
-20120101,Team 19,Cycle Time (Purchase),46.46987956,135,null,#e54d35,94
-20120101,Team 19,Technical Error Rate,46.1794966,180,null,#e54d35,95
-20120101,Team 20,Net Promoter Score,45.88911364,135,null,#e54d35,96
-20120101,Team 20,Funded Loans,45.59873067,90,null,#fdbb03,97
-20120101,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),45.30834771,45,null,#d3e513,98
-20120101,Team 20,Cycle Time (Purchase),45.01796474,0,null,#fdbb03,99
-20120101,Team 20,Technical Error Rate,44.72758178,0,null,#fdbb03,100
-20120201,Team 1,Net Promoter Score,44.43719882,45,null,#d3e513,101
-20120201,Team 1,Funded Loans,44.14681585,90,null,#fdbb03,102
-20120201,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),43.85643289,135,null,#e54d35,103
-20120201,Team 1,Cycle Time (Purchase),43.56604992,180,null,#fdbb03,104
-20120201,Team 1,Technical Error Rate,43.27566696,135,null,#e54d35,105
-20120201,Team 2,Net Promoter Score,42.985284,90,null,#d3e513,106
-20120201,Team 2,Funded Loans,42.69490103,45,null,#e54d35,107
-20120201,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),42.40451807,0,null,#e54d35,108
-20120201,Team 2,Cycle Time (Purchase),42.11413511,0,null,#e54d35,109
-20120201,Team 2,Technical Error Rate,41.82375214,45,null,#d3e513,110
-20120201,Team 3,Net Promoter Score,41.53336918,90,null,#fdbb03,111
-20120201,Team 3,Funded Loans,41.24298621,135,null,#e54d35,112
-20120201,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),40.95260325,180,null,#e54d35,113
-20120201,Team 3,Cycle Time (Purchase),40.66222029,135,null,#e54d35,114
-20120201,Team 3,Technical Error Rate,40.37183732,90,null,#d3e513,115
-20120201,Team 4,Net Promoter Score,40.08145436,45,null,#e54d35,116
-20120201,Team 4,Funded Loans,39.79107139,0,null,#fdbb03,117
-20120201,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),39.50068843,0,null,#d3e513,118
-20120201,Team 4,Cycle Time (Purchase),39.21030547,45,null,#fdbb03,119
-20120201,Team 4,Technical Error Rate,38.9199225,90,null,#e54d35,120
-20120201,Team 5,Net Promoter Score,38.62953954,135,null,#e54d35,121
-20120201,Team 5,Funded Loans,38.33915657,180,null,#e54d35,122
-20120201,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),38.04877361,135,null,#e54d35,123
-20120201,Team 5,Cycle Time (Purchase),37.75839065,90,null,#e54d35,124
-20120201,Team 5,Technical Error Rate,37.46800768,45,null,#d3e513,125
-20120201,Team 6,Net Promoter Score,37.17762472,0,null,#d3e513,126
-20120201,Team 6,Funded Loans,36.88724175,0,null,#e54d35,127
-20120201,Team 6,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),36.59685879,45,null,#e54d35,128
-20120201,Team 6,Cycle Time (Purchase),36.30647583,90,null,#fdbb03,129
-20120201,Team 6,Technical Error Rate,36.01609286,135,null,#d3e513,130
-20120201,Team 7,Net Promoter Score,35.7257099,180,null,#d3e513,131
-20120201,Team 7,Funded Loans,35.43532694,135,null,#e54d35,132
-20120201,Team 7,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),35.14494397,90,null,#fdbb03,133
-20120201,Team 7,Cycle Time (Purchase),34.85456101,45,null,#fdbb03,134
-20120201,Team 7,Technical Error Rate,34.56417804,0,null,#e54d35,135
-20120201,Team 8,Net Promoter Score,34.27379508,0,null,#d3e513,136
-20120201,Team 8,Funded Loans,33.98341212,45,null,#fdbb03,137
-20120201,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),33.69302915,90,null,#e54d35,138
-20120201,Team 8,Cycle Time (Purchase),33.40264619,135,null,#e54d35,139
-20120201,Team 8,Technical Error Rate,33.11226322,180,null,#d3e513,140
-20120201,Team 9,Net Promoter Score,32.82188026,135,null,#e54d35,141
-20120201,Team 9,Funded Loans,32.5314973,90,null,#e54d35,142
-20120201,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),32.24111433,45,null,#fdbb03,143
-20120201,Team 9,Cycle Time (Purchase),31.95073137,0,null,#e54d35,144
-20120201,Team 9,Technical Error Rate,31.6603484,0,null,#fdbb03,145
-20120201,Team 10,Net Promoter Score,31.36996544,45,null,#e54d35,146
-20120201,Team 10,Funded Loans,31.07958248,90,null,#fdbb03,147
-20120201,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),30.78919951,135,null,#e54d35,148
-20120201,Team 10,Cycle Time (Purchase),30.49881655,180,null,#e54d35,149
-20120201,Team 10,Technical Error Rate,30.20843359,135,null,#e54d35,150
-20120201,Team 11,Net Promoter Score,29.91805062,90,null,#fdbb03,151
-20120201,Team 11,Funded Loans,29.62766766,45,null,#e54d35,152
-20120201,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),29.33728469,0,null,#fdbb03,153
-20120201,Team 11,Cycle Time (Purchase),29.04690173,0,null,#fdbb03,154
-20120201,Team 11,Technical Error Rate,28.75651877,45,null,#d3e513,155
-20120201,Team 12,Net Promoter Score,28.4661358,90,null,#e54d35,156
-20120201,Team 12,Funded Loans,28.17575284,135,null,#d3e513,157
-20120201,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),27.88536987,180,null,#d3e513,158
-20120201,Team 12,Cycle Time (Purchase),27.59498691,135,null,#e54d35,159
-20120201,Team 12,Technical Error Rate,27.30460395,90,null,#e54d35,160
-20120201,Team 13,Net Promoter Score,27.01422098,45,null,#e54d35,161
-20120201,Team 13,Funded Loans,26.72383802,0,null,#fdbb03,162
-20120201,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),26.43345505,0,null,#e54d35,163
-20120201,Team 13,Cycle Time (Purchase),26.14307209,45,null,#e54d35,164
-20120201,Team 13,Technical Error Rate,25.85268913,90,null,#e54d35,165
-20120201,Team 14,Net Promoter Score,25.56230616,135,null,#fdbb03,166
-20120201,Team 14,Funded Loans,25.2719232,180,null,#e54d35,167
-20120201,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),24.98154023,135,null,#d3e513,168
-20120201,Team 14,Cycle Time (Purchase),24.69115727,90,null,#e54d35,169
-20120201,Team 14,Technical Error Rate,24.40077431,45,null,#e54d35,170
-20120201,Team 15,Net Promoter Score,24.11039134,0,null,#fdbb03,171
-20120201,Team 15,Funded Loans,23.82000838,0,null,#e54d35,172
-20120201,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),23.52962542,45,null,#e54d35,173
-20120201,Team 15,Cycle Time (Purchase),23.23924245,90,null,#fdbb03,174
-20120201,Team 15,Technical Error Rate,22.94885949,135,null,#d3e513,175
-20120201,Team 16,Net Promoter Score,22.65847652,180,null,#fdbb03,176
-20120201,Team 16,Funded Loans,22.36809356,135,null,#fdbb03,177
-20120201,Team 16,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),22.0777106,90,null,#e54d35,178
-20120201,Team 16,Cycle Time (Purchase),21.78732763,45,null,#d3e513,179
-20120201,Team 16,Technical Error Rate,21.49694467,0,null,#e54d35,180
-20120201,Team 17,Net Promoter Score,21.2065617,0,null,#fdbb03,181
-20120201,Team 17,Funded Loans,20.91617874,45,null,#fdbb03,182
-20120201,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),20.62579578,90,null,#e54d35,183
-20120201,Team 17,Cycle Time (Purchase),20.33541281,135,null,#fdbb03,184
-20120201,Team 17,Technical Error Rate,20.04502985,180,null,#d3e513,185
-20120201,Team 18,Net Promoter Score,19.75464688,135,null,#e54d35,186
-20120201,Team 18,Funded Loans,19.46426392,90,null,#d3e513,187
-20120201,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),19.17388096,45,null,#d3e513,188
-20120201,Team 18,Cycle Time (Purchase),18.88349799,0,null,#d3e513,189
-20120201,Team 18,Technical Error Rate,18.59311503,0,null,#d3e513,190
-20120201,Team 19,Net Promoter Score,18.30273206,45,null,#d3e513,191
-20120201,Team 19,Funded Loans,18.0123491,90,null,#d3e513,192
-20120201,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),17.72196614,135,null,#e54d35,193
-20120201,Team 19,Cycle Time (Purchase),17.43158317,180,null,#e54d35,194
-20120201,Team 19,Technical Error Rate,17.14120021,135,null,#e54d35,195
-20120201,Team 20,Net Promoter Score,16.85081725,90,null,#fdbb03,196
-20120201,Team 20,Funded Loans,16.56043428,45,null,#d3e513,197
-20120201,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),16.27005132,0,null,#fdbb03,198
-20120201,Team 20,Cycle Time (Purchase),15.97966835,0,null,#fdbb03,199
-20120201,Team 20,Technical Error Rate,15.68928539,45,null,#d3e513,200
-20120301,Team 1,Net Promoter Score,15.39890243,90,null,#e54d35,201
-20120301,Team 1,Funded Loans,15.10851946,135,null,#e54d35,202
-20120301,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),14.8181365,180,null,#e54d35,203
-20120301,Team 1,Cycle Time (Purchase),14.52775353,135,null,#e54d35,204
-20120301,Team 1,Technical Error Rate,14.23737057,90,null,#fdbb03,205
-20120301,Team 2,Net Promoter Score,13.94698761,45,null,#fdbb03,206
-20120301,Team 2,Funded Loans,13.65660464,0,null,#e54d35,207
-20120301,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),13.36622168,0,null,#e54d35,208
-20120301,Team 2,Cycle Time (Purchase),13.07583871,45,null,#fdbb03,209
-20120301,Team 2,Technical Error Rate,12.78545575,90,null,#e54d35,210
-20120301,Team 3,Net Promoter Score,12.49507279,135,null,#d3e513,211
-20120301,Team 3,Funded Loans,12.20468982,180,null,#fdbb03,212
-20120301,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),11.91430686,135,null,#fdbb03,213
-20120301,Team 3,Cycle Time (Purchase),11.62392389,90,null,#fdbb03,214
-20120301,Team 3,Technical Error Rate,11.33354093,45,null,#d3e513,215
-20120301,Team 4,Net Promoter Score,11.04315797,0,null,#e54d35,216
-20120301,Team 4,Funded Loans,10.752775,0,null,#e54d35,217
-20120301,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),10.46239204,45,null,#e54d35,218
-20120301,Team 4,Cycle Time (Purchase),10.17200908,90,null,#fdbb03,219
-20120301,Team 4,Technical Error Rate,9.881626111,135,null,#e54d35,220
-20120301,Team 5,Net Promoter Score,9.591243147,180,null,#d3e513,221
-20120301,Team 5,Funded Loans,9.300860184,135,null,#fdbb03,222
-20120301,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),9.01047722,90,null,#e54d35,223
-20120301,Team 5,Cycle Time (Purchase),8.720094256,45,null,#e54d35,224
-20120301,Team 5,Technical Error Rate,8.429711292,0,null,#e54d35,225
-20120301,Team 6,Net Promoter Score,8.139328328,0,null,#d3e513,226
-20120301,Team 6,Funded Loans,7.848945364,45,null,#fdbb03,227
-20120301,Team 6,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),7.5585624,90,null,#e54d35,228
-20120301,Team 6,Cycle Time (Purchase),7.268179436,135,null,#fdbb03,229
-20120301,Team 6,Technical Error Rate,6.977796472,180,null,#d3e513,230
-20120301,Team 7,Net Promoter Score,6.687413508,135,null,#e54d35,231
-20120301,Team 7,Funded Loans,6.397030544,90,null,#d3e513,232
-20120301,Team 7,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),6.106647581,45,null,#fdbb03,233
-20120301,Team 7,Cycle Time (Purchase),5.816264617,0,null,#e54d35,234
-20120301,Team 7,Technical Error Rate,5.525881653,0,null,#e54d35,235
-20120301,Team 8,Net Promoter Score,5.235498689,45,null,#e54d35,236
-20120301,Team 8,Funded Loans,4.945115725,90,null,#e54d35,237
-20120301,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),4.654732761,135,null,#fdbb03,238
-20120301,Team 8,Cycle Time (Purchase),4.364349797,180,null,#fdbb03,239
-20120301,Team 8,Technical Error Rate,4.073966833,135,null,#e54d35,240
-20120301,Team 9,Net Promoter Score,3.783583869,90,null,#e54d35,241
-20120301,Team 9,Funded Loans,3.493200905,45,null,#d3e513,242
-20120301,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),3.202817941,0,null,#fdbb03,243
-20120301,Team 9,Cycle Time (Purchase),2.912434978,0,null,#e54d35,244
-20120301,Team 9,Technical Error Rate,2.622052014,45,null,#e54d35,245
-20120301,Team 10,Net Promoter Score,2.33166905,90,null,#fdbb03,246
-20120301,Team 10,Funded Loans,2.041286086,135,null,#e54d35,247
-20120301,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),1.750903122,180,null,#d3e513,248
-20120301,Team 10,Cycle Time (Purchase),1.460520158,135,null,#e54d35,249
-20120301,Team 10,Technical Error Rate,1.170137194,90,null,#d3e513,250
-20120301,Team 11,Net Promoter Score,0.87975423,45,null,#e54d35,251
-20120301,Team 11,Funded Loans,0.589371266,0,null,#d3e513,252
-20120301,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),0.298988302,0,null,#e54d35,253
-20120301,Team 11,Cycle Time (Purchase),0.008605338,45,null,#e54d35,254
-20120301,Team 11,Technical Error Rate,12,90,null,#fdbb03,255
-20120301,Team 12,Net Promoter Score,15,135,null,#fdbb03,256
-20120301,Team 12,Funded Loans,32,180,null,#e54d35,257
-20120301,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),20,135,null,#e54d35,258
-20120301,Team 12,Cycle Time (Purchase),68,90,null,#e54d35,259
-20120301,Team 12,Technical Error Rate,123,45,null,#e54d35,260
-20120301,Team 13,Net Promoter Score,56,0,null,#e54d35,261
-20120301,Team 13,Funded Loans,198,0,null,#d3e513,262
-20120301,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),2,45,null,#e54d35,263
-20120301,Team 13,Cycle Time (Purchase),0,90,null,#e54d35,264
-20120301,Team 13,Technical Error Rate,79.06666667,135,null,#d3e513,265
-20120301,Team 14,Net Promoter Score,83.87878788,180,null,#e54d35,266
-20120301,Team 14,Funded Loans,88.69090909,135,null,#e54d35,267
-20120301,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),93.5030303,90,null,#fdbb03,268
-20120301,Team 14,Cycle Time (Purchase),98.31515152,45,null,#fdbb03,269
-20120301,Team 14,Technical Error Rate,103.1272727,0,null,#e54d35,270
-20120301,Team 15,Net Promoter Score,107.9393939,0,null,#e54d35,271
-20120301,Team 15,Funded Loans,112.7515152,45,null,#e54d35,272
-20120301,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),117.5636364,90,null,#e54d35,273
-20120301,Team 15,Cycle Time (Purchase),122.3757576,135,null,#e54d35,274
-20120301,Team 15,Technical Error Rate,12,180,null,#fdbb03,275
-20120301,Team 16,Net Promoter Score,15,135,null,#fdbb03,276
-20120301,Team 16,Funded Loans,32,90,null,#e54d35,277
-20120301,Team 16,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),20,45,null,#d3e513,278
-20120301,Team 16,Cycle Time (Purchase),68,0,null,#fdbb03,279
-20120301,Team 16,Technical Error Rate,123,0,null,#fdbb03,280
-20120301,Team 17,Net Promoter Score,56,45,null,#e54d35,281
-20120301,Team 17,Funded Loans,198,90,null,#e54d35,282
-20120301,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),2,135,null,#d3e513,283
-20120301,Team 17,Cycle Time (Purchase),0,180,null,#fdbb03,284
-20120301,Team 17,Technical Error Rate,79.06666667,135,null,#e54d35,285
-20120301,Team 18,Net Promoter Score,83.87878788,90,null,#e54d35,286
-20120301,Team 18,Funded Loans,88.69090909,45,null,#d3e513,287
-20120301,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),93.5030303,0,null,#e54d35,288
-20120301,Team 18,Cycle Time (Purchase),98.31515152,0,null,#d3e513,289
-20120301,Team 18,Technical Error Rate,76.1959596,45,null,#e54d35,290
-20120301,Team 19,Net Promoter Score,75.09605142,90,null,#e54d35,291
-20120301,Team 19,Funded Loans,73.99614325,135,null,#fdbb03,292
-20120301,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),72.89623508,180,null,#fdbb03,293
-20120301,Team 19,Cycle Time (Purchase),71.79632691,135,null,#d3e513,294
-20120301,Team 19,Technical Error Rate,63.37730552,90,null,#fdbb03,295
-20120301,Team 20,Net Promoter Score,59.15738554,45,null,#d3e513,296
-20120301,Team 20,Funded Loans,54.93746556,0,null,#fdbb03,297
-20120301,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),50.71754559,0,null,#fdbb03,298
-20120301,Team 20,Cycle Time (Purchase),46.49762561,45,null,#e54d35,299
-20120301,Team 20,Technical Error Rate,48.28684432,90,null,#fdbb03,300
-20120401,Team 1,Net Promoter Score,45.25501162,135,null,#d3e513,301
-20120401,Team 1,Funded Loans,42.22317891,180,null,#e54d35,302
-20120401,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),39.19134621,135,null,#fdbb03,303
-20120401,Team 1,Cycle Time (Purchase),36.1595135,90,null,#fdbb03,304
-20120401,Team 1,Technical Error Rate,46.1356072,45,null,#e54d35,305
-20120401,Team 2,Net Promoter Score,44.75841914,0,null,#d3e513,306
-20120401,Team 2,Funded Loans,43.38123107,0,null,#e54d35,307
-20120401,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),42.004043,45,null,#fdbb03,308
-20120401,Team 2,Cycle Time (Purchase),40.62685493,90,null,#e54d35,309
-20120401,Team 2,Technical Error Rate,73.99614325,135,null,#e54d35,310
-20120401,Team 3,Net Promoter Score,72.89623508,180,null,#e54d35,311
-20120401,Team 3,Funded Loans,71.79632691,135,null,#e54d35,312
-20120401,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),63.37730552,90,null,#fdbb03,313
-20120401,Team 3,Cycle Time (Purchase),59.15738554,45,null,#fdbb03,314
-20120401,Team 3,Technical Error Rate,54.93746556,0,null,#e54d35,315
-20120401,Team 4,Net Promoter Score,50.71754559,0,null,#fdbb03,316
-20120401,Team 4,Funded Loans,46.49762561,45,null,#e54d35,317
-20120401,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),48.28684432,90,null,#e54d35,318
-20120401,Team 4,Cycle Time (Purchase),54.89098552,135,null,#e54d35,319
-20120401,Team 4,Technical Error Rate,54.60060255,180,null,#e54d35,320
-20120401,Team 5,Net Promoter Score,54.31021959,135,null,#e54d35,321
-20120401,Team 5,Funded Loans,54.01983663,90,null,#fdbb03,322
-20120401,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),53.72945366,45,null,#fdbb03,323
-20120401,Team 5,Cycle Time (Purchase),53.4390707,0,null,#d3e513,324
-20120401,Team 5,Technical Error Rate,53.14868773,0,null,#fdbb03,325
-20120401,Team 6,Net Promoter Score,52.85830477,45,null,#d3e513,326
-20120401,Team 6,Funded Loans,52.56792181,90,null,#fdbb03,327
-20120401,Team 6,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),52.27753884,135,null,#e54d35,328
-20120401,Team 6,Cycle Time (Purchase),51.98715588,180,null,#e54d35,329
-20120401,Team 6,Technical Error Rate,51.69677291,135,null,#e54d35,330
-20120401,Team 7,Net Promoter Score,51.40638995,90,null,#fdbb03,331
-20120401,Team 7,Funded Loans,51.11600699,45,null,#e54d35,332
-20120401,Team 7,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),50.82562402,0,null,#e54d35,333
-20120401,Team 7,Cycle Time (Purchase),50.53524106,0,null,#e54d35,334
-20120401,Team 7,Technical Error Rate,50.24485809,45,null,#fdbb03,335
-20120401,Team 8,Net Promoter Score,49.95447513,90,null,#e54d35,336
-20120401,Team 8,Funded Loans,49.66409217,135,null,#e54d35,337
-20120401,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),49.3737092,180,null,#fdbb03,338
-20120401,Team 8,Cycle Time (Purchase),49.08332624,135,null,#d3e513,339
-20120401,Team 8,Technical Error Rate,48.79294328,90,null,#e54d35,340
-20120401,Team 9,Net Promoter Score,48.50256031,45,null,#e54d35,341
-20120401,Team 9,Funded Loans,48.21217735,0,null,#e54d35,342
-20120401,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),47.92179438,0,null,#e54d35,343
-20120401,Team 9,Cycle Time (Purchase),47.63141142,45,null,#fdbb03,344
-20120401,Team 9,Technical Error Rate,47.34102846,90,null,#e54d35,345
-20120401,Team 10,Net Promoter Score,47.05064549,135,null,#d3e513,346
-20120401,Team 10,Funded Loans,46.76026253,180,null,#fdbb03,347
-20120401,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),46.46987956,135,null,#e54d35,348
-20120401,Team 10,Cycle Time (Purchase),46.1794966,90,null,#e54d35,349
-20120401,Team 10,Technical Error Rate,45.88911364,45,null,#fdbb03,350
-20120401,Team 11,Net Promoter Score,45.59873067,0,null,#e54d35,351
-20120401,Team 11,Funded Loans,45.30834771,0,null,#e54d35,352
-20120401,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),45.01796474,45,null,#e54d35,353
-20120401,Team 11,Cycle Time (Purchase),44.72758178,90,null,#e54d35,354
-20120401,Team 11,Technical Error Rate,44.43719882,135,null,#d3e513,355
-20120401,Team 12,Net Promoter Score,44.14681585,180,null,#fdbb03,356
-20120401,Team 12,Funded Loans,43.85643289,135,null,#d3e513,357
-20120401,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),43.56604992,90,null,#d3e513,358
-20120401,Team 12,Cycle Time (Purchase),43.27566696,45,null,#e54d35,359
-20120401,Team 12,Technical Error Rate,42.985284,0,null,#e54d35,360
-20120401,Team 13,Net Promoter Score,42.69490103,0,null,#e54d35,361
-20120401,Team 13,Funded Loans,42.40451807,45,null,#e54d35,362
-20120401,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),42.11413511,90,null,#e54d35,363
-20120401,Team 13,Cycle Time (Purchase),41.82375214,135,null,#fdbb03,364
-20120401,Team 13,Technical Error Rate,41.53336918,180,null,#e54d35,365
-20120401,Team 14,Net Promoter Score,41.24298621,135,null,#e54d35,366
-20120401,Team 14,Funded Loans,40.95260325,90,null,#d3e513,367
-20120401,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),40.66222029,45,null,#fdbb03,368
-20120401,Team 14,Cycle Time (Purchase),40.37183732,0,null,#e54d35,369
-20120401,Team 14,Technical Error Rate,40.08145436,0,null,#e54d35,370
-20120401,Team 15,Net Promoter Score,39.79107139,45,null,#fdbb03,371
-20120401,Team 15,Funded Loans,39.50068843,90,null,#e54d35,372
-20120401,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),39.21030547,135,null,#fdbb03,373
-20120401,Team 15,Cycle Time (Purchase),38.9199225,180,null,#e54d35,374
-20120401,Team 15,Technical Error Rate,38.62953954,135,null,#fdbb03,375
-20120401,Team 16,Net Promoter Score,38.33915657,90,null,#e54d35,376
-20120401,Team 16,Funded Loans,38.04877361,45,null,#e54d35,377
-20120401,Team 16,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),37.75839065,0,null,#e54d35,378
-20120401,Team 16,Cycle Time (Purchase),37.46800768,0,null,#d3e513,379
-20120401,Team 16,Technical Error Rate,37.17762472,45,null,#e54d35,380
-20120401,Team 17,Net Promoter Score,36.88724175,90,null,#d3e513,381
-20120401,Team 17,Funded Loans,36.59685879,135,null,#fdbb03,382
-20120401,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),36.30647583,180,null,#e54d35,383
-20120401,Team 17,Cycle Time (Purchase),36.01609286,135,null,#e54d35,384
-20120401,Team 17,Technical Error Rate,35.7257099,90,null,#d3e513,385
-20120401,Team 18,Net Promoter Score,35.43532694,45,null,#e54d35,386
-20120401,Team 18,Funded Loans,35.14494397,0,null,#e54d35,387
-20120401,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),34.85456101,0,null,#e54d35,388
-20120401,Team 18,Cycle Time (Purchase),34.56417804,45,null,#e54d35,389
-20120401,Team 18,Technical Error Rate,34.27379508,90,null,#d3e513,390
-20120401,Team 19,Net Promoter Score,33.98341212,135,null,#fdbb03,391
-20120401,Team 19,Funded Loans,33.69302915,180,null,#d3e513,392
-20120401,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),33.40264619,135,null,#fdbb03,393
-20120401,Team 19,Cycle Time (Purchase),33.11226322,90,null,#e54d35,394
-20120401,Team 19,Technical Error Rate,32.82188026,45,null,#d3e513,395
-20120401,Team 20,Net Promoter Score,32.5314973,0,null,#fdbb03,396
-20120401,Team 20,Funded Loans,32.24111433,0,null,#e54d35,397
-20120401,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),31.95073137,45,null,#fdbb03,398
-20120401,Team 20,Cycle Time (Purchase),31.6603484,90,null,#e54d35,399
-20120401,Team 20,Technical Error Rate,31.36996544,135,null,#e54d35,400
-20120501,Team 1,Net Promoter Score,31.07958248,180,null,#fdbb03,401
-20120501,Team 1,Funded Loans,30.78919951,135,null,#e54d35,402
-20120501,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),30.49881655,90,null,#e54d35,403
-20120501,Team 1,Cycle Time (Purchase),30.20843359,45,null,#e54d35,404
-20120501,Team 1,Technical Error Rate,29.91805062,0,null,#fdbb03,405
-20120501,Team 2,Net Promoter Score,29.62766766,0,null,#e54d35,406
-20120501,Team 2,Funded Loans,29.33728469,45,null,#d3e513,407
-20120501,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),29.04690173,90,null,#fdbb03,408
-20120501,Team 2,Cycle Time (Purchase),28.75651877,135,null,#fdbb03,409
-20120501,Team 2,Technical Error Rate,28.4661358,180,null,#d3e513,410
-20120501,Team 3,Net Promoter Score,28.17575284,135,null,#fdbb03,411
-20120501,Team 3,Funded Loans,27.88536987,90,null,#fdbb03,412
-20120501,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),27.59498691,45,null,#fdbb03,413
-20120501,Team 3,Cycle Time (Purchase),27.30460395,0,null,#e54d35,414
-20120501,Team 3,Technical Error Rate,27.01422098,0,null,#fdbb03,415
-20120501,Team 4,Net Promoter Score,26.72383802,45,null,#e54d35,416
-20120501,Team 4,Funded Loans,26.43345505,90,null,#e54d35,417
-20120501,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),26.14307209,135,null,#e54d35,418
-20120501,Team 4,Cycle Time (Purchase),25.85268913,180,null,#e54d35,419
-20120501,Team 4,Technical Error Rate,25.56230616,135,null,#fdbb03,420
-20120501,Team 5,Net Promoter Score,25.2719232,90,null,#fdbb03,421
-20120501,Team 5,Funded Loans,24.98154023,45,null,#fdbb03,422
-20120501,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),24.69115727,0,null,#fdbb03,423
-20120501,Team 5,Cycle Time (Purchase),24.40077431,0,null,#fdbb03,424
-20120501,Team 5,Technical Error Rate,24.11039134,45,null,#fdbb03,425
-20120501,Team 6,Net Promoter Score,23.82000838,90,null,#fdbb03,426
-20120501,Team 6,Funded Loans,23.52962542,135,null,#fdbb03,427
-20120501,Team 6,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),23.23924245,180,null,#d3e513,428
-20120501,Team 6,Cycle Time (Purchase),22.94885949,135,null,#d3e513,429
-20120501,Team 6,Technical Error Rate,22.65847652,90,null,#fdbb03,430
-20120501,Team 7,Net Promoter Score,22.36809356,45,null,#fdbb03,431
-20120501,Team 7,Funded Loans,22.0777106,0,null,#e54d35,432
-20120501,Team 7,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),21.78732763,0,null,#d3e513,433
-20120501,Team 7,Cycle Time (Purchase),21.49694467,45,null,#e54d35,434
-20120501,Team 7,Technical Error Rate,21.2065617,90,null,#d3e513,435
-20120501,Team 8,Net Promoter Score,20.91617874,135,null,#e54d35,436
-20120501,Team 8,Funded Loans,20.62579578,180,null,#fdbb03,437
-20120501,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),20.33541281,135,null,#e54d35,438
-20120501,Team 8,Cycle Time (Purchase),20.04502985,90,null,#e54d35,439
-20120501,Team 8,Technical Error Rate,19.75464688,45,null,#e54d35,440
-20120501,Team 9,Net Promoter Score,19.46426392,0,null,#e54d35,441
-20120501,Team 9,Funded Loans,19.17388096,0,null,#e54d35,442
-20120501,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),18.88349799,45,null,#d3e513,443
-20120501,Team 9,Cycle Time (Purchase),18.59311503,90,null,#e54d35,444
-20120501,Team 9,Technical Error Rate,18.30273206,135,null,#e54d35,445
-20120501,Team 10,Net Promoter Score,18.0123491,180,null,#d3e513,446
-20120501,Team 10,Funded Loans,17.72196614,135,null,#fdbb03,447
-20120501,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),17.43158317,90,null,#d3e513,448
-20120501,Team 10,Cycle Time (Purchase),17.14120021,45,null,#e54d35,449
-20120501,Team 10,Technical Error Rate,16.85081725,0,null,#e54d35,450
-20120501,Team 11,Net Promoter Score,16.56043428,0,null,#e54d35,451
-20120501,Team 11,Funded Loans,16.27005132,45,null,#d3e513,452
-20120501,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),15.97966835,90,null,#fdbb03,453
-20120501,Team 11,Cycle Time (Purchase),15.68928539,135,null,#fdbb03,454
-20120501,Team 11,Technical Error Rate,15.39890243,180,null,#e54d35,455
-20120501,Team 12,Net Promoter Score,15.10851946,135,null,#e54d35,456
-20120501,Team 12,Funded Loans,14.8181365,90,null,#d3e513,457
-20120501,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),14.52775353,45,null,#fdbb03,458
-20120501,Team 12,Cycle Time (Purchase),14.23737057,0,null,#e54d35,459
-20120501,Team 12,Technical Error Rate,13.94698761,0,null,#e54d35,460
-20120501,Team 13,Net Promoter Score,13.65660464,45,null,#d3e513,461
-20120501,Team 13,Funded Loans,13.36622168,90,null,#e54d35,462
-20120501,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),13.07583871,135,null,#e54d35,463
-20120501,Team 13,Cycle Time (Purchase),12.78545575,180,null,#fdbb03,464
-20120501,Team 13,Technical Error Rate,12.49507279,135,null,#d3e513,465
-20120501,Team 14,Net Promoter Score,12.20468982,90,null,#d3e513,466
-20120501,Team 14,Funded Loans,11.91430686,45,null,#e54d35,467
-20120501,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),11.62392389,0,null,#e54d35,468
-20120501,Team 14,Cycle Time (Purchase),11.33354093,0,null,#d3e513,469
-20120501,Team 14,Technical Error Rate,11.04315797,45,null,#d3e513,470
-20120501,Team 15,Net Promoter Score,10.752775,90,null,#d3e513,471
-20120501,Team 15,Funded Loans,10.46239204,135,null,#e54d35,472
-20120501,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),10.17200908,180,null,#fdbb03,473
-20120501,Team 15,Cycle Time (Purchase),9.881626111,135,null,#d3e513,474
-20120501,Team 15,Technical Error Rate,9.591243147,90,null,#fdbb03,475
-20120501,Team 16,Net Promoter Score,9.300860184,45,null,#d3e513,476
-20120501,Team 16,Funded Loans,9.01047722,0,null,#e54d35,477
-20120501,Team 16,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),8.720094256,0,null,#e54d35,478
-20120501,Team 16,Cycle Time (Purchase),8.429711292,45,null,#d3e513,479
-20120501,Team 16,Technical Error Rate,8.139328328,90,null,#fdbb03,480
-20120501,Team 17,Net Promoter Score,7.848945364,135,null,#d3e513,481
-20120501,Team 17,Funded Loans,7.5585624,180,null,#e54d35,482
-20120501,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),7.268179436,135,null,#e54d35,483
-20120501,Team 17,Cycle Time (Purchase),6.977796472,90,null,#fdbb03,484
-20120501,Team 17,Technical Error Rate,6.687413508,45,null,#fdbb03,485
-20120501,Team 18,Net Promoter Score,6.397030544,0,null,#fdbb03,486
-20120501,Team 18,Funded Loans,6.106647581,0,null,#e54d35,487
-20120501,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),5.816264617,45,null,#fdbb03,488
-20120501,Team 18,Cycle Time (Purchase),5.525881653,90,null,#e54d35,489
-20120501,Team 18,Technical Error Rate,5.235498689,135,null,#d3e513,490
-20120501,Team 19,Net Promoter Score,4.945115725,180,null,#e54d35,491
-20120501,Team 19,Funded Loans,4.654732761,135,null,#fdbb03,492
-20120501,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),4.364349797,90,null,#e54d35,493
-20120501,Team 19,Cycle Time (Purchase),4.073966833,45,null,#fdbb03,494
-20120501,Team 19,Technical Error Rate,3.783583869,0,null,#e54d35,495
-20120501,Team 20,Net Promoter Score,3.493200905,0,null,#e54d35,496
-20120501,Team 20,Funded Loans,3.202817941,45,null,#e54d35,497
-20120501,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),2.912434978,90,null,#e54d35,498
-20120501,Team 20,Cycle Time (Purchase),2.622052014,135,null,#d3e513,499
-20120501,Team 20,Technical Error Rate,2.33166905,180,null,#e54d35,500
-20120601,Team 1,Net Promoter Score,2.041286086,135,null,#fdbb03,501
-20120601,Team 1,Funded Loans,1.750903122,90,null,#fdbb03,502
-20120601,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),1.460520158,45,null,#fdbb03,503
-20120601,Team 1,Cycle Time (Purchase),1.170137194,0,null,#e54d35,504
-20120601,Team 1,Technical Error Rate,0.87975423,0,null,#e54d35,505
-20120601,Team 2,Net Promoter Score,0.589371266,45,null,#fdbb03,506
-20120601,Team 2,Funded Loans,0.298988302,90,null,#e54d35,507
-20120601,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),0.008605338,135,null,#fdbb03,508
-20120601,Team 2,Cycle Time (Purchase),12,180,null,#d3e513,509
-20120601,Team 2,Technical Error Rate,15,135,null,#e54d35,510
-20120601,Team 3,Net Promoter Score,32,90,null,#fdbb03,511
-20120601,Team 3,Funded Loans,20,45,null,#e54d35,512
-20120601,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),68,0,null,#fdbb03,513
-20120601,Team 3,Cycle Time (Purchase),123,0,null,#fdbb03,514
-20120601,Team 3,Technical Error Rate,56,45,null,#e54d35,515
-20120601,Team 4,Net Promoter Score,198,90,null,#e54d35,516
-20120601,Team 4,Funded Loans,2,135,null,#fdbb03,517
-20120601,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),0,180,null,#e54d35,518
-20120601,Team 4,Cycle Time (Purchase),79.06666667,135,null,#fdbb03,519
-20120601,Team 4,Technical Error Rate,83.87878788,90,null,#d3e513,520
-20120601,Team 5,Net Promoter Score,88.69090909,45,null,#fdbb03,521
-20120601,Team 5,Funded Loans,93.5030303,0,null,#e54d35,522
-20120601,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),98.31515152,0,null,#e54d35,523
-20120601,Team 5,Cycle Time (Purchase),103.1272727,45,null,#fdbb03,524
-20120601,Team 5,Technical Error Rate,107.9393939,90,null,#e54d35,525
-20120601,Team 6,Net Promoter Score,112.7515152,135,null,#fdbb03,526
-20120601,Team 6,Funded Loans,117.5636364,180,null,#e54d35,527
-20120601,Team 6,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),122.3757576,135,null,#e54d35,528
-20120601,Team 6,Cycle Time (Purchase),12,90,null,#d3e513,529
-20120601,Team 6,Technical Error Rate,15,45,null,#e54d35,530
-20120601,Team 7,Net Promoter Score,32,0,null,#d3e513,531
-20120601,Team 7,Funded Loans,20,0,null,#e54d35,532
-20120601,Team 7,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),68,45,null,#e54d35,533
-20120601,Team 7,Cycle Time (Purchase),123,90,null,#e54d35,534
-20120601,Team 7,Technical Error Rate,56,135,null,#fdbb03,535
-20120601,Team 8,Net Promoter Score,198,180,null,#fdbb03,536
-20120601,Team 8,Funded Loans,2,135,null,#e54d35,537
-20120601,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),0,90,null,#e54d35,538
-20120601,Team 8,Cycle Time (Purchase),79.06666667,45,null,#fdbb03,539
-20120601,Team 8,Technical Error Rate,83.87878788,0,null,#d3e513,540
-20120601,Team 9,Net Promoter Score,88.69090909,0,null,#e54d35,541
-20120601,Team 9,Funded Loans,93.5030303,45,null,#d3e513,542
-20120601,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),98.31515152,90,null,#e54d35,543
-20120601,Team 9,Cycle Time (Purchase),76.1959596,135,null,#fdbb03,544
-20120601,Team 9,Technical Error Rate,75.09605142,180,null,#e54d35,545
-20120601,Team 10,Net Promoter Score,73.99614325,135,null,#fdbb03,546
-20120601,Team 10,Funded Loans,72.89623508,90,null,#e54d35,547
-20120601,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),71.79632691,45,null,#d3e513,548
-20120601,Team 10,Cycle Time (Purchase),63.37730552,0,null,#d3e513,549
-20120601,Team 10,Technical Error Rate,59.15738554,0,null,#e54d35,550
-20120601,Team 11,Net Promoter Score,54.93746556,45,null,#d3e513,551
-20120601,Team 11,Funded Loans,50.71754559,90,null,#d3e513,552
-20120601,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),46.49762561,135,null,#d3e513,553
-20120601,Team 11,Cycle Time (Purchase),48.28684432,180,null,#e54d35,554
-20120601,Team 11,Technical Error Rate,45.25501162,135,null,#e54d35,555
-20120601,Team 12,Net Promoter Score,42.22317891,90,null,#e54d35,556
-20120601,Team 12,Funded Loans,39.19134621,45,null,#e54d35,557
-20120601,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),36.1595135,0,null,#e54d35,558
-20120601,Team 12,Cycle Time (Purchase),46.1356072,0,null,#e54d35,559
-20120601,Team 12,Technical Error Rate,44.75841914,45,null,#d3e513,560
-20120601,Team 13,Net Promoter Score,43.38123107,90,null,#e54d35,561
-20120601,Team 13,Funded Loans,42.004043,135,null,#fdbb03,562
-20120601,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),40.62685493,180,null,#e54d35,563
-20120601,Team 13,Cycle Time (Purchase),73.99614325,135,null,#d3e513,564
-20120601,Team 13,Technical Error Rate,72.89623508,90,null,#e54d35,565
-20120601,Team 14,Net Promoter Score,71.79632691,45,null,#fdbb03,566
-20120601,Team 14,Funded Loans,63.37730552,0,null,#e54d35,567
-20120601,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),59.15738554,0,null,#fdbb03,568
-20120601,Team 14,Cycle Time (Purchase),54.93746556,45,null,#fdbb03,569
-20120601,Team 14,Technical Error Rate,50.71754559,90,null,#fdbb03,570
-20120601,Team 15,Net Promoter Score,46.49762561,135,null,#e54d35,571
-20120601,Team 15,Funded Loans,48.28684432,180,null,#e54d35,572
-20120601,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),54.89098552,135,null,#fdbb03,573
-20120601,Team 15,Cycle Time (Purchase),54.60060255,90,null,#fdbb03,574
-20120601,Team 15,Technical Error Rate,54.31021959,45,null,#e54d35,575
-20120601,Team 16,Net Promoter Score,54.01983663,0,null,#fdbb03,576
-20120601,Team 16,Funded Loans,53.72945366,0,null,#fdbb03,577
-20120601,Team 16,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),53.4390707,45,null,#fdbb03,578
-20120601,Team 16,Cycle Time (Purchase),53.14868773,90,null,#e54d35,579
-20120601,Team 16,Technical Error Rate,52.85830477,135,null,#fdbb03,580
-20120601,Team 17,Net Promoter Score,52.56792181,180,null,#d3e513,581
-20120601,Team 17,Funded Loans,52.27753884,135,null,#d3e513,582
-20120601,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),51.98715588,90,null,#fdbb03,583
-20120601,Team 17,Cycle Time (Purchase),51.69677291,45,null,#fdbb03,584
-20120601,Team 17,Technical Error Rate,51.40638995,0,null,#fdbb03,585
-20120601,Team 18,Net Promoter Score,51.11600699,0,null,#e54d35,586
-20120601,Team 18,Funded Loans,50.82562402,45,null,#fdbb03,587
-20120601,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),50.53524106,90,null,#fdbb03,588
-20120601,Team 18,Cycle Time (Purchase),50.24485809,135,null,#e54d35,589
-20120601,Team 18,Technical Error Rate,49.95447513,180,null,#e54d35,590
-20120601,Team 19,Net Promoter Score,49.66409217,135,null,#e54d35,591
-20120601,Team 19,Funded Loans,49.3737092,90,null,#e54d35,592
-20120601,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),49.08332624,45,null,#fdbb03,593
-20120601,Team 19,Cycle Time (Purchase),48.79294328,0,null,#fdbb03,594
-20120601,Team 19,Technical Error Rate,48.50256031,0,null,#e54d35,595
-20120601,Team 20,Net Promoter Score,48.21217735,45,null,#e54d35,596
-20120601,Team 20,Funded Loans,47.92179438,90,null,#fdbb03,597
-20120601,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),47.63141142,135,null,#fdbb03,598
-20120601,Team 20,Cycle Time (Purchase),47.34102846,180,null,#e54d35,599
-20120601,Team 20,Technical Error Rate,47.05064549,135,null,#e54d35,600
-20120701,Team 1,Net Promoter Score,46.76026253,90,null,#d3e513,601
-20120701,Team 1,Funded Loans,46.46987956,45,null,#e54d35,602
-20120701,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),46.1794966,0,null,#e54d35,603
-20120701,Team 1,Cycle Time (Purchase),45.88911364,0,null,#e54d35,604
-20120701,Team 1,Technical Error Rate,45.59873067,45,null,#e54d35,605
-20120701,Team 2,Net Promoter Score,45.30834771,90,null,#e54d35,606
-20120701,Team 2,Funded Loans,45.01796474,135,null,#fdbb03,607
-20120701,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),44.72758178,180,null,#e54d35,608
-20120701,Team 2,Cycle Time (Purchase),44.43719882,135,null,#fdbb03,609
-20120701,Team 2,Technical Error Rate,44.14681585,90,null,#d3e513,610
-20120701,Team 3,Net Promoter Score,43.85643289,45,null,#e54d35,611
-20120701,Team 3,Funded Loans,43.56604992,0,null,#fdbb03,612
-20120701,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),43.27566696,0,null,#fdbb03,613
-20120701,Team 3,Cycle Time (Purchase),42.985284,45,null,#e54d35,614
-20120701,Team 3,Technical Error Rate,42.69490103,90,null,#fdbb03,615
-20120701,Team 4,Net Promoter Score,42.40451807,135,null,#fdbb03,616
-20120701,Team 4,Funded Loans,42.11413511,180,null,#e54d35,617
-20120701,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),41.82375214,135,null,#fdbb03,618
-20120701,Team 4,Cycle Time (Purchase),41.53336918,90,null,#d3e513,619
-20120701,Team 4,Technical Error Rate,41.24298621,45,null,#e54d35,620
-20120701,Team 5,Net Promoter Score,40.95260325,0,null,#fdbb03,621
-20120701,Team 5,Funded Loans,40.66222029,0,null,#d3e513,622
-20120701,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),40.37183732,45,null,#e54d35,623
-20120701,Team 5,Cycle Time (Purchase),40.08145436,90,null,#e54d35,624
-20120701,Team 5,Technical Error Rate,39.79107139,135,null,#e54d35,625
-20120701,Team 6,Net Promoter Score,39.50068843,180,null,#e54d35,626
-20120701,Team 6,Funded Loans,39.21030547,135,null,#d3e513,627
-20120701,Team 6,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),38.9199225,90,null,#fdbb03,628
-20120701,Team 6,Cycle Time (Purchase),38.62953954,45,null,#fdbb03,629
-20120701,Team 6,Technical Error Rate,38.33915657,0,null,#fdbb03,630
-20120701,Team 7,Net Promoter Score,38.04877361,0,null,#d3e513,631
-20120701,Team 7,Funded Loans,37.75839065,45,null,#e54d35,632
-20120701,Team 7,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),37.46800768,90,null,#e54d35,633
-20120701,Team 7,Cycle Time (Purchase),37.17762472,135,null,#fdbb03,634
-20120701,Team 7,Technical Error Rate,36.88724175,180,null,#d3e513,635
-20120701,Team 8,Net Promoter Score,36.59685879,135,null,#d3e513,636
-20120701,Team 8,Funded Loans,36.30647583,90,null,#fdbb03,637
-20120701,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),36.01609286,45,null,#e54d35,638
-20120701,Team 8,Cycle Time (Purchase),35.7257099,0,null,#e54d35,639
-20120701,Team 8,Technical Error Rate,35.43532694,0,null,#d3e513,640
-20120701,Team 9,Net Promoter Score,35.14494397,45,null,#d3e513,641
-20120701,Team 9,Funded Loans,34.85456101,90,null,#d3e513,642
-20120701,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),34.56417804,135,null,#e54d35,643
-20120701,Team 9,Cycle Time (Purchase),34.27379508,180,null,#fdbb03,644
-20120701,Team 9,Technical Error Rate,33.98341212,135,null,#fdbb03,645
-20120701,Team 10,Net Promoter Score,33.69302915,90,null,#e54d35,646
-20120701,Team 10,Funded Loans,33.40264619,45,null,#e54d35,647
-20120701,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),33.11226322,0,null,#fdbb03,648
-20120701,Team 10,Cycle Time (Purchase),32.82188026,0,null,#e54d35,649
-20120701,Team 10,Technical Error Rate,32.5314973,45,null,#e54d35,650
-20120701,Team 11,Net Promoter Score,32.24111433,90,null,#e54d35,651
-20120701,Team 11,Funded Loans,31.95073137,135,null,#d3e513,652
-20120701,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),31.6603484,180,null,#e54d35,653
-20120701,Team 11,Cycle Time (Purchase),31.36996544,135,null,#e54d35,654
-20120701,Team 11,Technical Error Rate,31.07958248,90,null,#fdbb03,655
-20120701,Team 12,Net Promoter Score,30.78919951,45,null,#d3e513,656
-20120701,Team 12,Funded Loans,30.49881655,0,null,#e54d35,657
-20120701,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),30.20843359,0,null,#d3e513,658
-20120701,Team 12,Cycle Time (Purchase),29.91805062,45,null,#e54d35,659
-20120701,Team 12,Technical Error Rate,29.62766766,90,null,#e54d35,660
-20120701,Team 13,Net Promoter Score,29.33728469,135,null,#e54d35,661
-20120701,Team 13,Funded Loans,29.04690173,180,null,#d3e513,662
-20120701,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),28.75651877,135,null,#e54d35,663
-20120701,Team 13,Cycle Time (Purchase),28.4661358,90,null,#e54d35,664
-20120701,Team 13,Technical Error Rate,28.17575284,45,null,#e54d35,665
-20120701,Team 14,Net Promoter Score,27.88536987,0,null,#e54d35,666
-20120701,Team 14,Funded Loans,27.59498691,0,null,#e54d35,667
-20120701,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),27.30460395,45,null,#fdbb03,668
-20120701,Team 14,Cycle Time (Purchase),27.01422098,90,null,#d3e513,669
-20120701,Team 14,Technical Error Rate,26.72383802,135,null,#e54d35,670
-20120701,Team 15,Net Promoter Score,26.43345505,180,null,#e54d35,671
-20120701,Team 15,Funded Loans,26.14307209,135,null,#d3e513,672
-20120701,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),25.85268913,90,null,#e54d35,673
-20120701,Team 15,Cycle Time (Purchase),25.56230616,45,null,#e54d35,674
-20120701,Team 15,Technical Error Rate,25.2719232,0,null,#e54d35,675
-20120701,Team 16,Net Promoter Score,24.98154023,0,null,#fdbb03,676
-20120701,Team 16,Funded Loans,24.69115727,45,null,#fdbb03,677
-20120701,Team 16,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),24.40077431,90,null,#e54d35,678
-20120701,Team 16,Cycle Time (Purchase),24.11039134,135,null,#d3e513,679
-20120701,Team 16,Technical Error Rate,23.82000838,180,null,#e54d35,680
-20120701,Team 17,Net Promoter Score,23.52962542,135,null,#fdbb03,681
-20120701,Team 17,Funded Loans,23.23924245,90,null,#e54d35,682
-20120701,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),22.94885949,45,null,#e54d35,683
-20120701,Team 17,Cycle Time (Purchase),22.65847652,0,null,#e54d35,684
-20120701,Team 17,Technical Error Rate,22.36809356,0,null,#d3e513,685
-20120701,Team 18,Net Promoter Score,22.0777106,45,null,#fdbb03,686
-20120701,Team 18,Funded Loans,21.78732763,90,null,#e54d35,687
-20120701,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),21.49694467,135,null,#fdbb03,688
-20120701,Team 18,Cycle Time (Purchase),21.2065617,180,null,#d3e513,689
-20120701,Team 18,Technical Error Rate,20.91617874,135,null,#d3e513,690
-20120701,Team 19,Net Promoter Score,20.62579578,90,null,#e54d35,691
-20120701,Team 19,Funded Loans,20.33541281,45,null,#fdbb03,692
-20120701,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),20.04502985,0,null,#e54d35,693
-20120701,Team 19,Cycle Time (Purchase),19.75464688,0,null,#e54d35,694
-20120701,Team 19,Technical Error Rate,19.46426392,45,null,#fdbb03,695
-20120701,Team 20,Net Promoter Score,19.17388096,90,null,#e54d35,696
-20120701,Team 20,Funded Loans,18.88349799,135,null,#e54d35,697
-20120701,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),18.59311503,180,null,#d3e513,698
-20120701,Team 20,Cycle Time (Purchase),18.30273206,135,null,#e54d35,699
-20120701,Team 20,Technical Error Rate,18.0123491,90,null,#e54d35,700
-20120801,Team 1,Net Promoter Score,17.72196614,45,null,#e54d35,701
-20120801,Team 1,Funded Loans,17.43158317,0,null,#e54d35,702
-20120801,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),17.14120021,0,null,#d3e513,703
-20120801,Team 1,Cycle Time (Purchase),16.85081725,45,null,#d3e513,704
-20120801,Team 1,Technical Error Rate,16.56043428,90,null,#fdbb03,705
-20120801,Team 2,Net Promoter Score,16.27005132,135,null,#e54d35,706
-20120801,Team 2,Funded Loans,15.97966835,180,null,#e54d35,707
-20120801,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),15.68928539,135,null,#e54d35,708
-20120801,Team 2,Cycle Time (Purchase),15.39890243,90,null,#d3e513,709
-20120801,Team 2,Technical Error Rate,15.10851946,45,null,#e54d35,710
-20120801,Team 3,Net Promoter Score,14.8181365,0,null,#fdbb03,711
-20120801,Team 3,Funded Loans,14.52775353,0,null,#fdbb03,712
-20120801,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),14.23737057,45,null,#fdbb03,713
-20120801,Team 3,Cycle Time (Purchase),13.94698761,90,null,#e54d35,714
-20120801,Team 3,Technical Error Rate,13.65660464,135,null,#d3e513,715
-20120801,Team 4,Net Promoter Score,13.36622168,180,null,#fdbb03,716
-20120801,Team 4,Funded Loans,13.07583871,135,null,#e54d35,717
-20120801,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),12.78545575,90,null,#fdbb03,718
-20120801,Team 4,Cycle Time (Purchase),12.49507279,45,null,#e54d35,719
-20120801,Team 4,Technical Error Rate,12.20468982,0,null,#e54d35,720
-20120801,Team 5,Net Promoter Score,11.91430686,0,null,#fdbb03,721
-20120801,Team 5,Funded Loans,11.62392389,45,null,#d3e513,722
-20120801,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),11.33354093,90,null,#fdbb03,723
-20120801,Team 5,Cycle Time (Purchase),11.04315797,135,null,#fdbb03,724
-20120801,Team 5,Technical Error Rate,10.752775,180,null,#e54d35,725
-20120801,Team 6,Net Promoter Score,10.46239204,135,null,#d3e513,726
-20120801,Team 6,Funded Loans,10.17200908,90,null,#e54d35,727
-20120801,Team 6,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),9.881626111,45,null,#d3e513,728
-20120801,Team 6,Cycle Time (Purchase),9.591243147,0,null,#fdbb03,729
-20120801,Team 6,Technical Error Rate,9.300860184,0,null,#d3e513,730
-20120801,Team 7,Net Promoter Score,9.01047722,45,null,#fdbb03,731
-20120801,Team 8,Funded Loans,7.268179436,45,null,#fdbb03,737
-20120801,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),6.977796472,0,null,#e54d35,738
-20120801,Team 8,Cycle Time (Purchase),6.687413508,0,null,#fdbb03,739
-20120801,Team 8,Technical Error Rate,6.397030544,45,null,#fdbb03,740
-20120801,Team 9,Net Promoter Score,6.106647581,90,null,#fdbb03,741
-20120801,Team 9,Funded Loans,5.816264617,135,null,#fdbb03,742
-20120801,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),5.525881653,180,null,#e54d35,743
-20120801,Team 9,Cycle Time (Purchase),5.235498689,135,null,#fdbb03,744
-20120801,Team 9,Technical Error Rate,4.945115725,90,null,#fdbb03,745
-20120801,Team 10,Net Promoter Score,4.654732761,45,null,#d3e513,746
-20120801,Team 10,Funded Loans,4.364349797,0,null,#e54d35,747
-20120801,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),4.073966833,0,null,#d3e513,748
-20120801,Team 10,Cycle Time (Purchase),3.783583869,45,null,#fdbb03,749
-20120801,Team 10,Technical Error Rate,3.493200905,90,null,#fdbb03,750
-20120801,Team 11,Net Promoter Score,3.202817941,135,null,#e54d35,751
-20120801,Team 11,Funded Loans,2.912434978,180,null,#e54d35,752
-20120801,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),2.622052014,135,null,#e54d35,753
-20120801,Team 11,Cycle Time (Purchase),2.33166905,90,null,#e54d35,754
-20120801,Team 11,Technical Error Rate,2.041286086,45,null,#e54d35,755
-20120801,Team 12,Net Promoter Score,1.750903122,0,null,#fdbb03,756
-20120801,Team 12,Funded Loans,1.460520158,0,null,#fdbb03,757
-20120801,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),1.170137194,45,null,#e54d35,758
-20120801,Team 12,Cycle Time (Purchase),0.87975423,90,null,#fdbb03,759
-20120801,Team 12,Technical Error Rate,0.589371266,135,null,#e54d35,760
-20120801,Team 13,Net Promoter Score,0.298988302,180,null,#e54d35,761
-20120801,Team 13,Funded Loans,0.008605338,135,null,#fdbb03,762
-20120801,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),12,90,null,#d3e513,763
-20120801,Team 13,Cycle Time (Purchase),15,45,null,#e54d35,764
-20120801,Team 13,Technical Error Rate,32,0,null,#d3e513,765
-20120801,Team 14,Net Promoter Score,20,0,null,#e54d35,766
-20120801,Team 14,Funded Loans,68,45,null,#fdbb03,767
-20120801,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),123,90,null,#fdbb03,768
-20120801,Team 14,Cycle Time (Purchase),56,135,null,#fdbb03,769
-20120801,Team 14,Technical Error Rate,198,180,null,#d3e513,770
-20120801,Team 15,Net Promoter Score,2,135,null,#d3e513,771
-20120801,Team 15,Funded Loans,0,90,null,#e54d35,772
-20120801,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),79.06666667,45,null,#fdbb03,773
-20120801,Team 15,Cycle Time (Purchase),83.87878788,0,null,#d3e513,774
-20120801,Team 15,Technical Error Rate,88.69090909,0,null,#fdbb03,775
-20120801,Team 16,Net Promoter Score,93.5030303,45,null,#e54d35,776
-20120801,Team 16,Funded Loans,98.31515152,90,null,#e54d35,777
-20120801,Team 16,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),103.1272727,135,null,#fdbb03,778
-20120801,Team 16,Cycle Time (Purchase),107.9393939,180,null,#e54d35,779
-20120801,Team 16,Technical Error Rate,112.7515152,135,null,#e54d35,780
-20120801,Team 17,Net Promoter Score,117.5636364,90,null,#d3e513,781
-20120801,Team 17,Funded Loans,122.3757576,45,null,#e54d35,782
-20120801,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),12,0,null,#fdbb03,783
-20120801,Team 17,Cycle Time (Purchase),15,0,null,#d3e513,784
-20120801,Team 17,Technical Error Rate,32,45,null,#fdbb03,785
-20120801,Team 18,Net Promoter Score,20,90,null,#fdbb03,786
-20120801,Team 18,Funded Loans,68,135,null,#fdbb03,787
-20120801,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),123,180,null,#e54d35,788
-20120801,Team 18,Cycle Time (Purchase),56,135,null,#e54d35,789
-20120801,Team 18,Technical Error Rate,198,90,null,#fdbb03,790
-20120801,Team 19,Net Promoter Score,2,45,null,#d3e513,791
-20120801,Team 19,Funded Loans,0,0,null,#fdbb03,792
-20120801,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),79.06666667,0,null,#e54d35,793
-20120801,Team 19,Cycle Time (Purchase),83.87878788,45,null,#e54d35,794
-20120801,Team 19,Technical Error Rate,88.69090909,90,null,#e54d35,795
-20120801,Team 20,Net Promoter Score,93.5030303,135,null,#d3e513,796
-20120801,Team 20,Funded Loans,98.31515152,180,null,#e54d35,797
-20120801,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),76.1959596,135,null,#fdbb03,798
-20120801,Team 20,Cycle Time (Purchase),75.09605142,90,null,#e54d35,799
-20120801,Team 20,Technical Error Rate,73.99614325,45,null,#d3e513,800
-20120901,Team 1,Net Promoter Score,72.89623508,0,null,#e54d35,801
-20120901,Team 1,Funded Loans,71.79632691,0,null,#fdbb03,802
-20120901,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),63.37730552,45,null,#d3e513,803
-20120901,Team 1,Cycle Time (Purchase),59.15738554,90,null,#fdbb03,804
-20120901,Team 1,Technical Error Rate,54.93746556,135,null,#e54d35,805
-20120901,Team 2,Net Promoter Score,50.71754559,180,null,#d3e513,806
-20120901,Team 2,Funded Loans,46.49762561,135,null,#e54d35,807
-20120901,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),48.28684432,90,null,#d3e513,808
-20120901,Team 2,Cycle Time (Purchase),45.25501162,45,null,#e54d35,809
-20120901,Team 2,Technical Error Rate,42.22317891,0,null,#fdbb03,810
-20120901,Team 3,Net Promoter Score,39.19134621,0,null,#e54d35,811
-20120901,Team 3,Funded Loans,36.1595135,45,null,#d3e513,812
-20120901,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),46.1356072,90,null,#fdbb03,813
-20120901,Team 3,Cycle Time (Purchase),44.75841914,135,null,#d3e513,814
-20120901,Team 3,Technical Error Rate,43.38123107,180,null,#fdbb03,815
-20120901,Team 4,Net Promoter Score,42.004043,135,null,#e54d35,816
-20120901,Team 4,Funded Loans,40.62685493,90,null,#e54d35,817
-20120901,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),73.99614325,45,null,#e54d35,818
-20120901,Team 4,Cycle Time (Purchase),72.89623508,0,null,#e54d35,819
-20120901,Team 4,Technical Error Rate,71.79632691,0,null,#e54d35,820
-20120901,Team 5,Net Promoter Score,63.37730552,45,null,#d3e513,821
-20120901,Team 5,Funded Loans,59.15738554,90,null,#e54d35,822
-20120901,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),54.93746556,135,null,#d3e513,823
-20120901,Team 5,Cycle Time (Purchase),50.71754559,180,null,#d3e513,824
-20120901,Team 5,Technical Error Rate,46.49762561,135,null,#e54d35,825
-20120901,Team 6,Net Promoter Score,48.28684432,90,null,#e54d35,826
-20120901,Team 6,Funded Loans,54.89098552,45,null,#fdbb03,827
-20120901,Team 6,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),54.60060255,0,null,#e54d35,828
-20120901,Team 6,Cycle Time (Purchase),54.31021959,0,null,#fdbb03,829
-20120901,Team 6,Technical Error Rate,54.01983663,45,null,#e54d35,830
-20120901,Team 7,Net Promoter Score,53.72945366,90,null,#fdbb03,831
-20120901,Team 7,Funded Loans,53.4390707,135,null,#e54d35,832
-20120901,Team 7,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),53.14868773,180,null,#fdbb03,833
-20120901,Team 7,Cycle Time (Purchase),52.85830477,135,null,#fdbb03,834
-20120901,Team 7,Technical Error Rate,52.56792181,90,null,#e54d35,835
-20120901,Team 8,Net Promoter Score,52.27753884,45,null,#fdbb03,836
-20120901,Team 8,Funded Loans,51.98715588,0,null,#d3e513,837
-20120901,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),51.69677291,0,null,#d3e513,838
-20120901,Team 8,Cycle Time (Purchase),51.40638995,45,null,#e54d35,839
-20120901,Team 8,Technical Error Rate,51.11600699,90,null,#e54d35,840
-20120901,Team 9,Net Promoter Score,50.82562402,135,null,#d3e513,841
-20120901,Team 9,Funded Loans,50.53524106,180,null,#d3e513,842
-20120901,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),50.24485809,135,null,#e54d35,843
-20120901,Team 9,Cycle Time (Purchase),49.95447513,90,null,#fdbb03,844
-20120901,Team 9,Technical Error Rate,49.66409217,45,null,#e54d35,845
-20120901,Team 10,Net Promoter Score,49.3737092,0,null,#fdbb03,846
-20120901,Team 10,Funded Loans,49.08332624,0,null,#fdbb03,847
-20120901,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),48.79294328,45,null,#e54d35,848
-20120901,Team 10,Cycle Time (Purchase),48.50256031,90,null,#fdbb03,849
-20120901,Team 10,Technical Error Rate,48.21217735,135,null,#fdbb03,850
-20120901,Team 11,Net Promoter Score,47.92179438,180,null,#d3e513,851
-20120901,Team 11,Funded Loans,47.63141142,135,null,#e54d35,852
-20120901,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),47.34102846,90,null,#fdbb03,853
-20120901,Team 11,Cycle Time (Purchase),47.05064549,45,null,#e54d35,854
-20120901,Team 11,Technical Error Rate,46.76026253,0,null,#e54d35,855
-20120901,Team 12,Net Promoter Score,46.46987956,0,null,#fdbb03,856
-20120901,Team 12,Funded Loans,46.1794966,45,null,#e54d35,857
-20120901,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),45.88911364,90,null,#fdbb03,858
-20120901,Team 12,Cycle Time (Purchase),45.59873067,135,null,#e54d35,859
-20120901,Team 12,Technical Error Rate,45.30834771,180,null,#e54d35,860
-20120901,Team 13,Net Promoter Score,45.01796474,135,null,#e54d35,861
-20120901,Team 13,Funded Loans,44.72758178,90,null,#e54d35,862
-20120901,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),44.43719882,45,null,#d3e513,863
-20120901,Team 13,Cycle Time (Purchase),44.14681585,0,null,#fdbb03,864
-20120901,Team 13,Technical Error Rate,43.85643289,0,null,#d3e513,865
-20120901,Team 14,Net Promoter Score,43.56604992,45,null,#e54d35,866
-20120901,Team 14,Funded Loans,43.27566696,90,null,#d3e513,867
-20120901,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),42.985284,135,null,#fdbb03,868
-20120901,Team 14,Cycle Time (Purchase),42.69490103,180,null,#e54d35,869
-20120901,Team 14,Technical Error Rate,42.40451807,135,null,#d3e513,870
-20120901,Team 15,Net Promoter Score,42.11413511,90,null,#fdbb03,871
-20120901,Team 15,Funded Loans,41.82375214,45,null,#fdbb03,872
-20120901,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),41.53336918,0,null,#fdbb03,873
-20120901,Team 15,Cycle Time (Purchase),41.24298621,0,null,#fdbb03,874
-20120901,Team 15,Technical Error Rate,40.95260325,45,null,#d3e513,875
-20120901,Team 16,Net Promoter Score,40.66222029,90,null,#fdbb03,876
-20120901,Team 16,Funded Loans,40.37183732,135,null,#fdbb03,877
-20120901,Team 16,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),40.08145436,180,null,#e54d35,878
-20120901,Team 16,Cycle Time (Purchase),39.79107139,135,null,#fdbb03,879
-20120901,Team 16,Technical Error Rate,39.50068843,90,null,#d3e513,880
-20120901,Team 17,Net Promoter Score,39.21030547,45,null,#e54d35,881
-20120901,Team 17,Funded Loans,38.9199225,0,null,#fdbb03,882
-20120901,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),38.62953954,0,null,#e54d35,883
-20120901,Team 17,Cycle Time (Purchase),38.33915657,45,null,#e54d35,884
-20120901,Team 17,Technical Error Rate,38.04877361,90,null,#d3e513,885
-20120901,Team 18,Net Promoter Score,37.75839065,135,null,#fdbb03,886
-20120901,Team 18,Funded Loans,37.46800768,180,null,#fdbb03,887
-20120901,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),37.17762472,135,null,#d3e513,888
-20120901,Team 18,Cycle Time (Purchase),36.88724175,90,null,#fdbb03,889
-20120901,Team 18,Technical Error Rate,36.59685879,45,null,#e54d35,890
-20120901,Team 19,Net Promoter Score,36.30647583,0,null,#e54d35,891
-20120901,Team 19,Funded Loans,36.01609286,0,null,#fdbb03,892
-20120901,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),35.7257099,45,null,#e54d35,893
-20120901,Team 19,Cycle Time (Purchase),35.43532694,90,null,#fdbb03,894
-20120901,Team 19,Technical Error Rate,35.14494397,135,null,#e54d35,895
-20120901,Team 20,Net Promoter Score,34.85456101,180,null,#e54d35,896
-20120901,Team 20,Funded Loans,34.56417804,135,null,#fdbb03,897
-20120901,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),34.27379508,90,null,#e54d35,898
-20120901,Team 20,Cycle Time (Purchase),33.98341212,45,null,#e54d35,899
-20120901,Team 20,Technical Error Rate,33.69302915,0,null,#fdbb03,900
-20121001,Team 1,Net Promoter Score,33.40264619,0,null,#e54d35,901
-20121001,Team 1,Funded Loans,33.11226322,45,null,#e54d35,902
-20121001,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),32.82188026,90,null,#fdbb03,903
-20121001,Team 1,Cycle Time (Purchase),32.5314973,135,null,#e54d35,904
-20121001,Team 1,Technical Error Rate,32.24111433,180,null,#fdbb03,905
-20121001,Team 2,Net Promoter Score,31.95073137,135,null,#e54d35,906
-20121001,Team 2,Funded Loans,31.6603484,90,null,#fdbb03,907
-20121001,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),31.36996544,45,null,#e54d35,908
-20121001,Team 2,Cycle Time (Purchase),31.07958248,0,null,#fdbb03,909
-20121001,Team 2,Technical Error Rate,30.78919951,0,null,#fdbb03,910
-20121001,Team 3,Net Promoter Score,30.49881655,45,null,#d3e513,911
-20121001,Team 3,Funded Loans,30.20843359,90,null,#d3e513,912
-20121001,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),29.91805062,135,null,#e54d35,913
-20121001,Team 3,Cycle Time (Purchase),29.62766766,180,null,#e54d35,914
-20121001,Team 3,Technical Error Rate,29.33728469,135,null,#e54d35,915
-20121001,Team 4,Net Promoter Score,29.04690173,90,null,#d3e513,916
-20121001,Team 4,Funded Loans,28.75651877,45,null,#e54d35,917
-20121001,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),28.4661358,0,null,#e54d35,918
-20121001,Team 4,Cycle Time (Purchase),28.17575284,0,null,#e54d35,919
-20121001,Team 4,Technical Error Rate,27.88536987,45,null,#e54d35,920
-20121001,Team 5,Net Promoter Score,27.59498691,90,null,#d3e513,921
-20121001,Team 5,Funded Loans,27.30460395,135,null,#e54d35,922
-20121001,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),27.01422098,180,null,#fdbb03,923
-20121001,Team 5,Cycle Time (Purchase),26.72383802,135,null,#fdbb03,924
-20121001,Team 5,Technical Error Rate,26.43345505,90,null,#fdbb03,925
-20121001,Team 6,Net Promoter Score,26.14307209,45,null,#e54d35,926
-20121001,Team 6,Funded Loans,25.85268913,0,null,#e54d35,927
-20121001,Team 6,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),25.56230616,0,null,#fdbb03,928
-20121001,Team 6,Cycle Time (Purchase),25.2719232,45,null,#e54d35,929
-20121001,Team 6,Technical Error Rate,24.98154023,90,null,#e54d35,930
-20121001,Team 7,Net Promoter Score,24.69115727,135,null,#e54d35,931
-20121001,Team 7,Funded Loans,24.40077431,180,null,#fdbb03,932
-20121001,Team 7,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),24.11039134,135,null,#fdbb03,933
-20121001,Team 7,Cycle Time (Purchase),23.82000838,90,null,#e54d35,934
-20121001,Team 7,Technical Error Rate,23.52962542,45,null,#e54d35,935
-20121001,Team 8,Net Promoter Score,23.23924245,0,null,#e54d35,936
-20121001,Team 8,Funded Loans,22.94885949,0,null,#e54d35,937
-20121001,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),22.65847652,45,null,#e54d35,938
-20121001,Team 8,Cycle Time (Purchase),22.36809356,90,null,#fdbb03,939
-20121001,Team 8,Technical Error Rate,22.0777106,135,null,#fdbb03,940
-20121001,Team 9,Net Promoter Score,21.78732763,180,null,#e54d35,941
-20121001,Team 9,Funded Loans,21.49694467,135,null,#fdbb03,942
-20121001,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),21.2065617,90,null,#d3e513,943
-20121001,Team 9,Cycle Time (Purchase),20.91617874,45,null,#fdbb03,944
-20121001,Team 9,Technical Error Rate,20.62579578,0,null,#e54d35,945
-20121001,Team 10,Net Promoter Score,20.33541281,0,null,#d3e513,946
-20121001,Team 10,Funded Loans,20.04502985,45,null,#d3e513,947
-20121001,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),19.75464688,90,null,#fdbb03,948
-20121001,Team 10,Cycle Time (Purchase),19.46426392,135,null,#fdbb03,949
-20121001,Team 10,Technical Error Rate,19.17388096,180,null,#e54d35,950
-20121001,Team 11,Net Promoter Score,18.88349799,135,null,#fdbb03,951
-20121001,Team 11,Funded Loans,18.59311503,90,null,#fdbb03,952
-20121001,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),18.30273206,45,null,#e54d35,953
-20121001,Team 11,Cycle Time (Purchase),18.0123491,0,null,#e54d35,954
-20121001,Team 11,Technical Error Rate,17.72196614,0,null,#e54d35,955
-20121001,Team 12,Net Promoter Score,17.43158317,45,null,#e54d35,956
-20121001,Team 12,Funded Loans,17.14120021,90,null,#d3e513,957
-20121001,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),16.85081725,135,null,#fdbb03,958
-20121001,Team 12,Cycle Time (Purchase),16.56043428,180,null,#fdbb03,959
-20121001,Team 12,Technical Error Rate,16.27005132,135,null,#d3e513,960
-20121001,Team 13,Net Promoter Score,15.97966835,90,null,#d3e513,961
-20121001,Team 13,Funded Loans,15.68928539,45,null,#d3e513,962
-20121001,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),15.39890243,0,null,#e54d35,963
-20121001,Team 13,Cycle Time (Purchase),15.10851946,0,null,#d3e513,964
-20121001,Team 13,Technical Error Rate,14.8181365,45,null,#e54d35,965
-20121001,Team 14,Net Promoter Score,14.52775353,90,null,#e54d35,966
-20121001,Team 14,Funded Loans,14.23737057,135,null,#e54d35,967
-20121001,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),13.94698761,180,null,#fdbb03,968
-20121001,Team 14,Cycle Time (Purchase),13.65660464,135,null,#fdbb03,969
-20121001,Team 14,Technical Error Rate,13.36622168,90,null,#d3e513,970
-20121001,Team 15,Net Promoter Score,13.07583871,45,null,#d3e513,971
-20121001,Team 15,Funded Loans,12.78545575,0,null,#fdbb03,972
-20121001,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),12.49507279,0,null,#d3e513,973
-20121001,Team 15,Cycle Time (Purchase),12.20468982,45,null,#e54d35,974
-20121001,Team 15,Technical Error Rate,11.91430686,90,null,#fdbb03,975
-20121001,Team 16,Net Promoter Score,11.62392389,135,null,#e54d35,976
-20121001,Team 16,Funded Loans,11.33354093,180,null,#e54d35,977
-20121001,Team 16,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),11.04315797,135,null,#e54d35,978
-20121001,Team 16,Cycle Time (Purchase),10.752775,90,null,#e54d35,979
-20121001,Team 16,Technical Error Rate,10.46239204,45,null,#d3e513,980
-20121001,Team 17,Net Promoter Score,10.17200908,0,null,#d3e513,981
-20121001,Team 17,Funded Loans,9.881626111,0,null,#e54d35,982
-20121001,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),9.591243147,45,null,#d3e513,983
-20121001,Team 17,Cycle Time (Purchase),9.300860184,90,null,#e54d35,984
-20121001,Team 17,Technical Error Rate,9.01047722,135,null,#e54d35,985
-20121001,Team 18,Net Promoter Score,8.720094256,180,null,#d3e513,986
-20121001,Team 18,Funded Loans,8.429711292,135,null,#e54d35,987
-20121001,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),8.139328328,90,null,#e54d35,988
-20121001,Team 18,Cycle Time (Purchase),7.848945364,45,null,#fdbb03,989
-20121001,Team 18,Technical Error Rate,7.5585624,0,null,#e54d35,990
-20121001,Team 19,Net Promoter Score,7.268179436,0,null,#fdbb03,991
-20121001,Team 19,Funded Loans,6.977796472,45,null,#d3e513,992
-20121001,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),6.687413508,90,null,#fdbb03,993
-20121001,Team 19,Cycle Time (Purchase),6.397030544,135,null,#e54d35,994
-20121001,Team 19,Technical Error Rate,6.106647581,180,null,#fdbb03,995
-20121001,Team 20,Net Promoter Score,5.816264617,135,null,#e54d35,996
-20121001,Team 20,Funded Loans,5.525881653,90,null,#fdbb03,997
-20121001,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),5.235498689,45,null,#e54d35,998
-20121001,Team 20,Cycle Time (Purchase),4.945115725,0,null,#fdbb03,999
-20121001,Team 20,Technical Error Rate,4.654732761,0,null,#e54d35,1000
-20121101,Team 1,Net Promoter Score,4.364349797,45,null,#e54d35,1001
-20121101,Team 1,Funded Loans,4.073966833,90,null,#e54d35,1002
-20121101,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),3.783583869,135,null,#e54d35,1003
-20121101,Team 1,Cycle Time (Purchase),3.493200905,180,null,#e54d35,1004
-20121101,Team 1,Technical Error Rate,3.202817941,135,null,#d3e513,1005
-20121101,Team 2,Net Promoter Score,2.912434978,90,null,#d3e513,1006
-20121101,Team 2,Funded Loans,2.622052014,45,null,#fdbb03,1007
-20121101,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),2.33166905,0,null,#fdbb03,1008
-20121101,Team 2,Cycle Time (Purchase),2.041286086,0,null,#fdbb03,1009
-20121101,Team 2,Technical Error Rate,1.750903122,45,null,#e54d35,1010
-20121101,Team 3,Net Promoter Score,1.460520158,90,null,#e54d35,1011
-20121101,Team 3,Funded Loans,1.170137194,135,null,#e54d35,1012
-20121101,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),0.87975423,180,null,#fdbb03,1013
-20121101,Team 3,Cycle Time (Purchase),0.589371266,135,null,#e54d35,1014
-20121101,Team 3,Technical Error Rate,0.298988302,90,null,#fdbb03,1015
-20121101,Team 4,Net Promoter Score,0.008605338,45,null,#fdbb03,1016
-20121101,Team 4,Funded Loans,12,0,null,#d3e513,1017
-20121101,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),15,0,null,#fdbb03,1018
-20121101,Team 4,Cycle Time (Purchase),32,45,null,#e54d35,1019
-20121101,Team 4,Technical Error Rate,20,90,null,#fdbb03,1020
-20121101,Team 5,Net Promoter Score,68,135,null,#e54d35,1021
-20121101,Team 5,Funded Loans,123,180,null,#fdbb03,1022
-20121101,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),56,135,null,#fdbb03,1023
-20121101,Team 5,Cycle Time (Purchase),198,90,null,#fdbb03,1024
-20121101,Team 5,Technical Error Rate,2,45,null,#fdbb03,1025
-20121101,Team 6,Net Promoter Score,0,0,null,#fdbb03,1026
-20121101,Team 6,Funded Loans,79.06666667,0,null,#e54d35,1027
-20121101,Team 6,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),83.87878788,45,null,#d3e513,1028
-20121101,Team 6,Cycle Time (Purchase),88.69090909,90,null,#d3e513,1029
-20121101,Team 6,Technical Error Rate,93.5030303,135,null,#e54d35,1030
-20121101,Team 7,Net Promoter Score,98.31515152,180,null,#e54d35,1031
-20121101,Team 7,Funded Loans,103.1272727,135,null,#fdbb03,1032
-20121101,Team 7,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),107.9393939,90,null,#fdbb03,1033
-20121101,Team 7,Cycle Time (Purchase),112.7515152,45,null,#e54d35,1034
-20121101,Team 7,Technical Error Rate,117.5636364,0,null,#fdbb03,1035
-20121101,Team 8,Net Promoter Score,122.3757576,0,null,#d3e513,1036
-20121101,Team 8,Funded Loans,12,45,null,#d3e513,1037
-20121101,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),15,90,null,#e54d35,1038
-20121101,Team 8,Cycle Time (Purchase),32,135,null,#fdbb03,1039
-20121101,Team 8,Technical Error Rate,20,180,null,#d3e513,1040
-20121101,Team 9,Net Promoter Score,68,135,null,#d3e513,1041
-20121101,Team 9,Funded Loans,123,90,null,#fdbb03,1042
-20121101,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),56,45,null,#d3e513,1043
-20121101,Team 9,Cycle Time (Purchase),198,0,null,#fdbb03,1044
-20121101,Team 9,Technical Error Rate,2,0,null,#fdbb03,1045
-20121101,Team 10,Net Promoter Score,0,45,null,#e54d35,1046
-20121101,Team 10,Funded Loans,79.06666667,90,null,#e54d35,1047
-20121101,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),83.87878788,135,null,#fdbb03,1048
-20121101,Team 10,Cycle Time (Purchase),88.69090909,180,null,#d3e513,1049
-20121101,Team 10,Technical Error Rate,93.5030303,135,null,#e54d35,1050
-20121101,Team 11,Net Promoter Score,98.31515152,90,null,#fdbb03,1051
-20121101,Team 11,Funded Loans,76.1959596,45,null,#e54d35,1052
-20121101,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),75.09605142,0,null,#e54d35,1053
-20121101,Team 11,Cycle Time (Purchase),73.99614325,0,null,#fdbb03,1054
-20121101,Team 11,Technical Error Rate,72.89623508,45,null,#d3e513,1055
-20121101,Team 12,Net Promoter Score,71.79632691,90,null,#e54d35,1056
-20121101,Team 12,Funded Loans,63.37730552,135,null,#d3e513,1057
-20121101,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),59.15738554,180,null,#fdbb03,1058
-20121101,Team 12,Cycle Time (Purchase),54.93746556,135,null,#e54d35,1059
-20121101,Team 12,Technical Error Rate,50.71754559,90,null,#fdbb03,1060
-20121101,Team 13,Net Promoter Score,46.49762561,45,null,#fdbb03,1061
-20121101,Team 13,Funded Loans,48.28684432,0,null,#e54d35,1062
-20121101,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),45.25501162,0,null,#e54d35,1063
-20121101,Team 13,Cycle Time (Purchase),42.22317891,45,null,#fdbb03,1064
-20121101,Team 13,Technical Error Rate,39.19134621,90,null,#e54d35,1065
-20121101,Team 14,Net Promoter Score,36.1595135,135,null,#fdbb03,1066
-20121101,Team 14,Funded Loans,46.1356072,180,null,#fdbb03,1067
-20121101,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),44.75841914,135,null,#e54d35,1068
-20121101,Team 14,Cycle Time (Purchase),43.38123107,90,null,#fdbb03,1069
-20121101,Team 14,Technical Error Rate,42.004043,45,null,#d3e513,1070
-20121101,Team 15,Net Promoter Score,40.62685493,0,null,#d3e513,1071
-20121101,Team 15,Funded Loans,73.99614325,0,null,#d3e513,1072
-20121101,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),72.89623508,45,null,#fdbb03,1073
-20121101,Team 15,Cycle Time (Purchase),71.79632691,90,null,#e54d35,1074
-20121101,Team 15,Technical Error Rate,63.37730552,135,null,#e54d35,1075
-20121101,Team 16,Net Promoter Score,59.15738554,180,null,#d3e513,1076
-20121101,Team 16,Funded Loans,54.93746556,135,null,#e54d35,1077
-20121101,Team 16,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),50.71754559,90,null,#fdbb03,1078
-20121101,Team 16,Cycle Time (Purchase),46.49762561,45,null,#d3e513,1079
-20121101,Team 16,Technical Error Rate,48.28684432,0,null,#fdbb03,1080
-20121101,Team 17,Net Promoter Score,54.89098552,0,null,#e54d35,1081
-20121101,Team 17,Funded Loans,54.60060255,45,null,#e54d35,1082
-20121101,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),54.31021959,90,null,#e54d35,1083
-20121101,Team 17,Cycle Time (Purchase),54.01983663,135,null,#fdbb03,1084
-20121101,Team 17,Technical Error Rate,53.72945366,180,null,#e54d35,1085
-20121101,Team 18,Net Promoter Score,53.4390707,135,null,#e54d35,1086
-20121101,Team 18,Funded Loans,53.14868773,90,null,#e54d35,1087
-20121101,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),52.85830477,45,null,#e54d35,1088
-20121101,Team 18,Cycle Time (Purchase),52.56792181,0,null,#e54d35,1089
-20121101,Team 18,Technical Error Rate,52.27753884,0,null,#e54d35,1090
-20121101,Team 19,Net Promoter Score,51.98715588,45,null,#fdbb03,1091
-20121101,Team 19,Funded Loans,51.69677291,90,null,#e54d35,1092
-20121101,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),51.40638995,135,null,#d3e513,1093
-20121101,Team 19,Cycle Time (Purchase),51.11600699,180,null,#e54d35,1094
-20121101,Team 19,Technical Error Rate,50.82562402,135,null,#e54d35,1095
-20121101,Team 20,Net Promoter Score,50.53524106,90,null,#d3e513,1096
-20121101,Team 20,Funded Loans,50.24485809,45,null,#fdbb03,1097
-20121101,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),49.95447513,0,null,#e54d35,1098
-20121101,Team 20,Cycle Time (Purchase),49.66409217,0,null,#fdbb03,1099
-20121101,Team 20,Technical Error Rate,49.3737092,45,null,#fdbb03,1100
-20121201,Team 1,Net Promoter Score,49.08332624,90,null,#d3e513,1101
-20121201,Team 1,Funded Loans,48.79294328,135,null,#fdbb03,1102
-20121201,Team 1,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),48.50256031,180,null,#e54d35,1103
-20121201,Team 1,Cycle Time (Purchase),48.21217735,135,null,#e54d35,1104
-20121201,Team 1,Technical Error Rate,47.92179438,90,null,#fdbb03,1105
-20121201,Team 2,Net Promoter Score,47.63141142,45,null,#e54d35,1106
-20121201,Team 2,Funded Loans,47.34102846,0,null,#fdbb03,1107
-20121201,Team 2,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),47.05064549,0,null,#e54d35,1108
-20121201,Team 2,Cycle Time (Purchase),46.76026253,45,null,#fdbb03,1109
-20121201,Team 2,Technical Error Rate,46.46987956,90,null,#d3e513,1110
-20121201,Team 3,Net Promoter Score,46.1794966,135,null,#e54d35,1111
-20121201,Team 3,Funded Loans,45.88911364,180,null,#d3e513,1112
-20121201,Team 3,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),45.59873067,135,null,#fdbb03,1113
-20121201,Team 3,Cycle Time (Purchase),45.30834771,90,null,#d3e513,1114
-20121201,Team 3,Technical Error Rate,45.01796474,45,null,#e54d35,1115
-20121201,Team 4,Net Promoter Score,44.72758178,0,null,#e54d35,1116
-20121201,Team 4,Funded Loans,44.43719882,0,null,#e54d35,1117
-20121201,Team 4,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),44.14681585,45,null,#d3e513,1118
-20121201,Team 4,Cycle Time (Purchase),43.85643289,90,null,#e54d35,1119
-20121201,Team 4,Technical Error Rate,43.56604992,135,null,#fdbb03,1120
-20121201,Team 5,Net Promoter Score,43.27566696,180,null,#d3e513,1121
-20121201,Team 5,Funded Loans,42.985284,135,null,#fdbb03,1122
-20121201,Team 5,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),42.69490103,90,null,#d3e513,1123
-20121201,Team 5,Cycle Time (Purchase),42.40451807,45,null,#e54d35,1124
-20121201,Team 5,Technical Error Rate,42.11413511,0,null,#e54d35,1125
-20121201,Team 6,Net Promoter Score,41.82375214,0,null,#e54d35,1126
-20121201,Team 6,Funded Loans,41.53336918,45,null,#e54d35,1127
-20121201,Team 6,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),41.24298621,90,null,#fdbb03,1128
-20121201,Team 6,Cycle Time (Purchase),40.95260325,135,null,#e54d35,1129
-20121201,Team 6,Technical Error Rate,40.66222029,180,null,#e54d35,1130
-20121201,Team 7,Net Promoter Score,40.37183732,135,null,#d3e513,1131
-20121201,Team 7,Funded Loans,40.08145436,90,null,#fdbb03,1132
-20121201,Team 7,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),39.79107139,45,null,#fdbb03,1133
-20121201,Team 7,Cycle Time (Purchase),39.50068843,0,null,#d3e513,1134
-20121201,Team 7,Technical Error Rate,39.21030547,0,null,#e54d35,1135
-20121201,Team 8,Net Promoter Score,38.9199225,45,null,#fdbb03,1136
-20121201,Team 8,Funded Loans,38.62953954,90,null,#d3e513,1137
-20121201,Team 8,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),38.33915657,135,null,#fdbb03,1138
-20121201,Team 8,Cycle Time (Purchase),38.04877361,180,null,#d3e513,1139
-20121201,Team 8,Technical Error Rate,37.75839065,135,null,#fdbb03,1140
-20121201,Team 9,Net Promoter Score,37.46800768,90,null,#e54d35,1141
-20121201,Team 9,Funded Loans,37.17762472,45,null,#fdbb03,1142
-20121201,Team 9,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),36.88724175,0,null,#e54d35,1143
-20121201,Team 9,Cycle Time (Purchase),36.59685879,0,null,#fdbb03,1144
-20121201,Team 9,Technical Error Rate,36.30647583,45,null,#e54d35,1145
-20121201,Team 10,Net Promoter Score,36.01609286,90,null,#fdbb03,1146
-20121201,Team 10,Funded Loans,35.7257099,135,null,#fdbb03,1147
-20121201,Team 10,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),35.43532694,180,null,#d3e513,1148
-20121201,Team 10,Cycle Time (Purchase),35.14494397,135,null,#d3e513,1149
-20121201,Team 10,Technical Error Rate,34.85456101,90,null,#e54d35,1150
-20121201,Team 11,Net Promoter Score,34.56417804,45,null,#e54d35,1151
-20121201,Team 11,Funded Loans,34.27379508,0,null,#e54d35,1152
-20121201,Team 11,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),33.98341212,0,null,#d3e513,1153
-20121201,Team 11,Cycle Time (Purchase),33.69302915,45,null,#e54d35,1154
-20121201,Team 11,Technical Error Rate,33.40264619,90,null,#fdbb03,1155
-20121201,Team 12,Net Promoter Score,33.11226322,135,null,#fdbb03,1156
-20121201,Team 12,Funded Loans,32.82188026,180,null,#e54d35,1157
-20121201,Team 12,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),32.5314973,135,null,#fdbb03,1158
-20121201,Team 12,Cycle Time (Purchase),32.24111433,90,null,#fdbb03,1159
-20121201,Team 12,Technical Error Rate,31.95073137,45,null,#e54d35,1160
-20121201,Team 13,Net Promoter Score,31.6603484,0,null,#fdbb03,1161
-20121201,Team 13,Funded Loans,31.36996544,0,null,#e54d35,1162
-20121201,Team 13,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),31.07958248,45,null,#e54d35,1163
-20121201,Team 13,Cycle Time (Purchase),30.78919951,90,null,#fdbb03,1164
-20121201,Team 13,Technical Error Rate,30.49881655,135,null,#e54d35,1165
-20121201,Team 14,Net Promoter Score,30.20843359,180,null,#e54d35,1166
-20121201,Team 14,Funded Loans,29.91805062,135,null,#fdbb03,1167
-20121201,Team 14,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),29.62766766,90,null,#e54d35,1168
-20121201,Team 14,Cycle Time (Purchase),29.33728469,45,null,#d3e513,1169
-20121201,Team 14,Technical Error Rate,29.04690173,0,null,#fdbb03,1170
-20121201,Team 15,Net Promoter Score,28.75651877,0,null,#e54d35,1171
-20121201,Team 15,Funded Loans,28.4661358,45,null,#e54d35,1172
-20121201,Team 15,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),28.17575284,90,null,#e54d35,1173
-20121201,Team 15,Cycle Time (Purchase),27.88536987,135,null,#fdbb03,1174
-20121201,Team 15,Technical Error Rate,27.59498691,180,null,#e54d35,1175
-20121201,Team 16,Net Promoter Score,27.30460395,135,null,#fdbb03,1176
-20121201,Team 16,Funded Loans,27.01422098,90,null,#d3e513,1177
-20121201,Team 16,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),26.72383802,45,null,#fdbb03,1178
-20121201,Team 16,Cycle Time (Purchase),26.43345505,0,null,#d3e513,1179
-20121201,Team 16,Technical Error Rate,26.14307209,0,null,#fdbb03,1180
-20121201,Team 17,Net Promoter Score,25.85268913,45,null,#d3e513,1181
-20121201,Team 17,Funded Loans,25.56230616,90,null,#d3e513,1182
-20121201,Team 17,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),25.2719232,135,null,#fdbb03,1183
-20121201,Team 17,Cycle Time (Purchase),24.98154023,180,null,#e54d35,1184
-20121201,Team 17,Technical Error Rate,24.69115727,135,null,#e54d35,1185
-20121201,Team 18,Net Promoter Score,24.40077431,90,null,#e54d35,1186
-20121201,Team 18,Funded Loans,24.11039134,45,null,#fdbb03,1187
-20121201,Team 18,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),23.82000838,0,null,#e54d35,1188
-20121201,Team 18,Cycle Time (Purchase),23.52962542,0,null,#fdbb03,1189
-20121201,Team 18,Technical Error Rate,23.23924245,45,null,#fdbb03,1190
-20121201,Team 19,Net Promoter Score,22.94885949,90,null,#fdbb03,1191
-20121201,Team 19,Funded Loans,22.65847652,135,null,#e54d35,1192
-20121201,Team 19,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),22.36809356,180,null,#e54d35,1193
-20121201,Team 19,Cycle Time (Purchase),22.0777106,135,null,#fdbb03,1194
-20121201,Team 19,Technical Error Rate,21.78732763,90,null,#e54d35,1195
-20121201,Team 20,Net Promoter Score,21.49694467,45,null,#e54d35,1196
-20121201,Team 20,Funded Loans,21.2065617,0,null,#fdbb03,1197
-20121201,Team 20,Cycle Time (Refinance) Cycle2 Time2 (Refinance2),20.91617874,0,null,#fdbb03,1198
-20121201,Team 20,Cycle Time (Purchase),20.62579578,45,null,#fdbb03,1199
-20121201,Team 20,Technical Error Rate,20.33541281,90,null,#e54d35,1200
+Alpha,Atlantic,Metric 1,15,null,null,#a8c1e5
+Alpha,Midwest,Metric 1,154,null,null,#6691d2
+Alpha,Northeast,Metric 1,7,null,null,#d3e0f2
+Alpha,South,Metric 1,169,null,null,#6691d2
+Alpha,West,Metric 1,69,null,null,#6691d2
+Alpha,Atlantic,Metric 2,165,null,null,#a8c1e5
+Alpha,Midwest,Metric 2,11,null,null,#a8c1e5
+Alpha,Northeast,Metric 2,32,null,null,#2563bf
+Alpha,South,Metric 2,133,null,null,#6691d2
+Alpha,West,Metric 2,49,null,null,#2563bf
+Alpha,Atlantic,Metric 3,44,null,null,#6691d2
+Alpha,Midwest,Metric 3,55,null,null,#d3e0f2
+Alpha,Northeast,Metric 3,66,null,null,#d3e0f2
+Alpha,South,Metric 3,77,null,null,#6691d2
+Alpha,West,Metric 3,50,null,null,#a8c1e5
+Alpha,Atlantic,Metric 4,40,null,null,#d3e0f2
+Alpha,Midwest,Metric 4,117,null,null,#a8c1e5
+Alpha,Northeast,Metric 4,4,null,null,#6691d2
+Alpha,South,Metric 4,176,null,null,#a8c1e5
+Alpha,West,Metric 4,31,null,null,#2563bf
+Alpha,Atlantic,Metric 5,132,null,null,#2563bf
+Alpha,Midwest,Metric 5,86,null,null,#2563bf
+Alpha,Northeast,Metric 5,184,null,null,#a8c1e5
+Alpha,South,Metric 5,181,null,null,#d3e0f2
+Alpha,West,Metric 5,197,null,null,#d3e0f2
+Beta,Atlantic,Metric 1,179,null,null,#d3e0f2
+Beta,Midwest,Metric 1,30,null,null,#d3e0f2
+Beta,Northeast,Metric 1,105,null,null,#2563bf
+Beta,South,Metric 1,21,null,null,#d3e0f2
+Beta,West,Metric 1,190,null,null,#d3e0f2
+Beta,Atlantic,Metric 2,113,null,null,#6691d2
+Beta,Midwest,Metric 2,33,null,null,#6691d2
+Beta,Northeast,Metric 2,0,null,null,#d3e0f2
+Beta,South,Metric 2,3,null,null,#6691d2
+Beta,West,Metric 2,179,null,null,#d3e0f2
+Beta,Atlantic,Metric 3,39,null,null,#a8c1e5
+Beta,Midwest,Metric 3,85,null,null,#6691d2
+Beta,Northeast,Metric 3,105,null,null,#6691d2
+Beta,South,Metric 3,120,null,null,#2563bf
+Beta,West,Metric 3,120,null,null,#d3e0f2
+Beta,Atlantic,Metric 4,27,null,null,#2563bf
+Beta,Midwest,Metric 4,151,null,null,#a8c1e5
+Beta,Northeast,Metric 4,3,null,null,#a8c1e5
+Beta,South,Metric 4,161,null,null,#a8c1e5
+Beta,West,Metric 4,94,null,null,#a8c1e5
+Beta,Atlantic,Metric 5,168,null,null,#2563bf
+Beta,Midwest,Metric 5,2,null,null,#2563bf
+Beta,Northeast,Metric 5,112,null,null,#6691d2
+Beta,South,Metric 5,132,null,null,#2563bf
+Beta,West,Metric 5,57,null,null,#a8c1e5
+Gama,Atlantic,Metric 1,28,null,null,#2563bf
+Gama,Midwest,Metric 1,6,null,null,#2563bf
+Gama,Northeast,Metric 1,75,null,null,#2563bf
+Gama,South,Metric 1,16,null,null,#2563bf
+Gama,West,Metric 1,186,null,null,#d3e0f2
+Gama,Atlantic,Metric 2,181,null,null,#d3e0f2
+Gama,Midwest,Metric 2,117,null,null,#2563bf
+Gama,Northeast,Metric 2,31,null,null,#a8c1e5
+Gama,South,Metric 2,18,null,null,#d3e0f2
+Gama,West,Metric 2,159,null,null,#6691d2
+Gama,Atlantic,Metric 3,81,null,null,#d3e0f2
+Gama,Midwest,Metric 3,112,null,null,#6691d2
+Gama,Northeast,Metric 3,33,null,null,#6691d2
+Gama,South,Metric 3,81,null,null,#d3e0f2
+Gama,West,Metric 3,29,null,null,#a8c1e5
+Gama,Atlantic,Metric 4,186,null,null,#a8c1e5
+Gama,Midwest,Metric 4,148,null,null,#6691d2
+Gama,Northeast,Metric 4,24,null,null,#2563bf
+Gama,South,Metric 4,61,null,null,#2563bf
+Gama,West,Metric 4,74,null,null,#a8c1e5
+Gama,Atlantic,Metric 5,118,null,null,#a8c1e5
+Gama,Midwest,Metric 5,56,null,null,#d3e0f2
+Gama,Northeast,Metric 5,133,null,null,#6691d2
+Gama,South,Metric 5,18,null,null,#2563bf
+Gama,West,Metric 5,183,null,null,#d3e0f2
+Omega,Atlantic,Metric 1,123,null,null,#d3e0f2
+Omega,Midwest,Metric 1,36,null,null,#6691d2
+Omega,Northeast,Metric 1,152,null,null,#a8c1e5
+Omega,South,Metric 1,80,null,null,#a8c1e5
+Omega,West,Metric 1,73,null,null,#6691d2
+Omega,Atlantic,Metric 2,0,null,null,#6691d2
+Omega,Midwest,Metric 2,50,null,null,#a8c1e5
+Omega,Northeast,Metric 2,171,null,null,#a8c1e5
+Omega,South,Metric 2,197,null,null,#d3e0f2
+Omega,West,Metric 2,104,null,null,#6691d2
+Omega,Atlantic,Metric 3,142,null,null,#6691d2
+Omega,Midwest,Metric 3,60,null,null,#6691d2
+Omega,Northeast,Metric 3,112,null,null,#2563bf
+Omega,South,Metric 3,151,null,null,#a8c1e5
+Omega,West,Metric 3,181,null,null,#a8c1e5
+Omega,Atlantic,Metric 4,77,null,null,#6691d2
+Omega,Midwest,Metric 4,12,null,null,#6691d2
+Omega,Northeast,Metric 4,136,null,null,#2563bf
+Omega,South,Metric 4,104,null,null,#a8c1e5
+Omega,West,Metric 4,118,null,null,#2563bf
+Omega,Atlantic,Metric 5,89,null,null,#d3e0f2
+Omega,Midwest,Metric 5,55,null,null,#6691d2
+Omega,Northeast,Metric 5,69,null,null,#a8c1e5
+Omega,South,Metric 5,4,null,null,#a8c1e5
+Omega,West,Metric 5,79,null,null,#6691d2
+Zulu,Atlantic,Metric 1,35,null,null,#6691d2
+Zulu,Midwest,Metric 1,161,null,null,#d3e0f2
+Zulu,Northeast,Metric 1,97,null,null,#a8c1e5
+Zulu,South,Metric 1,171,null,null,#a8c1e5
+Zulu,West,Metric 1,140,null,null,#2563bf
+Zulu,Atlantic,Metric 2,193,null,null,#a8c1e5
+Zulu,Midwest,Metric 2,38,null,null,#2563bf
+Zulu,Northeast,Metric 2,187,null,null,#6691d2
+Zulu,South,Metric 2,172,null,null,#6691d2
+Zulu,West,Metric 2,12,null,null,#2563bf
+Zulu,Atlantic,Metric 3,43,null,null,#d3e0f2
+Zulu,Midwest,Metric 3,117,null,null,#2563bf
+Zulu,Northeast,Metric 3,62,null,null,#d3e0f2
+Zulu,South,Metric 3,86,null,null,#6691d2
+Zulu,West,Metric 3,199,null,null,#a8c1e5
+Zulu,Atlantic,Metric 4,85,null,null,#6691d2
+Zulu,Midwest,Metric 4,58,null,null,#d3e0f2
+Zulu,Northeast,Metric 4,139,null,null,#a8c1e5
+Zulu,South,Metric 4,74,null,null,#6691d2
+Zulu,West,Metric 4,177,null,null,#6691d2
+Zulu,Atlantic,Metric 5,194,null,null,#a8c1e5
+Zulu,Midwest,Metric 5,91,null,null,#d3e0f2
+Zulu,Northeast,Metric 5,70,null,null,#2563bf
+Zulu,South,Metric 5,42,null,null,#d3e0f2
+Zulu,West,Metric 5,72,null,null,#2563bf
+Zulu,Atlantic,Metric 6,194,null,null,#a8c1e5
+Zulu,Midwest,Metric 6,91,null,null,#d3e0f2
+Zulu,Northeast,Metric 6,70,null,null,#2563bf
+Zulu,South,Metric 6,42,null,null,#d3e0f2
+Zulu,West,Metric 6,72,null,null,#2563bf
