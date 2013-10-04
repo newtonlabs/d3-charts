@@ -395,7 +395,7 @@ this.d3.charts.groupStack = function() {
       rect.transition()
           .delay(function(d, i) { return i * 10; })
           .attr("x", function(d) { return x(d.y0); })
-          .attr("width", function(d) { return x(d.y); });
+          .attr("width", function(d) { return x(d.y); });        
 
       bar.append("g")
         .attr("class", "x axis")
@@ -405,6 +405,33 @@ this.d3.charts.groupStack = function() {
       bar.append("g")
         .attr("class", "y axis")
         .call(yAxis);
+        
+      var text = layer.selectAll("text")
+        .data(function(d) { return d; })
+      .enter().append("text")
+        .attr("x", function(d) { return x(d.y)+5; })
+        .attr("y", function(d) { return y(d.y)+y.rangeBand()/2+4; })
+        .attr("class","value")
+        .text(function(d, i) { return d.y+d.y0; });
+        
+      var legend = svg.selectAll(".legend")
+      .data(layers)
+      .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+      legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", function(d, i) { return color(i); });
+
+      legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d[0].category; });        
     });
   }
 
@@ -453,7 +480,8 @@ this.d3.charts.heatmap = function() {
         yAxis = d3.svg.axis().scale(y).orient("left"),
         xAxis = d3.svg.axis().scale(x).orient("top"),
         xAxis2   = d3.svg.axis().scale(x2).orient("top").tickSize([0]),
-        invertx2 = d3.scale.quantize().domain([0, chartWidth]); //TODO use invert function
+        invertx2 = d3.scale.quantize().domain([0, chartWidth]), //TODO use invert function
+        brush = d3.svg.brush().x(x2);
 
     var replaceAxis = function(heatmap) {
       heatmap.select(".y.axis")
@@ -541,20 +569,9 @@ this.d3.charts.heatmap = function() {
       category.text(function(d) { return d;});
     }
 
+
+
     selection.each(function(data) {
-      var categories = d3.utilities.uniqueProperties(data, 'name');
-      x2.domain(d3.utilities.uniqueProperties(data, 'name'))
-      invertx2.range(categories); //TODO use invert function
-
-      svg = d3.select(this).append("svg")
-        .attr("class", "heatmap")
-        .attr("width",  chartWidth  + margin.left + margin.right)
-        .attr("height", chartHeight + margin.top  + margin.bottom);
-
-      var heatmap = svg.append("g").attr("class", "heatmap")
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-      var meta = svg.append("meta-data");
 
       var brushended = function() {
         // if (!d3.event || !d3.event.sourceEvent) return; // only transition after input
@@ -571,7 +588,21 @@ this.d3.charts.heatmap = function() {
           .call(brush.extent([brushStart, brushEnd]))
       };
 
-      var brush = d3.svg.brush().x(x2).on("brushend", brushended);
+      // Setup functions now that we have data
+      var categories = d3.utilities.uniqueProperties(data, 'name');
+      x2.domain(d3.utilities.uniqueProperties(data, 'name'))
+      invertx2.range(categories);
+      brush.on("brushend", brushended);
+
+      svg = d3.select(this).append("svg")
+        .attr("class", "heatmap")
+        .attr("width",  chartWidth  + margin.left + margin.right)
+        .attr("height", chartHeight + margin.top  + margin.bottom);
+
+      var heatmap = svg.append("g").attr("class", "heatmap")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      var meta = svg.append("meta-data");
 
       // Axis stubs
       heatmap.append("g").attr("class", "x axis").call(xAxis);
@@ -582,12 +613,9 @@ this.d3.charts.heatmap = function() {
       drawHeatmap(heatmap, data[0].data);
 
       // Controls
-      console.log(categories);
       if (categories.length > 1) {
         drawControls(svg, brush);
       }
-
-
 
       brushended();
 
