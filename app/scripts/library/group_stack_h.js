@@ -31,7 +31,7 @@ this.d3.charts.groupStack = function() {
 
       var color = d3.scale.linear()
           .domain([0, layers.length - 1])
-          .range(["#a8c1e5", "#a8c1e5"]);
+          .range(["#a8c1e5", "#2563bf"]);
 
       var xAxis = d3.svg.axis()
           .scale(x)
