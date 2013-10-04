@@ -353,10 +353,13 @@ this.d3.charts.groupStack = function() {
           .domain([0, yStackMax])
           .range([0, chartWidth]);
 
+<<<<<<< HEAD
       var color = d3.scale.linear()
           .domain([0, layers.length - 1])
           .range(["#a8c1e5", "#2563bf"]);
 
+=======
+>>>>>>> 0c61d5a8f085768d8550ab35007dc94336ccb835
       var xAxis = d3.svg.axis()
           .scale(x)
           .tickSize(0)
@@ -382,7 +385,7 @@ this.d3.charts.groupStack = function() {
           .data(layers)
         .enter().append("g")
           .attr("class", "layer")
-          .style("fill", function(d, i) { return color(i); });
+          .style("fill", function(d, i) { return d[i].color; });
 
       var rect = layer.selectAll("rect")
           .data(function(d) { return d; })
@@ -395,7 +398,7 @@ this.d3.charts.groupStack = function() {
       rect.transition()
           .delay(function(d, i) { return i * 10; })
           .attr("x", function(d) { return x(d.y0); })
-          .attr("width", function(d) { return x(d.y); });
+          .attr("width", function(d) { return x(d.y); });        
 
       bar.append("g")
         .attr("class", "x axis")
@@ -405,6 +408,33 @@ this.d3.charts.groupStack = function() {
       bar.append("g")
         .attr("class", "y axis")
         .call(yAxis);
+        
+      var text = layer.selectAll("text")
+        .data(function(d) { return d; })
+      .enter().append("text")
+        .attr("x", function(d) { return x(d.y)+5; })
+        .attr("y", function(d) { return y(d.y)+y.rangeBand()/2+4; })
+        .attr("class","value")
+        .text(function(d, i) { return d.y+d.y0; });
+        
+      var legend = svg.selectAll(".legend")
+      .data(layers)
+      .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+      legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", function(d, i) { return d[i].color; });
+
+      legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d, i) { return d[i].category; });
     });
   }
 
@@ -454,9 +484,12 @@ this.d3.charts.heatmap = function() {
         xAxis = d3.svg.axis().scale(x).orient("top"),
         xAxis2   = d3.svg.axis().scale(x2).orient("top").tickSize([0]),
         invertx2 = d3.scale.quantize().domain([0, chartWidth]), //TODO use invert function
+<<<<<<< HEAD
         heatmap = {},
         top = {},
         left = {},
+=======
+>>>>>>> 0c61d5a8f085768d8550ab35007dc94336ccb835
         brush = d3.svg.brush().x(x2);
 
     var replaceAxis = function(heatmap) {
@@ -547,6 +580,7 @@ this.d3.charts.heatmap = function() {
       category.text(function(d) { return d;});
     }
 
+<<<<<<< HEAD
     var beautify = function() {
       // Top Bar
       top.attr("transform", "translate(" + margin.left + "," + (margin.top - y.rangeBand()) + ")")
@@ -620,6 +654,10 @@ this.d3.charts.heatmap = function() {
 
     }
 
+=======
+
+
+>>>>>>> 0c61d5a8f085768d8550ab35007dc94336ccb835
     selection.each(function(data) {
 
       var brushended = function() {
@@ -648,12 +686,18 @@ this.d3.charts.heatmap = function() {
         .attr("width",  chartWidth  + margin.left + margin.right)
         .attr("height", chartHeight + margin.top  + margin.bottom);
 
+<<<<<<< HEAD
       heatmap = svg.append("g").attr("class", "heatmap")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
       top  = svg.append("g").attr("class", "top-nav")
       left = svg.append("g").attr("class", "left-nav")
 
+=======
+      var heatmap = svg.append("g").attr("class", "heatmap")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+>>>>>>> 0c61d5a8f085768d8550ab35007dc94336ccb835
       var meta = svg.append("meta-data");
 
       // Axis stubs
@@ -669,9 +713,12 @@ this.d3.charts.heatmap = function() {
         drawControls(svg, brush);
       }
 
+<<<<<<< HEAD
       // beautify
       // beautify();
 
+=======
+>>>>>>> 0c61d5a8f085768d8550ab35007dc94336ccb835
       brushended();
 
     });
