@@ -12,7 +12,7 @@ this.d3.charts.filter = function() {
 
   function my(selection) {
     selection.each(function(data) {
-      data.unshift("pick something");
+      data.unshift(" ");
       svg = d3.select(this).append("div");
       var select = svg.append("select");
       var options = select.selectAll("option").data(data);
