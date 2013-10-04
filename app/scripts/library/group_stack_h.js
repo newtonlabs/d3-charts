@@ -70,7 +70,7 @@ this.d3.charts.groupStack = function() {
           .attr("height", y.rangeBand())
 
       rect.transition()
-          .delay(function(d, i) { return i * 10; })
+          .delay(function(d, i) { return i * 70; })
           .attr("x", function(d) { return x(d.y0); })
           .attr("width", function(d) { return x(d.y); });
 
