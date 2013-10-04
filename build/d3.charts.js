@@ -394,7 +394,7 @@ this.d3.charts.groupStack = function() {
           .attr("height", y.rangeBand())
 
       rect.transition()
-          .delay(function(d, i) { return i * 70; })
+          .delay(function(d, i) { return i * 40; })
           .attr("x", function(d) { return x(d.y0); })
           .attr("width", function(d) { return x(d.y); });
 
@@ -501,7 +501,7 @@ this.d3.charts.heatmap = function() {
 
       rect
         .transition()
-        .delay(function(d, i) { return i * 1; })
+        .delay(function(d, i) { return i * 5; })
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
         .attr("rx", 0)
@@ -516,7 +516,7 @@ this.d3.charts.heatmap = function() {
       value.enter().append("text");
       value
         .transition()
-        .delay(function(d, i) { return i * 1; })
+        .delay(function(d, i) { return i * 5; })
         .attr("text-anchor", "middle")
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
@@ -590,7 +590,7 @@ this.d3.charts.heatmap = function() {
         .attr("height", y.rangeBand())
         .attr("x", function(d) {return x(d)})
         .attr("y", function(d) {return y(y.domain()[0])})
-        .attr("style","text-align: center;")
+        .attr("style", "line-height:"+y.rangeBand()+"px")
 
       topBar.exit().remove();
       topText.exit().remove();
@@ -610,6 +610,7 @@ this.d3.charts.heatmap = function() {
         .attr("ry", 0)
         .attr("width",  margin.left)
         .attr("height", y.rangeBand())
+        .attr("style", "line-height:"+y.rangeBand())
         .attr("class", function(d,i) {
           var n = i%2;
           return (n > 0) ? "left primary" : "left alternate"
@@ -625,7 +626,7 @@ this.d3.charts.heatmap = function() {
         .attr("height", y.rangeBand())
         .attr("x", function(d) {return x(x.domain()[0])})
         .attr("y", function(d) {return y(d)})
-        .attr("style","text-align: left;")
+        .attr("style", "line-height:"+y.rangeBand()+"px")
 
       leftBar.exit().remove();
       leftText.exit().remove();
