@@ -414,7 +414,7 @@ this.d3.charts.groupStack = function() {
         .attr("x", function(d) { return x(d.y + d.y0)+5; })
         .attr("y", function(d) { return y(d.y)+y.rangeBand()/2+4; })
         .attr("class","value")
-        .text(function(d, i) { return d.y+d.y0; });
+        .text(function(d, i) { return d3.format(".3s")(d.y+d.y0); });
 
       var legend = svg.selectAll(".legend")
         .data(layers)
@@ -932,5 +932,6 @@ this.d3.utilities = {
       }
       return memo;
     },[]);
-  }
+  },
+  comma: d3.format(",")
 }
