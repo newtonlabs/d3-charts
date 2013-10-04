@@ -20,8 +20,8 @@ this.d3.charts.heatmap = function() {
         x  = d3.scale.ordinal().rangeRoundBands([0, chartWidth], 0, 0),
         x2 = d3.scale.ordinal().rangeRoundBands([0, chartWidth], 0.2, 0.2),
         y  = d3.scale.ordinal().rangeRoundBands([0, chartHeight], 0, 0),
-        yAxis = d3.svg.axis().scale(y).orient("left"),
-        xAxis = d3.svg.axis().scale(x).orient("top"),
+        // yAxis = d3.svg.axis().scale(y).orient("left"),
+        // xAxis = d3.svg.axis().scale(x).orient("top"),
         xAxis2   = d3.svg.axis().scale(x2).orient("top").tickSize([0]),
         invertx2 = d3.scale.quantize().domain([0, chartWidth]), //TODO use invert function
         heatmap = {},
@@ -29,21 +29,21 @@ this.d3.charts.heatmap = function() {
         left = {},
         brush = d3.svg.brush().x(x2);
 
-    var replaceAxis = function(heatmap) {
-      heatmap.select(".y.axis")
-        .selectAll("g")
-          .append("svg:foreignObject")
-              .attr("width",'150px')
-              .attr("height",'40px')
-              .attr("class", "htmlaxis")
-              .attr("x", -160)
-              .attr("y", -20)
-              .attr("style","text-align: right;")
-          .append("xhtml:div")
-              .html(function(schema) {return schema;});
+    // var replaceAxis = function(heatmap) {
+    //   heatmap.select(".y.axis")
+    //     .selectAll("g")
+    //       .append("svg:foreignObject")
+    //           .attr("width",'150px')
+    //           .attr("height",'40px')
+    //           .attr("class", "htmlaxis")
+    //           .attr("x", -160)
+    //           .attr("y", -20)
+    //           .attr("style","text-align: right;")
+    //       .append("xhtml:div")
+    //           .html(function(schema) {return schema;});
 
-      heatmap.selectAll(".y.axis g text").remove();
-    }
+    //   heatmap.selectAll(".y.axis g text").remove();
+    // }
 
     var drawHeatmap = function(data) {
       // Update domains with newest data set
@@ -55,6 +55,7 @@ this.d3.charts.heatmap = function() {
       rect.enter().append("rect")
         .attr("class", "square")
         .attr("style", function(d) {return "fill:"+d.color; });
+
       rect
         .transition()
         .delay(function(d, i) { return i * 5; })
@@ -232,7 +233,7 @@ this.d3.charts.heatmap = function() {
       // Axis stubs
       // heatmap.append("g").attr("class", "x axis").call(xAxis);
       // heatmap.append("g").attr("class", "y axis").call(yAxis);
-      replaceAxis(heatmap);
+      // replaceAxis(heatmap);
 
       // Create heatmap
       drawHeatmap(data[0].data);
