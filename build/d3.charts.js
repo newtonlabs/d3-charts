@@ -576,7 +576,7 @@ this.d3.charts.heatmap = function() {
         .attr("height", y.rangeBand())
         .attr("class", function(d,i) {
           var n = i%2;
-          return (n > 0) ? "primary" : "alternate"
+          return (n > 0) ? "top primary" : "top alternate"
         });
 
       var topText = top.selectAll("g.top-nav .text").data(x.domain());
@@ -611,7 +611,7 @@ this.d3.charts.heatmap = function() {
         .attr("height", y.rangeBand())
         .attr("class", function(d,i) {
           var n = i%2;
-          return (n > 0) ? "primary" : "alternate"
+          return (n > 0) ? "left primary" : "left alternate"
         });
 
       var leftText = left.selectAll("g.left-nav .text").data(y.domain());
