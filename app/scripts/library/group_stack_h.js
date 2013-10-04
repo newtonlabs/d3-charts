@@ -31,7 +31,7 @@ this.d3.charts.groupStack = function() {
 
       var color = d3.scale.linear()
           .domain([0, layers.length - 1])
-          .range(["#a8c1e5", "#2563bf"]);          
+          .range(["#a8c1e5", "#2563bf"]);
           
       var xAxis = d3.svg.axis()
           .scale(x)
@@ -72,7 +72,7 @@ this.d3.charts.groupStack = function() {
       rect.transition()
           .delay(function(d, i) { return i * 10; })
           .attr("x", function(d) { return x(d.y0); })
-          .attr("width", function(d) { return x(d.y); });        
+          .attr("width", function(d) { return x(d.y); });
 
       bar.append("g")
         .attr("class", "x axis")
@@ -82,7 +82,7 @@ this.d3.charts.groupStack = function() {
       bar.append("g")
         .attr("class", "y axis")
         .call(yAxis);
-        
+
       var text = layer.selectAll("text")
         .data(function(d) { return d; })
       .enter().append("text")
@@ -90,7 +90,7 @@ this.d3.charts.groupStack = function() {
         .attr("y", function(d) { return y(d.y)+y.rangeBand()/2+4; })
         .attr("class","value")
         .text(function(d, i) { return d.y+d.y0; });
-        
+
       var legend = svg.selectAll(".legend")
       .data(layers)
       .enter().append("g")
