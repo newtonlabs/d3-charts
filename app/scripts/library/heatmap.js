@@ -46,6 +46,7 @@ this.d3.charts.heatmap = function() {
     // }
 
     var drawHeatmap = function(data) {
+      console.log(data);
       // Update domains with newest data set
       x.domain(d3.utilities.uniqueProperties(data, 'xAxis'));
       y.domain(d3.utilities.uniqueProperties(data, 'yAxis'));
@@ -58,7 +59,7 @@ this.d3.charts.heatmap = function() {
 
       rect
         .transition()
-        .delay(function(d, i) { return i * 5; })
+        .delay(function(d, i) { return i * 15; })
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
         .attr("rx", 0)
@@ -73,7 +74,7 @@ this.d3.charts.heatmap = function() {
       value.enter().append("text");
       value
         .transition()
-        .delay(function(d, i) { return i * 5; })
+        .delay(function(d, i) { return i * 15; })
         .attr("text-anchor", "middle")
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
@@ -83,7 +84,6 @@ this.d3.charts.heatmap = function() {
         .text(function(d) {return d.value;} );
       value.exit().remove();
 
-      // Weird Enter, Update, Exit for Axis for HTML elements
       beautify();
       // heatmap.selectAll(".y.axis g .htmlaxis").remove();
       // heatmap.select(".y.axis").transition().call(yAxis);
@@ -236,17 +236,20 @@ this.d3.charts.heatmap = function() {
       // replaceAxis(heatmap);
 
       // Create heatmap
-      drawHeatmap(data[0].data);
+      // drawHeatmap(data[0].data);
 
       // Controls
       if (categories.length > 1) {
         drawControls(svg, brush);
       }
+      else {
+        drawHeatmap(data[0].data);
+      }
 
       // beautify
       // beautify();
 
-      brushended();
+      // brushended();
 
     });
   }
