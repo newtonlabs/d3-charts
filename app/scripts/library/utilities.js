@@ -12,5 +12,6 @@ this.d3.utilities = {
       }
       return memo;
     },[]);
-  }
+  },
+  comma: d3.format(",")
 }
