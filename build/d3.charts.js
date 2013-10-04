@@ -470,7 +470,7 @@ this.d3.charts.heatmap = function() {
     height = 400,
     controlHeight = 50,
     svg = {},
-    margin = { top: 160, right: 10, bottom: 10, left: 200 };
+    margin = { top: 160, right: 10, bottom: 10, left: 255 };
 
   function my(selection) {
     var chartWidth    = width  - margin.left - margin.right,
@@ -518,7 +518,7 @@ this.d3.charts.heatmap = function() {
 
       rect
         .transition()
-        .delay(function(d, i) { return i * 15; })
+        .delay(function(d, i) { return i * 5; })
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
         .attr("rx", 0)
@@ -533,7 +533,7 @@ this.d3.charts.heatmap = function() {
       value.enter().append("text");
       value
         .transition()
-        .delay(function(d, i) { return i * 15; })
+        .delay(function(d, i) { return i * 5; })
         .attr("text-anchor", "middle")
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
@@ -617,7 +617,7 @@ this.d3.charts.heatmap = function() {
       topText.exit().remove();
 
       // Left Bar
-      left.attr("transform", "translate(" + (margin.left - x.rangeBand()) + "," + margin.top + ")")
+      left.attr("transform", "translate(" + (0) + "," + margin.top + ")")
 
       var leftBar = left.selectAll("g.left-nav .left").data(y.domain());
 
@@ -629,7 +629,7 @@ this.d3.charts.heatmap = function() {
         .attr("y", function(d) {return y(d)})
         .attr("rx", 0)
         .attr("ry", 0)
-        .attr("width",  x.rangeBand())
+        .attr("width",  margin.left)
         .attr("height", y.rangeBand())
         .style("fill", function(d,i) {
           var n = i%2;
@@ -642,7 +642,7 @@ this.d3.charts.heatmap = function() {
         .html(function(schema) {return schema;});;
 
       leftText
-        .attr("width",  x.rangeBand())
+        .attr("width",  margin.left)
         .attr("height", y.rangeBand())
         .attr("x", function(d) {return x(x.domain()[0])})
         .attr("y", function(d) {return y(d)})
