@@ -501,7 +501,7 @@ this.d3.charts.heatmap = function() {
 
       rect
         .transition()
-        .delay(function(d, i) { return i * 5; })
+        .delay(function(d, i) { return i * 1; })
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
         .attr("rx", 0)
@@ -516,7 +516,7 @@ this.d3.charts.heatmap = function() {
       value.enter().append("text");
       value
         .transition()
-        .delay(function(d, i) { return i * 5; })
+        .delay(function(d, i) { return i * 1; })
         .attr("text-anchor", "middle")
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
