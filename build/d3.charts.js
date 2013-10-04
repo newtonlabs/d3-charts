@@ -355,7 +355,7 @@ this.d3.charts.groupStack = function() {
 
       var color = d3.scale.linear()
           .domain([0, layers.length - 1])
-          .range(["#004372", "#767fa1"]);
+          .range(["#a8c1e5", "#a8c1e5"]);
 
       var xAxis = d3.svg.axis()
           .scale(x)
@@ -443,37 +443,44 @@ this.d3.charts.heatmap = function() {
     svg = {},
     margin = { top: 140, right: 10, bottom: 10, left: 200 };
 
-  // Rewrite with native reduce
-  var uniqueProperties = function(data, property) {
-    return _.reduce(data, function(memo, d) {
-      if (! memo.filter(function(o) { return d[property] === o;}).length) {
-        memo.push(d[property]);
-      }
-      return memo;
-    },[]);
-  };
-
   function my(selection) {
     var chartWidth    = width  - margin.left - margin.right,
         chartHeight   = height - margin.top  - margin.bottom,
-        chartHeight2  = controlHeight;
+        chartHeight2  = controlHeight,
+        x  = d3.scale.ordinal().rangeRoundBands([0, chartWidth], 0, 0),
+        x2 = d3.scale.ordinal().rangeRoundBands([0, chartWidth], 0.2, 0.2),
+        y  = d3.scale.ordinal().rangeRoundBands([0, chartHeight], 0, 0),
+        yAxis = d3.svg.axis().scale(y).orient("left"),
+        xAxis = d3.svg.axis().scale(x).orient("top"),
+        xAxis2   = d3.svg.axis().scale(x2).orient("top").tickSize([0]),
+        invertx2 = d3.scale.quantize().domain([0, chartWidth]); //TODO use invert function
+
+    var replaceAxis = function(heatmap) {
+      heatmap.select(".y.axis")
+        .selectAll("g")
+          .append("svg:foreignObject")
+              .attr("width",'150px')
+              .attr("height",'40px')
+              .attr("class", "htmlaxis")
+              .attr("x", -160)
+              .attr("y", -20)
+              .attr("style","text-align: right;")
+          .append("xhtml:div")
+              .html(function(schema) {return schema;});
+
+      heatmap.selectAll(".y.axis g text").remove();
+    }
 
     var drawHeatmap = function(heatmap, data) {
-      var rows    = uniqueProperties(data, 'xAxis');
-      var columns = uniqueProperties(data, 'yAxis');
+      // Update domains with newest data set
+      x.domain(d3.utilities.uniqueProperties(data, 'xAxis'));
+      y.domain(d3.utilities.uniqueProperties(data, 'yAxis'));
 
-      var x = d3.scale.ordinal().domain(rows).rangeRoundBands([0, chartWidth], 0, 0);
-      var y = d3.scale.ordinal().domain(columns).rangeRoundBands([0, chartHeight], 0, 0);
-
-      var yAxis = d3.svg.axis().scale(y).orient("left");
-      var xAxis = d3.svg.axis().scale(x).orient("top");
-
-      var rect  = heatmap.selectAll("g.heatmap rect").data(data);
-
+      // Enter, Update, Exit squares
+      var rect  = heatmap.selectAll("g.heatmap .square").data(data);
       rect.enter().append("rect")
         .attr("class", "square")
-        .attr("style", function(d) {return "fill:"+d.color});
-
+        .attr("style", function(d) {return "fill:"+d.color; });
       rect
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
@@ -482,13 +489,11 @@ this.d3.charts.heatmap = function() {
         .attr("width", x.rangeBand())
         .attr("height", y.rangeBand())
         .transition().style("fill", function(d) {return d.color;});
-
       rect.exit().remove();
 
+      // Enter, Update, Exit text values
       var value = heatmap.selectAll("g.heatmap .cell.value").data(data);
-
       value.enter().append("text");
-
       value
         .attr("text-anchor", "middle")
         .attr("x", function(d) { return x(d.xAxis);})
@@ -497,77 +502,17 @@ this.d3.charts.heatmap = function() {
         .attr("dx", function() { return x.rangeBand()/2;})
         .attr('class', 'cell value')
         .text(function(d) {return d.value;} );
-
       value.exit().remove();
 
-      heatmap.selectAll(".x.axis").data(rows).enter().append("g")
-        .attr("class", "x axis");
-      heatmap.select(".x.axis").transition().call(xAxis);
-
-
-      heatmap.selectAll(".y.axis").data(rows).enter().append("g")
-        .attr("class", "y axis");
+      // Weird Enter, Update, Exit for Axis for HTML elements
+      heatmap.selectAll(".y.axis g .htmlaxis").remove();
       heatmap.select(".y.axis").transition().call(yAxis);
-
-      heatmap.select(".y.axis")
-        .selectAll("g")
-          .append("svg:foreignObject")
-              .attr("width",'150px')
-              .attr("height",'40px')
-              .attr("x", -160)
-              .attr("y", -20)
-              .attr("style","text-align: right;")
-          .append("xhtml:div")
-              .html(function(schema) {return schema;});
-
-      heatmap.selectAll(".y.axis g text").remove();
-
+      heatmap.select(".x.axis").transition().call(xAxis);
+      replaceAxis(heatmap);
     };
 
-    var setMetaData = function(meta, clicked) {
-      var category = meta.selectAll('category').data([clicked]);
-      category.enter().append("category");
-      category.text(function(d) { return d;});
-    }
-
-    selection.each(function(data) {
-      var categories = uniqueProperties(data, 'name');
-      var x2 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, chartWidth], 0.2, 0.2);
-      var invertx2 = d3.scale.quantize().domain([0, chartWidth]).range(categories);
-      var xAxis2 = d3.svg.axis().scale(x2).orient("top").tickSize([0]);
-
-      svg = d3.select(this).append("svg")
-        .attr("class", "heatmap")
-        .attr("width",  chartWidth  + margin.left + margin.right)
-        .attr("height", chartHeight + margin.top  + margin.bottom);
-
-      var heatmap = svg.append("g").attr("class", "heatmap")
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-      var meta = svg.append("meta-data");
-
-      var brushended = function() {
-        if (!d3.event || !d3.event.sourceEvent) return; // only transition after input
-        var clicked = invertx2(brush.extent()[0]);
-        var brushStart = x2(clicked);
-        var brushEnd   = brushStart + x2.rangeBand();
-
-        var chartData = _.find(data, function(d) {return d.name == clicked}).data;
-
-        drawHeatmap(heatmap, chartData);
-        setMetaData(meta, clicked);
-
-        d3.select(this).transition()
-          .call(brush.extent([brushStart, brushEnd]))
-          .call(brush.event);
-      };
-
-      var brush = d3.svg.brush()
-        .x(x2)
-        .on("brushend", brushended);
-
-      drawHeatmap(heatmap, data[0].data);
-
+    var drawControls = function(svg, brush) {
+      // Brush controls
       var control = svg.append("g")
         .attr("class", "timeline")
         .attr("transform", "translate(" + margin.left + "," + 40  + ")");
@@ -588,6 +533,61 @@ this.d3.charts.heatmap = function() {
         .selectAll("rect")
         .attr("y", 0)
         .attr("height", chartHeight2);
+    }
+
+    var setMetaData = function(meta, clicked) {
+      var category = meta.selectAll('category').data([clicked]);
+      category.enter().append("category");
+      category.text(function(d) { return d;});
+    }
+
+    selection.each(function(data) {
+      var categories = d3.utilities.uniqueProperties(data, 'name');
+      x2.domain(d3.utilities.uniqueProperties(data, 'name'))
+      invertx2.range(categories); //TODO use invert function
+
+      svg = d3.select(this).append("svg")
+        .attr("class", "heatmap")
+        .attr("width",  chartWidth  + margin.left + margin.right)
+        .attr("height", chartHeight + margin.top  + margin.bottom);
+
+      var heatmap = svg.append("g").attr("class", "heatmap")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      var meta = svg.append("meta-data");
+
+      var brushended = function() {
+        // if (!d3.event || !d3.event.sourceEvent) return; // only transition after input
+        var clicked    = invertx2(brush.extent()[0]);
+        var brushStart = x2(clicked);
+        var brushEnd   = brushStart + x2.rangeBand();
+
+        var chartData = _.find(data, function(d) {return d.name == clicked}).data;
+
+        drawHeatmap(heatmap, chartData);
+        setMetaData(meta, clicked);
+
+        d3.select(this).transition()
+          .call(brush.extent([brushStart, brushEnd]))
+      };
+
+      var brush = d3.svg.brush().x(x2).on("brushend", brushended);
+
+      // Axis stubs
+      heatmap.append("g").attr("class", "x axis").call(xAxis);
+      heatmap.append("g").attr("class", "y axis").call(yAxis);
+      replaceAxis(heatmap);
+
+      // Create heatmap
+      drawHeatmap(heatmap, data[0].data);
+
+      // Controls
+      console.log(categories);
+      if (categories.length > 1) {
+        drawControls(svg, brush);
+      }
+
+
 
       brushended();
 
