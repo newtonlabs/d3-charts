@@ -333,7 +333,7 @@ this.d3.charts.groupStack = function() {
   var width = 960,
   height = 500,
   svg = {},
-  margin = {top: 40, right: 10, bottom: 20, left: 200};
+  margin = {top: 40, right: 10, bottom: 20, left: 255};
 
   function my(selection) {
     var chartWidth    = width  - margin.left - margin.right,
