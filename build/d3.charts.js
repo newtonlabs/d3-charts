@@ -356,7 +356,7 @@ this.d3.charts.groupStack = function() {
       var color = d3.scale.linear()
           .domain([0, layers.length - 1])
           .range(["#a8c1e5", "#2563bf"]);
-          
+
       var xAxis = d3.svg.axis()
           .scale(x)
           .tickSize(0)
@@ -410,7 +410,7 @@ this.d3.charts.groupStack = function() {
       var text = layer.selectAll("text")
         .data(function(d) { return d; })
       .enter().append("text")
-        .attr("x", function(d) { return x(d.y)+5; })
+        .attr("x", function(d) { return x(d.y + d.y0)+5; })
         .attr("y", function(d) { return y(d.y)+y.rangeBand()/2+4; })
         .attr("class","value")
         .text(function(d, i) { return d.y+d.y0; });
@@ -479,30 +479,12 @@ this.d3.charts.heatmap = function() {
         x  = d3.scale.ordinal().rangeRoundBands([0, chartWidth], 0, 0),
         x2 = d3.scale.ordinal().rangeRoundBands([0, chartWidth], 0.2, 0.2),
         y  = d3.scale.ordinal().rangeRoundBands([0, chartHeight], 0, 0),
-        // yAxis = d3.svg.axis().scale(y).orient("left"),
-        // xAxis = d3.svg.axis().scale(x).orient("top"),
         xAxis2   = d3.svg.axis().scale(x2).orient("top").tickSize([0]),
         invertx2 = d3.scale.quantize().domain([0, chartWidth]), //TODO use invert function
         heatmap = {},
         top = {},
         left = {},
         brush = d3.svg.brush().x(x2);
-
-    // var replaceAxis = function(heatmap) {
-    //   heatmap.select(".y.axis")
-    //     .selectAll("g")
-    //       .append("svg:foreignObject")
-    //           .attr("width",'150px')
-    //           .attr("height",'40px')
-    //           .attr("class", "htmlaxis")
-    //           .attr("x", -160)
-    //           .attr("y", -20)
-    //           .attr("style","text-align: right;")
-    //       .append("xhtml:div")
-    //           .html(function(schema) {return schema;});
-
-    //   heatmap.selectAll(".y.axis g text").remove();
-    // }
 
     var drawHeatmap = function(data) {
       console.log(data);
@@ -544,10 +526,6 @@ this.d3.charts.heatmap = function() {
       value.exit().remove();
 
       beautify();
-      // heatmap.selectAll(".y.axis g .htmlaxis").remove();
-      // heatmap.select(".y.axis").transition().call(yAxis);
-      // heatmap.select(".x.axis").transition().call(xAxis);
-      // replaceAxis(heatmap);
     };
 
     var drawControls = function(svg, brush) {
@@ -596,9 +574,9 @@ this.d3.charts.heatmap = function() {
         .attr("ry", 0)
         .attr("width",  x.rangeBand())
         .attr("height", y.rangeBand())
-        .style("fill", function(d,i) {
+        .attr("class", function(d,i) {
           var n = i%2;
-          return (n > 0) ? "lightgray" : "gray"
+          return (n > 0) ? "primary" : "alternate"
         });
 
       var topText = top.selectAll("g.top-nav .text").data(x.domain());
@@ -631,9 +609,9 @@ this.d3.charts.heatmap = function() {
         .attr("ry", 0)
         .attr("width",  margin.left)
         .attr("height", y.rangeBand())
-        .style("fill", function(d,i) {
+        .attr("class", function(d,i) {
           var n = i%2;
-          return (n > 0) ? "lightgray" : "gray"
+          return (n > 0) ? "primary" : "alternate"
         });
 
       var leftText = left.selectAll("g.left-nav .text").data(y.domain());
@@ -689,14 +667,6 @@ this.d3.charts.heatmap = function() {
 
       var meta = svg.append("meta-data");
 
-      // Axis stubs
-      // heatmap.append("g").attr("class", "x axis").call(xAxis);
-      // heatmap.append("g").attr("class", "y axis").call(yAxis);
-      // replaceAxis(heatmap);
-
-      // Create heatmap
-      // drawHeatmap(data[0].data);
-
       // Controls
       if (categories.length > 1) {
         drawControls(svg, brush);
@@ -704,12 +674,6 @@ this.d3.charts.heatmap = function() {
       else {
         drawHeatmap(data[0].data);
       }
-
-      // beautify
-      // beautify();
-
-      // brushended();
-
     });
   }
 

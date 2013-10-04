@@ -32,7 +32,7 @@ this.d3.charts.groupStack = function() {
       var color = d3.scale.linear()
           .domain([0, layers.length - 1])
           .range(["#a8c1e5", "#2563bf"]);
-          
+
       var xAxis = d3.svg.axis()
           .scale(x)
           .tickSize(0)
@@ -86,7 +86,7 @@ this.d3.charts.groupStack = function() {
       var text = layer.selectAll("text")
         .data(function(d) { return d; })
       .enter().append("text")
-        .attr("x", function(d) { return x(d.y)+5; })
+        .attr("x", function(d) { return x(d.y + d.y0)+5; })
         .attr("y", function(d) { return y(d.y)+y.rangeBand()/2+4; })
         .attr("class","value")
         .text(function(d, i) { return d.y+d.y0; });
