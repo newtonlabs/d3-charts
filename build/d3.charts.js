@@ -337,7 +337,8 @@ this.d3.charts.groupStack = function() {
 
   function my(selection) {
     var chartWidth    = width  - margin.left - margin.right,
-        chartHeight   = height - margin.top  - margin.bottom;
+        chartHeight   = height - margin.top  - margin.bottom,
+        format = d3.format(".3s");
 
     selection.each(function(data) {
       var stack = d3.layout.stack(),
@@ -361,6 +362,7 @@ this.d3.charts.groupStack = function() {
           .scale(x)
           .tickSize(0)
           .tickPadding(6)
+          .tickFormat(format)
           .orient("bottom");
 
       var yAxis = d3.svg.axis()
@@ -407,14 +409,13 @@ this.d3.charts.groupStack = function() {
         .attr("class", "y axis")
         .call(yAxis);
 
-
       var text = layer.selectAll("text")
         .data(_.last(layers))
         .enter().append("text")
         .attr("x", function(d) { return x(d.y + d.y0)+5; })
         .attr("y", function(d) { return y(d.y)+y.rangeBand()/2+4; })
         .attr("class","value")
-        .text(function(d, i) { return d3.format(".3s")(d.y+d.y0); });
+        .text(function(d, i) { return format(d.y+d.y0); });
 
       var legend = svg.selectAll(".legend")
         .data(layers)
