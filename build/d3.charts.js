@@ -501,8 +501,8 @@ this.d3.charts.heatmap = function() {
         .attr("style", function(d) {return "fill:"+d.color; });
 
       rect
-        .transition()
-        .delay(function(d, i) { return i * 5; })
+        // .transition()
+        // .delay(function(d, i) { return i * 5; })
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
         .attr("rx", 0)
@@ -516,8 +516,8 @@ this.d3.charts.heatmap = function() {
       var value = heatmap.selectAll("g.heatmap .cell.value").data(data);
       value.enter().append("text");
       value
-        .transition()
-        .delay(function(d, i) { return i * 5; })
+        // .transition()
+        // .delay(function(d, i) { return i * 5; })
         .attr("text-anchor", "middle")
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
