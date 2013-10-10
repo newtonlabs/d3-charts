@@ -344,6 +344,7 @@ this.d3.charts.groupStack = function() {
       var stack = d3.layout.stack(),
           layers = stack(data),
           labels = _.map(layers[0], function(d) { return d.x; }),
+          categories = _.reduce(layers, function(memo, d) { memo.push(d[0].category); return memo}, []),
           yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
 
       var y = d3.scale.ordinal()
@@ -418,7 +419,7 @@ this.d3.charts.groupStack = function() {
         .text(function(d, i) { return format(d.y+d.y0); });
 
       var legend = svg.selectAll(".legend")
-        .data(layers)
+        .data(categories)
         .enter().append("g")
         .attr("class", "legend")
         .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
@@ -435,7 +436,7 @@ this.d3.charts.groupStack = function() {
         .attr("y", 9)
         .attr("dy", ".35em")
         .style("text-anchor", "end")
-        .text(function(d, i) { return d[i].category; });
+        .text(function(d) { /*console.log(d,i);*/ return d; });
     });
   }
 
