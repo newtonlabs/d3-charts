@@ -21,10 +21,6 @@ this.d3.charts.groupStack = function() {
           width = 960 - margin.left - margin.right,
           height = 500 - margin.top - margin.bottom;
 
-      console.log(d3.range(n));
-      console.log(d3.range(n).map(function() { return bumpLayer(m, .1); }));
-      console.log(layers);
-
       var x = d3.scale.ordinal()
           .domain(d3.range(m))
           .rangeRoundBands([0, width], .08);

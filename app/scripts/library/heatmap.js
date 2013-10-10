@@ -28,7 +28,6 @@ this.d3.charts.heatmap = function() {
         brush = d3.svg.brush().x(x2);
 
     var drawHeatmap = function(data) {
-      console.log(data);
       // Update domains with newest data set
       x.domain(d3.utilities.uniqueProperties(data, 'xAxis'));
       y.domain(d3.utilities.uniqueProperties(data, 'yAxis'));
