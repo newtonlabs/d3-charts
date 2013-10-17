@@ -20,10 +20,13 @@ def color(value)
 end
 
 puts "category,xAxis,yAxis,value,trend,target,color,ID"
-0.upto(365) do |x|
-  t += delta_t
-  today += (60*60*24)
-  stamp = today.strftime("%Y%m%d")
-  value = amplitude * Math.sin(w * t) * 100
-  puts "Team 1,#{stamp},Net Promoter Score,#{sprintf('%.2f',value)},null,25,#{color(value)},#{x}"
+0.upto(5) do |i|
+  today = Time.now
+  (i + 100).upto(365+100) do |x|
+    t += delta_t
+    today += (60*60*24)
+    stamp = today.strftime("%Y%m%d")
+    value = amplitude * Math.sin(w * t) * 100
+    puts "Team #{i},#{stamp},Net Promoter Score,#{sprintf('%.2f',value)},null,25,#{color(value)},#{x}"
+  end
 end

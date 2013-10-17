@@ -1,7 +1,13 @@
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
-@import 'sass-bootstrap/lib/bootstrap';
+$nonblack: #423f37;
+$axisfontcolor: #AAADAA;
+$minorstrokecolor: #D1D1D1;
+$gridlinecolor: #E7E7E7;
+$axislinecolor: #D1D1D1;
+$fontsize: 12px;
+$charttitlecolor: #203566;
 
 .hero-unit {
     margin: auto 0 auto;
@@ -13,259 +19,125 @@ body {
   padding-bottom: 40px;
   background-color: #f5f6f8;
 }
-.sidebar-nav {
-  padding: 9px 0;
+
+// For dev work only
+svg {
+  // border-style:solid;
+  // border-color:$nonblack;
+  font-size: $fontsize;
 }
 
-.axis text {
-  font: 10px sans-serif;
+
+// Global Styles for consistency on all charts
+.commonCharts{
+  text {
+    font: $fontsize sans-serif;
+    fill: $nonblack;
+  }
+
+  // All lines do not fill
+  .line {
+    fill: none;
+  }
+  // Used for gray scale lines
+  .minor.line {
+    stroke: $minorstrokecolor;
+  }
+  g.chart-title {
+    text {
+      fill: $charttitlecolor;
+      &.header {
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+  // Define axis the same way
+  .axis {
+    path,
+    line {
+      fill: none;
+      stroke: $axislinecolor ;
+      shape-rendering: crispEdges;
+    }
+    text {
+      fill: $axisfontcolor;
+    }
+    .gridline line {
+      stroke: $gridlinecolor;
+    }
+  }
+  // Brushes
+  .brush {
+    // #D1D1D1
+    .extent {
+      // stroke: $nonblack;
+      fill: $nonblack;
+      fill-opacity: .075;
+    }
+    .resize path {
+      fill: #eee;
+      stroke: #666;
+    }
+  }
+  // Global For alternating colors
+  .alternate {
+    fill: #f5f5f5
+  }
+  .primary {
+    fill: #e7e7e7
+  }
 }
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
-}
-
-.line {
-  stroke-width: 1.5px;
-}
-
-.brush .extent {
-  stroke: #fff;
-  fill-opacity: .125;
-  shape-rendering: crispEdges;
-}
-
-.grid-background {
-  fill: #ddd;
-}
-
-.grid line,
-.grid path {
-  fill: none;
-  stroke: #fff;
-  shape-rendering: crispEdges;
-}
-
-.grid .minor.tick line {
-  stroke-opacity: .5;
-}
-
+// Chart specific tweaks
 .timeseries {
+  @extend .commonCharts;
+  // No yAxis lines on the axis, but need the ticks to show the grid
+  .y.axis path {
+    display:none;
+  }
+  .zeroline {
+    fill: $nonblack;
+    opacity: .05;
+  }
+  // Draw data points
+  .circle {
+    stroke-width: 3;
+    fill: #ffffff;
+  }
 }
 
-.timeseries .focus,
-.timeseries .context {
-  fill: #ffffff;
-}
-
-.timeseries .line {
-  stroke-width: 3px;
-  stroke: #e3e3e3;
-  fill: none;
-}
-
-.timeseries .timeline {
-  stroke-width: 1.5px;
-  stroke: #e3e3e3;
-  fill: none;
-}
-
-.timeseries .circle {
-  stroke-width: 3;
-  fill: #ffffff;
-}
-
-.timeseries .x.axis {
-  font-size: 11px;
-  fill: #000000;
-  font-weight: normal;
-}
-
-.timeseries .y.axis {
-  font-size: 14px;
-  fill: #000000;
-  font-weight: normal;
-}
-
-.timeseries .y.axis .tick.major {
-  font-size: 11px;
-  font-weight: normal;
-}
-
-.timeseries .y.axis div {
-  color: #000000;
-  height:40px;
-  width:150px;
-  vertical-align:middle;
-  display:table-cell;
-}
-
-.timeseries .target {
-  stroke: #00397e;
-  fill:none;
-  stroke-width:2;  
-}
-
-.timeseries .tick.major line {
-  stroke: #f5f6f8;
-}
-
-.timeseries .grid .tick {
-    stroke: red;
-    opacity: 0.7;
-}
-.timeseries .grid path {
-      stroke-width: 0;
-}
-
-.timeseries .x.axis line,
-.timeseries .x.axis path,
-.timeseries .y.axis line,
-.timeseries .y.axis path {
-  display: none;
-}
-
-.timeseries .brush .extent {
-  stroke: #000000;
-  fill: #000000;
-  fill-opacity: .125;
-}
-
-
-.barchart {
-  background-color: #ffffff;
-}
-
-.barchart .target {
-  stroke: #00397e;
-  fill:none;
-  stroke-width:2;  
-}
-
-.barchart .x.axis {
-  font-size: 11px;
-  fill: #000000;
-  font-weight: normal;
-}
-
-.barchart .y.axis {
-  font-size: 14px;
-  fill: #000000;
-  font-weight: normal;
-}
-
-.barchart .y.axis .tick.major {
-  font-size: 11px;
-  font-weight: normal;
-}
-
-.barchart .y.axis div {
-  color: #000000;
-  height:40px;
-  width:150px;
-  vertical-align:middle;
-  display:table-cell;
-}
-
-.barchart .x.axis line,
-.barchart .x.axis path,
-.barchart .y.axis line,
-.barchart .y.axis path {
-  display: none;
+.groupStack {
+  @extend .commonCharts;
+  .x.axis path {
+    display: none;
+  }
+  .y.axis text {
+    fill: $nonblack;
+  }
 }
 
 .heatmap {
-  
-}
-
-.heatmap .square {
-  stroke: #f5f6f8;
-  stroke-width:2;
-  stroke-opacity:0.9;
-}
-
-.heatmap .cell {
-  fill: #ffffff;
-  font-size: 11px;
-}
-
-.heatmap .x.axis {
-  font-size: 11px;
-  fill: #000000;
-  font-weight: normal;
-}
-
-.heatmap .y.axis {
-  font-size: 14px;
-  fill: #000000;
-  font-weight: normal;
-}
-
-.heatmap .y.axis .tick.major {
-  font-size: 11px;
-  font-weight: normal;
-}
-
-.heatmap .y.axis div {
-  color: #000000;
-  height:40px;
-  width:150px;
-  vertical-align:middle;
-  display:table-cell;
-}
-
-.heatmap .x.axis line,
-.heatmap .x.axis path,
-.heatmap .y.axis line,
-.heatmap .y.axis path {
-  display: none;
-}
-
-.heatmap .timeline rect {
-  fill:#fcfcfc;
-}
-
-.heatmap .timeline .x.axis text {
-  fill: #aeb3b9;
-  font-size: 12px;
-}
-
-.heatmap rect.alternate {
-  fill: #f5f5f5
-}
-.heatmap rect.primary {
-  fill: #e7e7e7
-}
-
-.heatmap .top-nav .text div {
-  text-align: center;
-}
-
-.heatmap .brush .extent {
-  stroke: #000000;
-  fill: #000000;
-  fill-opacity: .125;
-}
-
-.click {
-  color: #196cd6 !important;
-  fill: #196cd6 !important;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.groupStack .value {
-  fill:#423f37;
-  font-size:10px;
-}
-
-.groupStack .legend {
-  font-size:12px;
+  @extend .commonCharts;
+  // Borders on squares
+  .square {
+    stroke: #f5f6f8;
+    stroke-width:2;
+    stroke-opacity:0.9;
+  }
+  // Overide with White text on font
+  .cell {
+    fill: #ffffff;
+  }
+  .x.axis path{
+    display:none;
+  }
+  // Axis styles
+  .left-nav .text div {
+    text-align: right;
+    padding-right: 10px;
+  }
+  .top-nav .text div {
+    text-align: center;
+  }
 }

@@ -11,7 +11,7 @@ this.d3.charts.heatmap = function() {
     height = 400,
     controlHeight = 50,
     svg = {},
-    margin = { top: 160, right: 10, bottom: 10, left: 255 };
+    margin = { top: 160, right: 10, bottom: 10, left: 135 };
 
   function my(selection) {
     var chartWidth    = width  - margin.left - margin.right,
@@ -39,8 +39,8 @@ this.d3.charts.heatmap = function() {
         .attr("style", function(d) {return "fill:"+d.color; });
 
       rect
-        // .transition()
-        // .delay(function(d, i) { return i * 5; })
+        .transition()
+        .delay(function(d, i) { return i * 5; })
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
         .attr("rx", 0)
@@ -54,8 +54,8 @@ this.d3.charts.heatmap = function() {
       var value = heatmap.selectAll("g.heatmap .cell.value").data(data);
       value.enter().append("text");
       value
-        // .transition()
-        // .delay(function(d, i) { return i * 5; })
+        .transition()
+        .delay(function(d, i) { return i * 5; })
         .attr("text-anchor", "middle")
         .attr("x", function(d) { return x(d.xAxis);})
         .attr("y", function(d) { return y(d.yAxis);})
@@ -72,11 +72,11 @@ this.d3.charts.heatmap = function() {
       // Brush controls
       var control = svg.append("g")
         .attr("class", "timeline")
-        .attr("transform", "translate(" + margin.left + "," + 40  + ")");
+        .attr("transform", "translate(" + margin.left + "," + 10  + ")");
 
-      control.append("rect")
-        .attr("height", chartHeight2)
-        .attr("width",  chartWidth);
+      // control.append("rect")
+      //   .attr("height", chartHeight2)
+      //   .attr("width",  chartWidth);
 
       control.append("g")
         .attr("class", "x axis")
