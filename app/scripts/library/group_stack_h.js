@@ -139,7 +139,7 @@ this.d3.charts.groupStack = function() {
     return my;
   };
 
-  my.subTitle = function(value) {
+  my.subtitle = function(value) {
     if (!arguments.length) { return subTitleText; }
     subTitleText = value;
     return my;

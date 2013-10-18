@@ -7,25 +7,36 @@ if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 this.d3.charts.heatmap = function() {
  'use strict';
 
-  var width = 960,
-    height = 400,
-    controlHeight = 50,
-    svg = {},
-    margin = { top: 160, right: 10, bottom: 10, left: 135 };
+  var width = 1024,
+      height = 500,
+      controlHeight = 50,
+      svg = {},
+      margin = {top: 10, right: 184, bottom: 20, left: 168},
+      titleMargin = {top: 30},
+      rowTitleMargin = {top: 20},
+      titleText = "HEATMAP CHART EXAMPLE",
+      subTitleText = "Subtext as needed";
+
+    var topMargin  = function () {
+      var grouped = true;
+      var top = margin.top + titleMargin.top + rowTitleMargin.top;
+      top += grouped ? controlHeight : 0;
+      return top;
+    };
 
   function my(selection) {
     var chartWidth    = width  - margin.left - margin.right,
-        chartHeight   = height - margin.top  - margin.bottom,
-        chartHeight2  = controlHeight,
-        x  = d3.scale.ordinal().rangeRoundBands([0, chartWidth], 0, 0),
-        x2 = d3.scale.ordinal().rangeRoundBands([0, chartWidth], 0.2, 0.2),
-        y  = d3.scale.ordinal().rangeRoundBands([0, chartHeight], 0, 0),
-        xAxis2   = d3.svg.axis().scale(x2).orient("top").tickSize([0]),
-        invertx2 = d3.scale.quantize().domain([0, chartWidth]), //TODO use invert function
-        heatmap = {},
-        top = {},
-        left = {},
-        brush = d3.svg.brush().x(x2);
+        chartHeight   = height - topMargin() - margin.bottom,
+        x  = d3.scale.ordinal().rangeRoundBands([0, chartWidth]),
+        x2 = d3.scale.ordinal().rangeRoundBands([0, chartWidth]),
+        y  = d3.scale.ordinal().rangeRoundBands([0, chartHeight]),
+        title    = d3.charts.chartTitle().title(titleText).subTitle(subTitleText),
+        categorySelect = {},
+        heatmap  = {},
+        columns  = {},
+        meta     = {},
+        controls = {},
+        rows     = {};
 
     var drawHeatmap = function(data) {
       // Update domains with newest data set
@@ -35,182 +46,141 @@ this.d3.charts.heatmap = function() {
       // Enter, Update, Exit squares
       var rect  = heatmap.selectAll("g.heatmap .square").data(data);
       rect.enter().append("rect")
-        .attr("class", "square")
-        .attr("style", function(d) {return "fill:"+d.color; });
-
+          .attr("class", "square")
+          .attr("style", function(d) {return "fill:"+d.color; });
       rect
-        .transition()
-        .delay(function(d, i) { return i * 5; })
-        .attr("x", function(d) { return x(d.xAxis);})
-        .attr("y", function(d) { return y(d.yAxis);})
-        .attr("rx", 0)
-        .attr("ry", 0)
-        .attr("width", x.rangeBand())
-        .attr("height", y.rangeBand())
-        .style("fill", function(d) {return d.color;});
+          .attr("x", function(d) { return x(d.xAxis);})
+          .attr("y", function(d) { return y(d.yAxis);})
+          .attr("rx", 0)
+          .attr("ry", 0)
+          .attr("width", x.rangeBand())
+          .attr("height", y.rangeBand())
+          .transition()
+          .style("fill", function(d) {return d.color;});
       rect.exit().remove();
 
       // Enter, Update, Exit text values
       var value = heatmap.selectAll("g.heatmap .cell.value").data(data);
       value.enter().append("text");
       value
-        .transition()
-        .delay(function(d, i) { return i * 5; })
-        .attr("text-anchor", "middle")
-        .attr("x", function(d) { return x(d.xAxis);})
-        .attr("y", function(d) { return y(d.yAxis);})
-        .attr("dy", function() { return y.rangeBand()/2 + 4;})
-        .attr("dx", function() { return x.rangeBand()/2;})
-        .attr('class', 'cell value')
-        .text(function(d) {return d.value;} );
+          .attr("text-anchor", "middle")
+          .attr("x", function(d) { return x(d.xAxis);})
+          .attr("y", function(d) { return y(d.yAxis);})
+          .attr("dy", function() { return y.rangeBand()/2 + 4;})
+          .attr("dx", function() { return x.rangeBand()/2;})
+          .attr('class', 'cell value')
+          .text(function(d) {return d.value;} );
       value.exit().remove();
 
-      beautify();
+      rowColumnLabels();
     };
 
-    var drawControls = function(svg, brush) {
-      // Brush controls
-      var control = svg.append("g")
-        .attr("class", "timeline")
-        .attr("transform", "translate(" + margin.left + "," + 10  + ")");
+    var drawControls = function(categories) {
+      controls = svg.append("g")
+          .attr("class", "controls")
+          .attr("transform", "translate(" + margin.left + "," + (topMargin() - rowTitleMargin.top - controlHeight) + ")")
+      controls.append("rect")
+          .attr("class", "border")
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr("rx", 4)
+          .attr("ry", 4)
+          .attr("width", chartWidth)
+          .attr("height", controlHeight);
 
-      // control.append("rect")
-      //   .attr("height", chartHeight2)
-      //   .attr("width",  chartWidth);
+      var controlsLabel = controls.selectAll(".text").data(categories);
+      controlsLabel.enter().append("svg:foreignObject")
+          .attr("class", "text")
+          .attr("category", function(d) {return d})
+          .append("xhtml:div")
+          .html(function(schema) {return schema;});
+      controlsLabel
+          .attr("x", function(d) {return x2(d)})
+          .attr("y", 0)
+          .attr("width", x2.rangeBand())
+          .attr("height", controlHeight)
+          .attr("style", "line-height:"+ controlHeight +"px")
+          .on("click", categorySelect);
 
-      control.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + chartHeight2 * 0.66 + ")")
-        .call(xAxis2);
-
-      control.append("g")
-        .attr("class", "x brush")
-        .call(brush)
-        .call(brush.event)
-        .selectAll("rect")
-        .attr("y", 0)
-        .attr("height", chartHeight2);
+      // controls.selectAll("div").attr("class", "unselected");
     }
 
-    var setMetaData = function(meta, clicked) {
+    var setMetaData = function(clicked) {
       var category = meta.selectAll('category').data([clicked]);
       category.enter().append("category");
       category.text(function(d) { return d;});
     }
 
-    var beautify = function() {
-      // Top Bar
-      top.attr("transform", "translate(" + margin.left + "," + (margin.top - y.rangeBand()) + ")")
+    var rowColumnLabels = function() {
+      var columnLabel = columns.selectAll("g.top-nav .text").data(x.domain());
+      columnLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
+          .html(function(schema) {return schema;});;
+      columnLabel
+          .attr("width",  x.rangeBand())
+          .attr("height", rowTitleMargin.top)
+          .attr("x", function(d) {return x(d)})
+          .attr("y", function(d) {return y(y.domain()[0])})
+          .attr("style", "line-height:"+ rowTitleMargin.top +"px")
+      columnLabel.exit().remove();
 
-      var topBar = top.selectAll("g.top-nav .top").data(x.domain());
-
-      topBar.enter().append("rect").attr("class", "top")
-
-      topBar
-        .transition()
-        .attr("x", function(d) {return x(d)})
-        .attr("y", function(d) {return y(y.domain()[0])})
-        .attr("rx", 0)
-        .attr("ry", 0)
-        .attr("width",  x.rangeBand())
-        .attr("height", y.rangeBand())
-        .attr("class", function(d,i) {
-          var n = i%2;
-          return (n > 0) ? "top primary" : "top alternate"
-        });
-
-      var topText = top.selectAll("g.top-nav .text").data(x.domain());
-
-      topText.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-        .html(function(schema) {return schema;});;
-
-      topText
-        .attr("width",  x.rangeBand())
-        .attr("height", y.rangeBand())
-        .attr("x", function(d) {return x(d)})
-        .attr("y", function(d) {return y(y.domain()[0])})
-        .attr("style", "line-height:"+y.rangeBand()+"px")
-
-      topBar.exit().remove();
-      topText.exit().remove();
-
-      // Left Bar
-      left.attr("transform", "translate(" + (0) + "," + margin.top + ")")
-
-      var leftBar = left.selectAll("g.left-nav .left").data(y.domain());
-
-      leftBar.enter().append("rect").attr("class", "left")
-
-      leftBar
-        .transition()
-        .attr("x", function(d) {return x(x.domain()[0])})
-        .attr("y", function(d) {return y(d)})
-        .attr("rx", 0)
-        .attr("ry", 0)
-        .attr("width",  margin.left)
-        .attr("height", y.rangeBand())
-        .attr("style", "line-height:"+y.rangeBand())
-        .attr("class", function(d,i) {
-          var n = i%2;
-          return (n > 0) ? "left primary" : "left alternate"
-        });
-
-      var leftText = left.selectAll("g.left-nav .text").data(y.domain());
-
-      leftText.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-        .html(function(schema) {return schema;});;
-
-      leftText
-        .attr("width",  margin.left)
-        .attr("height", y.rangeBand())
-        .attr("x", function(d) {return x(x.domain()[0])})
-        .attr("y", function(d) {return y(d)})
-        .attr("style", "line-height:"+y.rangeBand()+"px")
-
-      leftBar.exit().remove();
-      leftText.exit().remove();
-
+      var rowLabel = rows.selectAll("g.left-nav .text").data(y.domain());
+     rowLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
+          .html(function(schema) {return schema;});;
+      rowLabel
+          .attr("width",  margin.left)
+          .attr("height", y.rangeBand())
+          .attr("x", function(d) {return x(x.domain()[0])})
+          .attr("y", function(d) {return y(d)})
+          .attr("style", "line-height:"+y.rangeBand()+"px")
+      rowLabel.exit().remove();
     }
 
     selection.each(function(data) {
-
-      var brushended = function() {
-        // if (!d3.event || !d3.event.sourceEvent) return; // only transition after input
-        var clicked    = invertx2(brush.extent()[0]);
-        var brushStart = x2(clicked);
-        var brushEnd   = brushStart + x2.rangeBand();
-
-        var chartData = _.find(data, function(d) {return d.name == clicked}).data;
-
-        drawHeatmap(chartData);
-        setMetaData(meta, clicked);
-
-        d3.select(this).transition()
-          .call(brush.extent([brushStart, brushEnd]))
-      };
-
       // Setup functions now that we have data
       var categories = d3.utilities.uniqueProperties(data, 'name');
-      x2.domain(d3.utilities.uniqueProperties(data, 'name'))
-      invertx2.range(categories);
-      brush.on("brushend", brushended);
+      x2.domain(categories)
 
+      // Function on what to do with data after visualization is interacted
+      categorySelect = function(clicked) {
+        controls.selectAll("div").attr("class", "unselected");
+        controls.select("[category=\""+clicked+"\"] div").attr("class", "selected")
+
+        var chartData = _.find(data, function(d) {return d.name == clicked}).data;
+        drawHeatmap(chartData);
+        setMetaData(clicked);
+      }
+
+      // SVG Container
       svg = d3.select(this).append("svg")
-        .attr("class", "heatmap")
-        .attr("width",  chartWidth  + margin.left + margin.right)
-        .attr("height", chartHeight + margin.top  + margin.bottom);
+          .attr("class", "heatmap")
+          .attr("width",  chartWidth  + margin.left + margin.right)
+          .attr("height", chartHeight + topMargin() + margin.bottom);
 
+      // Chart title
+      title.x(16).y(margin.top);
+      svg.call(title);
+
+      // Heatmap
       heatmap = svg.append("g").attr("class", "heatmap")
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+          .attr("transform", "translate(" + margin.left + "," + topMargin() + ")");
 
-      top  = svg.append("g").attr("class", "top-nav")
-      left = svg.append("g").attr("class", "left-nav")
+      // Row Labels
+      columns = svg.append("g")
+          .attr("class", "top-nav")
+          .attr("transform", "translate(" + margin.left + "," + (topMargin() - rowTitleMargin.top) + ")")
 
-      var meta = svg.append("meta-data");
+      // Column Labels
+      rows = svg.append("g")
+          .attr("class", "left-nav")
+          .attr("transform", "translate(" + (0) + "," + topMargin() + ")")
+
+      // Group selection
+      meta = svg.append("meta-data");
 
       // Controls
       if (categories.length > 1) {
-        drawControls(svg, brush);
+        drawControls(categories);
+        drawHeatmap(data[0].data);
       }
       else {
         drawHeatmap(data[0].data);
@@ -233,6 +203,18 @@ this.d3.charts.heatmap = function() {
 
   my.svg = function() {
     return svg;
+  };
+
+  my.title = function(value) {
+    if (!arguments.length) { return titleText; }
+    titleText = value;
+    return my;
+  };
+
+  my.subtitle = function(value) {
+    if (!arguments.length) { return subTitleText; }
+    subTitleText = value;
+    return my;
   };
 
   return my;

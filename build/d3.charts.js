@@ -527,7 +527,7 @@ this.d3.charts.groupStack = function() {
     return my;
   };
 
-  my.subTitle = function(value) {
+  my.subtitle = function(value) {
     if (!arguments.length) { return subTitleText; }
     subTitleText = value;
     return my;
@@ -549,6 +549,8 @@ this.d3.charts.heatmap = function() {
     height = 400,
     controlHeight = 50,
     svg = {},
+    titleText = "HEATMAP CHART EXAMPLE",
+    subTitleText = "Subtext as needed",
     margin = { top: 160, right: 10, bottom: 10, left: 135 };
 
   function my(selection) {
@@ -573,34 +575,34 @@ this.d3.charts.heatmap = function() {
       // Enter, Update, Exit squares
       var rect  = heatmap.selectAll("g.heatmap .square").data(data);
       rect.enter().append("rect")
-        .attr("class", "square")
-        .attr("style", function(d) {return "fill:"+d.color; });
+          .attr("class", "square")
+          .attr("style", function(d) {return "fill:"+d.color; });
 
       rect
-        .transition()
-        .delay(function(d, i) { return i * 5; })
-        .attr("x", function(d) { return x(d.xAxis);})
-        .attr("y", function(d) { return y(d.yAxis);})
-        .attr("rx", 0)
-        .attr("ry", 0)
-        .attr("width", x.rangeBand())
-        .attr("height", y.rangeBand())
-        .style("fill", function(d) {return d.color;});
+          .transition()
+          .delay(function(d, i) { return i * 5; })
+          .attr("x", function(d) { return x(d.xAxis);})
+          .attr("y", function(d) { return y(d.yAxis);})
+          .attr("rx", 0)
+          .attr("ry", 0)
+          .attr("width", x.rangeBand())
+          .attr("height", y.rangeBand())
+          .style("fill", function(d) {return d.color;});
       rect.exit().remove();
 
       // Enter, Update, Exit text values
       var value = heatmap.selectAll("g.heatmap .cell.value").data(data);
       value.enter().append("text");
       value
-        .transition()
-        .delay(function(d, i) { return i * 5; })
-        .attr("text-anchor", "middle")
-        .attr("x", function(d) { return x(d.xAxis);})
-        .attr("y", function(d) { return y(d.yAxis);})
-        .attr("dy", function() { return y.rangeBand()/2 + 4;})
-        .attr("dx", function() { return x.rangeBand()/2;})
-        .attr('class', 'cell value')
-        .text(function(d) {return d.value;} );
+          .transition()
+          .delay(function(d, i) { return i * 5; })
+          .attr("text-anchor", "middle")
+          .attr("x", function(d) { return x(d.xAxis);})
+          .attr("y", function(d) { return y(d.yAxis);})
+          .attr("dy", function() { return y.rangeBand()/2 + 4;})
+          .attr("dx", function() { return x.rangeBand()/2;})
+          .attr('class', 'cell value')
+          .text(function(d) {return d.value;} );
       value.exit().remove();
 
       beautify();
@@ -609,25 +611,25 @@ this.d3.charts.heatmap = function() {
     var drawControls = function(svg, brush) {
       // Brush controls
       var control = svg.append("g")
-        .attr("class", "timeline")
-        .attr("transform", "translate(" + margin.left + "," + 10  + ")");
+          .attr("class", "timeline")
+          .attr("transform", "translate(" + margin.left + "," + 10  + ")");
 
       // control.append("rect")
       //   .attr("height", chartHeight2)
       //   .attr("width",  chartWidth);
 
       control.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + chartHeight2 * 0.66 + ")")
-        .call(xAxis2);
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + chartHeight2 * 0.66 + ")")
+          .call(xAxis2);
 
       control.append("g")
-        .attr("class", "x brush")
-        .call(brush)
-        .call(brush.event)
-        .selectAll("rect")
-        .attr("y", 0)
-        .attr("height", chartHeight2);
+          .attr("class", "x brush")
+          .call(brush)
+          .call(brush.event)
+          .selectAll("rect")
+          .attr("y", 0)
+          .attr("height", chartHeight2);
     }
 
     var setMetaData = function(meta, clicked) {
@@ -645,29 +647,29 @@ this.d3.charts.heatmap = function() {
       topBar.enter().append("rect").attr("class", "top")
 
       topBar
-        .transition()
-        .attr("x", function(d) {return x(d)})
-        .attr("y", function(d) {return y(y.domain()[0])})
-        .attr("rx", 0)
-        .attr("ry", 0)
-        .attr("width",  x.rangeBand())
-        .attr("height", y.rangeBand())
-        .attr("class", function(d,i) {
-          var n = i%2;
-          return (n > 0) ? "top primary" : "top alternate"
-        });
+          .transition()
+          .attr("x", function(d) {return x(d)})
+          .attr("y", function(d) {return y(y.domain()[0])})
+          .attr("rx", 0)
+          .attr("ry", 0)
+          .attr("width",  x.rangeBand())
+          .attr("height", y.rangeBand())
+          .attr("class", function(d,i) {
+            var n = i%2;
+            return (n > 0) ? "top primary" : "top alternate"
+          });
 
       var topText = top.selectAll("g.top-nav .text").data(x.domain());
 
       topText.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-        .html(function(schema) {return schema;});;
+          .html(function(schema) {return schema;});;
 
       topText
-        .attr("width",  x.rangeBand())
-        .attr("height", y.rangeBand())
-        .attr("x", function(d) {return x(d)})
-        .attr("y", function(d) {return y(y.domain()[0])})
-        .attr("style", "line-height:"+y.rangeBand()+"px")
+          .attr("width",  x.rangeBand())
+          .attr("height", y.rangeBand())
+          .attr("x", function(d) {return x(d)})
+          .attr("y", function(d) {return y(y.domain()[0])})
+          .attr("style", "line-height:"+y.rangeBand()+"px")
 
       topBar.exit().remove();
       topText.exit().remove();
@@ -680,30 +682,30 @@ this.d3.charts.heatmap = function() {
       leftBar.enter().append("rect").attr("class", "left")
 
       leftBar
-        .transition()
-        .attr("x", function(d) {return x(x.domain()[0])})
-        .attr("y", function(d) {return y(d)})
-        .attr("rx", 0)
-        .attr("ry", 0)
-        .attr("width",  margin.left)
-        .attr("height", y.rangeBand())
-        .attr("style", "line-height:"+y.rangeBand())
-        .attr("class", function(d,i) {
-          var n = i%2;
-          return (n > 0) ? "left primary" : "left alternate"
+          .transition()
+          .attr("x", function(d) {return x(x.domain()[0])})
+          .attr("y", function(d) {return y(d)})
+          .attr("rx", 0)
+          .attr("ry", 0)
+          .attr("width",  margin.left)
+          .attr("height", y.rangeBand())
+          .attr("style", "line-height:"+y.rangeBand())
+          .attr("class", function(d,i) {
+            var n = i%2;
+            return (n > 0) ? "left primary" : "left alternate"
         });
 
       var leftText = left.selectAll("g.left-nav .text").data(y.domain());
 
       leftText.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-        .html(function(schema) {return schema;});;
+          .html(function(schema) {return schema;});;
 
       leftText
-        .attr("width",  margin.left)
-        .attr("height", y.rangeBand())
-        .attr("x", function(d) {return x(x.domain()[0])})
-        .attr("y", function(d) {return y(d)})
-        .attr("style", "line-height:"+y.rangeBand()+"px")
+          .attr("width",  margin.left)
+          .attr("height", y.rangeBand())
+          .attr("x", function(d) {return x(x.domain()[0])})
+          .attr("y", function(d) {return y(d)})
+          .attr("style", "line-height:"+y.rangeBand()+"px")
 
       leftBar.exit().remove();
       leftText.exit().remove();
@@ -771,6 +773,18 @@ this.d3.charts.heatmap = function() {
 
   my.svg = function() {
     return svg;
+  };
+
+  my.title = function(value) {
+    if (!arguments.length) { return titleText; }
+    titleText = value;
+    return my;
+  };
+
+  my.subtitle = function(value) {
+    if (!arguments.length) { return subTitleText; }
+    subTitleText = value;
+    return my;
   };
 
   return my;
@@ -873,7 +887,7 @@ this.d3.charts.timeseries = function() {
     svg = {},
     titleText = "TIME SERIES CHART EXAMPLE",
     subTitleText = "Subtext as needed",
-    dataPoints = true;
+    dataPoints = false;
 
   function my(selection) {
     var target;
@@ -910,11 +924,11 @@ this.d3.charts.timeseries = function() {
       x2.domain(x.domain());
       y2.domain(y.domain());
 
-      var line = d3.svg.line()//.interpolate("cardinal")
+      var line = d3.svg.line().interpolate("cardinal")
           .x(function(d) { return x(d.date); })
           .y(function(d) { return y(d.value); });
 
-      var line2 = d3.svg.line()//.interpolate("cardinal")
+      var line2 = d3.svg.line().interpolate("cardinal")
           .x(function(d) { return x2(d.date); })
           .y(function(d) { return y2(d.value); });
 
@@ -1084,7 +1098,7 @@ this.d3.charts.timeseries = function() {
     return my;
   };
 
-  my.subTitle = function(value) {
+  my.subtitle = function(value) {
     if (!arguments.length) { return subTitleText; }
     subTitleText = value;
     return my;

@@ -17,7 +17,7 @@ this.d3.charts.timeseries = function() {
     svg = {},
     titleText = "TIME SERIES CHART EXAMPLE",
     subTitleText = "Subtext as needed",
-    dataPoints = true;
+    dataPoints = false;
 
   function my(selection) {
     var target;
@@ -54,11 +54,11 @@ this.d3.charts.timeseries = function() {
       x2.domain(x.domain());
       y2.domain(y.domain());
 
-      var line = d3.svg.line()//.interpolate("cardinal")
+      var line = d3.svg.line().interpolate("cardinal")
           .x(function(d) { return x(d.date); })
           .y(function(d) { return y(d.value); });
 
-      var line2 = d3.svg.line()//.interpolate("cardinal")
+      var line2 = d3.svg.line().interpolate("cardinal")
           .x(function(d) { return x2(d.date); })
           .y(function(d) { return y2(d.value); });
 
@@ -228,7 +228,7 @@ this.d3.charts.timeseries = function() {
     return my;
   };
 
-  my.subTitle = function(value) {
+  my.subtitle = function(value) {
     if (!arguments.length) { return subTitleText; }
     subTitleText = value;
     return my;
