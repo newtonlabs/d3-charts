@@ -553,10 +553,10 @@ this.d3.charts.heatmap = function() {
       titleMargin = {top: 30},
       rowTitleMargin = {top: 60},
       titleText = "HEATMAP CHART EXAMPLE",
-      subTitleText = "Subtext as needed";
+      subTitleText = "Subtext as needed",
+      grouped = true;
 
     var topMargin  = function () {
-      var grouped = true;
       var top = margin.top + titleMargin.top + rowTitleMargin.top;
       top += grouped ? controlHeight : 0;
       return top;
@@ -661,7 +661,7 @@ this.d3.charts.heatmap = function() {
           .attr("height", rowTitleMargin.top)
           .attr("x", function(d) {return x(d)})
           .attr("y", function(d) {return y(y.domain()[0])})
-          .attr("style", "line-height:"+ rowTitleMargin.top +"px")
+          // .attr("style", "line-height:"+ rowTitleMargin.top +"px")
       columnLabel.exit().remove();
 
       var rowLabel = rows.selectAll("g.left-nav .text").data(y.domain());
@@ -720,6 +720,7 @@ this.d3.charts.heatmap = function() {
 
       // Controls
       if (categories.length > 1) {
+        grouped = true;
         drawControls(categories);
         drawHeatmap(data[0].data);
       }
