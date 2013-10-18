@@ -123,7 +123,7 @@ this.d3.charts.heatmap = function() {
           .attr("height", rowTitleMargin.top)
           .attr("x", function(d) {return x(d)})
           .attr("y", function(d) {return y(y.domain()[0])})
-          .attr("style", "line-height:"+ rowTitleMargin.top +"px")
+          // .attr("style", "line-height:"+ rowTitleMargin.top +"px")
       columnLabel.exit().remove();
 
       var rowLabel = rows.selectAll("g.left-nav .text").data(y.domain());
