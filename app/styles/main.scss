@@ -141,17 +141,20 @@ svg {
       stroke-width: 2px;
       fill: none;
     }
-    .text {
+    rect.control-box {
       fill: none;
-      text-align: center;
-      cursor: pointer;
     }
+
     .selected {
-      background-color: $charttitlecolor !important;
-      color: white;
+      rect {
+        fill: $charttitlecolor;
+      }
+      text {
+        fill: white;
+      }
     }
-    .unselected {
-      color: $charttitlecolor;
+    text {
+      text-anchor: middle;
     }
   }
 }

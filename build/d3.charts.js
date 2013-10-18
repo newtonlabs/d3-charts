@@ -547,11 +547,11 @@ this.d3.charts.heatmap = function() {
 
   var width = 1024,
       height = 500,
-      controlHeight = 50,
+      controlHeight = 30,
       svg = {},
       margin = {top: 10, right: 184, bottom: 20, left: 168},
       titleMargin = {top: 30},
-      rowTitleMargin = {top: 20},
+      rowTitleMargin = {top: 60},
       titleText = "HEATMAP CHART EXAMPLE",
       subTitleText = "Subtext as needed";
 
@@ -626,21 +626,24 @@ this.d3.charts.heatmap = function() {
           .attr("width", chartWidth)
           .attr("height", controlHeight);
 
-      var controlsLabel = controls.selectAll(".text").data(categories);
-      controlsLabel.enter().append("svg:foreignObject")
-          .attr("class", "text")
+      var controlsBox = controls.selectAll(".text").data(categories).enter().append("g")
+      controlsBox
           .attr("category", function(d) {return d})
-          .append("xhtml:div")
-          .html(function(schema) {return schema;});
-      controlsLabel
+        .append("rect")
+          .attr("class", "control-box")
           .attr("x", function(d) {return x2(d)})
           .attr("y", 0)
           .attr("width", x2.rangeBand())
           .attr("height", controlHeight)
-          .attr("style", "line-height:"+ controlHeight +"px")
+      controlsBox
+        .append("text")
+          .attr("x", function(d) {return (x2(d) + x2.rangeBand()/2)})
+          .attr("y", 20)
+          .attr("width", x2.rangeBand())
+          .attr("height", controlHeight)
+          .text(function(d) {return d})
           .on("click", categorySelect);
 
-      // controls.selectAll("div").attr("class", "unselected");
     }
 
     var setMetaData = function(clicked) {
@@ -680,8 +683,8 @@ this.d3.charts.heatmap = function() {
 
       // Function on what to do with data after visualization is interacted
       categorySelect = function(clicked) {
-        controls.selectAll("div").attr("class", "unselected");
-        controls.select("[category=\""+clicked+"\"] div").attr("class", "selected")
+        controls.select(".selected").attr("class","")
+        controls.select("[category=\""+clicked+"\"]").attr("class","selected")
 
         var chartData = _.find(data, function(d) {return d.name == clicked}).data;
         drawHeatmap(chartData);
