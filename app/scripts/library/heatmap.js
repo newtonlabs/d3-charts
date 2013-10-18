@@ -19,18 +19,19 @@ this.d3.charts.heatmap = function() {
       grouped = true;
 
     var topMargin  = function () {
+      console.log("grouped", grouped);
       var top = margin.top + titleMargin.top + rowTitleMargin.top;
       top += grouped ? controlHeight : 0;
       return top;
     };
 
   function my(selection) {
-    var chartWidth    = width  - margin.left - margin.right,
-        chartHeight   = height - topMargin() - margin.bottom,
-        x  = d3.scale.ordinal().rangeRoundBands([0, chartWidth]),
-        x2 = d3.scale.ordinal().rangeRoundBands([0, chartWidth]),
-        y  = d3.scale.ordinal().rangeRoundBands([0, chartHeight]),
-        title    = d3.charts.chartTitle().title(titleText).subTitle(subTitleText),
+    var chartWidth    = 0,
+        chartHeight   = 0,
+        x  = {},
+        x2 = {},
+        y  = {},
+        title    = {},
         categorySelect = {},
         heatmap  = {},
         columns  = {},
@@ -123,7 +124,6 @@ this.d3.charts.heatmap = function() {
           .attr("height", rowTitleMargin.top)
           .attr("x", function(d) {return x(d)})
           .attr("y", function(d) {return y(y.domain()[0])})
-          // .attr("style", "line-height:"+ rowTitleMargin.top +"px")
       columnLabel.exit().remove();
 
       var rowLabel = rows.selectAll("g.left-nav .text").data(y.domain());
@@ -141,6 +141,15 @@ this.d3.charts.heatmap = function() {
     selection.each(function(data) {
       // Setup functions now that we have data
       var categories = d3.utilities.uniqueProperties(data, 'name');
+      if (categories.length <= 1) { console.log('here'); grouped = false; }
+      chartWidth    = width  - margin.left - margin.right;
+      chartHeight   = height - topMargin() - margin.bottom;
+      x  = d3.scale.ordinal().rangeRoundBands([0, chartWidth]);
+      x2 = d3.scale.ordinal().rangeRoundBands([0, chartWidth]);
+      y  = d3.scale.ordinal().rangeRoundBands([0, chartHeight]);
+      title    = d3.charts.chartTitle().title(titleText).subTitle(subTitleText);
+
+      console.log(topMargin());
       x2.domain(categories)
 
       // Function on what to do with data after visualization is interacted
@@ -163,6 +172,14 @@ this.d3.charts.heatmap = function() {
       title.x(16).y(margin.top);
       svg.call(title);
 
+      // Legend Placeholder
+      var color  = d3.scale.ordinal().domain(categories).range(d3.utilities.stackColors);
+      var legend = d3.charts.legend().color(color);
+      legend
+          .y(topMargin() - rowTitleMargin.top )
+          .x(chartWidth + 30 + margin.right);
+      svg.datum(categories).call(legend);
+
       // Heatmap
       heatmap = svg.append("g").attr("class", "heatmap")
           .attr("transform", "translate(" + margin.left + "," + topMargin() + ")");
@@ -180,15 +197,17 @@ this.d3.charts.heatmap = function() {
       // Group selection
       meta = svg.append("meta-data");
 
+
+
       // Controls
       if (categories.length > 1) {
-        grouped = true;
         drawControls(categories);
         drawHeatmap(data[0].data);
       }
       else {
         drawHeatmap(data[0].data);
       }
+
     });
   }
 

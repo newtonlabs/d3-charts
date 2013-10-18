@@ -14,6 +14,7 @@ this.d3.charts.legend = function() {
 
   function my(selection) {
     selection.each(function(data) {
+      console.log('y in legend is', y);
       var legendBox = selection.append("g")
         .attr("class", "legend-container")
         .attr("transform", "translate(" + x + "," + y + ")");
