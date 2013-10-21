@@ -6,6 +6,7 @@ d3.csv("data/h_barchart_data.csv", function(error, data) {
     return _.map(d, function(o) { return {x: o.yAxis, y: o.value++, category: category, color: o.color}; });
   });
 
+
   d3.select("#groupStack").datum(layers).call(groupStack);
 });
 

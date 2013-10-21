@@ -557,7 +557,6 @@ this.d3.charts.heatmap = function() {
       grouped = true;
 
     var topMargin  = function () {
-      console.log("grouped", grouped);
       var top = margin.top + titleMargin.top + rowTitleMargin.top;
       top += grouped ? controlHeight : 0;
       return top;
@@ -679,7 +678,7 @@ this.d3.charts.heatmap = function() {
     selection.each(function(data) {
       // Setup functions now that we have data
       var categories = d3.utilities.uniqueProperties(data, 'name');
-      if (categories.length <= 1) { console.log('here'); grouped = false; }
+      if (categories.length <= 1) { grouped = false; }
       chartWidth    = width  - margin.left - margin.right;
       chartHeight   = height - topMargin() - margin.bottom;
       x  = d3.scale.ordinal().rangeRoundBands([0, chartWidth]);
@@ -687,7 +686,6 @@ this.d3.charts.heatmap = function() {
       y  = d3.scale.ordinal().rangeRoundBands([0, chartHeight]);
       title    = d3.charts.chartTitle().title(titleText).subTitle(subTitleText);
 
-      console.log(topMargin());
       x2.domain(categories)
 
       // Function on what to do with data after visualization is interacted
@@ -712,11 +710,11 @@ this.d3.charts.heatmap = function() {
 
       // Legend Placeholder
       var color  = d3.scale.ordinal().domain(categories).range(d3.utilities.stackColors);
-      var legend = d3.charts.legend().color(color);
-      legend
-          .y(topMargin() - rowTitleMargin.top )
-          .x(chartWidth + 30 + margin.right);
-      svg.datum(categories).call(legend);
+      // var legend = d3.charts.legend().color(color);
+      // legend
+      //     .y(topMargin() - rowTitleMargin.top )
+      //     .x(chartWidth + 30 + margin.right);
+      // svg.datum(categories).call(legend);
 
       // Heatmap
       heatmap = svg.append("g").attr("class", "heatmap")
@@ -798,7 +796,6 @@ this.d3.charts.legend = function() {
 
   function my(selection) {
     selection.each(function(data) {
-      console.log('y in legend is', y);
       var legendBox = selection.append("g")
         .attr("class", "legend-container")
         .attr("transform", "translate(" + x + "," + y + ")");
