@@ -1,4 +1,4 @@
-var heatmapChart = d3.charts.heatmap().title(undefined).subtitle(undefined);
+var heatmapChart = d3.charts.heatmap().title("something here").subtitle(undefined);
 var populate = function(category, obj) {
   var data = {
     xAxis: obj.xAxis,

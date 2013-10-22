@@ -607,7 +607,7 @@ this.d3.charts.heatmap = function() {
           .attr("dy", function() { return y.rangeBand()/2 + 4;})
           .attr("dx", function() { return x.rangeBand()/2;})
           .attr('class', 'cell value')
-          .text(function(d) {return d.value;} );
+          .text(function(d) {return d.value;} )
       value.exit().remove();
 
       rowColumnLabels();
@@ -642,8 +642,8 @@ this.d3.charts.heatmap = function() {
           .attr("width", x2.rangeBand())
           .attr("height", controlHeight)
           .text(function(d) {return d})
+          .attr("style", "cursor: pointer;")
           .on("click", categorySelect);
-
     }
 
     var setMetaData = function(clicked) {
@@ -655,6 +655,7 @@ this.d3.charts.heatmap = function() {
     var rowColumnLabels = function() {
       var columnLabel = columns.selectAll("g.top-nav .text").data(x.domain());
       columnLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
+          .attr("style", "height:" + rowTitleMargin.top + "px; width:" +x.rangeBand()+ "px;")
           .html(function(schema) {return schema;});;
       columnLabel
           .attr("width",  x.rangeBand())
@@ -738,7 +739,7 @@ this.d3.charts.heatmap = function() {
       // Controls
       if (categories.length > 1) {
         drawControls(categories);
-        drawHeatmap(data[0].data);
+        categorySelect(categories[0])
       }
       else {
         drawHeatmap(data[0].data);
