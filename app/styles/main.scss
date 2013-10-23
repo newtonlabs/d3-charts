@@ -7,7 +7,7 @@ $nonblack: #423f37;
 $axisfontcolor: #AAADAA;
 $minorstrokecolor: #D1D1D1;
 $gridlinecolor: #E7E7E7;
-$axislinecolor: #D1D1D1;
+$axislinecolor: #B3B3B3;
 $fontsize: 12px;
 $charttitlecolor: #203566;
 
@@ -71,15 +71,26 @@ svg {
   }
   // Brushes
   .brush {
-    // #D1D1D1
     .extent {
-      // stroke: $nonblack;
-      fill: $nonblack;
-      fill-opacity: .075;
+      fill-opacity: .125;
     }
     .resize path {
-      fill: #eee;
+      fill: none;
       stroke: #666;
+    }
+    .background {
+      fill: red;
+    }
+  }
+  .no-data-found {
+    text {
+      text-anchor: middle;
+      fill: white;
+      font-size: 20px;
+    }
+    rect {
+      fill: #85ADD6;
+      fill-opacity: 0.5;
     }
   }
 }
@@ -92,13 +103,18 @@ svg {
     display:none;
   }
   .zeroline {
-    fill: $nonblack;
-    opacity: .05;
+    stroke-width: 5px;
   }
   // Draw data points
   .circle {
     stroke-width: 3;
     fill: #ffffff;
+  }
+  .chart1 .x.axis path {
+    stroke-width: 2px;
+  }
+  .chart2 .x.axis path {
+    display: none;
   }
 }
 
@@ -128,11 +144,11 @@ svg {
     display:none;
   }
   // Axis styles
-  .left-nav .text div {
+  .left-nav .text .row-label {
     text-align: right;
     padding-right: 10px;
   }
-  .top-nav .text div {
+  .top-nav .text .column-label {
     text-align: center;
     display: table-cell;
     vertical-align: bottom;

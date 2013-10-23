@@ -10,5 +10,6 @@ d3.csv("data/timeseries_data.csv", function(error, data) {
   var datum  = _.map(series, function(d) { return {series: d, data: groups[d]}})
 
   d3.select("#timeseries").datum(datum).call(timeseriesChart);
+  d3.select("#timeseries_empty").datum(undefined).call(timeseriesChart);
 
 });

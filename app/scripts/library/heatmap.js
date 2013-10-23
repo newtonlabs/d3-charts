@@ -11,6 +11,7 @@ this.d3.charts.heatmap = function() {
       height = 500,
       controlHeight = 30,
       svg = {},
+      legend = [],
       margin = {top: 10, right: 184, bottom: 20, left: 168},
       titleMargin = {top: 30},
       rowTitleMargin = {top: 60},
@@ -117,7 +118,9 @@ this.d3.charts.heatmap = function() {
     var rowColumnLabels = function() {
       var columnLabel = columns.selectAll("g.top-nav .text").data(x.domain());
       columnLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
+          .attr("class", "column-label")
           .attr("style", "height:" + rowTitleMargin.top + "px; width:" +x.rangeBand()+ "px;")
+        .append("xhtml:div")
           .html(function(schema) {return schema;});;
       columnLabel
           .attr("width",  x.rangeBand())
@@ -128,6 +131,7 @@ this.d3.charts.heatmap = function() {
 
       var rowLabel = rows.selectAll("g.left-nav .text").data(y.domain());
      rowLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
+          .attr("class", "row-label")
           .html(function(schema) {return schema;});;
       rowLabel
           .attr("width",  margin.left)
@@ -136,6 +140,18 @@ this.d3.charts.heatmap = function() {
           .attr("y", function(d) {return y(d)})
           .attr("style", "line-height:"+y.rangeBand()+"px")
       rowLabel.exit().remove();
+    }
+
+    var drawLegend = function() {
+      var color  = d3.scale.ordinal()
+          .domain(_.map(legend, function(d) {return d.name}))
+          .range(_.map(legend, function(d) {return d.color}));
+      var d3Legend = d3.charts.legend().color(color);
+
+      d3Legend
+          .y(topMargin() - rowTitleMargin.top )
+          .x(chartWidth + 30 + margin.right);
+      svg.datum(_.map(legend, function(d) { return d.name })).call(d3Legend);
     }
 
     selection.each(function(data) {
@@ -171,13 +187,11 @@ this.d3.charts.heatmap = function() {
       title.x(16).y(margin.top);
       svg.call(title);
 
-      // Legend Placeholder
-      var color  = d3.scale.ordinal().domain(categories).range(d3.utilities.stackColors);
-      // var legend = d3.charts.legend().color(color);
-      // legend
-      //     .y(topMargin() - rowTitleMargin.top )
-      //     .x(chartWidth + 30 + margin.right);
-      // svg.datum(categories).call(legend);
+      // Legend
+      if (! _.isEmpty(legend)) {
+        drawLegend();
+      }
+
 
       // Heatmap
       heatmap = svg.append("g").attr("class", "heatmap")
@@ -195,8 +209,6 @@ this.d3.charts.heatmap = function() {
 
       // Group selection
       meta = svg.append("meta-data");
-
-
 
       // Controls
       if (categories.length > 1) {
@@ -236,6 +248,12 @@ this.d3.charts.heatmap = function() {
   my.subtitle = function(value) {
     if (!arguments.length) { return subTitleText; }
     subTitleText = value;
+    return my;
+  };
+
+  my.legend = function(value) {
+    if (!arguments.length) { return legend; }
+    legend = value;
     return my;
   };
 

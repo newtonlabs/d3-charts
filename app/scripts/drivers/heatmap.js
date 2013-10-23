@@ -1,4 +1,3 @@
-var heatmapChart = d3.charts.heatmap().title("something here").subtitle(undefined);
 var populate = function(category, obj) {
   var data = {
     xAxis: obj.xAxis,
@@ -13,6 +12,27 @@ var populate = function(category, obj) {
   category.data.push(data);
 };
 
+var legend = [
+  {
+    name: 'Threshold 1',
+    color: '#a8c1e5'
+  },
+  {
+    name: 'Threshold 2',
+    color: '#6691d2'
+  },
+  {
+    name: 'Threshold 3',
+    color: '#d3e0f2'
+  },
+  {
+    name: 'Threshold 4',
+    color: '#2563bf'
+  }
+];
+
+var heatmapChart = d3.charts.heatmap().title("something here").subtitle(undefined).legend(legend);
+// var heatmapChart = d3.charts.heatmap().title("something here").subtitle(undefined);
 d3.csv("../data/heatMap_data.csv", function(error, data) {
   // Maintain order from the JSON object
   var scrubbed = _.reduce(data, function(memo, obj) {
