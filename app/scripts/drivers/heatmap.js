@@ -31,7 +31,15 @@ var legend = [
   }
 ];
 
-var heatmapChart = d3.charts.heatmap().title("something here").subtitle(undefined).legend(legend);
+var heatmapChart = d3.charts.heatmap()
+    .title("something here")
+    .subtitle(undefined)
+    .fixedRowHeight(45)
+    .fixedColumnWidth(undefined)
+    // .cellFont('medium')
+    // .rowFont('medium')
+    // .columnFont('medium')
+    .legend(legend);
 // var heatmapChart = d3.charts.heatmap().title("something here").subtitle(undefined);
 d3.csv("../data/heatMap_data.csv", function(error, data) {
   // Maintain order from the JSON object

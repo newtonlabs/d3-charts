@@ -25,24 +25,23 @@ this.d3.charts.legend = function() {
 
       legend.append("rect")
         .attr("x", 0)
-        .attr("y", function(d,i) {return (i * 25) + y})
-        .attr("width", 14)
-        .attr("height", 14)
-        .style("fill", function(d) { return color(d); });
-
-      if (click) {
-        legendBox.selectAll("rect")
-          .attr("style", "text-decoration: underline;cursor: pointer;")
-          .on("click", click)
-          .style("fill", function(d) { return color(d); });
-      }
+        .attr("y", function(d,i) {return (i * 28) + y})
+        .attr("width", 17)
+        .attr("height", 17)
+        .attr("fill", function(d) { return color(d); });
 
       legend.append("text")
-        .attr("x", 20)
-        .attr("y", function(d,i) {return (i * 25) + y + 7})
+        .attr("x", 25)
+        .attr("y", function(d,i) {return (i * 28) + y + 9})
         .attr("dy", ".35em")
         .style("text-anchor", "start")
         .text(function(d) { return d; });
+
+      if (click) {
+        legendBox.selectAll("g")
+          .attr("style", "cursor: pointer;")
+          .on("click", click);
+      }
     });
   }
 

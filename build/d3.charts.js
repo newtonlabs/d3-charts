@@ -542,20 +542,117 @@ this.d3.charts.groupStack = function() {
 if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 
 // Based on http://bost.ocks.org/mike/chart/
+this.d3.charts.legend = function() {
+ 'use strict';
+
+  var x = 0,
+    y = 0,
+    color =  d3.scale.category10(),
+    click = undefined
+
+  function my(selection) {
+    selection.each(function(data) {
+      var legendBox = selection.append("g")
+        .attr("class", "legend-container")
+        .attr("transform", "translate(" + x + "," + y + ")");
+
+      var legend = legendBox.selectAll(".legend")
+        .data(data)
+        .enter().append("g")
+        .attr("class", "legend")
+
+      legend.append("rect")
+        .attr("x", 0)
+        .attr("y", function(d,i) {return (i * 28) + y})
+        .attr("width", 17)
+        .attr("height", 17)
+        .attr("fill", function(d) { return color(d); });
+
+      legend.append("text")
+        .attr("x", 25)
+        .attr("y", function(d,i) {return (i * 28) + y + 9})
+        .attr("dy", ".35em")
+        .style("text-anchor", "start")
+        .text(function(d) { return d; });
+
+      if (click) {
+        legendBox.selectAll("g")
+          .attr("style", "cursor: pointer;")
+          .on("click", click);
+      }
+    });
+  }
+
+  // Getters and Setters
+  my.x = function(value) {
+    if (!arguments.length) { return x; }
+    x = value;
+    return my;
+  };
+
+  my.y = function(value) {
+    if (!arguments.length) { return y; }
+    y = value;
+    return my;
+  };
+
+  my.color = function(value) {
+    if (!arguments.length) { return color; }
+    color = value;
+    return my;
+  };
+
+  my.click = function(value) {
+    if (!arguments.length) { return click; }
+    click = value;
+    return my;
+  }
+
+
+  return my;
+};
+
+/*jslint browser: true*/
+/*global $, jQuery, d3, _*/
+
+if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
+
+// Based on http://bost.ocks.org/mike/chart/
 this.d3.charts.heatmap = function() {
  'use strict';
 
-  var width = 1024,
-      height = 500,
+  var width  = 1000,
+      height = 600,
       controlHeight = 30,
+      rowFont = 'small',
+      columnFont = 'small',
+      cellFont = 'small',
+      fixedRowHeight,
+      fixedColumnWidth,
       svg = {},
       legend = [],
       margin = {top: 10, right: 184, bottom: 20, left: 168},
       titleMargin = {top: 30},
       rowTitleMargin = {top: 60},
       titleText = "HEATMAP CHART EXAMPLE",
-      subTitleText = "Subtext as needed",
-      grouped = true;
+      subTitleText = "Subtext as needed";
+
+  function my(selection) {
+    var chartWidth,
+        chartHeight,
+        heatmap,
+        columns,
+        rows,
+        meta,
+        categories,
+        controls,
+        categorySelect,
+        grouped = true,
+        x  = d3.scale.ordinal(),
+        x2 = d3.scale.ordinal(),
+        y  = d3.scale.ordinal(),
+        d3legend = d3.charts.legend(),
+        title    = d3.charts.chartTitle();
 
     var topMargin  = function () {
       var top = margin.top + titleMargin.top + rowTitleMargin.top;
@@ -563,24 +660,95 @@ this.d3.charts.heatmap = function() {
       return top;
     };
 
-  function my(selection) {
-    var chartWidth    = 0,
-        chartHeight   = 0,
-        x  = {},
-        x2 = {},
-        y  = {},
-        title    = {},
-        categorySelect = {},
-        heatmap  = {},
-        columns  = {},
-        meta     = {},
-        controls = {},
-        rows     = {};
+    var resetDimensions = function() {
+      if (fixedRowHeight) {
+        chartHeight = fixedRowHeight * y.domain().length;
+        y.rangeRoundBands([0, chartHeight]);
+        svg.attr("height", chartHeight + topMargin() + margin.bottom);
+      }
+
+      if (fixedColumnWidth) {
+        chartWidth = fixedColumnWidth * x.domain().length;
+        x.rangeRoundBands([0, chartWidth]);
+        x2.rangeRoundBands([0, chartWidth]);
+        svg.attr("width", chartWidth  + margin.left + margin.right);
+      }
+    }
+
+    var initializeDimensions = function(selection) {
+      chartWidth  = width - margin.left - margin.right;
+      chartHeight = height - topMargin() - margin.bottom;
+      x.rangeRoundBands([0, chartWidth]);
+      x2.rangeRoundBands([0, chartWidth]);
+      y.rangeRoundBands([0, chartHeight]);
+      title.title(titleText).subTitle(subTitleText);
+
+      // SVG Container
+      svg = d3.select(selection).append("svg")
+          .attr("class", "heatmap")
+          .attr("width",  chartWidth  + margin.left + margin.right)
+          .attr("height", chartHeight + topMargin() + margin.bottom);
+
+      // Heatmap
+      heatmap = svg.append("g").attr("class", "heatmap")
+          .attr("transform", "translate(" + margin.left + "," + topMargin() + ")");
+
+      // Row Labels
+      columns = svg.append("g")
+          .attr("class", "top-nav")
+          .attr("transform", "translate(" + margin.left + "," + (topMargin() - rowTitleMargin.top) + ")")
+
+      // Column Labels
+      rows = svg.append("g")
+          .attr("class", "left-nav")
+          .attr("transform", "translate(" + (0) + "," + topMargin() + ")")
+
+      // Group selection
+      meta = svg.append("meta-data");
+
+    }
+
+    var initializeWithData = function(data) {
+      categories = d3.utilities.uniqueProperties(data, 'name');
+      x2.domain(categories)
+      if (categories.length <= 1) { grouped = false; }
+    }
+
+    var initializeWithOutData = function(data) {
+    }
+
+    var drawChart = function(data) {
+
+      categorySelect = function(clicked) {
+        controls.select(".selected").attr("class","")
+        controls.select("[category=\""+clicked+"\"]").attr("class","selected")
+
+        var chartData = _.find(data, function(d) {return d.name == clicked}).data;
+        drawHeatmap(chartData);
+        setMetaData(clicked);
+      }
+
+      if (grouped) {
+        drawControls(categories);
+        categorySelect(categories[0])
+      }
+      else {
+        drawHeatmap(data[0].data);
+      }
+    }
+
+    var drawTitle = function() {
+      title.x(16).y(margin.top);
+      svg.call(title);
+    }
 
     var drawHeatmap = function(data) {
       // Update domains with newest data set
       x.domain(d3.utilities.uniqueProperties(data, 'xAxis'));
       y.domain(d3.utilities.uniqueProperties(data, 'yAxis'));
+
+      // Reset dimensions if the y.domain is fixed
+      resetDimensions();
 
       // Enter, Update, Exit squares
       var rect  = heatmap.selectAll("g.heatmap .square").data(data);
@@ -599,7 +767,10 @@ this.d3.charts.heatmap = function() {
       rect.exit().remove();
 
       // Enter, Update, Exit text values
+      // var cellFont = d3.scale.linear().domain([0,10000, 125000, 250000]).range(['small', 'small', 'medium', 'large']);
+      // var area = x.rangeBand() * y.rangeBand();
       var value = heatmap.selectAll("g.heatmap .cell.value").data(data);
+
       value.enter().append("text");
       value
           .attr("text-anchor", "middle")
@@ -607,7 +778,7 @@ this.d3.charts.heatmap = function() {
           .attr("y", function(d) { return y(d.yAxis);})
           .attr("dy", function() { return y.rangeBand()/2 + 4;})
           .attr("dx", function() { return x.rangeBand()/2;})
-          .attr('class', 'cell value')
+          .attr('class', 'cell value ' + cellFont)
           .text(function(d) {return d.value;} )
       value.exit().remove();
 
@@ -656,7 +827,7 @@ this.d3.charts.heatmap = function() {
     var rowColumnLabels = function() {
       var columnLabel = columns.selectAll("g.top-nav .text").data(x.domain());
       columnLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-          .attr("class", "column-label")
+          .attr("class", "column-label " + columnFont)
           .attr("style", "height:" + rowTitleMargin.top + "px; width:" +x.rangeBand()+ "px;")
         .append("xhtml:div")
           .html(function(schema) {return schema;});;
@@ -668,8 +839,9 @@ this.d3.charts.heatmap = function() {
       columnLabel.exit().remove();
 
       var rowLabel = rows.selectAll("g.left-nav .text").data(y.domain());
-     rowLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-          .attr("class", "row-label")
+      rowLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
+          .attr("class", "row-label " + rowFont)
+        .append("xhtml:div")
           .html(function(schema) {return schema;});;
       rowLabel
           .attr("width",  margin.left)
@@ -692,71 +864,22 @@ this.d3.charts.heatmap = function() {
       svg.datum(_.map(legend, function(d) { return d.name })).call(d3Legend);
     }
 
+    var initialize = function(selection, data) {
+      if (_.isEmpty(data)) {
+        data = [];
+        initializeWithOutData();
+      } else {
+        initializeWithData(data);
+      }
+      initializeDimensions(selection);
+    }
+
     selection.each(function(data) {
-      // Setup functions now that we have data
-      var categories = d3.utilities.uniqueProperties(data, 'name');
-      if (categories.length <= 1) { grouped = false; }
-      chartWidth    = width  - margin.left - margin.right;
-      chartHeight   = height - topMargin() - margin.bottom;
-      x  = d3.scale.ordinal().rangeRoundBands([0, chartWidth]);
-      x2 = d3.scale.ordinal().rangeRoundBands([0, chartWidth]);
-      y  = d3.scale.ordinal().rangeRoundBands([0, chartHeight]);
-      title    = d3.charts.chartTitle().title(titleText).subTitle(subTitleText);
-
-      x2.domain(categories)
-
-      // Function on what to do with data after visualization is interacted
-      categorySelect = function(clicked) {
-        controls.select(".selected").attr("class","")
-        controls.select("[category=\""+clicked+"\"]").attr("class","selected")
-
-        var chartData = _.find(data, function(d) {return d.name == clicked}).data;
-        drawHeatmap(chartData);
-        setMetaData(clicked);
-      }
-
-      // SVG Container
-      svg = d3.select(this).append("svg")
-          .attr("class", "heatmap")
-          .attr("width",  chartWidth  + margin.left + margin.right)
-          .attr("height", chartHeight + topMargin() + margin.bottom);
-
-      // Chart title
-      title.x(16).y(margin.top);
-      svg.call(title);
-
-      // Legend
-      if (! _.isEmpty(legend)) {
-        drawLegend();
-      }
-
-
-      // Heatmap
-      heatmap = svg.append("g").attr("class", "heatmap")
-          .attr("transform", "translate(" + margin.left + "," + topMargin() + ")");
-
-      // Row Labels
-      columns = svg.append("g")
-          .attr("class", "top-nav")
-          .attr("transform", "translate(" + margin.left + "," + (topMargin() - rowTitleMargin.top) + ")")
-
-      // Column Labels
-      rows = svg.append("g")
-          .attr("class", "left-nav")
-          .attr("transform", "translate(" + (0) + "," + topMargin() + ")")
-
-      // Group selection
-      meta = svg.append("meta-data");
-
-      // Controls
-      if (categories.length > 1) {
-        drawControls(categories);
-        categorySelect(categories[0])
-      }
-      else {
-        drawHeatmap(data[0].data);
-      }
-
+      initialize(this, data);
+      drawChart(data);
+      drawTitle();
+      drawLegend();
+      if (_.isEmpty(data)) { drawNoData();}
     });
   }
 
@@ -795,86 +918,40 @@ this.d3.charts.heatmap = function() {
     return my;
   };
 
-  return my;
-};
-
-
-/*jslint browser: true*/
-/*global $, jQuery, d3, _*/
-
-if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
-
-// Based on http://bost.ocks.org/mike/chart/
-this.d3.charts.legend = function() {
- 'use strict';
-
-  var x = 0,
-    y = 0,
-    color =  d3.scale.category10(),
-    click = undefined
-
-  function my(selection) {
-    selection.each(function(data) {
-      var legendBox = selection.append("g")
-        .attr("class", "legend-container")
-        .attr("transform", "translate(" + x + "," + y + ")");
-
-      var legend = legendBox.selectAll(".legend")
-        .data(data)
-        .enter().append("g")
-        .attr("class", "legend")
-
-      legend.append("rect")
-        .attr("x", 0)
-        .attr("y", function(d,i) {return (i * 25) + y})
-        .attr("width", 14)
-        .attr("height", 14)
-        .style("fill", function(d) { return color(d); });
-
-      if (click) {
-        legendBox.selectAll("rect")
-          .attr("style", "text-decoration: underline;cursor: pointer;")
-          .on("click", click)
-          .style("fill", function(d) { return color(d); });
-      }
-
-      legend.append("text")
-        .attr("x", 20)
-        .attr("y", function(d,i) {return (i * 25) + y + 7})
-        .attr("dy", ".35em")
-        .style("text-anchor", "start")
-        .text(function(d) { return d; });
-    });
-  }
-
-  // Getters and Setters
-  my.x = function(value) {
-    if (!arguments.length) { return x; }
-    x = value;
+  my.rowFont = function(value) {
+    if (!arguments.length) { return rowFont; }
+    rowFont = value;
     return my;
   };
 
-  my.y = function(value) {
-    if (!arguments.length) { return y; }
-    y = value;
+  my.columnFont = function(value) {
+    if (!arguments.length) { return columnFont; }
+    columnFont = value;
     return my;
   };
 
-  my.color = function(value) {
-    if (!arguments.length) { return color; }
-    color = value;
+  my.cellFont = function(value) {
+    if (!arguments.length) { return cellFont; }
+    cellFont = value;
     return my;
   };
 
-  my.click = function(value) {
-    if (!arguments.length) { return click; }
-    click = value;
+  my.fixedRowHeight = function(value) {
+    if (!arguments.length) { return fixedRowHeight; }
+    fixedRowHeight = value;
     return my;
-  }
+  };
+
+  my.fixedColumnWidth = function(value) {
+    if (!arguments.length) { return fixedColumnWidth; }
+    fixedColumnWidth = value;
+    return my;
+  };
 
 
   return my;
 };
+
 
 /*jslint browser: true*/
 /*global $, jQuery, d3, _*/
@@ -975,7 +1052,15 @@ this.d3.charts.timeseries = function() {
       // Setup Functions with data
       color.domain(series).range(d3.utilities.colorWheel);
       legend.color(color);
-      x.domain(d3.extent(data[0].data, function(d) { return d.date; })); // TODO, not assume all data is like data[0]
+
+      x.domain(d3.extent(
+          _.flatten(data, function(d) { return d.data; }),
+          function(d) { return d.date; }));
+
+      // Add one minute to prevent infinite range errors if all the
+      var endTime =  new Date(x.domain()[1].getTime() + 1*60000)
+      x.domain([x.domain()[0], endTime])
+
       y.domain([lowerDomain, upperDomain + topPadding + bottomPadding]);
       x2.domain(x.domain());
       y2.domain(y.domain());
@@ -993,6 +1078,8 @@ this.d3.charts.timeseries = function() {
           .attr("transform", "translate(" + margin.left + "," + (margin.top + titleMargin.top) + ")");
 
       // xAxis
+      console.log(x.range());
+      console.log(x.domain());
       focus.append("g")
           .attr("class", "x axis")
           .attr("transform", "translate(0," + y(y.domain()[0]) + ")")
@@ -1008,8 +1095,8 @@ this.d3.charts.timeseries = function() {
 
       gy.selectAll("g").classed("gridline", true);
       gy.selectAll("text").attr("x", 4).attr("dy", -4);
-      var zero = gy.selectAll("text").filter(function(d) { return d == 0; } );
-      if (! _.isEmpty(zero)) {d3.select(zero[0][0].previousSibling).attr("class", "zeroline"); }
+      // var zero = gy.selectAll("text").filter(function(d) { return d == 0; } );
+      // if (! _.isEmpty(zero)) {d3.select(zero[0][0].previousSibling).attr("class", "zeroline"); }
 
       // Target line stuff
       // if (typeof(data[0].data[0].target) !== 'undefined') {
@@ -1047,6 +1134,18 @@ this.d3.charts.timeseries = function() {
       //       .attr("cy", function(d) { return y(d.value); })
       //       .attr("r", dataRadius);
       // }
+      // Defined here so data is in the clojure
+      brushing = function() {
+        x.domain(brush.empty() ? x2.domain() : brush.extent());
+
+        focus.selectAll("g.chart path").data(data).attr("d", function(d) {return line(d.data);});
+        // focus.selectAll("circle").data(_.flatten(data, 'data'))
+        //     .attr("cx", function(d) { return x(d.date); })
+        //     .attr("cy", function(d) { return y(d.value); });
+
+        focus.select(".x.axis").call(xAxis);
+      }
+      drawControls(brushing,data);
     }
 
     var drawNoData = function() {
@@ -1095,6 +1194,7 @@ this.d3.charts.timeseries = function() {
       gBrush.selectAll(".resize").append("path").attr("d",function(d) {
         return d3.utilities.resizeHandles(d, controlHeight);
       });
+
     }
 
     var drawLegend = function() {
@@ -1118,36 +1218,22 @@ this.d3.charts.timeseries = function() {
       svg.call(title);
     }
 
-    selection.each(function(data) {
-
-      initializeDimensions(this);
+    var initialize = function(selection, data) {
+      initializeDimensions(selection);
 
       if (_.isEmpty(data)) {
-        data = [];
         initializeWithOutData();
-        drawChart(data);
-        drawNoData();
       } else {
         initializeWithData(data);
-        drawChart(data);
       }
+    }
 
-
-      // Defined here so data is in the clojure
-      brushing = function() {
-        x.domain(brush.empty() ? x2.domain() : brush.extent());
-
-        focus.selectAll("g.chart path").data(data).attr("d", function(d) {return line(d.data);});
-        // focus.selectAll("circle").data(_.flatten(data, 'data'))
-        //     .attr("cx", function(d) { return x(d.date); })
-        //     .attr("cy", function(d) { return y(d.value); });
-
-        focus.select(".x.axis").call(xAxis);
-      }
-      drawControls(brushing,data);
-
+    selection.each(function(data) {
+      initialize(this, data);
+      drawChart(data);
       drawTitle();
       drawLegend();
+      if (_.isEmpty(data)) { drawNoData();}
     })
   }
 

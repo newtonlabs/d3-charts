@@ -97,7 +97,15 @@ this.d3.charts.timeseries = function() {
       // Setup Functions with data
       color.domain(series).range(d3.utilities.colorWheel);
       legend.color(color);
-      x.domain(d3.extent(data[0].data, function(d) { return d.date; })); // TODO, not assume all data is like data[0]
+
+      x.domain(d3.extent(
+          _.flatten(data, function(d) { return d.data; }),
+          function(d) { return d.date; }));
+
+      // Add one minute to prevent infinite range errors if all the
+      var endTime =  new Date(x.domain()[1].getTime() + 1*60000)
+      x.domain([x.domain()[0], endTime])
+
       y.domain([lowerDomain, upperDomain + topPadding + bottomPadding]);
       x2.domain(x.domain());
       y2.domain(y.domain());
@@ -115,6 +123,8 @@ this.d3.charts.timeseries = function() {
           .attr("transform", "translate(" + margin.left + "," + (margin.top + titleMargin.top) + ")");
 
       // xAxis
+      console.log(x.range());
+      console.log(x.domain());
       focus.append("g")
           .attr("class", "x axis")
           .attr("transform", "translate(0," + y(y.domain()[0]) + ")")
@@ -130,8 +140,8 @@ this.d3.charts.timeseries = function() {
 
       gy.selectAll("g").classed("gridline", true);
       gy.selectAll("text").attr("x", 4).attr("dy", -4);
-      var zero = gy.selectAll("text").filter(function(d) { return d == 0; } );
-      if (! _.isEmpty(zero)) {d3.select(zero[0][0].previousSibling).attr("class", "zeroline"); }
+      // var zero = gy.selectAll("text").filter(function(d) { return d == 0; } );
+      // if (! _.isEmpty(zero)) {d3.select(zero[0][0].previousSibling).attr("class", "zeroline"); }
 
       // Target line stuff
       // if (typeof(data[0].data[0].target) !== 'undefined') {
@@ -169,6 +179,18 @@ this.d3.charts.timeseries = function() {
       //       .attr("cy", function(d) { return y(d.value); })
       //       .attr("r", dataRadius);
       // }
+      // Defined here so data is in the clojure
+      brushing = function() {
+        x.domain(brush.empty() ? x2.domain() : brush.extent());
+
+        focus.selectAll("g.chart path").data(data).attr("d", function(d) {return line(d.data);});
+        // focus.selectAll("circle").data(_.flatten(data, 'data'))
+        //     .attr("cx", function(d) { return x(d.date); })
+        //     .attr("cy", function(d) { return y(d.value); });
+
+        focus.select(".x.axis").call(xAxis);
+      }
+      drawControls(brushing,data);
     }
 
     var drawNoData = function() {
@@ -217,6 +239,7 @@ this.d3.charts.timeseries = function() {
       gBrush.selectAll(".resize").append("path").attr("d",function(d) {
         return d3.utilities.resizeHandles(d, controlHeight);
       });
+
     }
 
     var drawLegend = function() {
@@ -240,36 +263,22 @@ this.d3.charts.timeseries = function() {
       svg.call(title);
     }
 
-    selection.each(function(data) {
-
-      initializeDimensions(this);
+    var initialize = function(selection, data) {
+      initializeDimensions(selection);
 
       if (_.isEmpty(data)) {
-        data = [];
         initializeWithOutData();
-        drawChart(data);
-        drawNoData();
       } else {
         initializeWithData(data);
-        drawChart(data);
       }
+    }
 
-
-      // Defined here so data is in the clojure
-      brushing = function() {
-        x.domain(brush.empty() ? x2.domain() : brush.extent());
-
-        focus.selectAll("g.chart path").data(data).attr("d", function(d) {return line(d.data);});
-        // focus.selectAll("circle").data(_.flatten(data, 'data'))
-        //     .attr("cx", function(d) { return x(d.date); })
-        //     .attr("cy", function(d) { return y(d.value); });
-
-        focus.select(".x.axis").call(xAxis);
-      }
-      drawControls(brushing,data);
-
+    selection.each(function(data) {
+      initialize(this, data);
+      drawChart(data);
       drawTitle();
       drawLegend();
+      if (_.isEmpty(data)) { drawNoData();}
     })
   }
 

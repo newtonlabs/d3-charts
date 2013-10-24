@@ -93,6 +93,15 @@ svg {
       fill-opacity: 0.5;
     }
   }
+  .small {
+    font-size: 12px;
+  }
+  .medium {
+    font-size: 20px;
+  }
+  .large {
+    font-size: 30px;
+  }
 }
 
 // Chart specific tweaks
@@ -139,6 +148,7 @@ svg {
   // Overide with White text on font
   .cell {
     fill: #ffffff;
+    fill-opacity: 0.75;
   }
   .x.axis path{
     display:none;
