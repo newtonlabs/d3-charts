@@ -1114,14 +1114,13 @@ this.d3.charts.timeseries = function() {
       var chart = focus.append("g")
           .attr("class", "chart");
 
-      console.log("title: ", titleText);
       chart.selectAll("path").data(data).enter().append("path")
           .attr("clip-path", "url(#clip)")
           .attr("class", "line")
           .style("stroke", function(d) {return color(d.series)})
           .style("stroke-width", "2px")
           .attr("series", function(d) {return d.series})
-          .attr("d", function(d,i) {console.log(data[i]); return line(d.data); })
+          .attr("d", function(d,i) {return line(d.data); })
 
       // if (dataPoints) {
       //   chart.selectAll("circle")
