@@ -167,24 +167,24 @@ this.d3.charts.timeseries = function() {
           .attr("series", function(d) {return d.series})
           .attr("d", function(d,i) {return line(d.data); })
 
-      // if (dataPoints) {
-      //   chart.selectAll("circle")
-      //       .data(_.flatten(data, 'data')).enter().append("circle")
-      //       .attr("class", "circle")
-      //       .attr("clip-path", "url(#clip)")
-      //       .style("stroke", function(d) { return d.color; })
-      //       .attr("cx", function(d) { return x(d.date); })
-      //       .attr("cy", function(d) { return y(d.value); })
-      //       .attr("r", dataRadius);
-      // }
+      if (dataPoints) {
+        chart.selectAll("circle")
+            .data(_.flatten(data, 'data')).enter().append("circle")
+            .attr("class", "circle")
+            .attr("clip-path", "url(#clip)")
+            .style("stroke", function(d) { return d.color; })
+            .attr("cx", function(d) { return x(d.date); })
+            .attr("cy", function(d) { return y(d.value); })
+            .attr("r", dataRadius);
+      }
       // Defined here so data is in the clojure
       brushing = function() {
         x.domain(brush.empty() ? x2.domain() : brush.extent());
 
         focus.selectAll("g.chart path").data(data).attr("d", function(d) {return line(d.data);});
-        // focus.selectAll("circle").data(_.flatten(data, 'data'))
-        //     .attr("cx", function(d) { return x(d.date); })
-        //     .attr("cy", function(d) { return y(d.value); });
+        focus.selectAll("circle").data(_.flatten(data, 'data'))
+            .attr("cx", function(d) { return x(d.date); })
+            .attr("cy", function(d) { return y(d.value); });
 
         focus.select(".x.axis").call(xAxis);
       }
