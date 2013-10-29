@@ -7,5 +7,6 @@ d3.csv("data/groupstack.csv", function(error, data) {
 
 
   d3.select("#groupStack").datum(layers).call(groupStack);
+  d3.select("#groupStack_empty").datum(undefined).call(groupStack);
 });
 
