@@ -268,84 +268,6 @@ this.d3.charts.chartTitle = function() {
 if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 
 // Based on http://bost.ocks.org/mike/chart/
-this.d3.charts.donut = function() {
-  'use strict';
-      var width = 960,
-      height = 500,
-      svg = {},
-      margin = {top: 40, right: 10, bottom: 20, left: 100};
-
-  function my(selection) {
-    var chartWidth    = width  - margin.left - margin.right,
-        chartHeight   = height - margin.top  - margin.bottom;
-
-    selection.each(function(data) {
-      var width = 960,
-      height = 500,
-      radius = Math.min(width, height) / 2;
-
-      var color = d3.scale.ordinal()
-          .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-
-      var arc = d3.svg.arc()
-          .outerRadius(radius - 10)
-          .innerRadius(radius - 70);
-
-      var pie = d3.layout.pie()
-          .sort(null)
-          .value(function(d) { return d.population; });
-
-      var svg = d3.select("body").append("svg")
-          .attr("width", width)
-          .attr("height", height)
-        .append("g")
-          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-      var g = svg.selectAll(".arc")
-          .data(pie(data))
-        .enter().append("g")
-          .attr("class", "arc");
-
-      // console.log("arc", arc());
-
-      g.append("path")
-          .attr("d", function(d) {arc})
-          .style("fill", function(d) { return color(d.data.age); });
-
-      g.append("text")
-          .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-          .attr("dy", ".35em")
-          .style("text-anchor", "middle")
-          .text(function(d) { return d.data.age; });
-    });
-  }
-
-  // Getters and Setters
-  my.width = function(value) {
-    if (!arguments.length) { return width; }
-    width = value;
-    return my;
-  };
-
-  my.height = function(value) {
-    if (!arguments.length) { return height; }
-    height = value;
-    return my;
-  };
-
-  my.svg = function() {
-    return svg;
-  };
-
-  return my;
-};
-
-/*jslint browser: true*/
-/*global $, jQuery, d3, _*/
-
-if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
-
-// Based on http://bost.ocks.org/mike/chart/
 this.d3.charts.filter = function() {
   'use strict';
   var width = 960,
@@ -403,70 +325,96 @@ this.d3.charts.groupStack = function() {
   titleMargin = {top: 30};
 
   function my(selection) {
-    var chartWidth    = width  - margin.left - margin.right - 40,
-        chartHeight   = height - margin.top  - margin.bottom - titleMargin.top,
+    var chartWidth,
+        chartHeight,
+        categories,
+        yStackMax,
+        chart,
+        layers,
+        labels,
+        chartData = [],
+        y = d3.scale.ordinal(),
+        x = d3.scale.linear(),
+        xAxis  = d3.svg.axis(),
+        yAxis  = d3.svg.axis(),
+        color  = d3.scale.ordinal(),
+        legend = d3.charts.legend(),
+        noData = d3.charts.noData(),
         format = d3.format(".3s"),
-        title  = d3.charts.chartTitle().title(titleText).subTitle(subTitleText);
+        stack  = d3.layout.stack(),
+        title  = d3.charts.chartTitle();
 
-    selection.each(function(data) {
-      var stack = d3.layout.stack(),
-          layers = stack(data),
-          labels = _.map(layers[0], function(d) { return d.x; }),
-          categories = _.reduce(layers, function(memo, d) { memo.push(d[0].category); return memo}, []),
-          yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
+    var initialize = function(selection, data) {
+      if (_.isEmpty(data)) {
+        initializeWithOutData();
+      } else {
+        initializeWithData(data);
+      }
+      initializeDimensions(selection);
+    }
 
-      var y = d3.scale.ordinal()
-          .domain(labels)
-          .rangeRoundBands([0, chartHeight], .2);
+    var initializeWithData = function(data) {
+      chartData = data;
+      layers = stack(chartData);
+      labels = _.map(layers[0], function(d) { return d.x; });
+      categories = _.reduce(layers, function(memo, d) { memo.push(d[0].category); return memo}, []);
+      yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
 
-      var x = d3.scale.linear()
-          .domain([0, yStackMax])
-          .range([0, chartWidth]);
+      y.domain(labels);
+      x.domain([0, yStackMax]);
+      color.domain(categories).range(d3.utilities.stackColors);
+      legend.color(color);
+    }
 
-      var color = d3.scale.ordinal()
-          .domain(categories)
-          .range(d3.utilities.stackColors);
+    var initializeWithOutData = function() {
+      chartData = [];
+      layers = [];
+      labels = _.map(_.range(7), function(d) {return ("Label - " + d)});
+      categories = [];
 
-      var legend  = d3.charts.legend().color(color);
+      y.domain(labels);
+    }
 
-      svg = d3.select(this).append("svg")
+    var initializeDimensions = function(selection) {
+      // TODO ... -40?
+      chartWidth  = width  - margin.left - margin.right - 40;
+      chartHeight = height - margin.top  - margin.bottom - titleMargin.top;
+
+      y.rangeRoundBands([0,chartHeight], 0.2);
+      x.range([0, chartWidth]);
+
+      svg = d3.select(selection).append("svg")
           .attr("class", "groupStack")
-          .attr("width",  chartWidth  + margin.left + margin.right)
+          .attr("width",  chartWidth  + margin.left + margin.right + 40)
           .attr("height", chartHeight + margin.top  + margin.bottom + titleMargin.top)
 
-      title.x(16).y(margin.top);
-      svg.call(title);
-
-      var bar = svg.append("g")
+      chart = svg.append("g")
           .attr("transform", "translate(" + margin.left + "," + (margin.top + titleMargin.top) + ")")
           .attr("class", "groupStack");
 
-      var xAxis = d3.svg.axis()
-          .scale(x)
+      xAxis.scale(x)
           .tickSize(-chartHeight)
           .tickPadding(3)
           .tickFormat(format)
           .outerTickSize([0])
           .orient("bottom");
 
-      var yAxis = d3.svg.axis()
-          .scale(y)
+      yAxis.scale(y)
           .tickSize(0)
           .orient("left");
+    }
 
-      bar.append("g")
-        .attr("class", "y axis")
-        .call(yAxis);
+    var drawChart = function() {
+      chart.append("g").attr("class", "y axis").call(yAxis);
 
-      var gx = bar.append("g")
+      var gx = chart.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + chartHeight + ")")
         .call(xAxis);
-
       gx.selectAll("g").classed("gridline", true);
       gx.selectAll("text").attr("x", 18)
 
-      var layer = bar.selectAll(".layer")
+      var layer = chart.selectAll(".layer")
           .data(layers)
           .enter().append("g")
           .attr("class", "layer")
@@ -486,7 +434,6 @@ this.d3.charts.groupStack = function() {
           .attr("x", function(d) { return x(d.y0); })
           .attr("width", function(d) { return x(d.y); });
 
-
       var text = layer.selectAll("text")
           .data(_.last(layers))
           .enter().append("text")
@@ -494,13 +441,35 @@ this.d3.charts.groupStack = function() {
           .attr("y", function(d) { return y(d.y)+y.rangeBand()/2+4; })
           .attr("class","value")
           .text(function(d, i) { return format(d.y+d.y0); });
+    }
 
-     // Build the legend
+    var drawTitle = function() {
+      title.title(titleText).subTitle(subTitleText);
+      title.x(16).y(margin.top);
+      svg.call(title);
+    }
+
+    var drawLegend = function() {
       legend
-          .y(titleMargin.top)
+          .y(margin.top + titleMargin.top)
           .x(chartWidth + 30 + margin.right);
 
       svg.datum(categories).call(legend);
+    }
+
+    var drawNoData = function() {
+      noData.x((chartWidth)/2).y(chartHeight/2);
+      svg.call(noData);
+    }
+
+    selection.each(function(data) {
+      selection.each(function(data) {
+        initialize(this, data);
+        drawChart(data);
+        drawTitle();
+        drawLegend();
+        if (_.isEmpty(data)) { drawNoData();}
+      })
     });
   }
 
@@ -542,82 +511,6 @@ this.d3.charts.groupStack = function() {
 if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 
 // Based on http://bost.ocks.org/mike/chart/
-this.d3.charts.legend = function() {
- 'use strict';
-
-  var x = 0,
-    y = 0,
-    color =  d3.scale.category10(),
-    click = undefined
-
-  function my(selection) {
-    selection.each(function(data) {
-      var legendBox = selection.append("g")
-        .attr("class", "legend-container")
-        .attr("transform", "translate(" + x + "," + y + ")");
-
-      var legend = legendBox.selectAll(".legend")
-        .data(data)
-        .enter().append("g")
-        .attr("class", "legend")
-
-      legend.append("rect")
-        .attr("x", 0)
-        .attr("y", function(d,i) {return (i * 28) + y})
-        .attr("width", 17)
-        .attr("height", 17)
-        .attr("fill", function(d) { return color(d); });
-
-      legend.append("text")
-        .attr("x", 25)
-        .attr("y", function(d,i) {return (i * 28) + y + 9})
-        .attr("dy", ".35em")
-        .style("text-anchor", "start")
-        .text(function(d) { return d; });
-
-      if (click) {
-        legendBox.selectAll("g")
-          .attr("style", "cursor: pointer;")
-          .on("click", click);
-      }
-    });
-  }
-
-  // Getters and Setters
-  my.x = function(value) {
-    if (!arguments.length) { return x; }
-    x = value;
-    return my;
-  };
-
-  my.y = function(value) {
-    if (!arguments.length) { return y; }
-    y = value;
-    return my;
-  };
-
-  my.color = function(value) {
-    if (!arguments.length) { return color; }
-    color = value;
-    return my;
-  };
-
-  my.click = function(value) {
-    if (!arguments.length) { return click; }
-    click = value;
-    return my;
-  }
-
-
-  return my;
-};
-
-/*jslint browser: true*/
-/*global $, jQuery, d3, _*/
-
-if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
-
-// Based on http://bost.ocks.org/mike/chart/
 this.d3.charts.heatmap = function() {
  'use strict';
 
@@ -631,6 +524,7 @@ this.d3.charts.heatmap = function() {
       fixedColumnWidth,
       svg = {},
       legend = [],
+      chartData = [],
       margin = {top: 10, right: 184, bottom: 20, left: 168},
       titleMargin = {top: 30},
       rowTitleMargin = {top: 60},
@@ -651,6 +545,7 @@ this.d3.charts.heatmap = function() {
         x  = d3.scale.ordinal(),
         x2 = d3.scale.ordinal(),
         y  = d3.scale.ordinal(),
+        noData = d3.charts.noData(),
         d3legend = d3.charts.legend(),
         title    = d3.charts.chartTitle();
 
@@ -709,22 +604,36 @@ this.d3.charts.heatmap = function() {
     }
 
     var initializeWithData = function(data) {
+      chartData = data;
       categories = d3.utilities.uniqueProperties(data, 'name');
-      x2.domain(categories)
+      x2.domain(categories);
       if (categories.length <= 1) { grouped = false; }
     }
 
-    var initializeWithOutData = function(data) {
+    var initializeWithOutData = function() {
+      grouped = false;
+      chartData = [{data: []}];
+      _.each(_.range(10), function(i) {
+        _.each(_.range(10), function(k) {
+          chartData[0].data.push({
+            xAxis: ("Label " + k),
+            yAxis: ("Label " + i),
+            color: ("#ccc")
+          });
+        })
+      })
+
+      legend = [{name: 'TBD', color: '#ccc'}]
+
     }
 
-    var drawChart = function(data) {
-
+    var drawChart = function() {
       categorySelect = function(clicked) {
         controls.select(".selected").attr("class","")
         controls.select("[category=\""+clicked+"\"]").attr("class","selected")
 
-        var chartData = _.find(data, function(d) {return d.name == clicked}).data;
-        drawHeatmap(chartData);
+        var data = _.find(chartData, function(d) {return d.name == clicked}).data;
+        drawHeatmap(data);
         setMetaData(clicked);
       }
 
@@ -733,7 +642,7 @@ this.d3.charts.heatmap = function() {
         categorySelect(categories[0])
       }
       else {
-        drawHeatmap(data[0].data);
+        drawHeatmap(chartData[0].data);
       }
     }
 
@@ -859,9 +768,14 @@ this.d3.charts.heatmap = function() {
       var d3Legend = d3.charts.legend().color(color);
 
       d3Legend
-          .y(topMargin() - rowTitleMargin.top )
+          .y(topMargin())
           .x(chartWidth + 30 + margin.right);
       svg.datum(_.map(legend, function(d) { return d.name })).call(d3Legend);
+    }
+
+    var drawNoData = function() {
+      noData.x((chartWidth)/2).y(chartHeight/2);
+      svg.call(noData);
     }
 
     var initialize = function(selection, data) {
@@ -876,7 +790,7 @@ this.d3.charts.heatmap = function() {
 
     selection.each(function(data) {
       initialize(this, data);
-      drawChart(data);
+      drawChart();
       drawTitle();
       drawLegend();
       if (_.isEmpty(data)) { drawNoData();}
@@ -959,6 +873,130 @@ this.d3.charts.heatmap = function() {
 if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 
 // Based on http://bost.ocks.org/mike/chart/
+this.d3.charts.legend = function() {
+ 'use strict';
+
+  var x = 0,
+    y = 0,
+    color =  d3.scale.category10(),
+    click = undefined
+
+  function my(selection) {
+    selection.each(function(data) {
+      var legendBox = selection.append("g")
+        .attr("class", "legend-container")
+        .attr("transform", "translate(" + x + "," + y + ")");
+
+      var legend = legendBox.selectAll(".legend")
+        .data(data)
+        .enter().append("g")
+        .attr("class", "legend")
+
+
+      legend.append("rect")
+        .attr("x", 0)
+        .attr("y", function(d,i) {return (i * 28)})
+        .attr("width", 17)
+        .attr("height", 17)
+        .attr("fill", function(d) { return color(d); });
+
+      legend.append("text")
+        .attr("x", 25)
+        .attr("y", function(d,i) {return (i * 28) + 9})
+        .attr("dy", ".35em")
+        .style("text-anchor", "start")
+        .text(function(d) { return d; });
+
+      if (click) {
+        legendBox.selectAll("g")
+          .attr("style", "cursor: pointer;")
+          .on("click", click);
+      }
+    });
+  }
+
+  // Getters and Setters
+  my.x = function(value) {
+    if (!arguments.length) { return x; }
+    x = value;
+    return my;
+  };
+
+  my.y = function(value) {
+    if (!arguments.length) { return y; }
+    y = value;
+    return my;
+  };
+
+  my.color = function(value) {
+    if (!arguments.length) { return color; }
+    color = value;
+    return my;
+  };
+
+  my.click = function(value) {
+    if (!arguments.length) { return click; }
+    click = value;
+    return my;
+  }
+
+
+  return my;
+};
+
+/*jslint browser: true*/
+/*global $, jQuery, d3, _*/
+
+if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
+
+// Based on http://bost.ocks.org/mike/chart/
+this.d3.charts.noData = function() {
+ 'use strict';
+
+  var x = 0,
+    y = 0;
+
+  function my(selection) {
+    selection.each(function(data) {
+      var noData = selection.append("g")
+          .attr("class", "no-data-found")
+          .attr("transform", "translate(" + x + "," + y +")");
+
+      noData.append("rect")
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr("height", '100px')
+          .attr("width", '300px')
+
+      noData.append("text")
+          .attr("x", 150)
+          .attr("y", 55)
+          .text("NO DATA FOUND");
+    });
+  }
+
+  // Getters and Setters
+  my.x = function(value) {
+    if (!arguments.length) { return x; }
+    x = value;
+    return my;
+  };
+
+  my.y = function(value) {
+    if (!arguments.length) { return y; }
+    y = value;
+    return my;
+  };
+
+  return my;
+};
+
+/*jslint browser: true*/
+/*global $, jQuery, d3, _*/
+
+if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
+
+// Based on http://bost.ocks.org/mike/chart/
 this.d3.charts.timeseries = function() {
  'use strict';
 
@@ -967,7 +1005,7 @@ this.d3.charts.timeseries = function() {
     controlHeight = 50,
     xAxisHeight = 30,
     margin = {top: 10,  right: 168, bottom: 70, left: 16},
-    titleMargin = {top: 30},
+    titleMargin = {top: 40},
     dataRadius = 4,
     svg = {},
     titleText = "TIME SERIES CHART EXAMPLE",
@@ -988,6 +1026,7 @@ this.d3.charts.timeseries = function() {
         color  = d3.scale.ordinal(),
         legend = d3.charts.legend(),
         title  = d3.charts.chartTitle(),
+        noData = d3.charts.noData(),
         brush  = d3.svg.brush(),
         xAxis  = d3.svg.axis(),
         xAxis2 = d3.svg.axis(),
@@ -1024,7 +1063,6 @@ this.d3.charts.timeseries = function() {
     }
 
     var initializeWithOutData = function() {
-      // Setup Functions with no data
       var today   = new Date();
       var yearAgo = new Date();
       yearAgo.setDate(today.getDate() - 365);
@@ -1042,7 +1080,7 @@ this.d3.charts.timeseries = function() {
       var lowerDomain = d3.min(data, function(d) { return d3.min(d.data, function(c) {return c.value; }); }),
           upperDomain = d3.max(data, function(d) { return d3.max(d.data, function(c) {return c.value; }); }),
           topPadding    = d3.utilities.padDomain(y.range()[0], upperDomain, 0),
-          bottomPadding = d3.utilities.padDomain(y.range()[0], upperDomain, 60);
+          bottomPadding = d3.utilities.padDomain(y.range()[0], upperDomain, 30);
 
       // Define globals based on data
       series  = _.reduce(data, function(memo, d) {memo.push(d.series); return memo;},[]);
@@ -1061,7 +1099,7 @@ this.d3.charts.timeseries = function() {
       var endTime =  new Date(x.domain()[1].getTime() + 1*60000)
       x.domain([x.domain()[0], endTime])
 
-      y.domain([lowerDomain, upperDomain + topPadding + bottomPadding]);
+      y.domain([lowerDomain - bottomPadding, upperDomain + topPadding]);
       x2.domain(x.domain());
       y2.domain(y.domain());
       line.interpolate("cardinal").tension(0.88)
@@ -1083,12 +1121,11 @@ this.d3.charts.timeseries = function() {
           .attr("transform", "translate(0," + y(y.domain()[0]) + ")")
           .call(xAxis);
 
-      // yAxis with huge ticks for gridlines
+//      yAxis with huge ticks for gridlines
       yAxis.tickSize(chartWidth);
 
       var gy = focus.append("svg:g")
           .attr("class", "y axis")
-          .attr("data", "blah")
           .call(yAxis)
 
       gy.selectAll("g").classed("gridline", true);
@@ -1147,20 +1184,8 @@ this.d3.charts.timeseries = function() {
     }
 
     var drawNoData = function() {
-      var noData = svg.append("g")
-          .attr("class", "no-data-found")
-          .attr("transform", "translate(" + (width/2 - 200) + "," + (height/2 - 100) +")");
-
-      noData.append("rect")
-          .attr("x", 0)
-          .attr("y", 0)
-          .attr("height", '100px')
-          .attr("width", '300px')
-
-      noData.append("text")
-          .attr("x", 150)
-          .attr("y", 55)
-          .text("NO DATA FOUND");
+      noData.x((chartWidth -300)/2).y(chartHeight/2);
+      svg.call(noData);
     }
 
     var drawControls = function(brushing, data) {
@@ -1206,7 +1231,7 @@ this.d3.charts.timeseries = function() {
 
       legend
           .click(highlight)
-          .y(titleMargin.top)
+          .y(margin.top + titleMargin.top)
           .x(chartWidth + 30);
       svg.datum(series).call(legend);
     }

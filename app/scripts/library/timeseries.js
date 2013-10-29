@@ -17,6 +17,7 @@ this.d3.charts.timeseries = function() {
     svg = {},
     titleText = "TIME SERIES CHART EXAMPLE",
     subTitleText = "Subtext as needed",
+    topDomainPadding = 30,
     dataPoints = false;
 
   function my(selection) {
@@ -86,8 +87,8 @@ this.d3.charts.timeseries = function() {
     var initializeWithData = function(data) {
       var lowerDomain = d3.min(data, function(d) { return d3.min(d.data, function(c) {return c.value; }); }),
           upperDomain = d3.max(data, function(d) { return d3.max(d.data, function(c) {return c.value; }); }),
-          topPadding    = d3.utilities.padDomain(y.range()[0], upperDomain, 0),
-          bottomPadding = d3.utilities.padDomain(y.range()[0], upperDomain, 30);
+          topPadding    = d3.utilities.padDomain(y.range()[0], upperDomain, 30),
+          bottomPadding = d3.utilities.padDomain(y.range()[0], upperDomain, 50);
 
       // Define globals based on data
       series  = _.reduce(data, function(memo, d) {memo.push(d.series); return memo;},[]);
@@ -106,7 +107,10 @@ this.d3.charts.timeseries = function() {
       var endTime =  new Date(x.domain()[1].getTime() + 1*60000)
       x.domain([x.domain()[0], endTime])
 
-      y.domain([lowerDomain - bottomPadding, upperDomain + topPadding]);
+      y.domain([lowerDomain, upperDomain]);
+      console.log(upperDomain, topPadding)
+      console.log(y(100));
+      console.log(y.domain());
       x2.domain(x.domain());
       y2.domain(y.domain());
       line.interpolate("cardinal").tension(0.88)
