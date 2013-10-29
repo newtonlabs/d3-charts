@@ -38,6 +38,7 @@ this.d3.charts.heatmap = function() {
         x  = d3.scale.ordinal(),
         x2 = d3.scale.ordinal(),
         y  = d3.scale.ordinal(),
+        noData = d3.charts.noData(),
         d3legend = d3.charts.legend(),
         title    = d3.charts.chartTitle();
 
@@ -266,20 +267,8 @@ this.d3.charts.heatmap = function() {
     }
 
     var drawNoData = function() {
-      var noData = svg.append("g")
-          .attr("class", "no-data-found")
-          .attr("transform", "translate(" + (chartWidth/2) + "," + (chartHeight/2) +")");
-
-      noData.append("rect")
-          .attr("x", 0)
-          .attr("y", 0)
-          .attr("height", '100px')
-          .attr("width", '300px')
-
-      noData.append("text")
-          .attr("x", 150)
-          .attr("y", 55)
-          .text("NO DATA FOUND");
+      noData.x((chartWidth)/2).y(chartHeight/2);
+      svg.call(noData);
     }
 
     var initialize = function(selection, data) {

@@ -33,6 +33,7 @@ this.d3.charts.timeseries = function() {
         color  = d3.scale.ordinal(),
         legend = d3.charts.legend(),
         title  = d3.charts.chartTitle(),
+        noData = d3.charts.noData(),
         brush  = d3.svg.brush(),
         xAxis  = d3.svg.axis(),
         xAxis2 = d3.svg.axis(),
@@ -190,20 +191,8 @@ this.d3.charts.timeseries = function() {
     }
 
     var drawNoData = function() {
-      var noData = svg.append("g")
-          .attr("class", "no-data-found")
-          .attr("transform", "translate(" + (chartWidth/2) + "," + (chartHeight/2) +")");
-
-      noData.append("rect")
-          .attr("x", 0)
-          .attr("y", 0)
-          .attr("height", '100px')
-          .attr("width", '300px')
-
-      noData.append("text")
-          .attr("x", 150)
-          .attr("y", 55)
-          .text("NO DATA FOUND");
+      noData.x((chartWidth -300)/2).y(chartHeight/2);
+      svg.call(noData);
     }
 
     var drawControls = function(brushing, data) {
