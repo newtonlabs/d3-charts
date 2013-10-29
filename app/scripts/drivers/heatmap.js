@@ -32,8 +32,8 @@ var legend = [
 ];
 
 var heatmapChart = d3.charts.heatmap()
-    .title("something here")
-    .subtitle(undefined)
+    // .title("something here")
+    // .subtitle(undefined)
     // .fixedRowHeight(145)
     // .fixedColumnWidth(145)
     // .cellFont('medium')
@@ -60,5 +60,6 @@ d3.csv("../data/heatmap.csv", function(error, data) {
     return memo
   },[]);
 
+  d3.select("#heatmap").datum(scrubbed).call(heatmapChart);
   d3.select("#heatmap").datum(undefined).call(heatmapChart);
 });
