@@ -60,5 +60,5 @@ d3.csv("../data/heatmap.csv", function(error, data) {
     return memo
   },[]);
 
-  d3.select("#heatmap").datum(scrubbed).call(heatmapChart);
+  d3.select("#heatmap").datum(undefined).call(heatmapChart);
 });

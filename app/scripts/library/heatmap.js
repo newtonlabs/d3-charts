@@ -17,6 +17,7 @@ this.d3.charts.heatmap = function() {
       fixedColumnWidth,
       svg = {},
       legend = [],
+      chartData = [],
       margin = {top: 10, right: 184, bottom: 20, left: 168},
       titleMargin = {top: 30},
       rowTitleMargin = {top: 60},
@@ -95,22 +96,36 @@ this.d3.charts.heatmap = function() {
     }
 
     var initializeWithData = function(data) {
+      chartData = data;
       categories = d3.utilities.uniqueProperties(data, 'name');
-      x2.domain(categories)
+      x2.domain(categories);
       if (categories.length <= 1) { grouped = false; }
     }
 
-    var initializeWithOutData = function(data) {
+    var initializeWithOutData = function() {
+      grouped = false;
+      chartData = [{data: []}];
+      _.each(_.range(10), function(i) {
+        _.each(_.range(10), function(k) {
+          chartData[0].data.push({
+            xAxis: ("Label " + k),
+            yAxis: ("Label " + i),
+            color: ("#ccc")
+          });
+        })
+      })
+
+      legend = [{name: 'TBD', color: '#ccc'}]
+
     }
 
-    var drawChart = function(data) {
-
+    var drawChart = function() {
       categorySelect = function(clicked) {
         controls.select(".selected").attr("class","")
         controls.select("[category=\""+clicked+"\"]").attr("class","selected")
 
-        var chartData = _.find(data, function(d) {return d.name == clicked}).data;
-        drawHeatmap(chartData);
+        var data = _.find(chartData, function(d) {return d.name == clicked}).data;
+        drawHeatmap(data);
         setMetaData(clicked);
       }
 
@@ -119,7 +134,7 @@ this.d3.charts.heatmap = function() {
         categorySelect(categories[0])
       }
       else {
-        drawHeatmap(data[0].data);
+        drawHeatmap(chartData[0].data);
       }
     }
 
@@ -250,6 +265,23 @@ this.d3.charts.heatmap = function() {
       svg.datum(_.map(legend, function(d) { return d.name })).call(d3Legend);
     }
 
+    var drawNoData = function() {
+      var noData = svg.append("g")
+          .attr("class", "no-data-found")
+          .attr("transform", "translate(" + (chartWidth/2) + "," + (chartHeight/2) +")");
+
+      noData.append("rect")
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr("height", '100px')
+          .attr("width", '300px')
+
+      noData.append("text")
+          .attr("x", 150)
+          .attr("y", 55)
+          .text("NO DATA FOUND");
+    }
+
     var initialize = function(selection, data) {
       if (_.isEmpty(data)) {
         data = [];
@@ -262,7 +294,7 @@ this.d3.charts.heatmap = function() {
 
     selection.each(function(data) {
       initialize(this, data);
-      drawChart(data);
+      drawChart();
       drawTitle();
       drawLegend();
       if (_.isEmpty(data)) { drawNoData();}

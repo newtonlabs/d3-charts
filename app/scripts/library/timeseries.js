@@ -192,7 +192,7 @@ this.d3.charts.timeseries = function() {
     var drawNoData = function() {
       var noData = svg.append("g")
           .attr("class", "no-data-found")
-          .attr("transform", "translate(" + (width/2 - 200) + "," + (height/2 - 100) +")");
+          .attr("transform", "translate(" + (chartWidth/2) + "," + (chartHeight/2) +")");
 
       noData.append("rect")
           .attr("x", 0)
@@ -246,8 +246,6 @@ this.d3.charts.timeseries = function() {
         var style = highlight.style("stroke-width") == "2px" ? "10px" : "2px";
         highlight.transition().style("stroke-width", style);
       }
-
-      console.log(margin.top + titleMargin.top)
 
       legend
           .click(highlight)
