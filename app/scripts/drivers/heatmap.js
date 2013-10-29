@@ -34,14 +34,14 @@ var legend = [
 var heatmapChart = d3.charts.heatmap()
     .title("something here")
     .subtitle(undefined)
-    .fixedRowHeight(45)
-    .fixedColumnWidth(undefined)
+    // .fixedRowHeight(145)
+    // .fixedColumnWidth(145)
     // .cellFont('medium')
     // .rowFont('medium')
     // .columnFont('medium')
     .legend(legend);
-// var heatmapChart = d3.charts.heatmap().title("something here").subtitle(undefined);
-d3.csv("../data/heatMap_data.csv", function(error, data) {
+
+d3.csv("../data/heatmap.csv", function(error, data) {
   // Maintain order from the JSON object
   var scrubbed = _.reduce(data, function(memo, obj) {
 
@@ -59,8 +59,6 @@ d3.csv("../data/heatMap_data.csv", function(error, data) {
 
     return memo
   },[]);
-
-  // console.log(scrubbed);
 
   d3.select("#heatmap").datum(scrubbed).call(heatmapChart);
 });

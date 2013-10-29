@@ -109,10 +109,10 @@ this.d3.charts.timeseries = function() {
       y.domain([lowerDomain, upperDomain + topPadding + bottomPadding]);
       x2.domain(x.domain());
       y2.domain(y.domain());
-      line.interpolate("cardinal")
+      line.interpolate("cardinal").tension(0.88)
           .x(function(d) { return x(d.date); })
           .y(function(d) { return y(d.value); });
-      line2.interpolate("cardinal")
+      line2.interpolate("cardinal").tension(0.88)
           .x(function(d) { return x2(d.date); })
           .y(function(d) { return y2(d.value); });
     }

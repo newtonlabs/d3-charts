@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 t = 0.00
 delta_t = 0.01
 amplitude = 1

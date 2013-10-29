@@ -50,14 +50,14 @@ this.d3.charts.heatmap = function() {
       if (fixedRowHeight) {
         chartHeight = fixedRowHeight * y.domain().length;
         y.rangeRoundBands([0, chartHeight]);
-        svg.attr("height", chartHeight + topMargin() + margin.bottom);
+        // svg.attr("height", chartHeight + topMargin() + margin.bottom);
       }
 
       if (fixedColumnWidth) {
         chartWidth = fixedColumnWidth * x.domain().length;
         x.rangeRoundBands([0, chartWidth]);
         x2.rangeRoundBands([0, chartWidth]);
-        svg.attr("width", chartWidth  + margin.left + margin.right);
+        // svg.attr("width", chartWidth  + margin.left + margin.right);
       }
     }
 
