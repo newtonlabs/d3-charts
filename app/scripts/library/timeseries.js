@@ -12,7 +12,7 @@ this.d3.charts.timeseries = function() {
     controlHeight = 50,
     xAxisHeight = 30,
     margin = {top: 10,  right: 168, bottom: 70, left: 16},
-    titleMargin = {top: 30},
+    titleMargin = {top: 40},
     dataRadius = 4,
     svg = {},
     titleText = "TIME SERIES CHART EXAMPLE",
@@ -69,7 +69,6 @@ this.d3.charts.timeseries = function() {
     }
 
     var initializeWithOutData = function() {
-      // Setup Functions with no data
       var today   = new Date();
       var yearAgo = new Date();
       yearAgo.setDate(today.getDate() - 365);
@@ -87,7 +86,7 @@ this.d3.charts.timeseries = function() {
       var lowerDomain = d3.min(data, function(d) { return d3.min(d.data, function(c) {return c.value; }); }),
           upperDomain = d3.max(data, function(d) { return d3.max(d.data, function(c) {return c.value; }); }),
           topPadding    = d3.utilities.padDomain(y.range()[0], upperDomain, 0),
-          bottomPadding = d3.utilities.padDomain(y.range()[0], upperDomain, 60);
+          bottomPadding = d3.utilities.padDomain(y.range()[0], upperDomain, 30);
 
       // Define globals based on data
       series  = _.reduce(data, function(memo, d) {memo.push(d.series); return memo;},[]);
@@ -106,7 +105,7 @@ this.d3.charts.timeseries = function() {
       var endTime =  new Date(x.domain()[1].getTime() + 1*60000)
       x.domain([x.domain()[0], endTime])
 
-      y.domain([lowerDomain, upperDomain + topPadding + bottomPadding]);
+      y.domain([lowerDomain - bottomPadding, upperDomain + topPadding]);
       x2.domain(x.domain());
       y2.domain(y.domain());
       line.interpolate("cardinal").tension(0.88)
@@ -128,12 +127,11 @@ this.d3.charts.timeseries = function() {
           .attr("transform", "translate(0," + y(y.domain()[0]) + ")")
           .call(xAxis);
 
-      // yAxis with huge ticks for gridlines
+//      yAxis with huge ticks for gridlines
       yAxis.tickSize(chartWidth);
 
       var gy = focus.append("svg:g")
           .attr("class", "y axis")
-          .attr("data", "blah")
           .call(yAxis)
 
       gy.selectAll("g").classed("gridline", true);
@@ -249,9 +247,11 @@ this.d3.charts.timeseries = function() {
         highlight.transition().style("stroke-width", style);
       }
 
+      console.log(margin.top + titleMargin.top)
+
       legend
           .click(highlight)
-          .y(titleMargin.top)
+          .y(margin.top + titleMargin.top)
           .x(chartWidth + 30);
       svg.datum(series).call(legend);
     }

@@ -23,16 +23,17 @@ this.d3.charts.legend = function() {
         .enter().append("g")
         .attr("class", "legend")
 
+
       legend.append("rect")
         .attr("x", 0)
-        .attr("y", function(d,i) {return (i * 28) + y})
+        .attr("y", function(d,i) {return (i * 28)})
         .attr("width", 17)
         .attr("height", 17)
         .attr("fill", function(d) { return color(d); });
 
       legend.append("text")
         .attr("x", 25)
-        .attr("y", function(d,i) {return (i * 28) + y + 9})
+        .attr("y", function(d,i) {return (i * 28) + 9})
         .attr("dy", ".35em")
         .style("text-anchor", "start")
         .text(function(d) { return d; });

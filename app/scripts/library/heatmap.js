@@ -245,7 +245,7 @@ this.d3.charts.heatmap = function() {
       var d3Legend = d3.charts.legend().color(color);
 
       d3Legend
-          .y(topMargin() - rowTitleMargin.top )
+          .y(topMargin())
           .x(chartWidth + 30 + margin.right);
       svg.datum(_.map(legend, function(d) { return d.name })).call(d3Legend);
     }

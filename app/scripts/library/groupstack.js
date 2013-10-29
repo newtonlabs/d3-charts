@@ -109,7 +109,7 @@ this.d3.charts.groupStack = function() {
 
      // Build the legend
       legend
-          .y(titleMargin.top)
+          .y(margin.top + titleMargin.top)
           .x(chartWidth + 30 + margin.right);
 
       svg.datum(categories).call(legend);
