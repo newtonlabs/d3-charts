@@ -12,7 +12,8 @@ this.d3.charts.groupStack = function() {
   margin = {top: 10, right: 184, bottom: 20, left: 168},
   titleText = "STACKED BAR CHART EXAMPLE",
   subTitleText = "Subtext as needed",
-  titleMargin = {top: 30};
+  vertical = false,
+  titleMargin = {top: 40};
 
   function my(selection) {
     var chartWidth,
@@ -70,9 +71,6 @@ this.d3.charts.groupStack = function() {
       chartWidth  = width  - margin.left - margin.right - 40;
       chartHeight = height - margin.top  - margin.bottom - titleMargin.top;
 
-      y.rangeRoundBands([0,chartHeight], 0.2);
-      x.range([0, chartWidth]);
-
       svg = d3.select(selection).append("svg")
           .attr("class", "groupStack")
           .attr("width",  chartWidth  + margin.left + margin.right + 40)
@@ -81,6 +79,84 @@ this.d3.charts.groupStack = function() {
       chart = svg.append("g")
           .attr("transform", "translate(" + margin.left + "," + (margin.top + titleMargin.top) + ")")
           .attr("class", "groupStack");
+    }
+
+    var drawChart = function() {
+      if (vertical) {
+        drawChartVertical();
+      } else {
+        drawChartHorizontal();
+      }
+    }
+
+    var drawChartVertical = function() {
+      y.rangeRoundBands([0,chartWidth], 0.2);
+      x.range([0, chartHeight]);
+
+      // For sanity
+      var verticalX = y;
+      var verticalY = x;
+      var vertical_xAxis = yAxis;
+      var vertical_yAxis = xAxis;
+
+      vertical_yAxis.scale(verticalY)
+          .tickSize(chartWidth)
+          .tickPadding(3)
+          .tickFormat(format)
+          .outerTickSize([0])
+          .orient("right");
+
+      vertical_xAxis.scale(verticalX)
+          .tickSize(0)
+          .orient("bottom");
+
+      var gy = chart.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate (-48,0)")
+          .call(vertical_yAxis);
+
+      gy.selectAll("g").classed("gridline", true);
+      gy.selectAll("text").attr("x", 4).attr("dy", -4);
+
+      var gx = chart.append("g")
+        .attr("class", "y axis")
+        .attr("transform", "translate(0," + chartHeight + ")")
+        .call(vertical_xAxis);
+
+      var layer = chart.selectAll(".layer")
+          .data(layers)
+          .enter().append("g")
+          .attr("class", "layer")
+          .style("fill", function(d, i) { return color(i); });
+
+      var rect = layer.selectAll("rect")
+          .data(function(d) { return d; })
+        .enter().append("rect")
+          .attr("y", chartHeight)
+          .attr("x", function(d) { return verticalX(d.x); })
+          .attr("height", 0)
+          .attr("width", verticalX.rangeBand())
+
+      rect
+          .transition()
+          .delay(function(d, i) { return i * 40; })
+          .attr("y", function(d) {return (chartHeight - verticalY(d.y0 + d.y)) ; })
+          .attr("height", function(d) { return verticalY(d.y); });
+
+      var text = layer.selectAll("text")
+          .data(_.last(layers))
+          .enter().append("text")
+          .attr("text-anchor", "middle")
+          .attr("y", function(d) {return (chartHeight - verticalY(d.y0 + d.y)) - 4 ; })
+          .attr("x", function(d) { return verticalX(d.y)+verticalX.rangeBand()/2; })
+          .attr("class","value")
+          .text(function(d, i) { return format(d.y+d.y0); });
+    }
+
+    var drawChartHorizontal = function() {
+
+      y.rangeRoundBands([0,chartHeight], 0.2);
+      x.range([0, chartWidth]);
 
       xAxis.scale(x)
           .tickSize(-chartHeight)
@@ -92,9 +168,7 @@ this.d3.charts.groupStack = function() {
       yAxis.scale(y)
           .tickSize(0)
           .orient("left");
-    }
 
-    var drawChart = function() {
       chart.append("g").attr("class", "y axis").call(yAxis);
 
       var gx = chart.append("g")
@@ -189,6 +263,12 @@ this.d3.charts.groupStack = function() {
   my.subtitle = function(value) {
     if (!arguments.length) { return subTitleText; }
     subTitleText = value;
+    return my;
+  };
+
+  my.vertical = function(value) {
+    if (!arguments.length) { return vertical; }
+    vertical = value;
     return my;
   };
 

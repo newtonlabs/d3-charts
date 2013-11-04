@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var data = ['timeseries', 'groupstack', 'heatmap', 'filter'];
+  var data = ['timeseries', 'groupstack', 'heatmap', 'plotmap', 'filter'];
   var navigation = d3.select('#navigation');
 
   navigation.selectAll('li').data(data).enter()

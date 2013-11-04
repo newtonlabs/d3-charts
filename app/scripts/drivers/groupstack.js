@@ -1,4 +1,4 @@
-var groupStack = d3.charts.groupStack();
+var groupStack = d3.charts.groupStack().vertical(false).title('werd');
 d3.csv("data/groupstack.csv", function(error, data) {
   var group = _.groupBy(data, function(d) { return d.category })
   layers = _.map(group, function(d, category) {
@@ -8,5 +8,8 @@ d3.csv("data/groupstack.csv", function(error, data) {
 
   d3.select("#groupStack").datum(layers).call(groupStack);
   d3.select("#groupStack_empty").datum(undefined).call(groupStack);
+  groupStack.vertical(true);
+  d3.select("#groupStack_vertical").datum(layers).call(groupStack);
+  d3.select("#groupStack_vertical_empty").datum(undefined).call(groupStack);
 });
 
