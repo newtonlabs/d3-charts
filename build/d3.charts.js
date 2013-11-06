@@ -437,7 +437,7 @@ this.d3.charts.groupStack = function() {
           .data(layers)
           .enter().append("g")
           .attr("class", "layer")
-          .style("fill", function(d, i) { return color(i); });
+          .style("fill", function(d, i)  {return color(d[0].category); });
 
       var rect = layer.selectAll("rect")
           .data(function(d) { return d; })
@@ -453,14 +453,18 @@ this.d3.charts.groupStack = function() {
           .attr("y", function(d) {return (chartHeight - verticalY(d.y0 + d.y)) ; })
           .attr("height", function(d) { return verticalY(d.y); });
 
-      var text = layer.selectAll("text")
-          .data(_.last(layers))
+      var text = chart.selectAll(".value")
+          .data(lastLayer(layers))
           .enter().append("text")
           .attr("text-anchor", "middle")
           .attr("y", function(d) {return (chartHeight - verticalY(d.y0 + d.y)) - 4 ; })
-          .attr("x", function(d) { return verticalX(d.y)+verticalX.rangeBand()/2; })
+          .attr("x", function(d) { return verticalX(d.x)+verticalX.rangeBand()/2; })
           .attr("class","value")
           .text(function(d, i) { return format(d.y+d.y0); });
+    }
+
+    var lastLayer = function(layers) {
+      return _.isEmpty(layers) ? [] : _.last(layers);
     }
 
     var drawChartHorizontal = function() {
@@ -492,7 +496,7 @@ this.d3.charts.groupStack = function() {
           .data(layers)
           .enter().append("g")
           .attr("class", "layer")
-          .style("fill", function(d, i) { return color(i); });
+          .style("fill", function(d, i) {return color(d[0].category); });
 
       var rect = layer.selectAll("rect")
           .data(function(d) { return d; })
@@ -508,11 +512,11 @@ this.d3.charts.groupStack = function() {
           .attr("x", function(d) { return x(d.y0); })
           .attr("width", function(d) { return x(d.y); });
 
-      var text = layer.selectAll("text")
-          .data(_.last(layers))
+      var text = chart.selectAll(".value")
+          .data(lastLayer(layers))
           .enter().append("text")
           .attr("x", function(d) { return x(d.y + d.y0)+5; })
-          .attr("y", function(d) { return y(d.y)+y.rangeBand()/2+4; })
+          .attr("y", function(d) { return y(d.x)+y.rangeBand()/2+4; })
           .attr("class","value")
           .text(function(d, i) { return format(d.y+d.y0); });
     }
@@ -1770,7 +1774,8 @@ this.d3.utilities = {
   },
 
   colorWheel: ['#F3504F', '#F28A00', '#F1C40E', '#57D68D', '#15A085', '#00237E', '#3398DB', '#74DDE8', '#9B59B6', '#661C79'],
-  stackColors: ['#85C1E9', '#00227D'],
+  // stackColors: ['#85C1E9', '#00227D'],
+  stackColors: ['#00237E', '#3398DB', '#85C1E9', '#C7DFF1', '#00227D'],
 
   customTimeFormat: d3.helpers.timeFormat([
     [d3.time.format("%Y"), function() { return true; }],

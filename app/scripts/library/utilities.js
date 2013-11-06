@@ -24,7 +24,8 @@ this.d3.utilities = {
   },
 
   colorWheel: ['#F3504F', '#F28A00', '#F1C40E', '#57D68D', '#15A085', '#00237E', '#3398DB', '#74DDE8', '#9B59B6', '#661C79'],
-  stackColors: ['#85C1E9', '#00227D'],
+  // stackColors: ['#85C1E9', '#00227D'],
+  stackColors: ['#00237E', '#3398DB', '#85C1E9', '#C7DFF1', '#00227D'],
 
   customTimeFormat: d3.helpers.timeFormat([
     [d3.time.format("%Y"), function() { return true; }],
