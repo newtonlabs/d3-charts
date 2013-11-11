@@ -401,7 +401,7 @@ this.d3.charts.groupStack = function() {
 
     var drawChartVertical = function() {
       y.rangeRoundBands([0,chartWidth], 0.2);
-      x.range([0, chartHeight]);
+      x.range([chartHeight,0]);
 
       // For sanity
       var verticalX = y;
@@ -421,7 +421,7 @@ this.d3.charts.groupStack = function() {
           .orient("bottom");
 
       var gy = chart.append("g")
-          .attr("class", "x axis")
+          .attr("class", "vertical y axis")
           .attr("transform", "translate (-48,0)")
           .call(vertical_yAxis);
 
@@ -429,7 +429,7 @@ this.d3.charts.groupStack = function() {
       gy.selectAll("text").attr("x", 4).attr("dy", -4);
 
       var gx = chart.append("g")
-        .attr("class", "y axis")
+        .attr("class", "vertical x axis")
         .attr("transform", "translate(0," + chartHeight + ")")
         .call(vertical_xAxis);
 
@@ -450,14 +450,14 @@ this.d3.charts.groupStack = function() {
       rect
           .transition()
           .delay(function(d, i) { return i * 40; })
-          .attr("y", function(d) {return (chartHeight - verticalY(d.y0 + d.y)) ; })
-          .attr("height", function(d) { return verticalY(d.y); });
+          .attr("y", function(d) {return verticalY(d.y0 + d.y);})
+          .attr("height", function(d) { return verticalY(d.y0) - verticalY(d.y0 + d.y)});
 
       var text = chart.selectAll(".value")
           .data(lastLayer(layers))
           .enter().append("text")
           .attr("text-anchor", "middle")
-          .attr("y", function(d) {return (chartHeight - verticalY(d.y0 + d.y)) - 4 ; })
+          .attr("y", function(d) {return (verticalY(d.y0 + d.y)) - 4 ; })
           .attr("x", function(d) { return verticalX(d.x)+verticalX.rangeBand()/2; })
           .attr("class","value")
           .text(function(d, i) { return format(d.y+d.y0); });
@@ -483,10 +483,10 @@ this.d3.charts.groupStack = function() {
           .tickSize(0)
           .orient("left");
 
-      chart.append("g").attr("class", "y axis").call(yAxis);
+      chart.append("g").attr("class", "horizontal y axis").call(yAxis);
 
       var gx = chart.append("g")
-        .attr("class", "x axis")
+        .attr("class", "horizontal x axis")
         .attr("transform", "translate(0," + chartHeight + ")")
         .call(xAxis);
       gx.selectAll("g").classed("gridline", true);
@@ -608,7 +608,6 @@ this.d3.charts.heatmap = function() {
       fixedColumnWidth,
       svg = {},
       legend = [],
-      chartData = [],
       margin = {top: 10, right: 184, bottom: 20, left: 168},
       titleMargin = {top: 30},
       rowTitleMargin = {top: 60},
@@ -626,6 +625,7 @@ this.d3.charts.heatmap = function() {
         controls,
         categorySelect,
         grouped = true,
+        chartData = [],
         x  = d3.scale.ordinal(),
         x2 = d3.scale.ordinal(),
         y  = d3.scale.ordinal(),
@@ -711,7 +711,7 @@ this.d3.charts.heatmap = function() {
 
     }
 
-    var drawChart = function() {
+    var drawChart = function(data) {
       categorySelect = function(clicked) {
         controls.select(".selected").attr("class","")
         controls.select("[category=\""+clicked+"\"]").attr("class","selected")
@@ -764,8 +764,6 @@ this.d3.charts.heatmap = function() {
       rect.exit().remove();
 
       // Enter, Update, Exit text values
-      // var cellFont = d3.scale.linear().domain([0,10000, 125000, 250000]).range(['small', 'small', 'medium', 'large']);
-      // var area = x.rangeBand() * y.rangeBand();
       var value = heatmap.selectAll("g.heatmap .cell.value").data(data);
 
       value.enter().append("text");
@@ -878,7 +876,7 @@ this.d3.charts.heatmap = function() {
 
     selection.each(function(data) {
       initialize(this, data);
-      drawChart();
+      drawChart(data);
       drawTitle();
       drawLegend();
       if (_.isEmpty(data)) { drawNoData();}
