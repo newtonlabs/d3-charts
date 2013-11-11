@@ -15,7 +15,7 @@ this.d3.charts.groupStack = function() {
   vertical = false,
   titleMargin = {top: 40};
 
-  function my(selection) {
+  var my = function(selection) {
     var chartWidth,
         chartHeight,
         categories,
@@ -231,13 +231,11 @@ this.d3.charts.groupStack = function() {
     }
 
     selection.each(function(data) {
-      selection.each(function(data) {
-        initialize(this, data);
-        drawChart(data);
-        drawTitle();
-        drawLegend();
-        if (_.isEmpty(data)) { drawNoData();}
-      })
+      initialize(this, data);
+      drawChart(data);
+      drawTitle();
+      drawLegend();
+      if (_.isEmpty(data)) { drawNoData();}
     });
   }
 
@@ -275,6 +273,8 @@ this.d3.charts.groupStack = function() {
     vertical = value;
     return my;
   };
+
+
 
   return my;
 };

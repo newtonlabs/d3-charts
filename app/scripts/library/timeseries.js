@@ -108,9 +108,6 @@ this.d3.charts.timeseries = function() {
       x.domain([x.domain()[0], endTime])
 
       y.domain([lowerDomain, upperDomain]);
-      console.log(upperDomain, topPadding)
-      console.log(y(100));
-      console.log(y.domain());
       x2.domain(x.domain());
       y2.domain(y.domain());
       line.interpolate("cardinal").tension(0.88)

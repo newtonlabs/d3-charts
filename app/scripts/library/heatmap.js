@@ -153,10 +153,14 @@ this.d3.charts.heatmap = function() {
       resetDimensions();
 
       // Enter, Update, Exit squares
+      var cellColor = function(d) {
+        return _.isEmpty(d.color) ? 'none' : d.color;
+      }
+
       var rect  = heatmap.selectAll("g.heatmap .square").data(data);
       rect.enter().append("rect")
           .attr("class", "square")
-          .attr("style", function(d) {return "fill:"+d.color; });
+          .attr("fill", cellColor);
       rect
           .attr("x", function(d) { return x(d.xAxis);})
           .attr("y", function(d) { return y(d.yAxis);})
@@ -165,7 +169,7 @@ this.d3.charts.heatmap = function() {
           .attr("width", x.rangeBand())
           .attr("height", y.rangeBand())
           .transition()
-          .style("fill", function(d) {return d.color;});
+          .style("fill", cellColor);
       rect.exit().remove();
 
       // Enter, Update, Exit text values

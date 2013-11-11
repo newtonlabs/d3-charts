@@ -41,7 +41,7 @@ var heatmapChart = d3.charts.heatmap()
     // .columnFont('medium')
     .legend(legend);
 
-d3.csv("../data/heatmap.csv", function(error, data) {
+d3.csv("../data/heatmap-grid.csv", function(error, data) {
   // Maintain order from the JSON object
   var scrubbed = _.reduce(data, function(memo, obj) {
 
