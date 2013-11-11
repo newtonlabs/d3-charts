@@ -17,7 +17,6 @@ this.d3.charts.heatmap = function() {
       fixedColumnWidth,
       svg = {},
       legend = [],
-      chartData = [],
       margin = {top: 10, right: 184, bottom: 20, left: 168},
       titleMargin = {top: 30},
       rowTitleMargin = {top: 60},
@@ -35,6 +34,7 @@ this.d3.charts.heatmap = function() {
         controls,
         categorySelect,
         grouped = true,
+        chartData = [],
         x  = d3.scale.ordinal(),
         x2 = d3.scale.ordinal(),
         y  = d3.scale.ordinal(),
@@ -120,7 +120,7 @@ this.d3.charts.heatmap = function() {
 
     }
 
-    var drawChart = function() {
+    var drawChart = function(data) {
       categorySelect = function(clicked) {
         controls.select(".selected").attr("class","")
         controls.select("[category=\""+clicked+"\"]").attr("class","selected")
@@ -173,8 +173,6 @@ this.d3.charts.heatmap = function() {
       rect.exit().remove();
 
       // Enter, Update, Exit text values
-      // var cellFont = d3.scale.linear().domain([0,10000, 125000, 250000]).range(['small', 'small', 'medium', 'large']);
-      // var area = x.rangeBand() * y.rangeBand();
       var value = heatmap.selectAll("g.heatmap .cell.value").data(data);
 
       value.enter().append("text");
@@ -287,7 +285,7 @@ this.d3.charts.heatmap = function() {
 
     selection.each(function(data) {
       initialize(this, data);
-      drawChart();
+      drawChart(data);
       drawTitle();
       drawLegend();
       if (_.isEmpty(data)) { drawNoData();}
