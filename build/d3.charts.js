@@ -325,7 +325,7 @@ this.d3.charts.groupStack = function() {
   vertical = false,
   titleMargin = {top: 40};
 
-  function my(selection) {
+  var my = function(selection) {
     var chartWidth,
         chartHeight,
         categories,
@@ -541,13 +541,11 @@ this.d3.charts.groupStack = function() {
     }
 
     selection.each(function(data) {
-      selection.each(function(data) {
-        initialize(this, data);
-        drawChart(data);
-        drawTitle();
-        drawLegend();
-        if (_.isEmpty(data)) { drawNoData();}
-      })
+      initialize(this, data);
+      drawChart(data);
+      drawTitle();
+      drawLegend();
+      if (_.isEmpty(data)) { drawNoData();}
     });
   }
 
@@ -585,6 +583,8 @@ this.d3.charts.groupStack = function() {
     vertical = value;
     return my;
   };
+
+
 
   return my;
 };
@@ -744,10 +744,14 @@ this.d3.charts.heatmap = function() {
       resetDimensions();
 
       // Enter, Update, Exit squares
+      var cellColor = function(d) {
+        return _.isEmpty(d.color) ? 'none' : d.color;
+      }
+
       var rect  = heatmap.selectAll("g.heatmap .square").data(data);
       rect.enter().append("rect")
           .attr("class", "square")
-          .attr("style", function(d) {return "fill:"+d.color; });
+          .attr("fill", cellColor);
       rect
           .attr("x", function(d) { return x(d.xAxis);})
           .attr("y", function(d) { return y(d.yAxis);})
@@ -756,7 +760,7 @@ this.d3.charts.heatmap = function() {
           .attr("width", x.rangeBand())
           .attr("height", y.rangeBand())
           .transition()
-          .style("fill", function(d) {return d.color;});
+          .style("fill", cellColor);
       rect.exit().remove();
 
       // Enter, Update, Exit text values
@@ -1548,9 +1552,6 @@ this.d3.charts.timeseries = function() {
       x.domain([x.domain()[0], endTime])
 
       y.domain([lowerDomain, upperDomain]);
-      console.log(upperDomain, topPadding)
-      console.log(y(100));
-      console.log(y.domain());
       x2.domain(x.domain());
       y2.domain(y.domain());
       line.interpolate("cardinal").tension(0.88)
