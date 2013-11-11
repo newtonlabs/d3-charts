@@ -111,7 +111,7 @@ this.d3.charts.groupStack = function() {
           .orient("bottom");
 
       var gy = chart.append("g")
-          .attr("class", "x axis")
+          .attr("class", "vertical y axis")
           .attr("transform", "translate (-48,0)")
           .call(vertical_yAxis);
 
@@ -119,7 +119,7 @@ this.d3.charts.groupStack = function() {
       gy.selectAll("text").attr("x", 4).attr("dy", -4);
 
       var gx = chart.append("g")
-        .attr("class", "y axis")
+        .attr("class", "vertical x axis")
         .attr("transform", "translate(0," + chartHeight + ")")
         .call(vertical_xAxis);
 
@@ -142,8 +142,6 @@ this.d3.charts.groupStack = function() {
           .delay(function(d, i) { return i * 40; })
           .attr("y", function(d) {return verticalY(d.y0 + d.y);})
           .attr("height", function(d) { return verticalY(d.y0) - verticalY(d.y0 + d.y)});
-          // .attr("y", function(d) {return (chartHeight - verticalY(d.y0 + d.y)) ; })
-          // .attr("height", function(d) { return verticalY(d.y); });
 
       var text = chart.selectAll(".value")
           .data(lastLayer(layers))
@@ -175,10 +173,10 @@ this.d3.charts.groupStack = function() {
           .tickSize(0)
           .orient("left");
 
-      chart.append("g").attr("class", "y axis").call(yAxis);
+      chart.append("g").attr("class", "horizontal y axis").call(yAxis);
 
       var gx = chart.append("g")
-        .attr("class", "x axis")
+        .attr("class", "horizontal x axis")
         .attr("transform", "translate(0," + chartHeight + ")")
         .call(xAxis);
       gx.selectAll("g").classed("gridline", true);

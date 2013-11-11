@@ -129,11 +129,24 @@ svg {
 
 .groupStack {
   @extend .commonCharts;
-  .x.axis path {
-    display: none;
+  .horizontal {
+    &.x.axis path {
+      display: none;
+    }
+    &.y.axis text {
+      fill: $nonblack;
+    }
   }
-  .y.axis text {
-    fill: $nonblack;
+  .vertical {
+    &.x.axis text {
+      fill: $nonblack;
+    }
+    &.x.axis path {
+      display: none;
+    }
+    &.y.axis path {
+      display: none;
+    }
   }
 }
 
