@@ -91,7 +91,7 @@ this.d3.charts.groupStack = function() {
 
     var drawChartVertical = function() {
       y.rangeRoundBands([0,chartWidth], 0.2);
-      x.range([0, chartHeight]);
+      x.range([chartHeight,0]);
 
       // For sanity
       var verticalX = y;
@@ -140,14 +140,16 @@ this.d3.charts.groupStack = function() {
       rect
           .transition()
           .delay(function(d, i) { return i * 40; })
-          .attr("y", function(d) {return (chartHeight - verticalY(d.y0 + d.y)) ; })
-          .attr("height", function(d) { return verticalY(d.y); });
+          .attr("y", function(d) {return verticalY(d.y0 + d.y);})
+          .attr("height", function(d) { return verticalY(d.y0) - verticalY(d.y0 + d.y)});
+          // .attr("y", function(d) {return (chartHeight - verticalY(d.y0 + d.y)) ; })
+          // .attr("height", function(d) { return verticalY(d.y); });
 
       var text = chart.selectAll(".value")
           .data(lastLayer(layers))
           .enter().append("text")
           .attr("text-anchor", "middle")
-          .attr("y", function(d) {return (chartHeight - verticalY(d.y0 + d.y)) - 4 ; })
+          .attr("y", function(d) {return (verticalY(d.y0 + d.y)) - 4 ; })
           .attr("x", function(d) { return verticalX(d.x)+verticalX.rangeBand()/2; })
           .attr("class","value")
           .text(function(d, i) { return format(d.y+d.y0); });
