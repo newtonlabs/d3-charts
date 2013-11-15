@@ -39,6 +39,7 @@ var heatmapChart = d3.charts.heatmap()
     // .cellFont('medium')
     // .rowFont('medium')
     // .columnFont('medium')
+    .cellFontColor('black')
     .legend(legend);
 
 d3.csv("../data/heatmap.csv", function(error, data) {

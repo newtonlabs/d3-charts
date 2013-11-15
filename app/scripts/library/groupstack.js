@@ -4,7 +4,7 @@
 if (d3.charts === null || typeof(d3.charts) !== "object") { d3.charts = {}; }
 
 // Based on http://bost.ocks.org/mike/chart/
-this.d3.charts.groupStack = function() {
+this.d3.charts.groupStackOld = function() {
   'use strict';
   var width = 1024,
   height = 500,

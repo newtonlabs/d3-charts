@@ -102,6 +102,12 @@ svg {
   .large {
     font-size: 30px;
   }
+  .white {
+    fill: #ffffff;
+  }
+  .black {
+    fill: $nonblack
+  }
 }
 
 // Chart specific tweaks
@@ -160,7 +166,6 @@ svg {
   }
   // Overide with White text on font
   .cell {
-    fill: #ffffff;
     fill-opacity: 0.75;
   }
   .x.axis path{

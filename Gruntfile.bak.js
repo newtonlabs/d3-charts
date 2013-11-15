@@ -187,7 +187,7 @@ module.exports = function (grunt) {
         concat: {
             // dist: {},
             js: {
-              src: ['<%= yeoman.app %>/scripts/library/*.js'],
+              src: ['<%= yeoman.app %>/scripts/library/**/*.js'],
               dest: '<%= yeoman.build %>/d3.charts.js'
             }
         },
@@ -197,7 +197,7 @@ module.exports = function (grunt) {
         uglify: {
             // dist: {},
             js: {
-              src: ['<%= yeoman.app %>/scripts/library/*.js'],
+              src: ['<%= yeoman.app %>/scripts/library/**/*.js'],
               dest: '<%= yeoman.build %>/d3.charts.min.js'
             }
         },

@@ -42,6 +42,23 @@ this.d3.utilities = {
     return (pad / upperRange * upperDomain);
   },
 
+  linewrap: function(d) {
+    var text = d.value;
+    var el = d3.select(this);
+
+    if (text) {
+      var breaks = text.split("<br>");
+      _.each(breaks, function(d, i) {
+        console.log(d);
+        var tspan = el.append("tspan").text(d).attr("text-anchor", "middle");
+        if (i > 0) {
+          tspan.attr('dx',0).attr('dy', '15');
+        }
+      })
+    }
+  },
+
+
   resizeHandles: function(d, height) {
     var e = +(d == "e"),
         x = e ? 1 : -1,

@@ -15,6 +15,7 @@ this.d3.charts.heatmap = function() {
       cellFont = 'small',
       fixedRowHeight,
       fixedColumnWidth,
+      cellFontColor = 'white',
       svg = {},
       legend = [],
       margin = {top: 10, right: 184, bottom: 20, left: 168},
@@ -182,7 +183,7 @@ this.d3.charts.heatmap = function() {
           .attr("y", function(d) { return y(d.yAxis);})
           .attr("dy", function() { return y.rangeBand()/2 + 4;})
           .attr("dx", function() { return x.rangeBand()/2;})
-          .attr('class', 'cell value ' + cellFont)
+          .attr('class', 'cell value ' + cellFont + ' ' + cellFontColor)
           .text(function(d) {return d.value;} )
       value.exit().remove();
 
@@ -354,6 +355,12 @@ this.d3.charts.heatmap = function() {
   my.fixedColumnWidth = function(value) {
     if (!arguments.length) { return fixedColumnWidth; }
     fixedColumnWidth = value;
+    return my;
+  };
+
+  my.cellFontColor = function(value) {
+    if (!arguments.length) { return cellFontColor; }
+    cellFontColor = value;
     return my;
   };
 
