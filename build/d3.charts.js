@@ -393,16 +393,12 @@ d3.charts.childBuilder = function(selection, data, config) {
 
   builder.setupData = function() {
     layers = stack(data);
-    console.log("data:", data);
-    console.log("layers:", layers);
-    console.log("categories", builder.categories());
-    console.log("colors", builder.colors());
 
     var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); }),
         padding = d3.utilities.padDomain(builder.graphicWidth(), yStackMax, barTextPadding);
 
     y.domain(_.map(layers[0], function(d) { return d.x; }));
-    x.domain([0, (yStackMax + padding)])
+    x.domain([0, (yStackMax + padding)]);
     color.domain(builder.categories()).range(builder.colors());
     legend.color(color);
   }
@@ -422,7 +418,7 @@ d3.charts.childBuilder = function(selection, data, config) {
     return _.reduce(layers, function(memo, d) { memo.push(d[0].category); return memo}, []);
   }
 
-  builder.color = function(d) {
+  builder.barColor = function(d) {
     return _.isEmpty(d.color) ? color(d.category) : d.color;
   }
 
@@ -435,11 +431,13 @@ d3.charts.childBuilder = function(selection, data, config) {
     builder.svg().call(noData);
   }
 
-  builder.drawLegend = function() {
-    legend.y(builder.legendMarginTop())
-        .x(builder.legendMarginLeft());
+  builder.legendItems = function() {
+    return config.vertical ? builder.categories().slice().reverse() : builder.categories()
+  }
 
-    builder.svg().datum(builder.categories()).call(legend);
+  builder.drawLegend = function() {
+    legend.y(builder.legendMarginTop()).x(builder.legendMarginLeft());
+    builder.svg().datum(builder.legendItems()).call(legend);
   }
 
   builder.drawTitle = function() {
@@ -497,6 +495,7 @@ d3.charts.childBuilder = function(selection, data, config) {
         .attr("y", chartHeight)
         .attr("x", function(d) { return verticalX(d.x); })
         .attr("height", 0)
+        .attr("fill", builder.barColor)
         .attr("width", verticalX.rangeBand())
 
     rect
@@ -556,7 +555,7 @@ d3.charts.childBuilder = function(selection, data, config) {
         .attr("x", 0)
         .attr("y", function(d) { return y(d.x); })
         .attr("width", 0)
-        .attr("fill", builder.color)
+        .attr("fill", builder.barColor)
         .attr("height", y.rangeBand())
 
     rect
@@ -2246,6 +2245,23 @@ this.d3.utilities = {
   padDomain: function(upperRange, upperDomain, pad) {
     return (pad / upperRange * upperDomain);
   },
+
+  linewrap: function(d) {
+    var text = d.value;
+    var el = d3.select(this);
+
+    if (text) {
+      var breaks = text.split("<br>");
+      _.each(breaks, function(d, i) {
+        console.log(d);
+        var tspan = el.append("tspan").text(d).attr("text-anchor", "middle");
+        if (i > 0) {
+          tspan.attr('dx',0).attr('dy', '15');
+        }
+      })
+    }
+  },
+
 
   resizeHandles: function(d, height) {
     var e = +(d == "e"),
