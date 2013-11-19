@@ -100,6 +100,24 @@ d3.charts.childBuilder = function(selection, data, config) {
     builder.svg().call(title);
   }
 
+  builder.isInt = function(d) {
+    return d % 1 === 0;
+  }
+
+  builder.textFormat = function(d) {
+    var number = d.y + d.y0;
+
+    if (builder.isInt(number)) {
+      if (number > 999) {
+        return format(number);
+      } else {
+        return number;
+      }
+    } else {
+      return format(number);
+    }
+  }
+
   builder.drawVertical = function() {
     var chartHeight = builder.graphicHeight(),
     chartWidth = builder.graphicWidth(),
@@ -165,7 +183,7 @@ d3.charts.childBuilder = function(selection, data, config) {
         .attr("y", function(d) {return (verticalY(d.y0 + d.y)) - 4 ; })
         .attr("x", function(d) { return verticalX(d.x)+verticalX.rangeBand()/2; })
         .attr("class","value")
-        .text(function(d, i) { return format(d.y+d.y0); });
+        .text(builder.textFormat);
   }
 
   builder.drawHorizontal = function() {
@@ -224,7 +242,7 @@ d3.charts.childBuilder = function(selection, data, config) {
         .attr("x", function(d) { return x(d.y + d.y0)+5; })
         .attr("y", function(d) { return y(d.x)+y.rangeBand()/2+4; })
         .attr("class","value")
-        .text(function(d, i) { return format(d.y+d.y0); });
+        .text(builder.textFormat);
   }
 
   return builder;
