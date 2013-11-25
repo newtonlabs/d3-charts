@@ -664,11 +664,14 @@ this.d3.charts.baseChart = function() {
   'use strict';
 
   var config = {},
+      svgContainer,
       builder;
 
   var chart = function(selection) {
     selection.each(function(data) {
-      builder(this,data,config).draw();
+      var build = builder(this, data, config);
+      build.draw();
+      svgContainer = build.svg();
     })
   };
 
@@ -704,7 +707,8 @@ this.d3.charts.baseChart = function() {
       .config('graphicArea', false)
       .config('legend', true)
       .config('titleOn', true)
-      .config('svg');
+
+  chart.svg =  function() { return svgContainer; }
 
   return chart;
 };
