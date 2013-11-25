@@ -1,4 +1,4 @@
-// Generated on 2013-08-16 using generator-webapp 0.2.6
+// Generated on 2013-11-09 using generator-webapp 0.2.6
 'use strict';
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
@@ -19,8 +19,7 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'app',
-        dist: 'dist',
-        build: 'build'
+        dist: 'dist'
     };
 
     grunt.initConfig({
@@ -36,11 +35,7 @@ module.exports = function (grunt) {
             },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['compass:server', 'autoprefixer' ]
-            },
-            styles: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-                tasks: ['copy:styles', 'autoprefixer']
+                tasks: ['compass:server']
             },
             livereload: {
                 options: {
@@ -48,7 +43,7 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '<%= yeoman.app %>/*.html',
-                    '.tmp/styles/{,*/}*.css',
+                    '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
@@ -169,36 +164,28 @@ module.exports = function (grunt) {
                 }
             }
         },
-        autoprefixer: {
-            options: {
-                browsers: ['last 1 version']
-            },
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '.tmp/styles/',
-                    src: '{,*/}*.css',
-                    dest: '.tmp/styles/'
-                }]
-            }
-        },
         // not used since Uglify task does concat,
         // but still available if needed
-        concat: {
-            // dist: {},
-            js: {
-              src: ['<%= yeoman.app %>/scripts/library/**/*.js'],
-              dest: '<%= yeoman.build %>/d3.charts.js'
-            }
-        },
-        // not enabled since usemin task does concat and uglify
-        // check index.html to edit your build targets
-        // enable this task if you prefer defining your build targets here
-        uglify: {
-            // dist: {},
-            js: {
-              src: ['<%= yeoman.app %>/scripts/library/**/*.js'],
-              dest: '<%= yeoman.build %>/d3.charts.min.js'
+        /*concat: {
+            dist: {}
+        },*/
+        requirejs: {
+            dist: {
+                // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
+                options: {
+                    // `name` and `out` is set by grunt-usemin
+                    baseUrl: yeomanConfig.app + '/scripts',
+                    optimize: 'none',
+                    // TODO: Figure out how to make sourcemaps work with grunt-usemin
+                    // https://github.com/yeoman/grunt-usemin/issues/30
+                    //generateSourceMaps: true,
+                    // required to support SourceMaps
+                    // http://requirejs.org/docs/errors.html#sourcemapcomments
+                    preserveLicenseComments: false,
+                    useStrict: true,
+                    wrap: true
+                    //uglify2: {} // https://github.com/mishoo/UglifyJS2
+                }
             }
         },
         rev: {
@@ -305,33 +292,31 @@ module.exports = function (grunt) {
                         'generated/*'
                     ]
                 }]
-            },
-            styles: {
-                expand: true,
-                dot: true,
-                cwd: '<%= yeoman.app %>/styles',
-                dest: '.tmp/styles/',
-                src: '{,*/}*.css'
             }
         },
         concurrent: {
             server: [
                 'compass',
-                'coffee:dist',
-                'copy:styles'
+                'coffee:dist'
             ],
             test: [
-                'coffee',
-                'copy:styles'
+                'coffee'
             ],
             dist: [
                 'coffee',
                 'compass',
-                'copy:styles',
                 'imagemin',
                 'svgmin',
                 'htmlmin'
             ]
+        },
+        bower: {
+            options: {
+                exclude: ['modernizr']
+            },
+            all: {
+                rjsConfig: '<%= yeoman.app %>/scripts/main.js'
+            }
         }
     });
 
@@ -343,7 +328,6 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'concurrent:server',
-            'autoprefixer',
             'connect:livereload',
             'open',
             'watch'
@@ -353,7 +337,6 @@ module.exports = function (grunt) {
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
-        'autoprefixer',
         'connect:test',
         'mocha'
     ]);
@@ -362,7 +345,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'useminPrepare',
         'concurrent:dist',
-        'autoprefixer',
+        'requirejs',
         'concat',
         'cssmin',
         'uglify',
