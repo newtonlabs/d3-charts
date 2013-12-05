@@ -12,6 +12,7 @@ this.d3.charts.groupStack = function() {
       .config('bottomLabels', true)
       .config('titleOn', true)
       .config('vertical', false)
+      .config('className', 'groupStack')
       .builder(d3.charts.groupStackBuilder);
 
   return chart;

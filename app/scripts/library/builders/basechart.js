@@ -13,6 +13,7 @@ d3.charts.baseBuilder = function(selection, data, config) {
     builder.setupChart();
     builder.setupGraphic();
 
+    if (config.svgArea) { builder.svgArea(); }
     if (config.chartArea) { builder.chartArea(); }
     if (config.graphicArea) {builder.graphicArea(); }
     if (config.testArea) { builder.addTestCircles(); }
@@ -20,7 +21,7 @@ d3.charts.baseBuilder = function(selection, data, config) {
 
   builder.setupSvg = function(){
     svg = d3.select(selection).append("svg")
-        .attr("class", "groupStack")
+        .attr("class", config.className)
         .attr("width",  config.width)
         .attr("height", config.height);
   }
@@ -48,6 +49,17 @@ d3.charts.baseBuilder = function(selection, data, config) {
         .attr("transform", "translate("
             + builder.graphicMarginLeft() + ","
             + builder.graphicMarginTop() + ")")
+  }
+
+  builder.svgArea = function() {
+    svg.append('rect')
+      .attr('height', config.height)
+      .attr('width', config.width)
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('stroke', 'gray')
+      .attr('fill', 'none')
+      .attr('stroke-width', '1px');
   }
 
   builder.graphicArea = function() {
@@ -79,8 +91,14 @@ d3.charts.baseBuilder = function(selection, data, config) {
   }
 
   builder.graphicHeight = function() {
-    if (config.bottomLabels) {
+    if (config.bottomLabels && config.topLabels) {
+      return builder.chartHeight() - config.margin.bottomLabel - config.margin.topLabel;
+    }
+    if (config.bottomLabels && !config.topLabels) {
       return builder.chartHeight() - config.margin.bottomLabel;
+    }
+    if (!config.bottomLabels && config.topLabels) {
+      return builder.chartHeight() - config.margin.topLabel;
     }
     return builder.chartHeight();
   }
@@ -111,6 +129,9 @@ d3.charts.baseBuilder = function(selection, data, config) {
   }
 
   builder.graphicMarginTop = function() {
+    if (config.topLabels) {
+      return builder.marginTop() + config.margin.topLabel;
+    }
     return builder.marginTop();
   }
 
