@@ -40,7 +40,16 @@ this.d3.charts.baseChart = function() {
       .config('height', 500)
       .config('title', "TITLE GOES HERE")
       .config('subtitle', "Subtitle goes here")
-      .config('margin', {top: 8, right: 8, bottom: 8, left: 8, leftLabel: 168, bottomLabel: 40, topLabel: 60, legend: 168, title: 30 })
+      .config('margin', {
+        top: 8,
+        right: 8,
+        bottom: 8,
+        left: 8,
+        leftLabel: 168,
+        bottomLabel: 40,
+        topLabel: 60,
+        legend: 168,
+        title: 30 })
       .config('leftLabels', true)
       .config('bottomLabels', true)
       .config('topLabels', false)

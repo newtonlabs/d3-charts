@@ -16,6 +16,8 @@ this.d3.charts.tablechart = function() {
       .config('titleOn', true)
       .config('chartType', 'line')
       .config('className', 'tablechart')
+      .config('width', 900)
+      .config('height', 300)
       .builder(d3.charts.tablechartBuilder);
 
   return chart;

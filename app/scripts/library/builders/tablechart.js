@@ -88,11 +88,15 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
   var zoomSparkLine = function(d) {
     d3.select("#popup").remove();
 
-    var height = builder.graphicHeight() / 2,
-        width = builder.graphicWidth() / 2,
+    var height = 180,
+        width = 320,
+        zoomWidth = width + 160,
+        zoomHeight = height + 60,
         zoomLine = d3.svg.line(),
         zoomX = d3.time.scale(),
-        zoomY = d3.scale.linear();
+        zoomY = d3.scale.linear(),
+        extent = d3.extent(d, function(o) { return o.value }),
+        current = _.last(d);
 
     zoomX.domain(miniX.domain()).range([0,width]);
     zoomY.domain(miniY.domain()).range([0,height]);
@@ -102,15 +106,16 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .y(function(d) { return zoomY(d.value); });
 
     var zoom = builder.svg().append("g")
-        .attr("transform", "translate(" + x(d[0].subcategory) + "," + y(d[0].category) + ")")
+        .attr("transform", "translate(" + (builder.graphicWidth()/2 - 70) + "," +  (builder.graphicHeight()/2 - 20) + ")")
         .attr("class", "zoom")
         .attr("id", "popup");
 
     zoom.append("rect")
         .attr("x", 0)
         .attr("y", 0)
-        .attr("height", height + 60)
-        .attr("width", width + 160)
+        .attr("rx", 8)
+        .attr("height", zoomHeight)
+        .attr("width", zoomWidth)
         .attr("fill", 'white')
         .attr("stroke", 'lightgray')
         .attr("stroke-width", '2px')
@@ -146,6 +151,41 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .style("stroke", 'steelblue')
         .attr('stroke-width', '2px')
         .attr("d", zoomLine(d));
+
+    zoomChart.append("circle")
+        .attr("class", "circle")
+        .style("fill", function(d) { return current.color; })
+        .attr("stroke-width", '2')
+        .attr("stroke", 'white')
+        .attr("cx", function(d) { return zoomX(current.date); })
+        .attr("cy", function(d) { return zoomY(current.value); })
+        .attr("r", 6);
+
+    var text = zoomChart.append("g")
+        .attr("transform", "translate(" + (width + 35) + "," + 0 + ")");
+
+    row(text, 0, 0, 'High', extent[1]);
+    row(text, 0, 20, 'Low', extent[0]);
+    row(text, 0, 40, 'Current', current.value);
+
+    var close = zoom.append("g")
+        .attr("transform", "translate(" + zoomWidth + "," + 0 + ")");
+
+    close.append("circle")
+        .attr("fill", 'red')
+        .attr('r', '6')
+        .on('click', function() {
+          zoom.remove();
+        })
+  }
+
+  var row = function(el, x, y, text1, text2) {
+    el.append("text").attr("x", x).attr("y", y)
+      .append("tspan")
+        .text(text1)
+      .append("tspan")
+        .attr("x", 50)
+        .text(text2);
   }
 
   builder.drawSparkline = function(category, subcategory) {
