@@ -745,7 +745,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
     xAxis.scale(zoomX).orient("bottom")
         .tickFormat(d3.utilities.customTimeFormat)
         .outerTickSize([0])
-        .ticks(7);
+        .ticks(10);
 
     yAxis.scale(zoomY).orient("right").ticks(4);
 
