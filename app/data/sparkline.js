@@ -1,12 +1,4 @@
-var tablechart = d3.charts.tablechart();
-var parseDate = d3.time.format("%Y%m%d").parse;
-
-// d3.csv("../data/tablechart.csv", function(error, data) {
-//   _.each(data, function(d) { d.date = parseDate(d.xAxis); d.value = +d.value});
-//   d3.select("#tablechart").datum(data).call(tablechart);
-// });
-
-data = [
+{"document": {"name": "Sparkline - rawdata", "timestamp": "2013-12-09T01:30:42.000Z", "data":[
 {"category":"Gouverneur","xAxis":"20130916","subcategory":"1st next avail new","value":"17","filter1":"Cardiology","color":"#FF0000"},
 {"category":"Gouverneur","xAxis":"20130923","subcategory":"1st next avail new","value":"20","filter1":"Cardiology","color":"#FF0000"},
 {"category":"Gouverneur","xAxis":"20130930","subcategory":"1st next avail new","value":"20","filter1":"Cardiology","color":"#FF0000"},
@@ -4006,9 +3998,4 @@ data = [
 {"category":"Metropolitan","xAxis":"20131014","subcategory":"Total Patients Seen","value":"352","filter1":"Pediatrics","color":"#FF0000"},
 {"category":"Metropolitan","xAxis":"20131021","subcategory":"Total Patients Seen","value":"462","filter1":"Pediatrics","color":"#FF0000"},
 {"category":"Metropolitan","xAxis":"20131028","subcategory":"Total Patients Seen","value":"506","filter1":"Pediatrics","color":"#FF0000"},
-{"category":"Metropolitan","xAxis":"20131104","subcategory":"Total Patients Seen","value":"336","filter1":"Pediatrics","color":"#FF0000"}];
-_.each(data, function(d) { d.date = parseDate(d.xAxis); d.value = +d.value});
-var subdata = _.filter(data, function(d) { return (d.filter1 === 'Orthopedics' && ! isNaN(d.value))});
-// var subdata = _.filter(data, function(d) { return (d.filter1 === 'Orthopedics' && d.category === 'Metropolitan')});
-// console.log(subdata);
-d3.select("#tablechart").datum(subdata).call(tablechart);
+{"category":"Metropolitan","xAxis":"20131104","subcategory":"Total Patients Seen","value":"336","filter1":"Pediatrics","color":"#FF0000"}]}}

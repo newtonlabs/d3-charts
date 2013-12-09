@@ -47,7 +47,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
 
     miniX.domain(d3.extent(data, function(d) { return d.date }));
     miniY.domain(d3.extent(data, function(d) { return d.value }));
-    miniY.range([0, y.rangeBand()]);
+    miniY.range([y.rangeBand(), 0]);
     miniX.range([0, x.rangeBand()]);
   }
 
@@ -89,7 +89,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
     d3.select("#popup").remove();
 
     var height = 180,
-        width = 320,
+        width = builder.graphicWidth(),
         zoomWidth = width + 160,
         zoomHeight = height + 60,
         zoomLine = d3.svg.line(),
@@ -99,14 +99,14 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         current = _.last(d);
 
     zoomX.domain(miniX.domain()).range([0,width]);
-    zoomY.domain(miniY.domain()).range([0,height]);
+    zoomY.domain(miniY.domain()).range([height,0]);
 
     zoomLine.interpolate("cardinal").tension(0.88)
         .x(function(d) { return zoomX(d.date); })
         .y(function(d) { return zoomY(d.value); });
 
     var zoom = builder.svg().append("g")
-        .attr("transform", "translate(" + (builder.graphicWidth()/2 - 70) + "," +  (builder.graphicHeight()/2 - 20) + ")")
+        .attr("transform", "translate(" + 0 + "," +  (builder.graphicHeight()/2 - 20) + ")")
         .attr("class", "zoom")
         .attr("id", "popup");
 
@@ -134,7 +134,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
 
     zoomChart.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + zoomY(zoomY.domain()[1]) + ")")
+        .attr("transform", "translate(0," + zoomY(zoomY.domain()[0]) + ")")
         .call(xAxis);
 
     yAxis.tickSize(width);
@@ -212,12 +212,14 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .style("stroke", 'steelblue')
         .attr("d", line(subData));
 
-    focus.append("circle")
-        .attr("class", "circle")
-        .style("fill", function(d) { return lastData.color; })
-        .attr("cx", function(d) { return miniX(lastData.date); })
-        .attr("cy", function(d) { return miniY(lastData.value); })
-        .attr("r", 3);
+    if (!_.isEmpty(lastData)) {
+      focus.append("circle")
+          .attr("class", "circle")
+          .style("fill", function(d) { return lastData.color; })
+          .attr("cx", function(d) { return miniX(lastData.date); })
+          .attr("cy", function(d) { return miniY(lastData.value); })
+          .attr("r", 3);
+    }
   }
 
   builder.organizeData = function(category, subcategory) {
