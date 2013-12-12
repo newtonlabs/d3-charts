@@ -705,7 +705,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
   var zoomSparkLine = function(d) {
     d3.select("#popup").remove();
 
-    var height = 180,
+    var height = builder.chartHeight() - 60,
         width = builder.graphicWidth(),
         zoomWidth = width + 160,
         zoomHeight = height + 60,
@@ -723,7 +723,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .y(function(d) { return zoomY(d.value); });
 
     var zoom = builder.svg().append("g")
-        .attr("transform", "translate(" + 0 + "," +  (builder.graphicHeight()/2 - 20) + ")")
+        .attr("transform", "translate(" + builder.marginLeft() + "," +  builder.marginTop() + ")")
         .attr("class", "zoom")
         .attr("id", "popup");
 
@@ -778,12 +778,28 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .attr("cy", function(d) { return zoomY(current.value); })
         .attr("r", 6);
 
+    zoomChart.append('rect')
+        .attr('class', 'baseline')
+        .attr("transform", "translate(" + 0 + "," + zoomY(d[0].target) + ")")
+        .attr('height',  zoomY(miniY.domain()[0]) - zoomY(d[0].target) )//( zoomY(d[0].target) )//- )
+        .attr('width', width);
+
+    console.log(d);
+
     var text = zoomChart.append("g")
         .attr("transform", "translate(" + (width + 35) + "," + 0 + ")");
 
     row(text, 0, 0, 'High', extent[1]);
     row(text, 0, 20, 'Low', extent[0]);
     row(text, 0, 40, 'Current', current.value);
+    row(text, 0, 60, 'Target', d[0].target);
+
+    var zoomTitle = zoomChart.append("g")
+        .attr("transform", "translate(" + 0 + "," + -10 + ")");
+
+    zoomTitle.append("text")
+        .attr("class", "zoom-title")
+        .text(d[0].category + " - " + d[1].subcategory);
 
     var close = zoom.append("g")
         .attr("transform", "translate(" + zoomWidth + "," + 0 + ")");
@@ -1050,7 +1066,7 @@ this.d3.charts.tablechart = function() {
       .config('chartType', 'line')
       .config('className', 'tablechart')
       .config('width', 900)
-      .config('height', 500)
+      .config('height', 300)
       .builder(d3.charts.tablechartBuilder);
 
   return chart;
