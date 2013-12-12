@@ -175,6 +175,17 @@ svg {
     }
   }
 
+  text.zoom-title {
+    fill: $charttitlecolor;
+    // font-weight: bold;
+    font-size: 14px;
+  }
+
+  rect.baseline {
+    fill: $nonblack;
+    fill-opacity: 0.10;
+  }
+
   .popup .line {
     stroke-width: 2px;
   }

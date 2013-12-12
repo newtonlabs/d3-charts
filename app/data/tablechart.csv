@@ -1,491 +1,491 @@
-category,subcategory,xAxis,value,color
-Gouverneur,3rd Next Available New,20131205,71,#d3e0f2
-Gouverneur,3rd Next Available New,20131206,61,#2563bf
-Gouverneur,3rd Next Available New,20131207,73,#6691d2
-Gouverneur,3rd Next Available New,20131208,87,#a8c1e5
-Gouverneur,3rd Next Available New,20131209,31,#2563bf
-Gouverneur,3rd Next Available New,20131210,79,#2563bf
-Gouverneur,3rd Next Available New,20131211,97,#a8c1e5
-Gouverneur,3rd Next Available New,20131212,67,#2563bf
-Gouverneur,3rd Next Available New,20131213,99,#a8c1e5
-Gouverneur,3rd Next Available New,20131214,35,#a8c1e5
-Gouverneur,3rd Next Available New,20131215,42,#d3e0f2
-Gouverneur,3rd Next Available New,20131216,19,#d3e0f2
-Gouverneur,3rd Next Available New,20131217,44,#a8c1e5
-Gouverneur,3rd Next Available New,20131218,20,#d3e0f2
-Gouverneur,3rd Next Avail Rvst,20131205,31,#a8c1e5
-Gouverneur,3rd Next Avail Rvst,20131206,42,#d3e0f2
-Gouverneur,3rd Next Avail Rvst,20131207,68,#2563bf
-Gouverneur,3rd Next Avail Rvst,20131208,32,#2563bf
-Gouverneur,3rd Next Avail Rvst,20131209,8,#a8c1e5
-Gouverneur,3rd Next Avail Rvst,20131210,74,#6691d2
-Gouverneur,3rd Next Avail Rvst,20131211,40,#2563bf
-Gouverneur,3rd Next Avail Rvst,20131212,44,#2563bf
-Gouverneur,3rd Next Avail Rvst,20131213,81,#6691d2
-Gouverneur,3rd Next Avail Rvst,20131214,8,#6691d2
-Gouverneur,3rd Next Avail Rvst,20131215,78,#2563bf
-Gouverneur,3rd Next Avail Rvst,20131216,35,#2563bf
-Gouverneur,3rd Next Avail Rvst,20131217,59,#2563bf
-Gouverneur,3rd Next Avail Rvst,20131218,88,#2563bf
-Gouverneur,Fill Rate,20131205,68,#a8c1e5
-Gouverneur,Fill Rate,20131206,24,#6691d2
-Gouverneur,Fill Rate,20131207,69,#a8c1e5
-Gouverneur,Fill Rate,20131208,61,#a8c1e5
-Gouverneur,Fill Rate,20131209,12,#d3e0f2
-Gouverneur,Fill Rate,20131210,50,#6691d2
-Gouverneur,Fill Rate,20131211,56,#2563bf
-Gouverneur,Fill Rate,20131212,79,#2563bf
-Gouverneur,Fill Rate,20131213,59,#a8c1e5
-Gouverneur,Fill Rate,20131214,13,#d3e0f2
-Gouverneur,Fill Rate,20131215,78,#6691d2
-Gouverneur,Fill Rate,20131216,95,#d3e0f2
-Gouverneur,Fill Rate,20131217,57,#a8c1e5
-Gouverneur,Fill Rate,20131218,86,#d3e0f2
-Gouverneur,No Show Rate,20131205,72,#a8c1e5
-Gouverneur,No Show Rate,20131206,5,#2563bf
-Gouverneur,No Show Rate,20131207,64,#2563bf
-Gouverneur,No Show Rate,20131208,27,#a8c1e5
-Gouverneur,No Show Rate,20131209,91,#a8c1e5
-Gouverneur,No Show Rate,20131210,73,#6691d2
-Gouverneur,No Show Rate,20131211,85,#2563bf
-Gouverneur,No Show Rate,20131212,78,#2563bf
-Gouverneur,No Show Rate,20131213,20,#6691d2
-Gouverneur,No Show Rate,20131214,9,#a8c1e5
-Gouverneur,No Show Rate,20131215,8,#2563bf
-Gouverneur,No Show Rate,20131216,55,#6691d2
-Gouverneur,No Show Rate,20131217,85,#2563bf
-Gouverneur,No Show Rate,20131218,7,#d3e0f2
-Gouverneur,In-Clinic Wait Time,20131205,86,#d3e0f2
-Gouverneur,In-Clinic Wait Time,20131206,73,#a8c1e5
-Gouverneur,In-Clinic Wait Time,20131207,61,#d3e0f2
-Gouverneur,In-Clinic Wait Time,20131208,10,#a8c1e5
-Gouverneur,In-Clinic Wait Time,20131209,43,#a8c1e5
-Gouverneur,In-Clinic Wait Time,20131210,78,#d3e0f2
-Gouverneur,In-Clinic Wait Time,20131211,58,#a8c1e5
-Gouverneur,In-Clinic Wait Time,20131212,43,#a8c1e5
-Gouverneur,In-Clinic Wait Time,20131213,40,#a8c1e5
-Gouverneur,In-Clinic Wait Time,20131214,29,#a8c1e5
-Gouverneur,In-Clinic Wait Time,20131215,72,#2563bf
-Gouverneur,In-Clinic Wait Time,20131216,56,#6691d2
-Gouverneur,In-Clinic Wait Time,20131217,19,#d3e0f2
-Gouverneur,In-Clinic Wait Time,20131218,73,#6691d2
-Gouverneur,Patient Satisfaction,20131205,53,#6691d2
-Gouverneur,Patient Satisfaction,20131206,91,#6691d2
-Gouverneur,Patient Satisfaction,20131207,12,#6691d2
-Gouverneur,Patient Satisfaction,20131208,21,#a8c1e5
-Gouverneur,Patient Satisfaction,20131209,36,#2563bf
-Gouverneur,Patient Satisfaction,20131210,14,#d3e0f2
-Gouverneur,Patient Satisfaction,20131211,27,#d3e0f2
-Gouverneur,Patient Satisfaction,20131212,13,#d3e0f2
-Gouverneur,Patient Satisfaction,20131213,16,#2563bf
-Gouverneur,Patient Satisfaction,20131214,97,#6691d2
-Gouverneur,Patient Satisfaction,20131215,70,#6691d2
-Gouverneur,Patient Satisfaction,20131216,31,#2563bf
-Gouverneur,Patient Satisfaction,20131217,6,#2563bf
-Gouverneur,Patient Satisfaction,20131218,29,#6691d2
-Gouverneur,Total Patients Seen,20131205,77,#2563bf
-Gouverneur,Total Patients Seen,20131206,34,#a8c1e5
-Gouverneur,Total Patients Seen,20131207,13,#6691d2
-Gouverneur,Total Patients Seen,20131208,51,#6691d2
-Gouverneur,Total Patients Seen,20131209,41,#a8c1e5
-Gouverneur,Total Patients Seen,20131210,10,#d3e0f2
-Gouverneur,Total Patients Seen,20131211,84,#d3e0f2
-Gouverneur,Total Patients Seen,20131212,48,#6691d2
-Gouverneur,Total Patients Seen,20131213,68,#d3e0f2
-Gouverneur,Total Patients Seen,20131214,86,#2563bf
-Gouverneur,Total Patients Seen,20131215,37,#2563bf
-Gouverneur,Total Patients Seen,20131216,96,#6691d2
-Gouverneur,Total Patients Seen,20131217,88,#a8c1e5
-Gouverneur,Total Patients Seen,20131218,12,#d3e0f2
-Jacobi,3rd Next Available New,20131205,65,#d3e0f2
-Jacobi,3rd Next Available New,20131206,80,#d3e0f2
-Jacobi,3rd Next Available New,20131207,85,#6691d2
-Jacobi,3rd Next Available New,20131208,60,#2563bf
-Jacobi,3rd Next Available New,20131209,15,#6691d2
-Jacobi,3rd Next Available New,20131210,43,#a8c1e5
-Jacobi,3rd Next Available New,20131211,49,#6691d2
-Jacobi,3rd Next Available New,20131212,18,#a8c1e5
-Jacobi,3rd Next Available New,20131213,83,#2563bf
-Jacobi,3rd Next Available New,20131214,67,#d3e0f2
-Jacobi,3rd Next Available New,20131215,98,#d3e0f2
-Jacobi,3rd Next Available New,20131216,9,#6691d2
-Jacobi,3rd Next Available New,20131217,38,#2563bf
-Jacobi,3rd Next Available New,20131218,39,#a8c1e5
-Jacobi,3rd Next Avail Rvst,20131205,77,#6691d2
-Jacobi,3rd Next Avail Rvst,20131206,14,#6691d2
-Jacobi,3rd Next Avail Rvst,20131207,96,#2563bf
-Jacobi,3rd Next Avail Rvst,20131208,52,#d3e0f2
-Jacobi,3rd Next Avail Rvst,20131209,7,#2563bf
-Jacobi,3rd Next Avail Rvst,20131210,34,#6691d2
-Jacobi,3rd Next Avail Rvst,20131211,43,#a8c1e5
-Jacobi,3rd Next Avail Rvst,20131212,29,#6691d2
-Jacobi,3rd Next Avail Rvst,20131213,47,#6691d2
-Jacobi,3rd Next Avail Rvst,20131214,58,#2563bf
-Jacobi,3rd Next Avail Rvst,20131215,95,#2563bf
-Jacobi,3rd Next Avail Rvst,20131216,17,#2563bf
-Jacobi,3rd Next Avail Rvst,20131217,9,#d3e0f2
-Jacobi,3rd Next Avail Rvst,20131218,83,#a8c1e5
-Jacobi,Fill Rate,20131205,8,#6691d2
-Jacobi,Fill Rate,20131206,21,#2563bf
-Jacobi,Fill Rate,20131207,56,#d3e0f2
-Jacobi,Fill Rate,20131208,62,#a8c1e5
-Jacobi,Fill Rate,20131209,60,#6691d2
-Jacobi,Fill Rate,20131210,23,#d3e0f2
-Jacobi,Fill Rate,20131211,68,#d3e0f2
-Jacobi,Fill Rate,20131212,63,#a8c1e5
-Jacobi,Fill Rate,20131213,85,#2563bf
-Jacobi,Fill Rate,20131214,35,#d3e0f2
-Jacobi,Fill Rate,20131215,15,#2563bf
-Jacobi,Fill Rate,20131216,44,#a8c1e5
-Jacobi,Fill Rate,20131217,19,#a8c1e5
-Jacobi,Fill Rate,20131218,65,#d3e0f2
-Jacobi,No Show Rate,20131205,35,#a8c1e5
-Jacobi,No Show Rate,20131206,86,#6691d2
-Jacobi,No Show Rate,20131207,99,#2563bf
-Jacobi,No Show Rate,20131208,90,#6691d2
-Jacobi,No Show Rate,20131209,70,#d3e0f2
-Jacobi,No Show Rate,20131210,71,#2563bf
-Jacobi,No Show Rate,20131211,93,#6691d2
-Jacobi,No Show Rate,20131212,80,#2563bf
-Jacobi,No Show Rate,20131213,7,#d3e0f2
-Jacobi,No Show Rate,20131214,35,#d3e0f2
-Jacobi,No Show Rate,20131215,80,#d3e0f2
-Jacobi,No Show Rate,20131216,39,#d3e0f2
-Jacobi,No Show Rate,20131217,79,#d3e0f2
-Jacobi,No Show Rate,20131218,12,#d3e0f2
-Jacobi,In-Clinic Wait Time,20131205,9,#d3e0f2
-Jacobi,In-Clinic Wait Time,20131206,96,#2563bf
-Jacobi,In-Clinic Wait Time,20131207,20,#6691d2
-Jacobi,In-Clinic Wait Time,20131208,29,#a8c1e5
-Jacobi,In-Clinic Wait Time,20131209,44,#2563bf
-Jacobi,In-Clinic Wait Time,20131210,93,#6691d2
-Jacobi,In-Clinic Wait Time,20131211,68,#d3e0f2
-Jacobi,In-Clinic Wait Time,20131212,94,#d3e0f2
-Jacobi,In-Clinic Wait Time,20131213,11,#a8c1e5
-Jacobi,In-Clinic Wait Time,20131214,78,#d3e0f2
-Jacobi,In-Clinic Wait Time,20131215,60,#2563bf
-Jacobi,In-Clinic Wait Time,20131216,65,#2563bf
-Jacobi,In-Clinic Wait Time,20131217,71,#a8c1e5
-Jacobi,In-Clinic Wait Time,20131218,42,#2563bf
-Jacobi,Patient Satisfaction,20131205,59,#d3e0f2
-Jacobi,Patient Satisfaction,20131206,27,#a8c1e5
-Jacobi,Patient Satisfaction,20131207,23,#2563bf
-Jacobi,Patient Satisfaction,20131208,37,#2563bf
-Jacobi,Patient Satisfaction,20131209,38,#6691d2
-Jacobi,Patient Satisfaction,20131210,62,#d3e0f2
-Jacobi,Patient Satisfaction,20131211,19,#d3e0f2
-Jacobi,Patient Satisfaction,20131212,24,#2563bf
-Jacobi,Patient Satisfaction,20131213,20,#6691d2
-Jacobi,Patient Satisfaction,20131214,81,#a8c1e5
-Jacobi,Patient Satisfaction,20131215,83,#d3e0f2
-Jacobi,Patient Satisfaction,20131216,54,#a8c1e5
-Jacobi,Patient Satisfaction,20131217,11,#d3e0f2
-Jacobi,Patient Satisfaction,20131218,97,#d3e0f2
-Jacobi,Total Patients Seen,20131205,25,#2563bf
-Jacobi,Total Patients Seen,20131206,9,#6691d2
-Jacobi,Total Patients Seen,20131207,73,#a8c1e5
-Jacobi,Total Patients Seen,20131208,55,#6691d2
-Jacobi,Total Patients Seen,20131209,92,#6691d2
-Jacobi,Total Patients Seen,20131210,20,#a8c1e5
-Jacobi,Total Patients Seen,20131211,98,#6691d2
-Jacobi,Total Patients Seen,20131212,95,#a8c1e5
-Jacobi,Total Patients Seen,20131213,5,#2563bf
-Jacobi,Total Patients Seen,20131214,8,#d3e0f2
-Jacobi,Total Patients Seen,20131215,44,#a8c1e5
-Jacobi,Total Patients Seen,20131216,31,#a8c1e5
-Jacobi,Total Patients Seen,20131217,48,#6691d2
-Jacobi,Total Patients Seen,20131218,85,#d3e0f2
-Lincoln,3rd Next Available New,20131205,24,#a8c1e5
-Lincoln,3rd Next Available New,20131206,63,#6691d2
-Lincoln,3rd Next Available New,20131207,32,#6691d2
-Lincoln,3rd Next Available New,20131208,90,#6691d2
-Lincoln,3rd Next Available New,20131209,41,#2563bf
-Lincoln,3rd Next Available New,20131210,99,#a8c1e5
-Lincoln,3rd Next Available New,20131211,22,#2563bf
-Lincoln,3rd Next Available New,20131212,1,#2563bf
-Lincoln,3rd Next Available New,20131213,66,#a8c1e5
-Lincoln,3rd Next Available New,20131214,89,#6691d2
-Lincoln,3rd Next Available New,20131215,15,#2563bf
-Lincoln,3rd Next Available New,20131216,72,#d3e0f2
-Lincoln,3rd Next Available New,20131217,18,#d3e0f2
-Lincoln,3rd Next Available New,20131218,81,#2563bf
-Lincoln,3rd Next Avail Rvst,20131205,1,#a8c1e5
-Lincoln,3rd Next Avail Rvst,20131206,7,#d3e0f2
-Lincoln,3rd Next Avail Rvst,20131207,80,#2563bf
-Lincoln,3rd Next Avail Rvst,20131208,77,#2563bf
-Lincoln,3rd Next Avail Rvst,20131209,2,#2563bf
-Lincoln,3rd Next Avail Rvst,20131210,70,#2563bf
-Lincoln,3rd Next Avail Rvst,20131211,5,#a8c1e5
-Lincoln,3rd Next Avail Rvst,20131212,72,#6691d2
-Lincoln,3rd Next Avail Rvst,20131213,37,#2563bf
-Lincoln,3rd Next Avail Rvst,20131214,95,#6691d2
-Lincoln,3rd Next Avail Rvst,20131215,37,#a8c1e5
-Lincoln,3rd Next Avail Rvst,20131216,6,#2563bf
-Lincoln,3rd Next Avail Rvst,20131217,99,#2563bf
-Lincoln,3rd Next Avail Rvst,20131218,19,#2563bf
-Lincoln,Fill Rate,20131205,0,#d3e0f2
-Lincoln,Fill Rate,20131206,68,#2563bf
-Lincoln,Fill Rate,20131207,16,#a8c1e5
-Lincoln,Fill Rate,20131208,51,#6691d2
-Lincoln,Fill Rate,20131209,65,#2563bf
-Lincoln,Fill Rate,20131210,57,#6691d2
-Lincoln,Fill Rate,20131211,86,#6691d2
-Lincoln,Fill Rate,20131212,73,#6691d2
-Lincoln,Fill Rate,20131213,75,#d3e0f2
-Lincoln,Fill Rate,20131214,93,#6691d2
-Lincoln,Fill Rate,20131215,89,#6691d2
-Lincoln,Fill Rate,20131216,73,#2563bf
-Lincoln,Fill Rate,20131217,51,#6691d2
-Lincoln,Fill Rate,20131218,70,#6691d2
-Lincoln,No Show Rate,20131205,82,#a8c1e5
-Lincoln,No Show Rate,20131206,47,#6691d2
-Lincoln,No Show Rate,20131207,61,#a8c1e5
-Lincoln,No Show Rate,20131208,79,#6691d2
-Lincoln,No Show Rate,20131209,58,#a8c1e5
-Lincoln,No Show Rate,20131210,53,#d3e0f2
-Lincoln,No Show Rate,20131211,20,#a8c1e5
-Lincoln,No Show Rate,20131212,42,#2563bf
-Lincoln,No Show Rate,20131213,74,#6691d2
-Lincoln,No Show Rate,20131214,85,#d3e0f2
-Lincoln,No Show Rate,20131215,42,#d3e0f2
-Lincoln,No Show Rate,20131216,59,#d3e0f2
-Lincoln,No Show Rate,20131217,39,#6691d2
-Lincoln,No Show Rate,20131218,88,#a8c1e5
-Lincoln,In-Clinic Wait Time,20131205,76,#2563bf
-Lincoln,In-Clinic Wait Time,20131206,96,#6691d2
-Lincoln,In-Clinic Wait Time,20131207,71,#6691d2
-Lincoln,In-Clinic Wait Time,20131208,18,#a8c1e5
-Lincoln,In-Clinic Wait Time,20131209,41,#a8c1e5
-Lincoln,In-Clinic Wait Time,20131210,69,#a8c1e5
-Lincoln,In-Clinic Wait Time,20131211,71,#a8c1e5
-Lincoln,In-Clinic Wait Time,20131212,58,#d3e0f2
-Lincoln,In-Clinic Wait Time,20131213,72,#6691d2
-Lincoln,In-Clinic Wait Time,20131214,47,#d3e0f2
-Lincoln,In-Clinic Wait Time,20131215,30,#2563bf
-Lincoln,In-Clinic Wait Time,20131216,36,#2563bf
-Lincoln,In-Clinic Wait Time,20131217,87,#6691d2
-Lincoln,In-Clinic Wait Time,20131218,9,#a8c1e5
-Lincoln,Patient Satisfaction,20131205,80,#2563bf
-Lincoln,Patient Satisfaction,20131206,28,#6691d2
-Lincoln,Patient Satisfaction,20131207,88,#6691d2
-Lincoln,Patient Satisfaction,20131208,76,#a8c1e5
-Lincoln,Patient Satisfaction,20131209,26,#a8c1e5
-Lincoln,Patient Satisfaction,20131210,36,#d3e0f2
-Lincoln,Patient Satisfaction,20131211,95,#a8c1e5
-Lincoln,Patient Satisfaction,20131212,69,#2563bf
-Lincoln,Patient Satisfaction,20131213,40,#a8c1e5
-Lincoln,Patient Satisfaction,20131214,71,#d3e0f2
-Lincoln,Patient Satisfaction,20131215,12,#6691d2
-Lincoln,Patient Satisfaction,20131216,61,#d3e0f2
-Lincoln,Patient Satisfaction,20131217,4,#d3e0f2
-Lincoln,Patient Satisfaction,20131218,32,#d3e0f2
-Lincoln,Total Patients Seen,20131205,57,#a8c1e5
-Lincoln,Total Patients Seen,20131206,3,#2563bf
-Lincoln,Total Patients Seen,20131207,53,#2563bf
-Lincoln,Total Patients Seen,20131208,19,#6691d2
-Lincoln,Total Patients Seen,20131209,50,#2563bf
-Lincoln,Total Patients Seen,20131210,37,#a8c1e5
-Lincoln,Total Patients Seen,20131211,86,#d3e0f2
-Lincoln,Total Patients Seen,20131212,86,#2563bf
-Lincoln,Total Patients Seen,20131213,71,#2563bf
-Lincoln,Total Patients Seen,20131214,6,#6691d2
-Lincoln,Total Patients Seen,20131215,95,#2563bf
-Lincoln,Total Patients Seen,20131216,65,#d3e0f2
-Lincoln,Total Patients Seen,20131217,54,#2563bf
-Lincoln,Total Patients Seen,20131218,78,#6691d2
-Metropolitan,3rd Next Available New,20131205,74,#6691d2
-Metropolitan,3rd Next Available New,20131206,79,#d3e0f2
-Metropolitan,3rd Next Available New,20131207,87,#2563bf
-Metropolitan,3rd Next Available New,20131208,7,#a8c1e5
-Metropolitan,3rd Next Available New,20131209,17,#a8c1e5
-Metropolitan,3rd Next Available New,20131210,64,#2563bf
-Metropolitan,3rd Next Available New,20131211,40,#6691d2
-Metropolitan,3rd Next Available New,20131212,54,#d3e0f2
-Metropolitan,3rd Next Available New,20131213,30,#d3e0f2
-Metropolitan,3rd Next Available New,20131214,53,#d3e0f2
-Metropolitan,3rd Next Available New,20131215,53,#6691d2
-Metropolitan,3rd Next Available New,20131216,13,#2563bf
-Metropolitan,3rd Next Available New,20131217,86,#a8c1e5
-Metropolitan,3rd Next Available New,20131218,68,#a8c1e5
-Metropolitan,3rd Next Avail Rvst,20131205,28,#a8c1e5
-Metropolitan,3rd Next Avail Rvst,20131206,67,#2563bf
-Metropolitan,3rd Next Avail Rvst,20131207,78,#2563bf
-Metropolitan,3rd Next Avail Rvst,20131208,5,#2563bf
-Metropolitan,3rd Next Avail Rvst,20131209,78,#d3e0f2
-Metropolitan,3rd Next Avail Rvst,20131210,8,#2563bf
-Metropolitan,3rd Next Avail Rvst,20131211,69,#d3e0f2
-Metropolitan,3rd Next Avail Rvst,20131212,36,#a8c1e5
-Metropolitan,3rd Next Avail Rvst,20131213,44,#2563bf
-Metropolitan,3rd Next Avail Rvst,20131214,36,#d3e0f2
-Metropolitan,3rd Next Avail Rvst,20131215,64,#2563bf
-Metropolitan,3rd Next Avail Rvst,20131216,84,#d3e0f2
-Metropolitan,3rd Next Avail Rvst,20131217,95,#a8c1e5
-Metropolitan,3rd Next Avail Rvst,20131218,62,#d3e0f2
-Metropolitan,Fill Rate,20131205,14,#2563bf
-Metropolitan,Fill Rate,20131206,77,#a8c1e5
-Metropolitan,Fill Rate,20131207,17,#a8c1e5
-Metropolitan,Fill Rate,20131208,94,#d3e0f2
-Metropolitan,Fill Rate,20131209,5,#a8c1e5
-Metropolitan,Fill Rate,20131210,36,#d3e0f2
-Metropolitan,Fill Rate,20131211,28,#d3e0f2
-Metropolitan,Fill Rate,20131212,94,#a8c1e5
-Metropolitan,Fill Rate,20131213,30,#a8c1e5
-Metropolitan,Fill Rate,20131214,38,#2563bf
-Metropolitan,Fill Rate,20131215,12,#d3e0f2
-Metropolitan,Fill Rate,20131216,35,#d3e0f2
-Metropolitan,Fill Rate,20131217,45,#d3e0f2
-Metropolitan,Fill Rate,20131218,33,#6691d2
-Metropolitan,No Show Rate,20131205,71,#6691d2
-Metropolitan,No Show Rate,20131206,7,#2563bf
-Metropolitan,No Show Rate,20131207,5,#2563bf
-Metropolitan,No Show Rate,20131208,46,#d3e0f2
-Metropolitan,No Show Rate,20131209,91,#6691d2
-Metropolitan,No Show Rate,20131210,44,#a8c1e5
-Metropolitan,No Show Rate,20131211,99,#6691d2
-Metropolitan,No Show Rate,20131212,59,#d3e0f2
-Metropolitan,No Show Rate,20131213,52,#d3e0f2
-Metropolitan,No Show Rate,20131214,89,#6691d2
-Metropolitan,No Show Rate,20131215,42,#2563bf
-Metropolitan,No Show Rate,20131216,76,#2563bf
-Metropolitan,No Show Rate,20131217,69,#6691d2
-Metropolitan,No Show Rate,20131218,70,#6691d2
-Metropolitan,In-Clinic Wait Time,20131205,53,#a8c1e5
-Metropolitan,In-Clinic Wait Time,20131206,24,#a8c1e5
-Metropolitan,In-Clinic Wait Time,20131207,97,#a8c1e5
-Metropolitan,In-Clinic Wait Time,20131208,12,#6691d2
-Metropolitan,In-Clinic Wait Time,20131209,25,#2563bf
-Metropolitan,In-Clinic Wait Time,20131210,35,#6691d2
-Metropolitan,In-Clinic Wait Time,20131211,31,#2563bf
-Metropolitan,In-Clinic Wait Time,20131212,66,#a8c1e5
-Metropolitan,In-Clinic Wait Time,20131213,73,#d3e0f2
-Metropolitan,In-Clinic Wait Time,20131214,67,#2563bf
-Metropolitan,In-Clinic Wait Time,20131215,84,#6691d2
-Metropolitan,In-Clinic Wait Time,20131216,76,#2563bf
-Metropolitan,In-Clinic Wait Time,20131217,1,#6691d2
-Metropolitan,In-Clinic Wait Time,20131218,92,#2563bf
-Metropolitan,Patient Satisfaction,20131205,98,#d3e0f2
-Metropolitan,Patient Satisfaction,20131206,21,#2563bf
-Metropolitan,Patient Satisfaction,20131207,83,#2563bf
-Metropolitan,Patient Satisfaction,20131208,39,#d3e0f2
-Metropolitan,Patient Satisfaction,20131209,59,#d3e0f2
-Metropolitan,Patient Satisfaction,20131210,31,#2563bf
-Metropolitan,Patient Satisfaction,20131211,80,#6691d2
-Metropolitan,Patient Satisfaction,20131212,51,#6691d2
-Metropolitan,Patient Satisfaction,20131213,9,#2563bf
-Metropolitan,Patient Satisfaction,20131214,3,#6691d2
-Metropolitan,Patient Satisfaction,20131215,33,#d3e0f2
-Metropolitan,Patient Satisfaction,20131216,28,#a8c1e5
-Metropolitan,Patient Satisfaction,20131217,8,#2563bf
-Metropolitan,Patient Satisfaction,20131218,24,#a8c1e5
-Metropolitan,Total Patients Seen,20131205,91,#d3e0f2
-Metropolitan,Total Patients Seen,20131206,63,#d3e0f2
-Metropolitan,Total Patients Seen,20131207,71,#d3e0f2
-Metropolitan,Total Patients Seen,20131208,21,#2563bf
-Metropolitan,Total Patients Seen,20131209,99,#6691d2
-Metropolitan,Total Patients Seen,20131210,46,#6691d2
-Metropolitan,Total Patients Seen,20131211,57,#a8c1e5
-Metropolitan,Total Patients Seen,20131212,25,#a8c1e5
-Metropolitan,Total Patients Seen,20131213,22,#2563bf
-Metropolitan,Total Patients Seen,20131214,7,#2563bf
-Metropolitan,Total Patients Seen,20131215,60,#a8c1e5
-Metropolitan,Total Patients Seen,20131216,58,#2563bf
-Metropolitan,Total Patients Seen,20131217,30,#a8c1e5
-Metropolitan,Total Patients Seen,20131218,31,#2563bf
-Kings,3rd Next Available New,20131205,89,#a8c1e5
-Kings,3rd Next Available New,20131206,39,#d3e0f2
-Kings,3rd Next Available New,20131207,34,#d3e0f2
-Kings,3rd Next Available New,20131208,14,#6691d2
-Kings,3rd Next Available New,20131209,56,#6691d2
-Kings,3rd Next Available New,20131210,1,#a8c1e5
-Kings,3rd Next Available New,20131211,34,#2563bf
-Kings,3rd Next Available New,20131212,23,#d3e0f2
-Kings,3rd Next Available New,20131213,69,#d3e0f2
-Kings,3rd Next Available New,20131214,67,#a8c1e5
-Kings,3rd Next Available New,20131215,70,#a8c1e5
-Kings,3rd Next Available New,20131216,24,#a8c1e5
-Kings,3rd Next Available New,20131217,90,#6691d2
-Kings,3rd Next Available New,20131218,78,#2563bf
-Kings,3rd Next Avail Rvst,20131205,30,#a8c1e5
-Kings,3rd Next Avail Rvst,20131206,95,#a8c1e5
-Kings,3rd Next Avail Rvst,20131207,46,#d3e0f2
-Kings,3rd Next Avail Rvst,20131208,24,#6691d2
-Kings,3rd Next Avail Rvst,20131209,54,#d3e0f2
-Kings,3rd Next Avail Rvst,20131210,65,#a8c1e5
-Kings,3rd Next Avail Rvst,20131211,37,#2563bf
-Kings,3rd Next Avail Rvst,20131212,52,#6691d2
-Kings,3rd Next Avail Rvst,20131213,2,#d3e0f2
-Kings,3rd Next Avail Rvst,20131214,13,#d3e0f2
-Kings,3rd Next Avail Rvst,20131215,82,#2563bf
-Kings,3rd Next Avail Rvst,20131216,23,#a8c1e5
-Kings,3rd Next Avail Rvst,20131217,97,#d3e0f2
-Kings,3rd Next Avail Rvst,20131218,72,#a8c1e5
-Kings,Fill Rate,20131205,43,#a8c1e5
-Kings,Fill Rate,20131206,12,#d3e0f2
-Kings,Fill Rate,20131207,58,#d3e0f2
-Kings,Fill Rate,20131208,90,#a8c1e5
-Kings,Fill Rate,20131209,97,#d3e0f2
-Kings,Fill Rate,20131210,91,#6691d2
-Kings,Fill Rate,20131211,10,#d3e0f2
-Kings,Fill Rate,20131212,58,#6691d2
-Kings,Fill Rate,20131213,6,#2563bf
-Kings,Fill Rate,20131214,79,#a8c1e5
-Kings,Fill Rate,20131215,18,#2563bf
-Kings,Fill Rate,20131216,34,#6691d2
-Kings,Fill Rate,20131217,70,#a8c1e5
-Kings,Fill Rate,20131218,77,#a8c1e5
-Kings,No Show Rate,20131205,48,#a8c1e5
-Kings,No Show Rate,20131206,5,#2563bf
-Kings,No Show Rate,20131207,25,#d3e0f2
-Kings,No Show Rate,20131208,24,#a8c1e5
-Kings,No Show Rate,20131209,19,#6691d2
-Kings,No Show Rate,20131210,32,#6691d2
-Kings,No Show Rate,20131211,5,#d3e0f2
-Kings,No Show Rate,20131212,89,#d3e0f2
-Kings,No Show Rate,20131213,90,#a8c1e5
-Kings,No Show Rate,20131214,42,#2563bf
-Kings,No Show Rate,20131215,95,#6691d2
-Kings,No Show Rate,20131216,48,#2563bf
-Kings,No Show Rate,20131217,12,#a8c1e5
-Kings,No Show Rate,20131218,72,#a8c1e5
-Kings,In-Clinic Wait Time,20131205,75,#a8c1e5
-Kings,In-Clinic Wait Time,20131206,60,#2563bf
-Kings,In-Clinic Wait Time,20131207,32,#a8c1e5
-Kings,In-Clinic Wait Time,20131208,23,#a8c1e5
-Kings,In-Clinic Wait Time,20131209,38,#6691d2
-Kings,In-Clinic Wait Time,20131210,17,#2563bf
-Kings,In-Clinic Wait Time,20131211,4,#2563bf
-Kings,In-Clinic Wait Time,20131212,94,#d3e0f2
-Kings,In-Clinic Wait Time,20131213,8,#d3e0f2
-Kings,In-Clinic Wait Time,20131214,71,#2563bf
-Kings,In-Clinic Wait Time,20131215,42,#a8c1e5
-Kings,In-Clinic Wait Time,20131216,25,#a8c1e5
-Kings,In-Clinic Wait Time,20131217,37,#6691d2
-Kings,In-Clinic Wait Time,20131218,14,#2563bf
-Kings,Patient Satisfaction,20131205,26,#a8c1e5
-Kings,Patient Satisfaction,20131206,79,#d3e0f2
-Kings,Patient Satisfaction,20131207,25,#d3e0f2
-Kings,Patient Satisfaction,20131208,52,#a8c1e5
-Kings,Patient Satisfaction,20131209,57,#a8c1e5
-Kings,Patient Satisfaction,20131210,86,#d3e0f2
-Kings,Patient Satisfaction,20131211,87,#2563bf
-Kings,Patient Satisfaction,20131212,87,#2563bf
-Kings,Patient Satisfaction,20131213,8,#a8c1e5
-Kings,Patient Satisfaction,20131214,72,#6691d2
-Kings,Patient Satisfaction,20131215,11,#6691d2
-Kings,Patient Satisfaction,20131216,86,#2563bf
-Kings,Patient Satisfaction,20131217,30,#a8c1e5
-Kings,Patient Satisfaction,20131218,53,#d3e0f2
-Kings,Total Patients Seen,20131205,25,#2563bf
-Kings,Total Patients Seen,20131206,32,#a8c1e5
-Kings,Total Patients Seen,20131207,63,#2563bf
-Kings,Total Patients Seen,20131208,40,#2563bf
-Kings,Total Patients Seen,20131209,74,#d3e0f2
-Kings,Total Patients Seen,20131210,96,#2563bf
-Kings,Total Patients Seen,20131211,69,#d3e0f2
-Kings,Total Patients Seen,20131212,65,#a8c1e5
-Kings,Total Patients Seen,20131213,29,#6691d2
-Kings,Total Patients Seen,20131214,36,#6691d2
-Kings,Total Patients Seen,20131215,43,#6691d2
-Kings,Total Patients Seen,20131216,36,#a8c1e5
-Kings,Total Patients Seen,20131217,72,#2563bf
-Kings,Total Patients Seen,20131218,0,#2563bf
+category,subcategory,xAxis,value,color,target
+Gouverneur,3rd Next Available New,20131213,56,#6691d2,50
+Gouverneur,3rd Next Available New,20131214,28,#2563bf,50
+Gouverneur,3rd Next Available New,20131215,0,#6691d2,50
+Gouverneur,3rd Next Available New,20131216,55,#d3e0f2,50
+Gouverneur,3rd Next Available New,20131217,41,#2563bf,50
+Gouverneur,3rd Next Available New,20131218,48,#2563bf,50
+Gouverneur,3rd Next Available New,20131219,80,#d3e0f2,50
+Gouverneur,3rd Next Available New,20131220,83,#a8c1e5,50
+Gouverneur,3rd Next Available New,20131221,68,#a8c1e5,50
+Gouverneur,3rd Next Available New,20131222,67,#a8c1e5,50
+Gouverneur,3rd Next Available New,20131223,97,#a8c1e5,50
+Gouverneur,3rd Next Available New,20131224,12,#a8c1e5,50
+Gouverneur,3rd Next Available New,20131225,46,#d3e0f2,50
+Gouverneur,3rd Next Available New,20131226,72,#a8c1e5,50
+Gouverneur,3rd Next Avail Rvst,20131213,81,#d3e0f2,50
+Gouverneur,3rd Next Avail Rvst,20131214,26,#6691d2,50
+Gouverneur,3rd Next Avail Rvst,20131215,42,#d3e0f2,50
+Gouverneur,3rd Next Avail Rvst,20131216,45,#2563bf,50
+Gouverneur,3rd Next Avail Rvst,20131217,27,#d3e0f2,50
+Gouverneur,3rd Next Avail Rvst,20131218,50,#d3e0f2,50
+Gouverneur,3rd Next Avail Rvst,20131219,4,#d3e0f2,50
+Gouverneur,3rd Next Avail Rvst,20131220,91,#d3e0f2,50
+Gouverneur,3rd Next Avail Rvst,20131221,25,#d3e0f2,50
+Gouverneur,3rd Next Avail Rvst,20131222,36,#a8c1e5,50
+Gouverneur,3rd Next Avail Rvst,20131223,36,#6691d2,50
+Gouverneur,3rd Next Avail Rvst,20131224,14,#2563bf,50
+Gouverneur,3rd Next Avail Rvst,20131225,34,#a8c1e5,50
+Gouverneur,3rd Next Avail Rvst,20131226,58,#d3e0f2,50
+Gouverneur,Fill Rate,20131213,99,#a8c1e5,50
+Gouverneur,Fill Rate,20131214,74,#a8c1e5,50
+Gouverneur,Fill Rate,20131215,66,#2563bf,50
+Gouverneur,Fill Rate,20131216,63,#d3e0f2,50
+Gouverneur,Fill Rate,20131217,1,#d3e0f2,50
+Gouverneur,Fill Rate,20131218,47,#d3e0f2,50
+Gouverneur,Fill Rate,20131219,77,#a8c1e5,50
+Gouverneur,Fill Rate,20131220,72,#d3e0f2,50
+Gouverneur,Fill Rate,20131221,45,#2563bf,50
+Gouverneur,Fill Rate,20131222,9,#d3e0f2,50
+Gouverneur,Fill Rate,20131223,53,#a8c1e5,50
+Gouverneur,Fill Rate,20131224,29,#6691d2,50
+Gouverneur,Fill Rate,20131225,79,#a8c1e5,50
+Gouverneur,Fill Rate,20131226,98,#2563bf,50
+Gouverneur,No Show Rate,20131213,19,#a8c1e5,50
+Gouverneur,No Show Rate,20131214,26,#2563bf,50
+Gouverneur,No Show Rate,20131215,30,#6691d2,50
+Gouverneur,No Show Rate,20131216,0,#2563bf,50
+Gouverneur,No Show Rate,20131217,48,#a8c1e5,50
+Gouverneur,No Show Rate,20131218,36,#d3e0f2,50
+Gouverneur,No Show Rate,20131219,6,#6691d2,50
+Gouverneur,No Show Rate,20131220,30,#6691d2,50
+Gouverneur,No Show Rate,20131221,46,#d3e0f2,50
+Gouverneur,No Show Rate,20131222,31,#d3e0f2,50
+Gouverneur,No Show Rate,20131223,73,#6691d2,50
+Gouverneur,No Show Rate,20131224,48,#2563bf,50
+Gouverneur,No Show Rate,20131225,89,#2563bf,50
+Gouverneur,No Show Rate,20131226,31,#2563bf,50
+Gouverneur,In-Clinic Wait Time,20131213,50,#a8c1e5,50
+Gouverneur,In-Clinic Wait Time,20131214,68,#6691d2,50
+Gouverneur,In-Clinic Wait Time,20131215,84,#a8c1e5,50
+Gouverneur,In-Clinic Wait Time,20131216,13,#a8c1e5,50
+Gouverneur,In-Clinic Wait Time,20131217,28,#2563bf,50
+Gouverneur,In-Clinic Wait Time,20131218,33,#a8c1e5,50
+Gouverneur,In-Clinic Wait Time,20131219,89,#2563bf,50
+Gouverneur,In-Clinic Wait Time,20131220,49,#6691d2,50
+Gouverneur,In-Clinic Wait Time,20131221,42,#2563bf,50
+Gouverneur,In-Clinic Wait Time,20131222,66,#d3e0f2,50
+Gouverneur,In-Clinic Wait Time,20131223,99,#2563bf,50
+Gouverneur,In-Clinic Wait Time,20131224,26,#d3e0f2,50
+Gouverneur,In-Clinic Wait Time,20131225,31,#6691d2,50
+Gouverneur,In-Clinic Wait Time,20131226,36,#a8c1e5,50
+Gouverneur,Patient Satisfaction,20131213,14,#d3e0f2,50
+Gouverneur,Patient Satisfaction,20131214,70,#2563bf,50
+Gouverneur,Patient Satisfaction,20131215,51,#2563bf,50
+Gouverneur,Patient Satisfaction,20131216,95,#a8c1e5,50
+Gouverneur,Patient Satisfaction,20131217,99,#a8c1e5,50
+Gouverneur,Patient Satisfaction,20131218,48,#a8c1e5,50
+Gouverneur,Patient Satisfaction,20131219,97,#2563bf,50
+Gouverneur,Patient Satisfaction,20131220,97,#d3e0f2,50
+Gouverneur,Patient Satisfaction,20131221,92,#a8c1e5,50
+Gouverneur,Patient Satisfaction,20131222,49,#6691d2,50
+Gouverneur,Patient Satisfaction,20131223,43,#d3e0f2,50
+Gouverneur,Patient Satisfaction,20131224,53,#d3e0f2,50
+Gouverneur,Patient Satisfaction,20131225,51,#6691d2,50
+Gouverneur,Patient Satisfaction,20131226,5,#6691d2,50
+Gouverneur,Total Patients Seen,20131213,16,#d3e0f2,50
+Gouverneur,Total Patients Seen,20131214,11,#d3e0f2,50
+Gouverneur,Total Patients Seen,20131215,84,#2563bf,50
+Gouverneur,Total Patients Seen,20131216,16,#2563bf,50
+Gouverneur,Total Patients Seen,20131217,11,#a8c1e5,50
+Gouverneur,Total Patients Seen,20131218,22,#6691d2,50
+Gouverneur,Total Patients Seen,20131219,71,#6691d2,50
+Gouverneur,Total Patients Seen,20131220,83,#6691d2,50
+Gouverneur,Total Patients Seen,20131221,17,#2563bf,50
+Gouverneur,Total Patients Seen,20131222,78,#d3e0f2,50
+Gouverneur,Total Patients Seen,20131223,68,#a8c1e5,50
+Gouverneur,Total Patients Seen,20131224,23,#d3e0f2,50
+Gouverneur,Total Patients Seen,20131225,61,#a8c1e5,50
+Gouverneur,Total Patients Seen,20131226,42,#2563bf,50
+Jacobi,3rd Next Available New,20131213,66,#a8c1e5,50
+Jacobi,3rd Next Available New,20131214,13,#2563bf,50
+Jacobi,3rd Next Available New,20131215,69,#a8c1e5,50
+Jacobi,3rd Next Available New,20131216,88,#6691d2,50
+Jacobi,3rd Next Available New,20131217,66,#6691d2,50
+Jacobi,3rd Next Available New,20131218,20,#6691d2,50
+Jacobi,3rd Next Available New,20131219,34,#d3e0f2,50
+Jacobi,3rd Next Available New,20131220,41,#a8c1e5,50
+Jacobi,3rd Next Available New,20131221,88,#6691d2,50
+Jacobi,3rd Next Available New,20131222,69,#2563bf,50
+Jacobi,3rd Next Available New,20131223,91,#a8c1e5,50
+Jacobi,3rd Next Available New,20131224,90,#d3e0f2,50
+Jacobi,3rd Next Available New,20131225,73,#d3e0f2,50
+Jacobi,3rd Next Available New,20131226,10,#a8c1e5,50
+Jacobi,3rd Next Avail Rvst,20131213,58,#a8c1e5,50
+Jacobi,3rd Next Avail Rvst,20131214,30,#d3e0f2,50
+Jacobi,3rd Next Avail Rvst,20131215,45,#2563bf,50
+Jacobi,3rd Next Avail Rvst,20131216,53,#d3e0f2,50
+Jacobi,3rd Next Avail Rvst,20131217,5,#6691d2,50
+Jacobi,3rd Next Avail Rvst,20131218,50,#a8c1e5,50
+Jacobi,3rd Next Avail Rvst,20131219,74,#2563bf,50
+Jacobi,3rd Next Avail Rvst,20131220,38,#6691d2,50
+Jacobi,3rd Next Avail Rvst,20131221,3,#d3e0f2,50
+Jacobi,3rd Next Avail Rvst,20131222,78,#d3e0f2,50
+Jacobi,3rd Next Avail Rvst,20131223,18,#6691d2,50
+Jacobi,3rd Next Avail Rvst,20131224,23,#d3e0f2,50
+Jacobi,3rd Next Avail Rvst,20131225,99,#2563bf,50
+Jacobi,3rd Next Avail Rvst,20131226,23,#6691d2,50
+Jacobi,Fill Rate,20131213,48,#d3e0f2,50
+Jacobi,Fill Rate,20131214,80,#d3e0f2,50
+Jacobi,Fill Rate,20131215,77,#a8c1e5,50
+Jacobi,Fill Rate,20131216,46,#2563bf,50
+Jacobi,Fill Rate,20131217,82,#2563bf,50
+Jacobi,Fill Rate,20131218,66,#6691d2,50
+Jacobi,Fill Rate,20131219,56,#6691d2,50
+Jacobi,Fill Rate,20131220,53,#a8c1e5,50
+Jacobi,Fill Rate,20131221,86,#d3e0f2,50
+Jacobi,Fill Rate,20131222,12,#2563bf,50
+Jacobi,Fill Rate,20131223,7,#d3e0f2,50
+Jacobi,Fill Rate,20131224,93,#a8c1e5,50
+Jacobi,Fill Rate,20131225,43,#2563bf,50
+Jacobi,Fill Rate,20131226,93,#a8c1e5,50
+Jacobi,No Show Rate,20131213,64,#2563bf,50
+Jacobi,No Show Rate,20131214,85,#a8c1e5,50
+Jacobi,No Show Rate,20131215,20,#a8c1e5,50
+Jacobi,No Show Rate,20131216,2,#2563bf,50
+Jacobi,No Show Rate,20131217,77,#d3e0f2,50
+Jacobi,No Show Rate,20131218,8,#d3e0f2,50
+Jacobi,No Show Rate,20131219,56,#a8c1e5,50
+Jacobi,No Show Rate,20131220,47,#2563bf,50
+Jacobi,No Show Rate,20131221,87,#d3e0f2,50
+Jacobi,No Show Rate,20131222,19,#a8c1e5,50
+Jacobi,No Show Rate,20131223,87,#d3e0f2,50
+Jacobi,No Show Rate,20131224,37,#d3e0f2,50
+Jacobi,No Show Rate,20131225,43,#2563bf,50
+Jacobi,No Show Rate,20131226,45,#a8c1e5,50
+Jacobi,In-Clinic Wait Time,20131213,35,#a8c1e5,50
+Jacobi,In-Clinic Wait Time,20131214,80,#6691d2,50
+Jacobi,In-Clinic Wait Time,20131215,43,#a8c1e5,50
+Jacobi,In-Clinic Wait Time,20131216,60,#6691d2,50
+Jacobi,In-Clinic Wait Time,20131217,12,#a8c1e5,50
+Jacobi,In-Clinic Wait Time,20131218,80,#2563bf,50
+Jacobi,In-Clinic Wait Time,20131219,98,#a8c1e5,50
+Jacobi,In-Clinic Wait Time,20131220,86,#a8c1e5,50
+Jacobi,In-Clinic Wait Time,20131221,8,#6691d2,50
+Jacobi,In-Clinic Wait Time,20131222,9,#d3e0f2,50
+Jacobi,In-Clinic Wait Time,20131223,47,#2563bf,50
+Jacobi,In-Clinic Wait Time,20131224,40,#6691d2,50
+Jacobi,In-Clinic Wait Time,20131225,44,#a8c1e5,50
+Jacobi,In-Clinic Wait Time,20131226,54,#6691d2,50
+Jacobi,Patient Satisfaction,20131213,51,#d3e0f2,50
+Jacobi,Patient Satisfaction,20131214,18,#a8c1e5,50
+Jacobi,Patient Satisfaction,20131215,97,#d3e0f2,50
+Jacobi,Patient Satisfaction,20131216,54,#2563bf,50
+Jacobi,Patient Satisfaction,20131217,14,#a8c1e5,50
+Jacobi,Patient Satisfaction,20131218,11,#d3e0f2,50
+Jacobi,Patient Satisfaction,20131219,63,#2563bf,50
+Jacobi,Patient Satisfaction,20131220,13,#2563bf,50
+Jacobi,Patient Satisfaction,20131221,85,#6691d2,50
+Jacobi,Patient Satisfaction,20131222,92,#a8c1e5,50
+Jacobi,Patient Satisfaction,20131223,79,#a8c1e5,50
+Jacobi,Patient Satisfaction,20131224,45,#d3e0f2,50
+Jacobi,Patient Satisfaction,20131225,54,#d3e0f2,50
+Jacobi,Patient Satisfaction,20131226,78,#6691d2,50
+Jacobi,Total Patients Seen,20131213,22,#a8c1e5,50
+Jacobi,Total Patients Seen,20131214,9,#2563bf,50
+Jacobi,Total Patients Seen,20131215,27,#d3e0f2,50
+Jacobi,Total Patients Seen,20131216,50,#2563bf,50
+Jacobi,Total Patients Seen,20131217,36,#d3e0f2,50
+Jacobi,Total Patients Seen,20131218,19,#a8c1e5,50
+Jacobi,Total Patients Seen,20131219,49,#a8c1e5,50
+Jacobi,Total Patients Seen,20131220,84,#d3e0f2,50
+Jacobi,Total Patients Seen,20131221,56,#a8c1e5,50
+Jacobi,Total Patients Seen,20131222,33,#d3e0f2,50
+Jacobi,Total Patients Seen,20131223,36,#2563bf,50
+Jacobi,Total Patients Seen,20131224,17,#2563bf,50
+Jacobi,Total Patients Seen,20131225,31,#6691d2,50
+Jacobi,Total Patients Seen,20131226,98,#2563bf,50
+Lincoln,3rd Next Available New,20131213,38,#d3e0f2,50
+Lincoln,3rd Next Available New,20131214,44,#d3e0f2,50
+Lincoln,3rd Next Available New,20131215,18,#a8c1e5,50
+Lincoln,3rd Next Available New,20131216,86,#d3e0f2,50
+Lincoln,3rd Next Available New,20131217,28,#d3e0f2,50
+Lincoln,3rd Next Available New,20131218,88,#a8c1e5,50
+Lincoln,3rd Next Available New,20131219,86,#6691d2,50
+Lincoln,3rd Next Available New,20131220,49,#6691d2,50
+Lincoln,3rd Next Available New,20131221,0,#d3e0f2,50
+Lincoln,3rd Next Available New,20131222,68,#d3e0f2,50
+Lincoln,3rd Next Available New,20131223,56,#6691d2,50
+Lincoln,3rd Next Available New,20131224,94,#d3e0f2,50
+Lincoln,3rd Next Available New,20131225,23,#6691d2,50
+Lincoln,3rd Next Available New,20131226,99,#a8c1e5,50
+Lincoln,3rd Next Avail Rvst,20131213,29,#2563bf,50
+Lincoln,3rd Next Avail Rvst,20131214,23,#a8c1e5,50
+Lincoln,3rd Next Avail Rvst,20131215,3,#a8c1e5,50
+Lincoln,3rd Next Avail Rvst,20131216,76,#a8c1e5,50
+Lincoln,3rd Next Avail Rvst,20131217,96,#2563bf,50
+Lincoln,3rd Next Avail Rvst,20131218,81,#2563bf,50
+Lincoln,3rd Next Avail Rvst,20131219,66,#6691d2,50
+Lincoln,3rd Next Avail Rvst,20131220,63,#6691d2,50
+Lincoln,3rd Next Avail Rvst,20131221,92,#a8c1e5,50
+Lincoln,3rd Next Avail Rvst,20131222,70,#2563bf,50
+Lincoln,3rd Next Avail Rvst,20131223,77,#d3e0f2,50
+Lincoln,3rd Next Avail Rvst,20131224,41,#2563bf,50
+Lincoln,3rd Next Avail Rvst,20131225,67,#d3e0f2,50
+Lincoln,3rd Next Avail Rvst,20131226,64,#6691d2,50
+Lincoln,Fill Rate,20131213,60,#6691d2,50
+Lincoln,Fill Rate,20131214,10,#a8c1e5,50
+Lincoln,Fill Rate,20131215,61,#2563bf,50
+Lincoln,Fill Rate,20131216,44,#a8c1e5,50
+Lincoln,Fill Rate,20131217,21,#a8c1e5,50
+Lincoln,Fill Rate,20131218,22,#d3e0f2,50
+Lincoln,Fill Rate,20131219,51,#a8c1e5,50
+Lincoln,Fill Rate,20131220,71,#6691d2,50
+Lincoln,Fill Rate,20131221,98,#d3e0f2,50
+Lincoln,Fill Rate,20131222,10,#6691d2,50
+Lincoln,Fill Rate,20131223,98,#a8c1e5,50
+Lincoln,Fill Rate,20131224,90,#6691d2,50
+Lincoln,Fill Rate,20131225,67,#d3e0f2,50
+Lincoln,Fill Rate,20131226,58,#6691d2,50
+Lincoln,No Show Rate,20131213,75,#2563bf,50
+Lincoln,No Show Rate,20131214,57,#a8c1e5,50
+Lincoln,No Show Rate,20131215,74,#d3e0f2,50
+Lincoln,No Show Rate,20131216,42,#6691d2,50
+Lincoln,No Show Rate,20131217,73,#a8c1e5,50
+Lincoln,No Show Rate,20131218,93,#a8c1e5,50
+Lincoln,No Show Rate,20131219,88,#a8c1e5,50
+Lincoln,No Show Rate,20131220,85,#a8c1e5,50
+Lincoln,No Show Rate,20131221,40,#d3e0f2,50
+Lincoln,No Show Rate,20131222,7,#2563bf,50
+Lincoln,No Show Rate,20131223,52,#2563bf,50
+Lincoln,No Show Rate,20131224,76,#a8c1e5,50
+Lincoln,No Show Rate,20131225,61,#6691d2,50
+Lincoln,No Show Rate,20131226,11,#d3e0f2,50
+Lincoln,In-Clinic Wait Time,20131213,72,#d3e0f2,50
+Lincoln,In-Clinic Wait Time,20131214,74,#6691d2,50
+Lincoln,In-Clinic Wait Time,20131215,45,#a8c1e5,50
+Lincoln,In-Clinic Wait Time,20131216,69,#a8c1e5,50
+Lincoln,In-Clinic Wait Time,20131217,91,#6691d2,50
+Lincoln,In-Clinic Wait Time,20131218,9,#2563bf,50
+Lincoln,In-Clinic Wait Time,20131219,95,#6691d2,50
+Lincoln,In-Clinic Wait Time,20131220,53,#2563bf,50
+Lincoln,In-Clinic Wait Time,20131221,23,#d3e0f2,50
+Lincoln,In-Clinic Wait Time,20131222,9,#d3e0f2,50
+Lincoln,In-Clinic Wait Time,20131223,93,#6691d2,50
+Lincoln,In-Clinic Wait Time,20131224,32,#6691d2,50
+Lincoln,In-Clinic Wait Time,20131225,13,#6691d2,50
+Lincoln,In-Clinic Wait Time,20131226,54,#6691d2,50
+Lincoln,Patient Satisfaction,20131213,21,#6691d2,50
+Lincoln,Patient Satisfaction,20131214,84,#6691d2,50
+Lincoln,Patient Satisfaction,20131215,42,#a8c1e5,50
+Lincoln,Patient Satisfaction,20131216,89,#2563bf,50
+Lincoln,Patient Satisfaction,20131217,4,#6691d2,50
+Lincoln,Patient Satisfaction,20131218,34,#d3e0f2,50
+Lincoln,Patient Satisfaction,20131219,14,#a8c1e5,50
+Lincoln,Patient Satisfaction,20131220,35,#2563bf,50
+Lincoln,Patient Satisfaction,20131221,78,#6691d2,50
+Lincoln,Patient Satisfaction,20131222,39,#6691d2,50
+Lincoln,Patient Satisfaction,20131223,59,#2563bf,50
+Lincoln,Patient Satisfaction,20131224,55,#d3e0f2,50
+Lincoln,Patient Satisfaction,20131225,18,#a8c1e5,50
+Lincoln,Patient Satisfaction,20131226,42,#a8c1e5,50
+Lincoln,Total Patients Seen,20131213,33,#a8c1e5,50
+Lincoln,Total Patients Seen,20131214,87,#2563bf,50
+Lincoln,Total Patients Seen,20131215,44,#a8c1e5,50
+Lincoln,Total Patients Seen,20131216,38,#6691d2,50
+Lincoln,Total Patients Seen,20131217,65,#d3e0f2,50
+Lincoln,Total Patients Seen,20131218,58,#6691d2,50
+Lincoln,Total Patients Seen,20131219,57,#d3e0f2,50
+Lincoln,Total Patients Seen,20131220,33,#a8c1e5,50
+Lincoln,Total Patients Seen,20131221,64,#6691d2,50
+Lincoln,Total Patients Seen,20131222,51,#d3e0f2,50
+Lincoln,Total Patients Seen,20131223,47,#a8c1e5,50
+Lincoln,Total Patients Seen,20131224,0,#d3e0f2,50
+Lincoln,Total Patients Seen,20131225,84,#d3e0f2,50
+Lincoln,Total Patients Seen,20131226,64,#a8c1e5,50
+Metropolitan,3rd Next Available New,20131213,38,#2563bf,50
+Metropolitan,3rd Next Available New,20131214,78,#d3e0f2,50
+Metropolitan,3rd Next Available New,20131215,31,#6691d2,50
+Metropolitan,3rd Next Available New,20131216,8,#a8c1e5,50
+Metropolitan,3rd Next Available New,20131217,79,#2563bf,50
+Metropolitan,3rd Next Available New,20131218,45,#2563bf,50
+Metropolitan,3rd Next Available New,20131219,86,#a8c1e5,50
+Metropolitan,3rd Next Available New,20131220,41,#2563bf,50
+Metropolitan,3rd Next Available New,20131221,55,#d3e0f2,50
+Metropolitan,3rd Next Available New,20131222,37,#2563bf,50
+Metropolitan,3rd Next Available New,20131223,51,#a8c1e5,50
+Metropolitan,3rd Next Available New,20131224,21,#2563bf,50
+Metropolitan,3rd Next Available New,20131225,96,#6691d2,50
+Metropolitan,3rd Next Available New,20131226,30,#6691d2,50
+Metropolitan,3rd Next Avail Rvst,20131213,75,#2563bf,50
+Metropolitan,3rd Next Avail Rvst,20131214,34,#d3e0f2,50
+Metropolitan,3rd Next Avail Rvst,20131215,69,#6691d2,50
+Metropolitan,3rd Next Avail Rvst,20131216,90,#d3e0f2,50
+Metropolitan,3rd Next Avail Rvst,20131217,12,#6691d2,50
+Metropolitan,3rd Next Avail Rvst,20131218,6,#a8c1e5,50
+Metropolitan,3rd Next Avail Rvst,20131219,48,#2563bf,50
+Metropolitan,3rd Next Avail Rvst,20131220,56,#2563bf,50
+Metropolitan,3rd Next Avail Rvst,20131221,66,#2563bf,50
+Metropolitan,3rd Next Avail Rvst,20131222,84,#2563bf,50
+Metropolitan,3rd Next Avail Rvst,20131223,92,#6691d2,50
+Metropolitan,3rd Next Avail Rvst,20131224,55,#6691d2,50
+Metropolitan,3rd Next Avail Rvst,20131225,15,#6691d2,50
+Metropolitan,3rd Next Avail Rvst,20131226,15,#6691d2,50
+Metropolitan,Fill Rate,20131213,38,#6691d2,50
+Metropolitan,Fill Rate,20131214,9,#d3e0f2,50
+Metropolitan,Fill Rate,20131215,70,#a8c1e5,50
+Metropolitan,Fill Rate,20131216,37,#2563bf,50
+Metropolitan,Fill Rate,20131217,33,#6691d2,50
+Metropolitan,Fill Rate,20131218,47,#2563bf,50
+Metropolitan,Fill Rate,20131219,10,#2563bf,50
+Metropolitan,Fill Rate,20131220,40,#2563bf,50
+Metropolitan,Fill Rate,20131221,25,#2563bf,50
+Metropolitan,Fill Rate,20131222,96,#a8c1e5,50
+Metropolitan,Fill Rate,20131223,88,#6691d2,50
+Metropolitan,Fill Rate,20131224,67,#a8c1e5,50
+Metropolitan,Fill Rate,20131225,6,#2563bf,50
+Metropolitan,Fill Rate,20131226,86,#a8c1e5,50
+Metropolitan,No Show Rate,20131213,34,#a8c1e5,50
+Metropolitan,No Show Rate,20131214,36,#d3e0f2,50
+Metropolitan,No Show Rate,20131215,92,#6691d2,50
+Metropolitan,No Show Rate,20131216,96,#a8c1e5,50
+Metropolitan,No Show Rate,20131217,1,#a8c1e5,50
+Metropolitan,No Show Rate,20131218,74,#a8c1e5,50
+Metropolitan,No Show Rate,20131219,73,#a8c1e5,50
+Metropolitan,No Show Rate,20131220,55,#2563bf,50
+Metropolitan,No Show Rate,20131221,34,#d3e0f2,50
+Metropolitan,No Show Rate,20131222,84,#6691d2,50
+Metropolitan,No Show Rate,20131223,10,#a8c1e5,50
+Metropolitan,No Show Rate,20131224,30,#a8c1e5,50
+Metropolitan,No Show Rate,20131225,92,#6691d2,50
+Metropolitan,No Show Rate,20131226,71,#6691d2,50
+Metropolitan,In-Clinic Wait Time,20131213,3,#a8c1e5,50
+Metropolitan,In-Clinic Wait Time,20131214,17,#2563bf,50
+Metropolitan,In-Clinic Wait Time,20131215,27,#6691d2,50
+Metropolitan,In-Clinic Wait Time,20131216,81,#a8c1e5,50
+Metropolitan,In-Clinic Wait Time,20131217,36,#2563bf,50
+Metropolitan,In-Clinic Wait Time,20131218,11,#a8c1e5,50
+Metropolitan,In-Clinic Wait Time,20131219,49,#2563bf,50
+Metropolitan,In-Clinic Wait Time,20131220,80,#2563bf,50
+Metropolitan,In-Clinic Wait Time,20131221,37,#d3e0f2,50
+Metropolitan,In-Clinic Wait Time,20131222,48,#6691d2,50
+Metropolitan,In-Clinic Wait Time,20131223,6,#d3e0f2,50
+Metropolitan,In-Clinic Wait Time,20131224,86,#a8c1e5,50
+Metropolitan,In-Clinic Wait Time,20131225,85,#d3e0f2,50
+Metropolitan,In-Clinic Wait Time,20131226,99,#6691d2,50
+Metropolitan,Patient Satisfaction,20131213,43,#a8c1e5,50
+Metropolitan,Patient Satisfaction,20131214,92,#a8c1e5,50
+Metropolitan,Patient Satisfaction,20131215,41,#a8c1e5,50
+Metropolitan,Patient Satisfaction,20131216,89,#6691d2,50
+Metropolitan,Patient Satisfaction,20131217,31,#6691d2,50
+Metropolitan,Patient Satisfaction,20131218,38,#a8c1e5,50
+Metropolitan,Patient Satisfaction,20131219,97,#d3e0f2,50
+Metropolitan,Patient Satisfaction,20131220,87,#6691d2,50
+Metropolitan,Patient Satisfaction,20131221,34,#2563bf,50
+Metropolitan,Patient Satisfaction,20131222,56,#d3e0f2,50
+Metropolitan,Patient Satisfaction,20131223,60,#6691d2,50
+Metropolitan,Patient Satisfaction,20131224,93,#6691d2,50
+Metropolitan,Patient Satisfaction,20131225,14,#6691d2,50
+Metropolitan,Patient Satisfaction,20131226,20,#2563bf,50
+Metropolitan,Total Patients Seen,20131213,70,#d3e0f2,50
+Metropolitan,Total Patients Seen,20131214,84,#a8c1e5,50
+Metropolitan,Total Patients Seen,20131215,77,#6691d2,50
+Metropolitan,Total Patients Seen,20131216,34,#d3e0f2,50
+Metropolitan,Total Patients Seen,20131217,71,#d3e0f2,50
+Metropolitan,Total Patients Seen,20131218,45,#d3e0f2,50
+Metropolitan,Total Patients Seen,20131219,21,#d3e0f2,50
+Metropolitan,Total Patients Seen,20131220,31,#2563bf,50
+Metropolitan,Total Patients Seen,20131221,89,#2563bf,50
+Metropolitan,Total Patients Seen,20131222,77,#a8c1e5,50
+Metropolitan,Total Patients Seen,20131223,2,#d3e0f2,50
+Metropolitan,Total Patients Seen,20131224,97,#2563bf,50
+Metropolitan,Total Patients Seen,20131225,27,#6691d2,50
+Metropolitan,Total Patients Seen,20131226,76,#2563bf,50
+Kings,3rd Next Available New,20131213,67,#d3e0f2,50
+Kings,3rd Next Available New,20131214,18,#2563bf,50
+Kings,3rd Next Available New,20131215,22,#2563bf,50
+Kings,3rd Next Available New,20131216,52,#d3e0f2,50
+Kings,3rd Next Available New,20131217,9,#d3e0f2,50
+Kings,3rd Next Available New,20131218,56,#2563bf,50
+Kings,3rd Next Available New,20131219,20,#2563bf,50
+Kings,3rd Next Available New,20131220,32,#a8c1e5,50
+Kings,3rd Next Available New,20131221,49,#2563bf,50
+Kings,3rd Next Available New,20131222,47,#2563bf,50
+Kings,3rd Next Available New,20131223,43,#2563bf,50
+Kings,3rd Next Available New,20131224,92,#a8c1e5,50
+Kings,3rd Next Available New,20131225,44,#a8c1e5,50
+Kings,3rd Next Available New,20131226,22,#d3e0f2,50
+Kings,3rd Next Avail Rvst,20131213,93,#a8c1e5,50
+Kings,3rd Next Avail Rvst,20131214,86,#6691d2,50
+Kings,3rd Next Avail Rvst,20131215,30,#d3e0f2,50
+Kings,3rd Next Avail Rvst,20131216,50,#d3e0f2,50
+Kings,3rd Next Avail Rvst,20131217,73,#2563bf,50
+Kings,3rd Next Avail Rvst,20131218,15,#2563bf,50
+Kings,3rd Next Avail Rvst,20131219,95,#a8c1e5,50
+Kings,3rd Next Avail Rvst,20131220,73,#2563bf,50
+Kings,3rd Next Avail Rvst,20131221,54,#6691d2,50
+Kings,3rd Next Avail Rvst,20131222,1,#6691d2,50
+Kings,3rd Next Avail Rvst,20131223,93,#2563bf,50
+Kings,3rd Next Avail Rvst,20131224,14,#6691d2,50
+Kings,3rd Next Avail Rvst,20131225,86,#2563bf,50
+Kings,3rd Next Avail Rvst,20131226,12,#2563bf,50
+Kings,Fill Rate,20131213,14,#2563bf,50
+Kings,Fill Rate,20131214,7,#a8c1e5,50
+Kings,Fill Rate,20131215,36,#2563bf,50
+Kings,Fill Rate,20131216,7,#2563bf,50
+Kings,Fill Rate,20131217,47,#a8c1e5,50
+Kings,Fill Rate,20131218,10,#d3e0f2,50
+Kings,Fill Rate,20131219,73,#a8c1e5,50
+Kings,Fill Rate,20131220,77,#2563bf,50
+Kings,Fill Rate,20131221,18,#d3e0f2,50
+Kings,Fill Rate,20131222,13,#a8c1e5,50
+Kings,Fill Rate,20131223,35,#6691d2,50
+Kings,Fill Rate,20131224,95,#d3e0f2,50
+Kings,Fill Rate,20131225,18,#a8c1e5,50
+Kings,Fill Rate,20131226,6,#6691d2,50
+Kings,No Show Rate,20131213,75,#6691d2,50
+Kings,No Show Rate,20131214,79,#a8c1e5,50
+Kings,No Show Rate,20131215,20,#a8c1e5,50
+Kings,No Show Rate,20131216,82,#a8c1e5,50
+Kings,No Show Rate,20131217,29,#d3e0f2,50
+Kings,No Show Rate,20131218,58,#6691d2,50
+Kings,No Show Rate,20131219,80,#d3e0f2,50
+Kings,No Show Rate,20131220,56,#d3e0f2,50
+Kings,No Show Rate,20131221,1,#6691d2,50
+Kings,No Show Rate,20131222,55,#6691d2,50
+Kings,No Show Rate,20131223,40,#2563bf,50
+Kings,No Show Rate,20131224,88,#a8c1e5,50
+Kings,No Show Rate,20131225,59,#d3e0f2,50
+Kings,No Show Rate,20131226,37,#a8c1e5,50
+Kings,In-Clinic Wait Time,20131213,22,#d3e0f2,50
+Kings,In-Clinic Wait Time,20131214,2,#a8c1e5,50
+Kings,In-Clinic Wait Time,20131215,66,#2563bf,50
+Kings,In-Clinic Wait Time,20131216,51,#a8c1e5,50
+Kings,In-Clinic Wait Time,20131217,73,#2563bf,50
+Kings,In-Clinic Wait Time,20131218,45,#d3e0f2,50
+Kings,In-Clinic Wait Time,20131219,91,#6691d2,50
+Kings,In-Clinic Wait Time,20131220,48,#a8c1e5,50
+Kings,In-Clinic Wait Time,20131221,29,#2563bf,50
+Kings,In-Clinic Wait Time,20131222,13,#a8c1e5,50
+Kings,In-Clinic Wait Time,20131223,26,#2563bf,50
+Kings,In-Clinic Wait Time,20131224,72,#d3e0f2,50
+Kings,In-Clinic Wait Time,20131225,39,#6691d2,50
+Kings,In-Clinic Wait Time,20131226,51,#6691d2,50
+Kings,Patient Satisfaction,20131213,14,#2563bf,50
+Kings,Patient Satisfaction,20131214,68,#2563bf,50
+Kings,Patient Satisfaction,20131215,48,#6691d2,50
+Kings,Patient Satisfaction,20131216,56,#d3e0f2,50
+Kings,Patient Satisfaction,20131217,44,#6691d2,50
+Kings,Patient Satisfaction,20131218,66,#d3e0f2,50
+Kings,Patient Satisfaction,20131219,71,#2563bf,50
+Kings,Patient Satisfaction,20131220,36,#2563bf,50
+Kings,Patient Satisfaction,20131221,85,#a8c1e5,50
+Kings,Patient Satisfaction,20131222,3,#d3e0f2,50
+Kings,Patient Satisfaction,20131223,65,#d3e0f2,50
+Kings,Patient Satisfaction,20131224,86,#a8c1e5,50
+Kings,Patient Satisfaction,20131225,63,#6691d2,50
+Kings,Patient Satisfaction,20131226,60,#d3e0f2,50
+Kings,Total Patients Seen,20131213,46,#d3e0f2,50
+Kings,Total Patients Seen,20131214,96,#a8c1e5,50
+Kings,Total Patients Seen,20131215,6,#d3e0f2,50
+Kings,Total Patients Seen,20131216,99,#2563bf,50
+Kings,Total Patients Seen,20131217,51,#a8c1e5,50
+Kings,Total Patients Seen,20131218,85,#2563bf,50
+Kings,Total Patients Seen,20131219,56,#d3e0f2,50
+Kings,Total Patients Seen,20131220,83,#6691d2,50
+Kings,Total Patients Seen,20131221,28,#a8c1e5,50
+Kings,Total Patients Seen,20131222,33,#a8c1e5,50
+Kings,Total Patients Seen,20131223,82,#2563bf,50
+Kings,Total Patients Seen,20131224,52,#a8c1e5,50
+Kings,Total Patients Seen,20131225,84,#a8c1e5,50
+Kings,Total Patients Seen,20131226,73,#6691d2,50

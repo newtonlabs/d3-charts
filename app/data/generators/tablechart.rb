@@ -7,7 +7,7 @@ sub_categories = ['3rd Next Available New', '3rd Next Avail Rvst', 'Fill Rate', 
 # values
 yAxis      = ['Metric 1', 'Metric 2', 'Metric 3', 'Metric 4', 'Metric 5']
 
-puts "category,subcategory,xAxis,value,color"
+puts "category,subcategory,xAxis,value,color,target"
 categories.each do |category|
   sub_categories.each do |sub_category|
     today = Time.now
@@ -16,7 +16,7 @@ categories.each do |category|
       stamp = today.strftime("%Y%m%d")
       value = rand(100)
       color = colors[rand(colors.length)]
-      puts "#{category},#{sub_category},#{stamp},#{value},#{color}"
+      puts "#{category},#{sub_category},#{stamp},#{value},#{color},50"
     end
   end
 end
