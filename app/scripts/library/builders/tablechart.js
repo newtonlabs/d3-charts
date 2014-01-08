@@ -176,14 +176,14 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
     yAxis.scale(zoomY).orient("right").ticks(4);
 
     zoomChart.append("g")
-        .attr("class", "x axis")
+        .attr("class", "x axis number")
         .attr("transform", "translate(0," + zoomY(zoomY.domain()[0]) + ")")
         .call(xAxis);
 
     yAxis.tickSize(zoomWidth);
 
     var gy = zoomChart.append("svg:g")
-        .attr("class", "y axis")
+        .attr("class", "y axis number")
         .call(yAxis)
 
     gy.selectAll("g").classed("gridline", true);
@@ -196,6 +196,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .attr("d", zoomLine(d));
 
     var currentPoint = zoomChart.append('g')
+        .attr("class", "large-label")
         .attr("transform", "translate(" +  zoomX(current.date) + "," +  zoomY(current.value) + ")");
 
     currentPoint.append("circle")
@@ -203,12 +204,12 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .style("fill", function(d) { return current.color; })
         .attr("stroke-width", '2')
         .attr("stroke", 'white')
-        .attr("r", 15);
+        .attr("r", 18);
 
     currentPoint.append('text')
         .attr('stroke', 'white')
         .attr('text-anchor', 'middle')
-        .attr('dy', 4)
+        .attr('dy', 7)
         .attr('class', 'current-value')
         .text(current.value);
 

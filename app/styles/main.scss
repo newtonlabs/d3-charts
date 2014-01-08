@@ -8,7 +8,10 @@ $axisfontcolor: #AAADAA;
 $minorstrokecolor: #D1D1D1;
 $gridlinecolor: #E7E7E7;
 $axislinecolor: #B3B3B3;
-$fontsize: 12px;
+$fontsize: 13px;
+$titlefontsize: 17px;
+$largelabelfontsize: 18px;
+$gridlinefontsize: 10px;
 $charttitlecolor: #203566;
 
 .hero-unit {
@@ -50,7 +53,7 @@ svg {
       fill: $charttitlecolor;
       &.header {
         font-weight: bold;
-        font-size: 16px;
+        font-size: $titlefontsize;
       }
     }
   }
@@ -68,6 +71,12 @@ svg {
     .gridline line {
       stroke: $gridlinecolor;
     }
+  }
+  .number text {
+    font-size: $gridlinefontsize;
+  }
+  .large-label text {
+    font-size: $largelabelfontsize;
   }
   // Brushes
   .brush {
@@ -94,7 +103,7 @@ svg {
     }
   }
   .small {
-    font-size: 12px;
+    font-size: $fontsize;
   }
   .medium {
     font-size: 20px;
@@ -153,6 +162,9 @@ svg {
     &.y.axis path {
       display: none;
     }
+  }
+  .value {
+    font-size: $largelabelfontsize;
   }
 }
 

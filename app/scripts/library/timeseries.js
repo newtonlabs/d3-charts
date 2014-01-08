@@ -125,15 +125,15 @@ this.d3.charts.timeseries = function() {
 
       // xAxis
       focus.append("g")
-          .attr("class", "x axis")
+          .attr("class", "x axis number")
           .attr("transform", "translate(0," + y(y.domain()[0]) + ")")
           .call(xAxis);
 
-//      yAxis with huge ticks for gridlines
+      // yAxis with huge ticks for gridlines
       yAxis.tickSize(chartWidth);
 
       var gy = focus.append("svg:g")
-          .attr("class", "y axis")
+          .attr("class", "y axis number")
           .call(yAxis)
 
       gy.selectAll("g").classed("gridline", true);
@@ -209,7 +209,7 @@ this.d3.charts.timeseries = function() {
           .attr("d", function(d) {return line2(d.data); })
 
       context.append("g")
-          .attr("class", "x axis")
+          .attr("class", "x axis number")
           .attr("transform", "translate(0," + controlHeight + ")")
           .call(xAxis2);
 

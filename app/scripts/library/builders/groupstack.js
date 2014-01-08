@@ -143,7 +143,7 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
         .orient("bottom");
 
     var gy = chart.append("g")
-        .attr("class", "vertical y axis")
+        .attr("class", "vertical y axis number")
         .attr("transform", "translate (-48,0)")
         .call(vertical_yAxis);
 
@@ -210,7 +210,7 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
         .call(yAxis);
 
     var gx = chart.append("g")
-        .attr("class", "horizontal x axis")
+        .attr("class", "horizontal x axis number")
         .attr("transform", "translate(0," + chartHeight + ")")
         .call(xAxis);
     gx.selectAll("g").classed("gridline", true);
