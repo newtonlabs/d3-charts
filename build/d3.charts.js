@@ -659,8 +659,10 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
     categories = d3.utilities.uniqueProperties(data, 'category');
     subcategories = d3.utilities.uniqueProperties(data, 'subcategory');
 
-    y.domain(categories).rangeRoundBands([0,builder.graphicHeight()], 0.2);
-    x.domain(subcategories).rangeRoundBands([0,builder.graphicWidth()], 0.2);
+    // y.domain(categories).rangeRoundBands([0,builder.graphicHeight()]);
+    // x.domain(subcategories).rangeRoundBands([0,builder.graphicWidth()]);
+    y.domain(categories).rangeRoundBands([0,builder.graphicHeight()], 0.2, 0);
+    x.domain(subcategories).rangeRoundBands([0,builder.graphicWidth()], 0.2, 0);
 
     miniX.domain(d3.extent(data, function(d) { return d.date }));
     miniY.domain(d3.extent(data, function(d) { return d.value }));
@@ -705,25 +707,32 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
   var zoomSparkLine = function(d) {
     d3.select("#popup").remove();
 
-    var height = builder.chartHeight() - 60,
-        width = builder.graphicWidth(),
-        zoomWidth = width + 160,
-        zoomHeight = height + 60,
+    var padding = 15,
+        chartPadding = 32,
+        height = builder.graphicHeight() - (padding * 2),
+        width = builder.graphicWidth() - (padding * 2),
+        zoomWidth = width - (chartPadding * 2),
+        zoomHeight = height - (chartPadding * 2),
         zoomLine = d3.svg.line(),
         zoomX = d3.time.scale(),
         zoomY = d3.scale.linear(),
         extent = d3.extent(d, function(o) { return o.value }),
         current = _.last(d);
 
-    zoomX.domain(miniX.domain()).range([0,width]);
-    zoomY.domain(miniY.domain()).range([height,0]);
+
+    var domainPadding = d3.utilities.padDomain(zoomHeight, miniY.domain()[1], 20);
+    zoomX.domain(miniX.domain()).range([0,zoomWidth]);
+    zoomY.domain([
+            miniY.domain()[0] - domainPadding,
+            miniY.domain()[1] + domainPadding])
+        .range([zoomHeight,0]);
 
     zoomLine.interpolate("cardinal").tension(0.88)
         .x(function(d) { return zoomX(d.date); })
         .y(function(d) { return zoomY(d.value); });
 
     var zoom = builder.svg().append("g")
-        .attr("transform", "translate(" + builder.marginLeft() + "," +  builder.marginTop() + ")")
+        .attr("transform", "translate(" + (builder.graphicMarginLeft() + padding) + "," +  (builder.graphicMarginTop() + padding) + ")")
         .attr("class", "zoom")
         .attr("id", "popup");
 
@@ -731,16 +740,50 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .attr("x", 0)
         .attr("y", 0)
         .attr("rx", 8)
-        .attr("height", zoomHeight)
-        .attr("width", zoomWidth)
+        .attr("height", height)
+        .attr("width", width)
         .attr("fill", 'white')
         .attr("stroke", 'lightgray')
-        .attr("stroke-width", '2px')
+        .attr("stroke-width", '1px');
+
+    var radius = 12;
+    var close = zoom.append("g")
+        .attr("transform", "translate(" + (width - radius - 10 ) + "," + (radius + 10)+ ")");
+
+    var closeit = function() {
+      zoom.remove();
+    }
+
+    close.append("circle")
+        .attr("fill", 'white')
+        .attr("stroke", '#cccccc')
+        .attr('r', '15')
+        .on('click', closeit)
+
+    close.append('line').attr('fill', 'none').attr('stroke', '#cccccc').attr('stroke-width', 2).attr('x1',-5).attr('y1',-5).attr('x2',5).attr('y2',5).on('click', closeit)
+    close.append('line').attr('fill', 'none').attr('stroke', '#cccccc').attr('stroke-width', 2).attr('x1',5).attr('y1',-5).attr('x2',-5).attr('y2',5).on('click', closeit)
+
+    var zoomTitle = zoom.append("g")
+        .attr("transform", "translate(" + padding + "," + (padding + 10) + ")");
+
+    zoomTitle.append("text")
+        .attr("class", "zoom-title")
+        .text(d[0].category + " - " + d[1].subcategory);
 
     var xAxis = d3.svg.axis();
     var yAxis = d3.svg.axis();
     var zoomChart = zoom.append("g")
-        .attr("transform", "translate(" + 30 + "," +  30 + ")");
+        .attr("transform", "translate(" + chartPadding + "," +  chartPadding + ")");
+
+    // zoomChart.append("rect")
+    //     .attr("x", 0)
+    //     .attr("y", 0)
+    //     .attr("rx", 8)
+    //     .attr("height", zoomHeight)
+    //     .attr("width", zoomWidth)
+    //     .attr("fill", 'white')
+    //     .attr("stroke", 'lightgray')
+    //     .attr("stroke-width", '1px');
 
     xAxis.scale(zoomX).orient("bottom")
         .tickFormat(d3.utilities.customTimeFormat)
@@ -754,7 +797,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .attr("transform", "translate(0," + zoomY(zoomY.domain()[0]) + ")")
         .call(xAxis);
 
-    yAxis.tickSize(width);
+    yAxis.tickSize(zoomWidth);
 
     var gy = zoomChart.append("svg:g")
         .attr("class", "y axis")
@@ -769,47 +812,38 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .attr('stroke-width', '2px')
         .attr("d", zoomLine(d));
 
-    zoomChart.append("circle")
+    var currentPoint = zoomChart.append('g')
+        .attr("transform", "translate(" +  zoomX(current.date) + "," +  zoomY(current.value) + ")");
+
+    currentPoint.append("circle")
         .attr("class", "circle")
         .style("fill", function(d) { return current.color; })
         .attr("stroke-width", '2')
         .attr("stroke", 'white')
-        .attr("cx", function(d) { return zoomX(current.date); })
-        .attr("cy", function(d) { return zoomY(current.value); })
-        .attr("r", 6);
+        .attr("r", 15);
 
-    zoomChart.append('rect')
-        .attr('class', 'baseline')
-        .attr("transform", "translate(" + 0 + "," + zoomY(d[0].target) + ")")
-        .attr('height',  zoomY(miniY.domain()[0]) - zoomY(d[0].target) )//( zoomY(d[0].target) )//- )
-        .attr('width', width);
+    currentPoint.append('text')
+        .attr('stroke', 'white')
+        .attr('text-anchor', 'middle')
+        .attr('dy', 4)
+        .attr('class', 'current-value')
+        .text(current.value);
 
-    console.log(d);
+    zoomChart.append('line')
+      .attr('stroke', current.color)
+      .attr('x1', zoomX.range()[0])
+      .attr('y1', zoomY(current.target))
+      .attr('x2', zoomX.range()[1])
+      .attr('y2', zoomY(current.target));
 
-    var text = zoomChart.append("g")
-        .attr("transform", "translate(" + (width + 35) + "," + 0 + ")");
 
-    row(text, 0, 0, 'High', extent[1]);
-    row(text, 0, 20, 'Low', extent[0]);
-    row(text, 0, 40, 'Current', current.value);
-    row(text, 0, 60, 'Target', d[0].target);
+    // var text = zoomChart.append("g")
+    //     .attr("transform", "translate(" + (width + 35) + "," + 0 + ")");
 
-    var zoomTitle = zoomChart.append("g")
-        .attr("transform", "translate(" + 0 + "," + -10 + ")");
-
-    zoomTitle.append("text")
-        .attr("class", "zoom-title")
-        .text(d[0].category + " - " + d[1].subcategory);
-
-    var close = zoom.append("g")
-        .attr("transform", "translate(" + zoomWidth + "," + 0 + ")");
-
-    close.append("circle")
-        .attr("fill", 'red')
-        .attr('r', '6')
-        .on('click', function() {
-          zoom.remove();
-        })
+    // // row(text, 0, 0, 'High', extent[1]);
+    // // row(text, 0, 20, 'Low', extent[0]);
+    // // row(text, 0, 40, 'Current', current.value);
+    // // row(text, 0, 60, 'Target', d[0].target);
   }
 
   var row = function(el, x, y, text1, text2) {
@@ -1066,7 +1100,7 @@ this.d3.charts.tablechart = function() {
       .config('chartType', 'line')
       .config('className', 'tablechart')
       .config('width', 900)
-      .config('height', 300)
+      .config('height',500)
       .builder(d3.charts.tablechartBuilder);
 
   return chart;
