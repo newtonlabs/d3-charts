@@ -510,7 +510,7 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
         .orient("bottom");
 
     var gy = chart.append("g")
-        .attr("class", "vertical y axis")
+        .attr("class", "vertical y axis number")
         .attr("transform", "translate (-48,0)")
         .call(vertical_yAxis);
 
@@ -570,6 +570,7 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
 
     yAxis.scale(y)
         .tickSize(0)
+        .tickPadding(10)
         .orient("left");
 
     chart.append("g")
@@ -577,7 +578,7 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
         .call(yAxis);
 
     var gx = chart.append("g")
-        .attr("class", "horizontal x axis")
+        .attr("class", "horizontal x axis number")
         .attr("transform", "translate(0," + chartHeight + ")")
         .call(xAxis);
     gx.selectAll("g").classed("gridline", true);
@@ -748,7 +749,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
 
     var radius = 12;
     var close = zoom.append("g")
-        .attr("transform", "translate(" + (width - radius - 10 ) + "," + (radius + 10)+ ")");
+        .attr("transform", "translate(" + (width - radius - 18 ) + "," + (radius + 18)+ ")");
 
     var closeit = function() {
       zoom.remove();
@@ -793,14 +794,14 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
     yAxis.scale(zoomY).orient("right").ticks(4);
 
     zoomChart.append("g")
-        .attr("class", "x axis")
+        .attr("class", "x axis number")
         .attr("transform", "translate(0," + zoomY(zoomY.domain()[0]) + ")")
         .call(xAxis);
 
     yAxis.tickSize(zoomWidth);
 
     var gy = zoomChart.append("svg:g")
-        .attr("class", "y axis")
+        .attr("class", "y axis number")
         .call(yAxis)
 
     gy.selectAll("g").classed("gridline", true);
@@ -813,6 +814,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .attr("d", zoomLine(d));
 
     var currentPoint = zoomChart.append('g')
+        .attr("class", "large-label")
         .attr("transform", "translate(" +  zoomX(current.date) + "," +  zoomY(current.value) + ")");
 
     currentPoint.append("circle")
@@ -820,12 +822,13 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .style("fill", function(d) { return current.color; })
         .attr("stroke-width", '2')
         .attr("stroke", 'white')
-        .attr("r", 15);
+        .attr("r", 18);
 
     currentPoint.append('text')
         .attr('stroke', 'white')
+        .attr('fill', 'white')
         .attr('text-anchor', 'middle')
-        .attr('dy', 4)
+        .attr('dy', 6)
         .attr('class', 'current-value')
         .text(current.value);
 
@@ -1040,9 +1043,9 @@ this.d3.charts.baseChart = function() {
       .config('subtitle', "Subtitle goes here")
       .config('margin', {
         top: 8,
-        right: 8,
+        right: 0,
         bottom: 8,
-        left: 8,
+        left: 0,
         leftLabel: 168,
         bottomLabel: 40,
         topLabel: 60,
@@ -1453,7 +1456,7 @@ this.d3.charts.heatmap = function() {
       cellFontColor = 'white',
       svg = {},
       legend = [],
-      margin = {top: 10, right: 184, bottom: 20, left: 168},
+      margin = {top: 8, right: 184, bottom: 20, left: 168},
       titleMargin = {top: 30},
       rowTitleMargin = {top: 60},
       titleText = "HEATMAP CHART EXAMPLE",
@@ -1576,7 +1579,7 @@ this.d3.charts.heatmap = function() {
     }
 
     var drawTitle = function() {
-      title.x(16).y(margin.top);
+      title.x(0).y(margin.top);
       svg.call(title);
     }
 
@@ -2304,7 +2307,7 @@ this.d3.charts.timeseries = function() {
     height = 500,
     controlHeight = 50,
     xAxisHeight = 30,
-    margin = {top: 10,  right: 168, bottom: 70, left: 16},
+    margin = {top: 8,  right: 168, bottom: 70, left: 0},
     titleMargin = {top: 40},
     dataRadius = 4,
     svg = {},
@@ -2340,7 +2343,7 @@ this.d3.charts.timeseries = function() {
     }
 
     var initializeDimensions = function(selection) {
-      chartWidth   = width  - margin.left - margin.right,
+      chartWidth   = width  - margin.left - margin.right - 10,
       chartHeight  = height - (margin.top + titleMargin.top)  - margin.bottom,
       x.range([0, chartWidth]),
       x2.range([0, chartWidth]),
@@ -2385,7 +2388,7 @@ this.d3.charts.timeseries = function() {
 
       // Define globals based on data
       series  = _.reduce(data, function(memo, d) {memo.push(d.series); return memo;},[]);
-      lowerDomain = lowerDomain - bottomPadding;
+      lowerDomain = lowerDomain - bottomPadding; 
       upperDomain = upperDomain + topPadding;
 
       // Setup Functions with data
@@ -2403,10 +2406,10 @@ this.d3.charts.timeseries = function() {
       y.domain([lowerDomain, upperDomain]);
       x2.domain(x.domain());
       y2.domain(y.domain());
-      line.interpolate("cardinal").tension(0.88)
+      line.interpolate("cardinal").tension(0.70)
           .x(function(d) { return x(d.date); })
           .y(function(d) { return y(d.value); });
-      line2.interpolate("cardinal").tension(0.88)
+      line2.interpolate("cardinal").tension(0.70)
           .x(function(d) { return x2(d.date); })
           .y(function(d) { return y2(d.value); });
     }
@@ -2418,15 +2421,15 @@ this.d3.charts.timeseries = function() {
 
       // xAxis
       focus.append("g")
-          .attr("class", "x axis")
+          .attr("class", "x axis number")
           .attr("transform", "translate(0," + y(y.domain()[0]) + ")")
           .call(xAxis);
 
-//      yAxis with huge ticks for gridlines
+      // yAxis with huge ticks for gridlines
       yAxis.tickSize(chartWidth);
 
       var gy = focus.append("svg:g")
-          .attr("class", "y axis")
+          .attr("class", "y axis number")
           .call(yAxis)
 
       gy.selectAll("g").classed("gridline", true);
@@ -2502,7 +2505,7 @@ this.d3.charts.timeseries = function() {
           .attr("d", function(d) {return line2(d.data); })
 
       context.append("g")
-          .attr("class", "x axis")
+          .attr("class", "x axis number")
           .attr("transform", "translate(0," + controlHeight + ")")
           .call(xAxis2);
 
@@ -2533,7 +2536,7 @@ this.d3.charts.timeseries = function() {
       legend
           .click(highlight)
           .y(margin.top + titleMargin.top)
-          .x(chartWidth + 30);
+          .x(width - margin.right);
       svg.datum(series).call(legend);
     }
 

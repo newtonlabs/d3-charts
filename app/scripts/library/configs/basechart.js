@@ -42,9 +42,9 @@ this.d3.charts.baseChart = function() {
       .config('subtitle', "Subtitle goes here")
       .config('margin', {
         top: 8,
-        right: 8,
+        right: 0,
         bottom: 8,
-        left: 8,
+        left: 0,
         leftLabel: 168,
         bottomLabel: 40,
         topLabel: 60,

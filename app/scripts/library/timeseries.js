@@ -11,7 +11,7 @@ this.d3.charts.timeseries = function() {
     height = 500,
     controlHeight = 50,
     xAxisHeight = 30,
-    margin = {top: 10,  right: 168, bottom: 70, left: 16},
+    margin = {top: 8,  right: 168, bottom: 70, left: 0},
     titleMargin = {top: 40},
     dataRadius = 4,
     svg = {},
@@ -47,7 +47,7 @@ this.d3.charts.timeseries = function() {
     }
 
     var initializeDimensions = function(selection) {
-      chartWidth   = width  - margin.left - margin.right,
+      chartWidth   = width  - margin.left - margin.right - 10,
       chartHeight  = height - (margin.top + titleMargin.top)  - margin.bottom,
       x.range([0, chartWidth]),
       x2.range([0, chartWidth]),
@@ -92,7 +92,7 @@ this.d3.charts.timeseries = function() {
 
       // Define globals based on data
       series  = _.reduce(data, function(memo, d) {memo.push(d.series); return memo;},[]);
-      lowerDomain = lowerDomain - bottomPadding;
+      lowerDomain = lowerDomain - bottomPadding; 
       upperDomain = upperDomain + topPadding;
 
       // Setup Functions with data
@@ -110,10 +110,10 @@ this.d3.charts.timeseries = function() {
       y.domain([lowerDomain, upperDomain]);
       x2.domain(x.domain());
       y2.domain(y.domain());
-      line.interpolate("cardinal").tension(0.88)
+      line.interpolate("cardinal").tension(0.70)
           .x(function(d) { return x(d.date); })
           .y(function(d) { return y(d.value); });
-      line2.interpolate("cardinal").tension(0.88)
+      line2.interpolate("cardinal").tension(0.70)
           .x(function(d) { return x2(d.date); })
           .y(function(d) { return y2(d.value); });
     }
@@ -240,7 +240,7 @@ this.d3.charts.timeseries = function() {
       legend
           .click(highlight)
           .y(margin.top + titleMargin.top)
-          .x(chartWidth + 30);
+          .x(width - margin.right);
       svg.datum(series).call(legend);
     }
 

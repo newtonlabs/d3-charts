@@ -203,6 +203,7 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
 
     yAxis.scale(y)
         .tickSize(0)
+        .tickPadding(10)
         .orient("left");
 
     chart.append("g")

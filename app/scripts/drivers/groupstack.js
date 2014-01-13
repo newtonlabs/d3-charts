@@ -1,4 +1,4 @@
-var groupStack = d3.charts.groupStack().vertical(undefined).title('werd');
+var groupStack = d3.charts.groupStack().vertical(undefined);
 d3.csv("data/groupstack.csv", function(error, data) {
   var group = _.groupBy(data, function(d) { return d.category })
   layers = _.map(group, function(d, category) {

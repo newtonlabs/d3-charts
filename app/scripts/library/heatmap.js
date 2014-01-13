@@ -18,7 +18,7 @@ this.d3.charts.heatmap = function() {
       cellFontColor = 'white',
       svg = {},
       legend = [],
-      margin = {top: 10, right: 184, bottom: 20, left: 168},
+      margin = {top: 8, right: 184, bottom: 20, left: 168},
       titleMargin = {top: 30},
       rowTitleMargin = {top: 60},
       titleText = "HEATMAP CHART EXAMPLE",
@@ -141,7 +141,7 @@ this.d3.charts.heatmap = function() {
     }
 
     var drawTitle = function() {
-      title.x(16).y(margin.top);
+      title.x(0).y(margin.top);
       svg.call(title);
     }
 

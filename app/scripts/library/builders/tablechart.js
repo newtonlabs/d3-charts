@@ -131,7 +131,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
 
     var radius = 12;
     var close = zoom.append("g")
-        .attr("transform", "translate(" + (width - radius - 10 ) + "," + (radius + 10)+ ")");
+        .attr("transform", "translate(" + (width - radius - 18 ) + "," + (radius + 18)+ ")");
 
     var closeit = function() {
       zoom.remove();
@@ -208,8 +208,9 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
 
     currentPoint.append('text')
         .attr('stroke', 'white')
+        .attr('fill', 'white')
         .attr('text-anchor', 'middle')
-        .attr('dy', 7)
+        .attr('dy', 6)
         .attr('class', 'current-value')
         .text(current.value);
 
