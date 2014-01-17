@@ -10,8 +10,6 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
       miniY = d3.scale.linear(),
       line = d3.svg.line(),
       legend = d3.charts.legend(),
-      noData = d3.charts.noData(),
-      title = d3.charts.chartTitle(),
       categories,
       subcategories;
 
@@ -21,29 +19,25 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
     builder.setupSvg();
     builder.setupChart();
     builder.setupGraphic();
-    empty ? builder.setupNoData() : builder.setupData();
+    empty ? setupNoData() : setupData();
 
-    builder.drawTable();
-    if (empty) { builder.drawNoData(); }
+    drawTable();
+
+    if (empty) { builder.drawNoDataLabel(); }
     if (config.svgArea) { builder.svgArea(); }
     if (config.titleOn) { builder.drawTitle(); }
     if (config.chartArea) { builder.chartArea(); }
     if (config.graphicArea) { builder.graphicArea(); }
   };
 
-  builder.setupNoData = function() {
-    // layers = [];
-    // color.domain(['TBD']).range(['#E6E6E6']);
-    // y.domain(_.map(_.range(7), function(d) {return ("Label - " + d)}));
-    // legend.color(color);
+  // TODO: If even necessary, no requests for no table tablechart
+  var setupNoData = function() {
   }
 
-  builder.setupData = function() {
+  var setupData = function() {
     categories = d3.utilities.uniqueProperties(data, 'category');
     subcategories = d3.utilities.uniqueProperties(data, 'subcategory');
 
-    // y.domain(categories).rangeRoundBands([0,builder.graphicHeight()]);
-    // x.domain(subcategories).rangeRoundBands([0,builder.graphicWidth()]);
     y.domain(categories).rangeRoundBands([0,builder.graphicHeight()], 0.2, 0);
     x.domain(subcategories).rangeRoundBands([0,builder.graphicWidth()], 0.2, 0);
 
@@ -53,41 +47,29 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
     miniX.range([0, x.rangeBand()]);
   }
 
-
-  builder.drawNoData = function() {
-    // noData.x((config.width - 300)/2).y(config.height/2 - 50);
-    // builder.svg().call(noData);
+  var drawTable = function() {
+    drawRowColumnLabels();
+    drawMiniCharts();
   }
 
-  builder.drawTitle = function() {
-    title.title(config.title).subTitle(config.subtitle);
-    title.x(builder.titleMarginLeft()).y(builder.titleMarginTop());
-    builder.svg().call(title);
-  }
-
-  builder.drawTable = function() {
-    builder.drawRowColumnLabels();
-    builder.drawMiniCharts();
-  }
-
-  builder.drawMiniCharts = function() {
+  var drawMiniCharts = function() {
     _.each(categories, function(category) {
       _.each(subcategories, function(subcategory) {
-        builder.drawMiniChart(category, subcategory)
+        drawMiniChart(category, subcategory)
       });
     });
   }
 
-  builder.drawMiniChart = function(category, subcategory) {
+  var drawMiniChart = function(category, subcategory) {
     if (config.chartType === 'line') {
-      builder.drawSparkline(category, subcategory);
+      drawSparkline(category, subcategory);
     }
     else {
       alert('Chart type ' + config.chartType + ' not supported');
     }
   }
 
-  var zoomSparkLine = function(d) {
+  var drawZoomSparkLine = function(d) {
     d3.select("#popup").remove();
 
     var padding = 15,
@@ -158,16 +140,6 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
     var zoomChart = zoom.append("g")
         .attr("transform", "translate(" + chartPadding + "," +  chartPadding + ")");
 
-    // zoomChart.append("rect")
-    //     .attr("x", 0)
-    //     .attr("y", 0)
-    //     .attr("rx", 8)
-    //     .attr("height", zoomHeight)
-    //     .attr("width", zoomWidth)
-    //     .attr("fill", 'white')
-    //     .attr("stroke", 'lightgray')
-    //     .attr("stroke-width", '1px');
-
     xAxis.scale(zoomX).orient("bottom")
         .tickFormat(d3.utilities.customTimeFormat)
         .outerTickSize([0])
@@ -220,15 +192,6 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
       .attr('y1', zoomY(current.target))
       .attr('x2', zoomX.range()[1])
       .attr('y2', zoomY(current.target));
-
-
-    // var text = zoomChart.append("g")
-    //     .attr("transform", "translate(" + (width + 35) + "," + 0 + ")");
-
-    // // row(text, 0, 0, 'High', extent[1]);
-    // // row(text, 0, 20, 'Low', extent[0]);
-    // // row(text, 0, 40, 'Current', current.value);
-    // // row(text, 0, 60, 'Target', d[0].target);
   }
 
   var row = function(el, x, y, text1, text2) {
@@ -240,8 +203,8 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .text(text2);
   }
 
-  builder.drawSparkline = function(category, subcategory) {
-    var subData = (builder.organizeData(category, subcategory)),
+  var drawSparkline = function(category, subcategory) {
+    var subData = (organizeData(category, subcategory)),
         lastData = _.last(subData);
 
     var focus = builder.graphic().append("g")
@@ -253,11 +216,10 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .y(function(d) { return miniY(d.value); });
 
     focus.append("rect")
-        // .attr('stroke', 'grey')
         .attr('fill', '#EDEDED') //TODO to make click bind easier
         .attr('height', y.rangeBand())
         .attr('width', x.rangeBand())
-        .on("click", function(d) {zoomSparkLine(subData)});
+        .on("click", function(d) {drawZoomSparkLine(subData)});
 
     focus.append("svg:path")
         .attr('class', 'line')
@@ -274,11 +236,11 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
     }
   }
 
-  builder.organizeData = function(category, subcategory) {
+  var organizeData = function(category, subcategory) {
     return _.select(data, function(d) { return d.category === category && d.subcategory === subcategory});
   }
 
-  builder.drawRowColumnLabels = function() {
+  var drawRowColumnLabels = function() {
     var columns = builder.svg().append("g")
         .attr("class", "top-nav")
         .attr("transform", "translate(" + builder.graphicMarginLeft() + "," + builder.marginTop() + ")")
@@ -306,6 +268,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
       .append("xhtml:div")
         .html(function(schema) {return schema;});;
     rowLabel
+        // TODO remove hard code 168
         .attr("width",  168)
         .attr("height", y.rangeBand())
         .attr("x", 0)
@@ -315,5 +278,4 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
   }
 
   return builder;
-
 };

@@ -147,7 +147,7 @@ d3.charts.baseBuilder = function(selection, data, config) {
   }
 
   builder.legendMarginLeft = function() {
-    return config.width - config.margin.legend;
+    return config.width - config.margin.legend + 8;
   }
 
   builder.titleMarginLeft = function() {
@@ -158,10 +158,28 @@ d3.charts.baseBuilder = function(selection, data, config) {
     return config.margin.top;
   }
 
+  builder.bottomLabel = function() {
+    return config.margin.bottomLabel;
+  }
+
+  builder.drawNoDataLabel = function() {
+    var noData = d3.charts.noData();
+
+    noData.x((config.width - 300)/2).y(config.height/2 - 50);
+    builder.svg().call(noData);
+  }
+
+  builder.drawTitle = function() {
+    var title = d3.charts.chartTitle();
+
+    title.title(config.title).subTitle(config.subtitle);
+    title.x(builder.titleMarginLeft()).y(builder.titleMarginTop());
+    builder.svg().call(title);
+  }
+
   builder.svg = function() { return svg; }
   builder.chart = function() { return chart; }
   builder.graphic = function() { return graphic; }
 
   return builder;
-
 };

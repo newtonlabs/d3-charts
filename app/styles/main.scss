@@ -119,6 +119,10 @@ svg {
   }
 }
 
+.template {
+  @extend .commonCharts;
+}
+
 // Chart specific tweaks
 .timeseries {
   @extend .commonCharts;
@@ -142,7 +146,7 @@ svg {
   }
 }
 
-.groupStack {
+.stacked {
   @extend .commonCharts;
   .horizontal {
     &.x.axis path {

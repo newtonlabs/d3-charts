@@ -1,6 +1,6 @@
 if (d3.charts === null || typeof(d3.charts) !== 'object') { d3.charts = {}; }
 
-d3.charts.groupStackBuilder = function(selection, data, config) {
+d3.charts.stackedBuilder = function(selection, data, config) {
   'use strict';
 
   var builder = d3.charts.baseBuilder(selection, data, config),
@@ -13,39 +13,37 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
       color = d3.scale.ordinal(),
       format = d3.format(".3s"),
       stack = d3.layout.stack(),
-      legend = d3.charts.legend(),
-      noData = d3.charts.noData(),
-      title = d3.charts.chartTitle();
+      legend = d3.charts.legend();
 
   builder.draw = function() {
     var empty = _.isEmpty(data);
 
-    builder.setupMargins();
+    setupMargins();
     builder.setupSvg();
     builder.setupChart();
     builder.setupGraphic();
-    empty ? builder.setupNoData() : builder.setupData();
+    empty ? setupNoData() : setupData();
 
-    config.vertical ? builder.drawVertical() : builder.drawHorizontal();
-    if (empty) { builder.drawNoData();   }
-    if (config.titleOn) { builder.drawTitle(); }
-    if (config.legend) { builder.drawLegend(); }
+    config.vertical ? drawVertical() : drawHorizontal();
+
+    if (empty) { builder.drawNoDataLabel(); }
+    if (config.legend) { drawLegend(); }
     if (config.chartArea) { builder.chartArea(); }
     if (config.graphicArea) { builder.graphicArea(); }
   };
 
-  builder.setupMargins = function() {
+  var setupMargins = function() {
     if (config.vertical) { config.margin.leftLabel = barTextPadding; }
   }
 
-  builder.setupNoData = function() {
+  var setupNoData = function() {
     layers = [];
     color.domain(['TBD']).range(['#E6E6E6']);
     y.domain(_.map(_.range(7), function(d) {return ("Label - " + d)}));
     legend.color(color);
   }
 
-  builder.setupData = function() {
+  var setupData = function() {
     layers = stack(data);
 
     var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); }),
@@ -53,11 +51,11 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
 
     y.domain(_.map(layers[0], function(d) { return d.x; }));
     x.domain([0, (yStackMax + padding)]);
-    color.domain(builder.categories()).range(builder.colors());
+    color.domain(categories()).range(colors());
     legend.color(color);
   }
 
-  builder.colors = function() {
+  var colors = function() {
     return _.reduce(layers, function(memo, d, i) {
       var color = d[0].color ? d[0].color : d3.utilities.stackColors[i];
       memo.push(color);
@@ -65,49 +63,38 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
     }, []);
   }
 
-  builder.categories = function() {
+  var categories = function() {
     if (_.isEmpty(layers)) {
       return ['TBD'];
     }
     return _.reduce(layers, function(memo, d) { memo.push(d[0].category); return memo}, []);
   }
 
-  builder.barColor = function(d) {
+  var barColor = function(d) {
     return _.isEmpty(d.color) ? color(d.category) : d.color;
   }
 
-  builder.lastLayer = function(layers) {
+  var lastLayer = function(layers) {
     return _.isEmpty(layers) ? [] : _.last(layers);
   }
 
-  builder.drawNoData = function() {
-    noData.x((config.width - 300)/2).y(config.height/2 - 50);
-    builder.svg().call(noData);
+  var legendItems = function() {
+    return config.vertical ? categories().slice().reverse() : categories()
   }
 
-  builder.legendItems = function() {
-    return config.vertical ? builder.categories().slice().reverse() : builder.categories()
-  }
-
-  builder.drawLegend = function() {
+  var drawLegend = function() {
     legend.y(builder.legendMarginTop()).x(builder.legendMarginLeft());
-    builder.svg().datum(builder.legendItems()).call(legend);
+    builder.svg().datum(legendItems()).call(legend);
   }
 
-  builder.drawTitle = function() {
-    title.title(config.title).subTitle(config.subtitle);
-    title.x(builder.titleMarginLeft()).y(builder.titleMarginTop());
-    builder.svg().call(title);
-  }
-
-  builder.isInt = function(d) {
+  var isInt = function(d) {
     return d % 1 === 0;
   }
 
-  builder.textFormat = function(d) {
+  var textFormat = function(d) {
     var number = d.y + d.y0;
 
-    if (builder.isInt(number)) {
+    if (isInt(number)) {
       if (number > 999) {
         return format(number);
       } else {
@@ -118,7 +105,7 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
     }
   }
 
-  builder.drawVertical = function() {
+  var drawVertical = function() {
     var chartHeight = builder.graphicHeight(),
     chartWidth = builder.graphicWidth(),
     chart = builder.graphic();
@@ -167,7 +154,7 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
         .attr("y", chartHeight)
         .attr("x", function(d) { return verticalX(d.x); })
         .attr("height", 0)
-        .attr("fill", builder.barColor)
+        .attr("fill", barColor)
         .attr("width", verticalX.rangeBand())
 
     rect
@@ -177,16 +164,16 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
         .attr("height", function(d) { return verticalY(d.y0) - verticalY(d.y0 + d.y)});
 
     var text = chart.selectAll(".value")
-        .data(builder.lastLayer(layers))
+        .data(lastLayer(layers))
         .enter().append("text")
         .attr("text-anchor", "middle")
         .attr("y", function(d) {return (verticalY(d.y0 + d.y)) - 4 ; })
         .attr("x", function(d) { return verticalX(d.x)+verticalX.rangeBand()/2; })
         .attr("class","value")
-        .text(builder.textFormat);
+        .text(textFormat);
   }
 
-  builder.drawHorizontal = function() {
+  var drawHorizontal = function() {
     var chartHeight = builder.graphicHeight(),
         chartWidth = builder.graphicWidth(),
         chart = builder.graphic();
@@ -228,7 +215,7 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
         .attr("x", 0)
         .attr("y", function(d) { return y(d.x); })
         .attr("width", 0)
-        .attr("fill", builder.barColor)
+        .attr("fill", barColor)
         .attr("height", y.rangeBand())
 
     rect
@@ -238,14 +225,13 @@ d3.charts.groupStackBuilder = function(selection, data, config) {
         .attr("width", function(d) { return x(d.y); });
 
     var text = chart.selectAll(".value")
-        .data(builder.lastLayer(layers))
+        .data(lastLayer(layers))
         .enter().append("text")
         .attr("x", function(d) { return x(d.y + d.y0)+5; })
         .attr("y", function(d) { return y(d.x)+y.rangeBand()/2+4; })
         .attr("class","value")
-        .text(builder.textFormat);
+        .text(textFormat);
   }
 
   return builder;
-
 };

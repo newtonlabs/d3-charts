@@ -43,7 +43,7 @@ this.d3.charts.baseChart = function() {
       .config('margin', {
         top: 8,
         right: 0,
-        bottom: 8,
+        bottom: 0,
         left: 0,
         leftLabel: 168,
         bottomLabel: 40,
@@ -55,7 +55,7 @@ this.d3.charts.baseChart = function() {
       .config('topLabels', false)
       .config('chartArea', false)
       .config('graphicArea', false)
-      .config('legend', true)
+      .config('legend', false)
       .config('titleOn', true)
 
   chart.svg =  function() { return svgContainer; }

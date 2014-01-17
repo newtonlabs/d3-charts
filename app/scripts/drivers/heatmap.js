@@ -31,7 +31,7 @@ var legend = [
   }
 ];
 
-var heatmapChart = d3.charts.heatmap()
+var heatmapChart = d3.charts.heatmap();
     // .title("something here")
     // .subtitle(undefined)
     // .fixedRowHeight(145)
@@ -39,8 +39,8 @@ var heatmapChart = d3.charts.heatmap()
     // .cellFont('medium')
     // .rowFont('medium')
     // .columnFont('medium')
-    .cellFontColor('black')
-    .legend(legend);
+    // .cellFontColor('black')
+    // .legend(legend);
 
 d3.csv("../data/heatmap.csv", function(error, data) {
   // Maintain order from the JSON object
@@ -61,6 +61,25 @@ d3.csv("../data/heatmap.csv", function(error, data) {
     return memo
   },[]);
 
+  heatmapChart.title('STANDARD TEST');
   d3.select("#heatmap").datum(scrubbed).call(heatmapChart);
-  d3.select("#heatmap_empty").datum([]).call(heatmapChart);
+
+  heatmapChart.legendData(legend).title('LEGEND TEST');
+  d3.select("#heatmap-legend").datum(scrubbed).call(heatmapChart);
+
+  heatmapChart.cellFont('medium')
+        .rowFont('medium')
+        .columnFont('medium')
+        .cellFontColor('black')
+        .legendData(undefined)
+        .title('LARGE FONTS TEST')
+  d3.select("#heatmap-fonts").datum(scrubbed).call(heatmapChart);
+
+  heatmapChart.fixedRowHeight(145).fixedColumnWidth(145).title('FIXED DIMENSIONS TEST');
+  d3.select("#heatmap-fixedwidth").datum(scrubbed).call(heatmapChart);
+
+  heatmapChart.title('NO DATA TEST');
+  d3.select("#heatmap-empty").datum([]).call(heatmapChart);
 });
+
+
