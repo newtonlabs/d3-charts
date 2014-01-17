@@ -12,7 +12,7 @@ d3.charts.heatmapBuilder = function(selection, data, config) {
   builder.draw = function() {
     var empty = _.isEmpty(data);
 
-    setupLegend();
+    // setupLegend();
     builder.setupSvg();
     builder.setupChart();
     builder.setupGraphic();
@@ -29,13 +29,13 @@ d3.charts.heatmapBuilder = function(selection, data, config) {
     if (config.graphicArea) { builder.graphicArea(); }
   };
 
-  var setupLegend = function() {
-    if(_.isEmpty(config.legendData)) {
-      config.legend = false;
-    } else {
-      config.legend = true;
-    }
-  }
+  // var setupLegend = function() {
+  //   if(_.isEmpty(config.legendData)) {
+  //     config.legend = false;
+  //   } else {
+  //     config.legend = true;
+  //   }
+  // }
 
   var stubNoData = function() {
     data = [{data: []}];

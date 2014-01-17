@@ -17,6 +17,7 @@ d3.charts.timeseriesBuilder = function(selection, data, config) {
       line = d3.svg.line(),
       line2 = d3.svg.line(),
       handlePadding = 8,
+      clipUrl = "clip-"+d3.utilities.s4(),
       series,
       focus;
 
@@ -44,7 +45,7 @@ d3.charts.timeseriesBuilder = function(selection, data, config) {
 
   var setupClip = function() {
     builder.svg().append("defs").append("clipPath")
-        .attr("id", "clip")
+        .attr("id", clipUrl)
         .append("rect")
         .attr("width", builder.graphicWidth())
         .attr("height", builder.graphicHeight());
@@ -132,7 +133,7 @@ d3.charts.timeseriesBuilder = function(selection, data, config) {
         .attr("class", "chart");
 
     chart.selectAll("path").data(data).enter().append("path")
-        .attr("clip-path", "url(#clip)")
+        .attr("clip-path", "url(#"+clipUrl+")")
         .attr("class", "line")
         .style("stroke", function(d) {return color(d.series)})
         .style("stroke-width", "2px")

@@ -13,6 +13,9 @@ d3.csv("data/timeseries.csv", function(error, data) {
   var datum = _.map(series, function(d) { return {series: d, data: groups[d]}})
 
   d3.select("#timeseries").datum(datum).call(timeseriesChart);
-  d3.select("#timeseries_empty").datum([]).call(timeseriesChart);
+
+  timeseriesChart.legend(false);
+  d3.select("#timeseries-nolegend").datum(datum).call(timeseriesChart);
+  d3.select("#timeseries-empty").datum([]).call(timeseriesChart);
 
 });

@@ -249,32 +249,36 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
         .attr("class", "left-nav")
         .attr("transform", "translate(" + builder.marginLeft() + "," + builder.graphicMarginTop() + ")")
 
-    var columnLabel = columns.selectAll("g.top-nav .text").data(x.domain());
-    columnLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-        .attr("class", "column-label ")// + columnFont)
-        .attr("style", "height:" + config.margin.topLabel  + "px; width:" +x.rangeBand()+ "px;")
-      .append("xhtml:div")
-        .html(function(schema) {return schema;});;
-    columnLabel
-        .attr("width",  x.rangeBand())
-        .attr("height", config.margin.topLabel)
-        .attr("x", function(d) {return x(d)})
-        .attr("y", 0)
-    columnLabel.exit().remove();
+    if (config.topLabels) {
+      var columnLabel = columns.selectAll("g.top-nav .text").data(x.domain());
+      columnLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
+          .attr("class", "column-label ")// + columnFont)
+          .attr("style", "height:" + config.margin.topLabel  + "px; width:" +x.rangeBand()+ "px;")
+        .append("xhtml:div")
+          .html(function(schema) {return schema;});;
+      columnLabel
+          .attr("width",  x.rangeBand())
+          .attr("height", config.margin.topLabel)
+          .attr("x", function(d) {return x(d)})
+          .attr("y", 0)
+      columnLabel.exit().remove();
+    }
 
-    var rowLabel = rows.selectAll("g.left-nav .text").data(y.domain());
-    rowLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-        .attr("class", "row-label ") //+ rowFont)
-      .append("xhtml:div")
-        .html(function(schema) {return schema;});;
-    rowLabel
-        // TODO remove hard code 168
-        .attr("width",  168)
-        .attr("height", y.rangeBand())
-        .attr("x", 0)
-        .attr("y", function(d) {return y(d)})
-        .attr("style", "line-height:"+y.rangeBand()+"px")
-    rowLabel.exit().remove();
+    if (config.leftLabels) {
+      var rowLabel = rows.selectAll("g.left-nav .text").data(y.domain());
+      rowLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
+          .attr("class", "row-label ") //+ rowFont)
+        .append("xhtml:div")
+          .html(function(schema) {return schema;});;
+      rowLabel
+          // TODO remove hard code 168
+          .attr("width",  168)
+          .attr("height", y.rangeBand())
+          .attr("x", 0)
+          .attr("y", function(d) {return y(d)})
+          .attr("style", "line-height:"+y.rangeBand()+"px")
+      rowLabel.exit().remove();
+    }
   }
 
   return builder;

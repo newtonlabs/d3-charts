@@ -74,6 +74,12 @@ this.d3.utilities = {
         + "V" + (2 * y - 6);
   },
 
+  s4: function() {
+  return Math.floor((1 + Math.random()) * 0x10000)
+             .toString(16)
+             .substring(1);
+  },
+
   comma: d3.format(","),
 }
 
