@@ -220,17 +220,17 @@ d3.charts.baseBuilder = function(selection, data, config) {
   };
 
   builder.setupSvg = function(){
-    svg = d3.select(selection).append("svg")
-        .attr("class", config.className)
-        .attr("width",  config.width)
-        .attr("height", config.height);
+    svg = d3.select(selection).append('svg')
+        .attr('class', config.className)
+        .attr('width',  config.width)
+        .attr('height', config.height);
   }
 
   builder.setupChart = function() {
-    chart = svg.append("g")
-        .attr("transform", "translate("
-            + builder.marginLeft() + ","
-            + builder.marginTop() + ")")
+    chart = svg.append('g')
+        .attr('transform', 'translate('
+            + builder.marginLeft() + ','
+            + builder.marginTop() + ')')
   }
 
   builder.chartArea = function() {
@@ -245,10 +245,10 @@ d3.charts.baseBuilder = function(selection, data, config) {
   }
 
   builder.setupGraphic = function() {
-    graphic = svg.append("g")
-        .attr("transform", "translate("
-            + builder.graphicMarginLeft() + ","
-            + builder.graphicMarginTop() + ")")
+    graphic = svg.append('g')
+        .attr('transform', 'translate('
+            + builder.graphicMarginLeft() + ','
+            + builder.graphicMarginTop() + ')')
   }
 
   builder.svgArea = function() {
@@ -426,7 +426,7 @@ d3.charts.heatmapBuilder = function(selection, data, config) {
     data = [{data: []}];
     _.each(_.range(10), function(i) {
       _.each(_.range(10), function(k) {
-        data[0].data.push({xAxis: ("Label " + k), yAxis: ("Label " + i), color: ("#ccc")});
+        data[0].data.push({xAxis: ('Label ' + k), yAxis: ('Label ' + i), color: ('#ccc')});
       })
     })
 
@@ -454,34 +454,34 @@ d3.charts.heatmapBuilder = function(selection, data, config) {
   }
 
   var drawTable = function() {
-    var heatmap = builder.svg().append("g").attr("class", "heatmap-grid")
-        .attr("transform", "translate(" + builder.graphicMarginLeft() + "," + builder.graphicMarginTop() + ")");
+    var heatmap = builder.svg().append('g').attr('class', 'heatmap-grid')
+        .attr('transform', 'translate(' + builder.graphicMarginLeft() + ',' + builder.graphicMarginTop() + ')');
 
     // TODO: data[0].data again
-    var rect  = heatmap.selectAll("g.heatmap .square").data(data[0].data);
-    rect.enter().append("rect")
-        .attr("class", "square")
-        .attr("fill", cellColor);
+    var rect  = heatmap.selectAll('g.heatmap .square').data(data[0].data);
+    rect.enter().append('rect')
+        .attr('class', 'square')
+        .attr('fill', cellColor);
     rect
-        .attr("x", function(d) { return x(d.xAxis);})
-        .attr("y", function(d) { return y(d.yAxis);})
-        .attr("rx", 0)
-        .attr("ry", 0)
-        .attr("width", x.rangeBand())
-        .attr("height", y.rangeBand())
+        .attr('x', function(d) { return x(d.xAxis);})
+        .attr('y', function(d) { return y(d.yAxis);})
+        .attr('rx', 0)
+        .attr('ry', 0)
+        .attr('width', x.rangeBand())
+        .attr('height', y.rangeBand())
         .transition()
-        .style("fill", cellColor);
+        .style('fill', cellColor);
     rect.exit().remove();
 
     // TODO: data[0].data again
-    var value = heatmap.selectAll("g.heatmap-grid .cell.value").data(data[0].data);
-    value.enter().append("text");
+    var value = heatmap.selectAll('g.heatmap-grid .cell.value').data(data[0].data);
+    value.enter().append('text');
     value
-        .attr("text-anchor", "middle")
-        .attr("x", function(d) { return x(d.xAxis);})
-        .attr("y", function(d) { return y(d.yAxis);})
-        .attr("dy", function() { return y.rangeBand()/2 + 4;})
-        .attr("dx", function() { return x.rangeBand()/2;})
+        .attr('text-anchor', 'middle')
+        .attr('x', function(d) { return x(d.xAxis);})
+        .attr('y', function(d) { return y(d.yAxis);})
+        .attr('dy', function() { return y.rangeBand()/2 + 4;})
+        .attr('dx', function() { return x.rangeBand()/2;})
         .attr('class', 'cell value ' + config.cellFont + ' ' + config.cellFontColor)
         .text(function(d) {return d.value;} )
     value.exit().remove();
@@ -495,44 +495,44 @@ d3.charts.heatmapBuilder = function(selection, data, config) {
         .domain(_.map(config.legendData, function(d) {return d.name}))
         .range(_.map(config.legendData, function(d) {return d.color}));
 
-    legend.y(builder.legendMarginTop()).x(builder.legendMarginLeft());
+    legend.y(builder.legendMarginTop()).x(builder.legendMarginLeft()).color(color);
     builder.svg().datum(_.map(config.legendData, function(d) { return d.name })).call(legend);
   }
 
   var drawRowColumnLabels = function() {
-    var columns = builder.svg().append("g")
-        .attr("class", "top-nav")
-        .attr("transform", "translate(" + builder.graphicMarginLeft() + "," + builder.marginTop() + ")");
+    var columns = builder.svg().append('g')
+        .attr('class', 'top-nav')
+        .attr('transform', 'translate(' + builder.graphicMarginLeft() + ',' + builder.marginTop() + ')');
 
-    var rows = builder.svg().append("g")
-        .attr("class", "left-nav")
-        .attr("transform", "translate(" + builder.marginLeft() + "," + builder.graphicMarginTop() + ")");
+    var rows = builder.svg().append('g')
+        .attr('class', 'left-nav')
+        .attr('transform', 'translate(' + builder.marginLeft() + ',' + builder.graphicMarginTop() + ')');
 
-    var columnLabel = columns.selectAll("g.top-nav .text").data(x.domain());
-    columnLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-        .attr("class", "column-label " + config.columnFont)
-        .attr("style", "height:" + config.margin.topLabel   + "px; width:" +x.rangeBand()+ "px;")
-      .append("xhtml:div")
+    var columnLabel = columns.selectAll('g.top-nav .text').data(x.domain());
+    columnLabel.enter().append('svg:foreignObject').attr('class', 'text').append('xhtml:div')
+        .attr('class', 'column-label ' + config.columnFont)
+        .attr('style', 'height:' + config.margin.topLabel   + 'px; width:' +x.rangeBand()+ 'px;')
+      .append('xhtml:div')
         .html(function(schema) {return schema;});;
     columnLabel
-        .attr("width",  x.rangeBand())
-        .attr("height", config.margin.topLabel  )
-        .attr("x", function(d) {return x(d)})
-        .attr("y", function(d) {return y(y.domain()[0])})
+        .attr('width',  x.rangeBand())
+        .attr('height', config.margin.topLabel  )
+        .attr('x', function(d) {return x(d)})
+        .attr('y', function(d) {return y(y.domain()[0])})
     columnLabel.exit().remove();
 
-    var rowLabel = rows.selectAll("g.left-nav .text").data(y.domain());
-    rowLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-        .attr("class", "row-label " + config.rowFont)
-      .append("xhtml:div")
+    var rowLabel = rows.selectAll('g.left-nav .text').data(y.domain());
+    rowLabel.enter().append('svg:foreignObject').attr('class', 'text').append('xhtml:div')
+        .attr('class', 'row-label ' + config.rowFont)
+      .append('xhtml:div')
         .html(function(schema) {return schema;});;
     rowLabel
         // TODO remove hard code 168
-        .attr("width", 168)
-        .attr("height", y.rangeBand())
-        .attr("x", function(d) {return x(x.domain()[0])})
-        .attr("y", function(d) {return y(d)})
-        .attr("style", "line-height:"+y.rangeBand()+"px")
+        .attr('width', 168)
+        .attr('height', y.rangeBand())
+        .attr('x', function(d) {return x(x.domain()[0])})
+        .attr('y', function(d) {return y(d)})
+        .attr('style', 'line-height:'+y.rangeBand()+'px')
     rowLabel.exit().remove();
   }
 
@@ -551,7 +551,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
       xAxis = d3.svg.axis(),
       yAxis = d3.svg.axis(),
       color = d3.scale.ordinal(),
-      format = d3.format(".3s"),
+      format = d3.format('.3s'),
       stack = d3.layout.stack(),
       legend = d3.charts.legend();
 
@@ -565,7 +565,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
     empty ? setupNoData() : setupData();
 
     config.vertical ? drawVertical() : drawHorizontal();
-
+    if (config.titleOn) { builder.drawTitle(); }
     if (empty) { builder.drawNoDataLabel(); }
     if (config.legend) { drawLegend(); }
     if (config.chartArea) { builder.chartArea(); }
@@ -579,7 +579,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
   var setupNoData = function() {
     layers = [];
     color.domain(['TBD']).range(['#E6E6E6']);
-    y.domain(_.map(_.range(7), function(d) {return ("Label - " + d)}));
+    y.domain(_.map(_.range(7), function(d) {return ('Label - ' + d)}));
     legend.color(color);
   }
 
@@ -663,53 +663,53 @@ d3.charts.stackedBuilder = function(selection, data, config) {
         .tickPadding(3)
         .tickFormat(format)
         .outerTickSize([0])
-        .orient("right");
+        .orient('right');
 
     vertical_xAxis.scale(verticalX)
         .tickSize(0)
-        .orient("bottom");
+        .orient('bottom');
 
-    var gy = chart.append("g")
-        .attr("class", "vertical y axis number")
-        .attr("transform", "translate (-48,0)")
+    var gy = chart.append('g')
+        .attr('class', 'vertical y axis number')
+        .attr('transform', 'translate (-48,0)')
         .call(vertical_yAxis);
 
-    gy.selectAll("g").classed("gridline", true);
-    gy.selectAll("text").attr("x", 4).attr("dy", -4);
+    gy.selectAll('g').classed('gridline', true);
+    gy.selectAll('text').attr('x', 4).attr('dy', -4);
 
-    var gx = chart.append("g")
-      .attr("class", "vertical x axis")
-      .attr("transform", "translate(0," + chartHeight + ")")
+    var gx = chart.append('g')
+      .attr('class', 'vertical x axis')
+      .attr('transform', 'translate(0,' + chartHeight + ')')
       .call(vertical_xAxis);
 
-    var layer = chart.selectAll(".layer")
+    var layer = chart.selectAll('.layer')
         .data(layers)
-        .enter().append("g")
-        .attr("class", "layer")
-        .style("fill", function(d, i)  {return color(d[0].category); });
+        .enter().append('g')
+        .attr('class', 'layer')
+        .style('fill', function(d, i)  {return color(d[0].category); });
 
-    var rect = layer.selectAll("rect")
+    var rect = layer.selectAll('rect')
         .data(function(d) { return d; })
-        .enter().append("rect")
-        .attr("y", chartHeight)
-        .attr("x", function(d) { return verticalX(d.x); })
-        .attr("height", 0)
-        .attr("fill", barColor)
-        .attr("width", verticalX.rangeBand())
+        .enter().append('rect')
+        .attr('y', chartHeight)
+        .attr('x', function(d) { return verticalX(d.x); })
+        .attr('height', 0)
+        .attr('fill', barColor)
+        .attr('width', verticalX.rangeBand())
 
     rect
         .transition()
         .delay(function(d, i) { return i * 40; })
-        .attr("y", function(d) {return verticalY(d.y0 + d.y);})
-        .attr("height", function(d) { return verticalY(d.y0) - verticalY(d.y0 + d.y)});
+        .attr('y', function(d) {return verticalY(d.y0 + d.y);})
+        .attr('height', function(d) { return verticalY(d.y0) - verticalY(d.y0 + d.y)});
 
-    var text = chart.selectAll(".value")
+    var text = chart.selectAll('.value')
         .data(lastLayer(layers))
-        .enter().append("text")
-        .attr("text-anchor", "middle")
-        .attr("y", function(d) {return (verticalY(d.y0 + d.y)) - 4 ; })
-        .attr("x", function(d) { return verticalX(d.x)+verticalX.rangeBand()/2; })
-        .attr("class","value")
+        .enter().append('text')
+        .attr('text-anchor', 'middle')
+        .attr('y', function(d) {return (verticalY(d.y0 + d.y)) - 4 ; })
+        .attr('x', function(d) { return verticalX(d.x)+verticalX.rangeBand()/2; })
+        .attr('class','value')
         .text(textFormat);
   }
 
@@ -726,50 +726,50 @@ d3.charts.stackedBuilder = function(selection, data, config) {
         .tickPadding(3)
         .tickFormat(format)
         .outerTickSize([0])
-        .orient("bottom");
+        .orient('bottom');
 
     yAxis.scale(y)
         .tickSize(0)
         .tickPadding(10)
-        .orient("left");
+        .orient('left');
 
-    chart.append("g")
-        .attr("class", "horizontal y axis")
+    chart.append('g')
+        .attr('class', 'horizontal y axis')
         .call(yAxis);
 
-    var gx = chart.append("g")
-        .attr("class", "horizontal x axis number")
-        .attr("transform", "translate(0," + chartHeight + ")")
+    var gx = chart.append('g')
+        .attr('class', 'horizontal x axis number')
+        .attr('transform', 'translate(0,' + chartHeight + ')')
         .call(xAxis);
-    gx.selectAll("g").classed("gridline", true);
-    gx.selectAll("text").attr("x", 18)
+    gx.selectAll('g').classed('gridline', true);
+    gx.selectAll('text').attr('x', 18)
 
-    var layer = chart.selectAll(".layer")
+    var layer = chart.selectAll('.layer')
         .data(layers)
-        .enter().append("g")
-        .attr("class", "layer");
+        .enter().append('g')
+        .attr('class', 'layer');
 
-    var rect = layer.selectAll("rect")
+    var rect = layer.selectAll('rect')
         .data(function(d) { return d; })
-        .enter().append("rect")
-        .attr("x", 0)
-        .attr("y", function(d) { return y(d.x); })
-        .attr("width", 0)
-        .attr("fill", barColor)
-        .attr("height", y.rangeBand())
+        .enter().append('rect')
+        .attr('x', 0)
+        .attr('y', function(d) { return y(d.x); })
+        .attr('width', 0)
+        .attr('fill', barColor)
+        .attr('height', y.rangeBand())
 
     rect
         .transition()
         .delay(function(d, i) { return i * 40; })
-        .attr("x", function(d) { return x(d.y0); })
-        .attr("width", function(d) { return x(d.y); });
+        .attr('x', function(d) { return x(d.y0); })
+        .attr('width', function(d) { return x(d.y); });
 
-    var text = chart.selectAll(".value")
+    var text = chart.selectAll('.value')
         .data(lastLayer(layers))
-        .enter().append("text")
-        .attr("x", function(d) { return x(d.y + d.y0)+5; })
-        .attr("y", function(d) { return y(d.x)+y.rangeBand()/2+4; })
-        .attr("class","value")
+        .enter().append('text')
+        .attr('x', function(d) { return x(d.y + d.y0)+5; })
+        .attr('y', function(d) { return y(d.x)+y.rangeBand()/2+4; })
+        .attr('class','value')
         .text(textFormat);
   }
 
@@ -800,9 +800,9 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
 
     drawTable();
 
+    if (config.titleOn) { builder.drawTitle(); }
     if (empty) { builder.drawNoDataLabel(); }
     if (config.svgArea) { builder.svgArea(); }
-    if (config.titleOn) { builder.drawTitle(); }
     if (config.chartArea) { builder.chartArea(); }
     if (config.graphicArea) { builder.graphicArea(); }
   };
@@ -847,7 +847,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
   }
 
   var drawZoomSparkLine = function(d) {
-    d3.select("#popup").remove();
+    d3.select('#popup').remove();
 
     var padding = 15,
         chartPadding = 32,
@@ -869,91 +869,91 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
             miniY.domain()[1] + domainPadding])
         .range([zoomHeight,0]);
 
-    zoomLine.interpolate("cardinal").tension(0.88)
+    zoomLine.interpolate('cardinal').tension(0.88)
         .x(function(d) { return zoomX(d.date); })
         .y(function(d) { return zoomY(d.value); });
 
-    var zoom = builder.svg().append("g")
-        .attr("transform", "translate(" + (builder.graphicMarginLeft() + padding) + "," +  (builder.graphicMarginTop() + padding) + ")")
-        .attr("class", "zoom")
-        .attr("id", "popup");
+    var zoom = builder.svg().append('g')
+        .attr('transform', 'translate(' + (builder.graphicMarginLeft() + padding) + ',' +  (builder.graphicMarginTop() + padding) + ')')
+        .attr('class', 'zoom')
+        .attr('id', 'popup');
 
-    zoom.append("rect")
-        .attr("x", 0)
-        .attr("y", 0)
-        .attr("rx", 8)
-        .attr("height", height)
-        .attr("width", width)
-        .attr("fill", 'white')
-        .attr("stroke", 'lightgray')
-        .attr("stroke-width", '1px');
+    zoom.append('rect')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('rx', 8)
+        .attr('height', height)
+        .attr('width', width)
+        .attr('fill', 'white')
+        .attr('stroke', 'lightgray')
+        .attr('stroke-width', '1px');
 
     var radius = 12;
-    var close = zoom.append("g")
-        .attr("transform", "translate(" + (width - radius - 18 ) + "," + (radius + 18)+ ")");
+    var close = zoom.append('g')
+        .attr('transform', 'translate(' + (width - radius - 18 ) + ',' + (radius + 18)+ ')');
 
     var closeit = function() {
       zoom.remove();
     }
 
-    close.append("circle")
-        .attr("fill", 'white')
-        .attr("stroke", '#cccccc')
+    close.append('circle')
+        .attr('fill', 'white')
+        .attr('stroke', '#cccccc')
         .attr('r', '15')
         .on('click', closeit)
 
     close.append('line').attr('fill', 'none').attr('stroke', '#cccccc').attr('stroke-width', 2).attr('x1',-5).attr('y1',-5).attr('x2',5).attr('y2',5).on('click', closeit)
     close.append('line').attr('fill', 'none').attr('stroke', '#cccccc').attr('stroke-width', 2).attr('x1',5).attr('y1',-5).attr('x2',-5).attr('y2',5).on('click', closeit)
 
-    var zoomTitle = zoom.append("g")
-        .attr("transform", "translate(" + padding + "," + (padding + 10) + ")");
+    var zoomTitle = zoom.append('g')
+        .attr('transform', 'translate(' + padding + ',' + (padding + 10) + ')');
 
-    zoomTitle.append("text")
-        .attr("class", "zoom-title")
-        .text(d[0].category + " - " + d[1].subcategory);
+    zoomTitle.append('text')
+        .attr('class', 'zoom-title')
+        .text(d[0].category + ' - ' + d[1].subcategory);
 
     var xAxis = d3.svg.axis();
     var yAxis = d3.svg.axis();
-    var zoomChart = zoom.append("g")
-        .attr("transform", "translate(" + chartPadding + "," +  chartPadding + ")");
+    var zoomChart = zoom.append('g')
+        .attr('transform', 'translate(' + chartPadding + ',' +  chartPadding + ')');
 
-    xAxis.scale(zoomX).orient("bottom")
+    xAxis.scale(zoomX).orient('bottom')
         .tickFormat(d3.utilities.customTimeFormat)
         .outerTickSize([0])
         .ticks(10);
 
-    yAxis.scale(zoomY).orient("right").ticks(4);
+    yAxis.scale(zoomY).orient('right').ticks(4);
 
-    zoomChart.append("g")
-        .attr("class", "x axis number")
-        .attr("transform", "translate(0," + zoomY(zoomY.domain()[0]) + ")")
+    zoomChart.append('g')
+        .attr('class', 'x axis number')
+        .attr('transform', 'translate(0,' + zoomY(zoomY.domain()[0]) + ')')
         .call(xAxis);
 
     yAxis.tickSize(zoomWidth);
 
-    var gy = zoomChart.append("svg:g")
-        .attr("class", "y axis number")
+    var gy = zoomChart.append('svg:g')
+        .attr('class', 'y axis number')
         .call(yAxis)
 
-    gy.selectAll("g").classed("gridline", true);
-    gy.selectAll("text").attr("x", -14).attr("dy", -4);
+    gy.selectAll('g').classed('gridline', true);
+    gy.selectAll('text').attr('x', -14).attr('dy', -4);
 
-    zoomChart.append("svg:path")
+    zoomChart.append('svg:path')
         .attr('class', 'line')
-        .style("stroke", 'steelblue')
+        .style('stroke', 'steelblue')
         .attr('stroke-width', '2px')
-        .attr("d", zoomLine(d));
+        .attr('d', zoomLine(d));
 
     var currentPoint = zoomChart.append('g')
-        .attr("class", "large-label")
-        .attr("transform", "translate(" +  zoomX(current.date) + "," +  zoomY(current.value) + ")");
+        .attr('class', 'large-label')
+        .attr('transform', 'translate(' +  zoomX(current.date) + ',' +  zoomY(current.value) + ')');
 
-    currentPoint.append("circle")
-        .attr("class", "circle")
-        .style("fill", function(d) { return current.color; })
-        .attr("stroke-width", '2')
-        .attr("stroke", 'white')
-        .attr("r", 18);
+    currentPoint.append('circle')
+        .attr('class', 'circle')
+        .style('fill', function(d) { return current.color; })
+        .attr('stroke-width', '2')
+        .attr('stroke', 'white')
+        .attr('r', 18);
 
     currentPoint.append('text')
         .attr('stroke', 'white')
@@ -972,11 +972,11 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
   }
 
   var row = function(el, x, y, text1, text2) {
-    el.append("text").attr("x", x).attr("y", y)
-      .append("tspan")
+    el.append('text').attr('x', x).attr('y', y)
+      .append('tspan')
         .text(text1)
-      .append("tspan")
-        .attr("x", 50)
+      .append('tspan')
+        .attr('x', 50)
         .text(text2);
   }
 
@@ -984,32 +984,32 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
     var subData = (organizeData(category, subcategory)),
         lastData = _.last(subData);
 
-    var focus = builder.graphic().append("g")
-        .attr("class", "mini-chart")
-        .attr("transform", "translate(" + x(subcategory) + "," + y(category) + ")")
+    var focus = builder.graphic().append('g')
+        .attr('class', 'mini-chart')
+        .attr('transform', 'translate(' + x(subcategory) + ',' + y(category) + ')')
 
-    line.interpolate("cardinal").tension(0.88)
+    line.interpolate('cardinal').tension(0.88)
         .x(function(d) { return miniX(d.date); })
         .y(function(d) { return miniY(d.value); });
 
-    focus.append("rect")
+    focus.append('rect')
         .attr('fill', '#EDEDED') //TODO to make click bind easier
         .attr('height', y.rangeBand())
         .attr('width', x.rangeBand())
-        .on("click", function(d) {drawZoomSparkLine(subData)});
+        .on('click', function(d) {drawZoomSparkLine(subData)});
 
-    focus.append("svg:path")
+    focus.append('svg:path')
         .attr('class', 'line')
-        .style("stroke", 'steelblue')
-        .attr("d", line(subData));
+        .style('stroke', 'steelblue')
+        .attr('d', line(subData));
 
     if (!_.isEmpty(lastData)) {
-      focus.append("circle")
-          .attr("class", "circle")
-          .style("fill", function(d) { return lastData.color; })
-          .attr("cx", function(d) { return miniX(lastData.date); })
-          .attr("cy", function(d) { return miniY(lastData.value); })
-          .attr("r", 3);
+      focus.append('circle')
+          .attr('class', 'circle')
+          .style('fill', function(d) { return lastData.color; })
+          .attr('cx', function(d) { return miniX(lastData.date); })
+          .attr('cy', function(d) { return miniY(lastData.value); })
+          .attr('r', 3);
     }
   }
 
@@ -1018,42 +1018,42 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
   }
 
   var drawRowColumnLabels = function() {
-    var columns = builder.svg().append("g")
-        .attr("class", "top-nav")
-        .attr("transform", "translate(" + builder.graphicMarginLeft() + "," + builder.marginTop() + ")")
+    var columns = builder.svg().append('g')
+        .attr('class', 'top-nav')
+        .attr('transform', 'translate(' + builder.graphicMarginLeft() + ',' + builder.marginTop() + ')')
 
-    var rows = builder.svg().append("g")
-        .attr("class", "left-nav")
-        .attr("transform", "translate(" + builder.marginLeft() + "," + builder.graphicMarginTop() + ")")
+    var rows = builder.svg().append('g')
+        .attr('class', 'left-nav')
+        .attr('transform', 'translate(' + builder.marginLeft() + ',' + builder.graphicMarginTop() + ')')
 
     if (config.topLabels) {
-      var columnLabel = columns.selectAll("g.top-nav .text").data(x.domain());
-      columnLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-          .attr("class", "column-label ")// + columnFont)
-          .attr("style", "height:" + config.margin.topLabel  + "px; width:" +x.rangeBand()+ "px;")
-        .append("xhtml:div")
+      var columnLabel = columns.selectAll('g.top-nav .text').data(x.domain());
+      columnLabel.enter().append('svg:foreignObject').attr('class', 'text').append('xhtml:div')
+          .attr('class', 'column-label ')// + columnFont)
+          .attr('style', 'height:' + config.margin.topLabel  + 'px; width:' +x.rangeBand()+ 'px;')
+        .append('xhtml:div')
           .html(function(schema) {return schema;});;
       columnLabel
-          .attr("width",  x.rangeBand())
-          .attr("height", config.margin.topLabel)
-          .attr("x", function(d) {return x(d)})
-          .attr("y", 0)
+          .attr('width',  x.rangeBand())
+          .attr('height', config.margin.topLabel)
+          .attr('x', function(d) {return x(d)})
+          .attr('y', 0)
       columnLabel.exit().remove();
     }
 
     if (config.leftLabels) {
-      var rowLabel = rows.selectAll("g.left-nav .text").data(y.domain());
-      rowLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-          .attr("class", "row-label ") //+ rowFont)
-        .append("xhtml:div")
+      var rowLabel = rows.selectAll('g.left-nav .text').data(y.domain());
+      rowLabel.enter().append('svg:foreignObject').attr('class', 'text').append('xhtml:div')
+          .attr('class', 'row-label ') //+ rowFont)
+        .append('xhtml:div')
           .html(function(schema) {return schema;});;
       rowLabel
           // TODO remove hard code 168
-          .attr("width",  168)
-          .attr("height", y.rangeBand())
-          .attr("x", 0)
-          .attr("y", function(d) {return y(d)})
-          .attr("style", "line-height:"+y.rangeBand()+"px")
+          .attr('width',  168)
+          .attr('height', y.rangeBand())
+          .attr('x', 0)
+          .attr('y', function(d) {return y(d)})
+          .attr('style', 'line-height:'+y.rangeBand()+'px')
       rowLabel.exit().remove();
     }
   }
@@ -1122,7 +1122,7 @@ d3.charts.timeseriesBuilder = function(selection, data, config) {
       line = d3.svg.line(),
       line2 = d3.svg.line(),
       handlePadding = 8,
-      clipUrl = "clip-"+d3.utilities.s4(),
+      clipUrl = 'clip-'+d3.utilities.s4(),
       series,
       focus;
 
@@ -1149,11 +1149,11 @@ d3.charts.timeseriesBuilder = function(selection, data, config) {
   };
 
   var setupClip = function() {
-    builder.svg().append("defs").append("clipPath")
-        .attr("id", clipUrl)
-        .append("rect")
-        .attr("width", builder.graphicWidth())
-        .attr("height", builder.graphicHeight());
+    builder.svg().append('defs').append('clipPath')
+        .attr('id', clipUrl)
+        .append('rect')
+        .attr('width', builder.graphicWidth())
+        .attr('height', builder.graphicHeight());
   }
 
   var turnOffZoom = function() {
@@ -1178,8 +1178,8 @@ d3.charts.timeseriesBuilder = function(selection, data, config) {
   var setupData = function() {
     x.range([0, builder.graphicWidth()]);
     y.range([builder.graphicHeight(), 0]);
-    xAxis.scale(x).orient("top").tickFormat(d3.utilities.customTimeFormat).outerTickSize([0]).ticks(8);
-    yAxis.scale(y).orient("right").ticks(10);
+    xAxis.scale(x).orient('top').tickFormat(d3.utilities.customTimeFormat).outerTickSize([0]).ticks(8);
+    yAxis.scale(y).orient('right').ticks(10);
 
     var lowerDomain = d3.min(data, function(d) { return d3.min(d.data, function(c) {return c.value; }); }),
     upperDomain = d3.max(data, function(d) { return d3.max(d.data, function(c) {return c.value; }); }),
@@ -1204,118 +1204,117 @@ d3.charts.timeseriesBuilder = function(selection, data, config) {
     y.domain([paddedLowerDomain, paddedUpperDomain]);
     x2.domain(x.domain());
     y2.domain([paddedLowerDomain, paddedUpperDomain]);
-    line.interpolate("cardinal").tension(0.70)
+    line.interpolate('cardinal').tension(0.70)
         .x(function(d) { return x(d.date); })
         .y(function(d) { return y(d.value); });
-    line2.interpolate("cardinal").tension(0.70)
+    line2.interpolate('cardinal').tension(0.70)
         .x(function(d) { return x2(d.date); })
         .y(function(d) { return y2(d.value); });
   }
 
   var drawChart = function() {
-    focus = builder.svg().append("g")
-        .attr("class", "chart1")
-        .attr("transform", "translate(" + builder.graphicMarginLeft() + "," + builder.graphicMarginTop() + ")");
+    focus = builder.svg().append('g')
+        .attr('class', 'chart1')
+        .attr('transform', 'translate(' + builder.graphicMarginLeft() + ',' + builder.graphicMarginTop() + ')');
 
     // xAxis
-    focus.append("g")
-        .attr("class", "x axis number")
-        .attr("transform", "translate(0," + y(y.domain()[0]) + ")")
+    focus.append('g')
+        .attr('class', 'x axis number')
+        .attr('transform', 'translate(0,' + y(y.domain()[0]) + ')')
         .call(xAxis);
 
     // yAxis with huge ticks for gridlines
     yAxis.tickSize(builder.graphicWidth());
 
-    var gy = focus.append("svg:g")
-        .attr("class", "y axis number")
+    var gy = focus.append('svg:g')
+        .attr('class', 'y axis number')
         .call(yAxis);
 
-    gy.selectAll("g").classed("gridline", true);
-    gy.selectAll("text").attr("x", 4).attr("dy", -4);
+    gy.selectAll('g').classed('gridline', true);
+    gy.selectAll('text').attr('x', 4).attr('dy', -4);
 
     // Draw lines on the chart
-    var chart = focus.append("g")
-        .attr("class", "chart");
+    var chart = focus.append('g')
+        .attr('class', 'chart');
 
-    chart.selectAll("path").data(data).enter().append("path")
-        .attr("clip-path", "url(#"+clipUrl+")")
-        .attr("class", "line")
-        .style("stroke", function(d) {return color(d.series)})
-        .style("stroke-width", "2px")
-        .attr("series", function(d) {return d.series})
-        .attr("d", function(d,i) {return line(d.data); })
+    chart.selectAll('path').data(data).enter().append('path')
+        .attr('clip-path', 'url(#'+clipUrl+')')
+        .attr('class', 'line')
+        .style('stroke', function(d) {return color(d.series)})
+        .style('stroke-width', '2px')
+        .attr('series', function(d) {return d.series})
+        .attr('d', function(d,i) {return line(d.data); })
 
     if (config.dataPoints) {
-      chart.selectAll("circle")
-          .data(_.flatten(data, 'data')).enter().append("circle")
-          .attr("class", "circle")
-          .attr("clip-path", "url(#clip)")
-          .style("stroke", function(d) { return d.color; })
-          .attr("cx", function(d) { return x(d.date); })
-          .attr("cy", function(d) { return y(d.value); })
-          .attr("r", dataRadius);
+      chart.selectAll('circle')
+          .data(_.flatten(data, 'data')).enter().append('circle')
+          .attr('class', 'circle')
+          .attr('clip-path', 'url(#clip)')
+          .style('stroke', function(d) { return d.color; })
+          .attr('cx', function(d) { return x(d.date); })
+          .attr('cy', function(d) { return y(d.value); })
+          .attr('r', dataRadius);
     }
   }
 
   var brushing = function() {
     x.domain(brush.empty() ? x2.domain() : brush.extent());
 
-    focus.selectAll("g.chart path").data(data).attr("d", function(d) {return line(d.data);});
-    focus.selectAll("circle").data(_.flatten(data, 'data'))
-        .attr("cx", function(d) { return x(d.date); })
-        .attr("cy", function(d) { return y(d.value); });
+    focus.selectAll('g.chart path').data(data).attr('d', function(d) {return line(d.data);});
+    focus.selectAll('circle').data(_.flatten(data, 'data'))
+        .attr('cx', function(d) { return x(d.date); })
+        .attr('cy', function(d) { return y(d.value); });
 
-    focus.select(".x.axis").call(xAxis);
+    focus.select('.x.axis').call(xAxis);
   }
 
   var drawControls = function() {
-    console.log('height', builder.graphicHeight());
     var controlHeight = builder.bottomLabel() - 13;
-    var context = builder.svg().append("g")
-        .attr("class", "chart2")
-        .attr("transform", "translate(" + (builder.graphicMarginLeft() + handlePadding) + "," + (builder.graphicMarginTop() + builder.graphicHeight()) + ")");
+    var context = builder.svg().append('g')
+        .attr('class', 'chart2')
+        .attr('transform', 'translate(' + (builder.graphicMarginLeft() + handlePadding) + ',' + (builder.graphicMarginTop() + builder.graphicHeight()) + ')');
 
     y2.range([controlHeight, 0]);
     x2.range([0, builder.graphicWidth() - (handlePadding*2)]);
     xAxis2.scale(x2)
-        .orient("bottom")
+        .orient('bottom')
         .tickFormat(d3.utilities.customTimeFormat)
         .outerTickSize([0])
         .tickSize(2)
         .tickPadding(0)
         .ticks(12);
 
-    brush.x(x2).on("brush", brushing);
+    brush.x(x2).on('brush', brushing);
 
-    context.selectAll("path").data(data).enter().append("path")
-        .attr("class", "minor line")
-        .style("stroke-width", "1px")
-        .attr("d", function(d) {return line2(d.data); })
+    context.selectAll('path').data(data).enter().append('path')
+        .attr('class', 'minor line')
+        .style('stroke-width', '1px')
+        .attr('d', function(d) {return line2(d.data); })
 
-    context.append("g")
-        .attr("class", "x axis number")
-        .attr("transform", "translate(0," + controlHeight  + ")")
+    context.append('g')
+        .attr('class', 'x axis number')
+        .attr('transform', 'translate(0,' + controlHeight  + ')')
         .call(xAxis2);
 
     var brushStart = x2.domain()[0];
     var brushEnd   = new Date();
     brush.extent([x2.domain()[0], x2.domain()[1]]);
 
-    var gBrush = context.append("g")
-        .attr("class", "x brush")
+    var gBrush = context.append('g')
+        .attr('class', 'x brush')
         .call(brush)
 
-    gBrush.selectAll("rect").attr("height", controlHeight);
-    gBrush.selectAll(".resize").append("path").attr("d",function(d) {
+    gBrush.selectAll('rect').attr('height', controlHeight);
+    gBrush.selectAll('.resize').append('path').attr('d',function(d) {
       return d3.utilities.resizeHandles(d, controlHeight);
     });
   }
 
   var highlight = function(series) {
-    var selection = "g.chart1 [series=\"" + series + "\"]";
+    var selection = 'g.chart1 [series=\'' + series + '\']';
     var highlight = focus.select(selection);
-    var style = highlight.style("stroke-width") == "2px" ? "10px" : "2px";
-    highlight.transition().style("stroke-width", style);
+    var style = highlight.style('stroke-width') == '2px' ? '10px' : '2px';
+    highlight.transition().style('stroke-width', style);
   }
 
   var drawLegend = function() {
@@ -1515,7 +1514,7 @@ this.d3.charts.tablechart = function() {
       .config('leftLabels', true)
       .config('bottomLabels', false)
       .config('topLabels', true)
-      .config('titleOn', false)
+      .config('titleOn', true)
       .config('chartType', 'line')
       .config('className', 'tablechart')
       .config('width', 900)
@@ -1792,7 +1791,6 @@ this.d3.utilities = {
     if (text) {
       var breaks = text.split("<br>");
       _.each(breaks, function(d, i) {
-        console.log(d);
         var tspan = el.append("tspan").text(d).attr("text-anchor", "middle");
         if (i > 0) {
           tspan.attr('dx',0).attr('dy', '15');
