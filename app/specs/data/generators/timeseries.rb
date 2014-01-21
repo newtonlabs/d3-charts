@@ -24,7 +24,7 @@ end
 puts "category,xAxis,yAxis,value,trend,target,color,ID"
 0.upto(5) do |i|
   today = Time.now
-  (i + 100).upto(365+100) do |x|
+  (i + 100).upto(1800+100) do |x|
     t += delta_t
     today += (60*60*24)
     stamp = today.strftime("%Y%m%d")

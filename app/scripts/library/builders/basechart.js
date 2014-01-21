@@ -20,17 +20,17 @@ d3.charts.baseBuilder = function(selection, data, config) {
   };
 
   builder.setupSvg = function(){
-    svg = d3.select(selection).append("svg")
-        .attr("class", config.className)
-        .attr("width",  config.width)
-        .attr("height", config.height);
+    svg = d3.select(selection).append('svg')
+        .attr('class', config.className)
+        .attr('width',  config.width)
+        .attr('height', config.height);
   }
 
   builder.setupChart = function() {
-    chart = svg.append("g")
-        .attr("transform", "translate("
-            + builder.marginLeft() + ","
-            + builder.marginTop() + ")")
+    chart = svg.append('g')
+        .attr('transform', 'translate('
+            + builder.marginLeft() + ','
+            + builder.marginTop() + ')')
   }
 
   builder.chartArea = function() {
@@ -45,10 +45,10 @@ d3.charts.baseBuilder = function(selection, data, config) {
   }
 
   builder.setupGraphic = function() {
-    graphic = svg.append("g")
-        .attr("transform", "translate("
-            + builder.graphicMarginLeft() + ","
-            + builder.graphicMarginTop() + ")")
+    graphic = svg.append('g')
+        .attr('transform', 'translate('
+            + builder.graphicMarginLeft() + ','
+            + builder.graphicMarginTop() + ')')
   }
 
   builder.svgArea = function() {

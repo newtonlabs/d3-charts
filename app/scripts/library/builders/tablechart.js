@@ -70,7 +70,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
   }
 
   var drawZoomSparkLine = function(d) {
-    d3.select("#popup").remove();
+    d3.select('#popup').remove();
 
     var padding = 15,
         chartPadding = 32,
@@ -92,91 +92,91 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
             miniY.domain()[1] + domainPadding])
         .range([zoomHeight,0]);
 
-    zoomLine.interpolate("cardinal").tension(0.88)
+    zoomLine.interpolate('cardinal').tension(0.88)
         .x(function(d) { return zoomX(d.date); })
         .y(function(d) { return zoomY(d.value); });
 
-    var zoom = builder.svg().append("g")
-        .attr("transform", "translate(" + (builder.graphicMarginLeft() + padding) + "," +  (builder.graphicMarginTop() + padding) + ")")
-        .attr("class", "zoom")
-        .attr("id", "popup");
+    var zoom = builder.svg().append('g')
+        .attr('transform', 'translate(' + (builder.graphicMarginLeft() + padding) + ',' +  (builder.graphicMarginTop() + padding) + ')')
+        .attr('class', 'zoom')
+        .attr('id', 'popup');
 
-    zoom.append("rect")
-        .attr("x", 0)
-        .attr("y", 0)
-        .attr("rx", 8)
-        .attr("height", height)
-        .attr("width", width)
-        .attr("fill", 'white')
-        .attr("stroke", 'lightgray')
-        .attr("stroke-width", '1px');
+    zoom.append('rect')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('rx', 8)
+        .attr('height', height)
+        .attr('width', width)
+        .attr('fill', 'white')
+        .attr('stroke', 'lightgray')
+        .attr('stroke-width', '1px');
 
     var radius = 12;
-    var close = zoom.append("g")
-        .attr("transform", "translate(" + (width - radius - 18 ) + "," + (radius + 18)+ ")");
+    var close = zoom.append('g')
+        .attr('transform', 'translate(' + (width - radius - 18 ) + ',' + (radius + 18)+ ')');
 
     var closeit = function() {
       zoom.remove();
     }
 
-    close.append("circle")
-        .attr("fill", 'white')
-        .attr("stroke", '#cccccc')
+    close.append('circle')
+        .attr('fill', 'white')
+        .attr('stroke', '#cccccc')
         .attr('r', '15')
         .on('click', closeit)
 
     close.append('line').attr('fill', 'none').attr('stroke', '#cccccc').attr('stroke-width', 2).attr('x1',-5).attr('y1',-5).attr('x2',5).attr('y2',5).on('click', closeit)
     close.append('line').attr('fill', 'none').attr('stroke', '#cccccc').attr('stroke-width', 2).attr('x1',5).attr('y1',-5).attr('x2',-5).attr('y2',5).on('click', closeit)
 
-    var zoomTitle = zoom.append("g")
-        .attr("transform", "translate(" + padding + "," + (padding + 10) + ")");
+    var zoomTitle = zoom.append('g')
+        .attr('transform', 'translate(' + padding + ',' + (padding + 10) + ')');
 
-    zoomTitle.append("text")
-        .attr("class", "zoom-title")
-        .text(d[0].category + " - " + d[1].subcategory);
+    zoomTitle.append('text')
+        .attr('class', 'zoom-title')
+        .text(d[0].category + ' - ' + d[1].subcategory);
 
     var xAxis = d3.svg.axis();
     var yAxis = d3.svg.axis();
-    var zoomChart = zoom.append("g")
-        .attr("transform", "translate(" + chartPadding + "," +  chartPadding + ")");
+    var zoomChart = zoom.append('g')
+        .attr('transform', 'translate(' + chartPadding + ',' +  chartPadding + ')');
 
-    xAxis.scale(zoomX).orient("bottom")
+    xAxis.scale(zoomX).orient('bottom')
         .tickFormat(d3.utilities.customTimeFormat)
         .outerTickSize([0])
         .ticks(10);
 
-    yAxis.scale(zoomY).orient("right").ticks(4);
+    yAxis.scale(zoomY).orient('right').ticks(4);
 
-    zoomChart.append("g")
-        .attr("class", "x axis number")
-        .attr("transform", "translate(0," + zoomY(zoomY.domain()[0]) + ")")
+    zoomChart.append('g')
+        .attr('class', 'x axis number')
+        .attr('transform', 'translate(0,' + zoomY(zoomY.domain()[0]) + ')')
         .call(xAxis);
 
     yAxis.tickSize(zoomWidth);
 
-    var gy = zoomChart.append("svg:g")
-        .attr("class", "y axis number")
+    var gy = zoomChart.append('svg:g')
+        .attr('class', 'y axis number')
         .call(yAxis)
 
-    gy.selectAll("g").classed("gridline", true);
-    gy.selectAll("text").attr("x", -14).attr("dy", -4);
+    gy.selectAll('g').classed('gridline', true);
+    gy.selectAll('text').attr('x', -14).attr('dy', -4);
 
-    zoomChart.append("svg:path")
+    zoomChart.append('svg:path')
         .attr('class', 'line')
-        .style("stroke", 'steelblue')
+        .style('stroke', 'steelblue')
         .attr('stroke-width', '2px')
-        .attr("d", zoomLine(d));
+        .attr('d', zoomLine(d));
 
     var currentPoint = zoomChart.append('g')
-        .attr("class", "large-label")
-        .attr("transform", "translate(" +  zoomX(current.date) + "," +  zoomY(current.value) + ")");
+        .attr('class', 'large-label')
+        .attr('transform', 'translate(' +  zoomX(current.date) + ',' +  zoomY(current.value) + ')');
 
-    currentPoint.append("circle")
-        .attr("class", "circle")
-        .style("fill", function(d) { return current.color; })
-        .attr("stroke-width", '2')
-        .attr("stroke", 'white')
-        .attr("r", 18);
+    currentPoint.append('circle')
+        .attr('class', 'circle')
+        .style('fill', function(d) { return current.color; })
+        .attr('stroke-width', '2')
+        .attr('stroke', 'white')
+        .attr('r', 18);
 
     currentPoint.append('text')
         .attr('stroke', 'white')
@@ -195,11 +195,11 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
   }
 
   var row = function(el, x, y, text1, text2) {
-    el.append("text").attr("x", x).attr("y", y)
-      .append("tspan")
+    el.append('text').attr('x', x).attr('y', y)
+      .append('tspan')
         .text(text1)
-      .append("tspan")
-        .attr("x", 50)
+      .append('tspan')
+        .attr('x', 50)
         .text(text2);
   }
 
@@ -207,32 +207,32 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
     var subData = (organizeData(category, subcategory)),
         lastData = _.last(subData);
 
-    var focus = builder.graphic().append("g")
-        .attr("class", "mini-chart")
-        .attr("transform", "translate(" + x(subcategory) + "," + y(category) + ")")
+    var focus = builder.graphic().append('g')
+        .attr('class', 'mini-chart')
+        .attr('transform', 'translate(' + x(subcategory) + ',' + y(category) + ')')
 
-    line.interpolate("cardinal").tension(0.88)
+    line.interpolate('cardinal').tension(0.88)
         .x(function(d) { return miniX(d.date); })
         .y(function(d) { return miniY(d.value); });
 
-    focus.append("rect")
+    focus.append('rect')
         .attr('fill', '#EDEDED') //TODO to make click bind easier
         .attr('height', y.rangeBand())
         .attr('width', x.rangeBand())
-        .on("click", function(d) {drawZoomSparkLine(subData)});
+        .on('click', function(d) {drawZoomSparkLine(subData)});
 
-    focus.append("svg:path")
+    focus.append('svg:path')
         .attr('class', 'line')
-        .style("stroke", 'steelblue')
-        .attr("d", line(subData));
+        .style('stroke', 'steelblue')
+        .attr('d', line(subData));
 
     if (!_.isEmpty(lastData)) {
-      focus.append("circle")
-          .attr("class", "circle")
-          .style("fill", function(d) { return lastData.color; })
-          .attr("cx", function(d) { return miniX(lastData.date); })
-          .attr("cy", function(d) { return miniY(lastData.value); })
-          .attr("r", 3);
+      focus.append('circle')
+          .attr('class', 'circle')
+          .style('fill', function(d) { return lastData.color; })
+          .attr('cx', function(d) { return miniX(lastData.date); })
+          .attr('cy', function(d) { return miniY(lastData.value); })
+          .attr('r', 3);
     }
   }
 
@@ -241,42 +241,42 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
   }
 
   var drawRowColumnLabels = function() {
-    var columns = builder.svg().append("g")
-        .attr("class", "top-nav")
-        .attr("transform", "translate(" + builder.graphicMarginLeft() + "," + builder.marginTop() + ")")
+    var columns = builder.svg().append('g')
+        .attr('class', 'top-nav')
+        .attr('transform', 'translate(' + builder.graphicMarginLeft() + ',' + builder.marginTop() + ')')
 
-    var rows = builder.svg().append("g")
-        .attr("class", "left-nav")
-        .attr("transform", "translate(" + builder.marginLeft() + "," + builder.graphicMarginTop() + ")")
+    var rows = builder.svg().append('g')
+        .attr('class', 'left-nav')
+        .attr('transform', 'translate(' + builder.marginLeft() + ',' + builder.graphicMarginTop() + ')')
 
     if (config.topLabels) {
-      var columnLabel = columns.selectAll("g.top-nav .text").data(x.domain());
-      columnLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-          .attr("class", "column-label ")// + columnFont)
-          .attr("style", "height:" + config.margin.topLabel  + "px; width:" +x.rangeBand()+ "px;")
-        .append("xhtml:div")
+      var columnLabel = columns.selectAll('g.top-nav .text').data(x.domain());
+      columnLabel.enter().append('svg:foreignObject').attr('class', 'text').append('xhtml:div')
+          .attr('class', 'column-label ')// + columnFont)
+          .attr('style', 'height:' + config.margin.topLabel  + 'px; width:' +x.rangeBand()+ 'px;')
+        .append('xhtml:div')
           .html(function(schema) {return schema;});;
       columnLabel
-          .attr("width",  x.rangeBand())
-          .attr("height", config.margin.topLabel)
-          .attr("x", function(d) {return x(d)})
-          .attr("y", 0)
+          .attr('width',  x.rangeBand())
+          .attr('height', config.margin.topLabel)
+          .attr('x', function(d) {return x(d)})
+          .attr('y', 0)
       columnLabel.exit().remove();
     }
 
     if (config.leftLabels) {
-      var rowLabel = rows.selectAll("g.left-nav .text").data(y.domain());
-      rowLabel.enter().append("svg:foreignObject").attr("class", "text").append("xhtml:div")
-          .attr("class", "row-label ") //+ rowFont)
-        .append("xhtml:div")
+      var rowLabel = rows.selectAll('g.left-nav .text').data(y.domain());
+      rowLabel.enter().append('svg:foreignObject').attr('class', 'text').append('xhtml:div')
+          .attr('class', 'row-label ') //+ rowFont)
+        .append('xhtml:div')
           .html(function(schema) {return schema;});;
       rowLabel
           // TODO remove hard code 168
-          .attr("width",  168)
-          .attr("height", y.rangeBand())
-          .attr("x", 0)
-          .attr("y", function(d) {return y(d)})
-          .attr("style", "line-height:"+y.rangeBand()+"px")
+          .attr('width',  168)
+          .attr('height', y.rangeBand())
+          .attr('x', 0)
+          .attr('y', function(d) {return y(d)})
+          .attr('style', 'line-height:'+y.rangeBand()+'px')
       rowLabel.exit().remove();
     }
   }

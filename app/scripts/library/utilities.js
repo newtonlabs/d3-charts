@@ -49,7 +49,6 @@ this.d3.utilities = {
     if (text) {
       var breaks = text.split("<br>");
       _.each(breaks, function(d, i) {
-        console.log(d);
         var tspan = el.append("tspan").text(d).attr("text-anchor", "middle");
         if (i > 0) {
           tspan.attr('dx',0).attr('dy', '15');

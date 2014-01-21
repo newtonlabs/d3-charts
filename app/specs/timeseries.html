@@ -33,27 +33,25 @@
 
     <div class="container-fluid">
       <div class="span9">
-        <div id="heatmap"></div>
-        <div id="heatmap-legend"></div>
-        <div id="heatmap-fonts"></div>
-        <div id="heatmap-fixedwidth"></div>
-        <div id="heatmap-empty"></div>
+        <div id="timeseries"></div>
+        <div id="timeseries-nolegend"></div>
+        <div id="timeseries-empty"></div>
       </div>
     </div>
 
     <!-- build:js scripts/main.js -->
-    <script src="bower_components/d3/d3.min.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/library/legend.js"></script>
-    <script src="scripts/library/nodata.js"></script>
-    <script src="scripts/library/chartTitle.js"></script>
-    <script src="scripts/library/utilities.js"></script>
-    <script src="scripts/library/configs/basechart.js"></script>
-    <script src="scripts/library/configs/heatmap.js"></script>
-    <script src="scripts/library/builders/basechart.js"></script>
-    <script src="scripts/library/builders/heatmap.js"></script>
-    <script src="scripts/drivers/heatmap.js"></script>
+    <script src="../bower_components/d3/d3.min.js"></script>
+    <script src="../bower_components/lodash/lodash.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/library/utilities.js"></script>
+    <script src="../scripts/library/legend.js"></script>
+    <script src="../scripts/library/nodata.js"></script>
+    <script src="../scripts/library/chartTitle.js"></script>
+    <script src="../scripts/library/configs/basechart.js"></script>
+    <script src="../scripts/library/configs/timeseries.js"></script>
+    <script src="../scripts/library/builders/basechart.js"></script>
+    <script src="../scripts/library/builders/timeseries.js"></script>
+    <script src="../scripts/drivers/timeseries.js"></script>
     <!-- endbuild -->
   </body>
 </html>

@@ -11,7 +11,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
       xAxis = d3.svg.axis(),
       yAxis = d3.svg.axis(),
       color = d3.scale.ordinal(),
-      format = d3.format(".3s"),
+      format = d3.format('.3s'),
       stack = d3.layout.stack(),
       legend = d3.charts.legend();
 
@@ -39,7 +39,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
   var setupNoData = function() {
     layers = [];
     color.domain(['TBD']).range(['#E6E6E6']);
-    y.domain(_.map(_.range(7), function(d) {return ("Label - " + d)}));
+    y.domain(_.map(_.range(7), function(d) {return ('Label - ' + d)}));
     legend.color(color);
   }
 
@@ -123,53 +123,53 @@ d3.charts.stackedBuilder = function(selection, data, config) {
         .tickPadding(3)
         .tickFormat(format)
         .outerTickSize([0])
-        .orient("right");
+        .orient('right');
 
     vertical_xAxis.scale(verticalX)
         .tickSize(0)
-        .orient("bottom");
+        .orient('bottom');
 
-    var gy = chart.append("g")
-        .attr("class", "vertical y axis number")
-        .attr("transform", "translate (-48,0)")
+    var gy = chart.append('g')
+        .attr('class', 'vertical y axis number')
+        .attr('transform', 'translate (-48,0)')
         .call(vertical_yAxis);
 
-    gy.selectAll("g").classed("gridline", true);
-    gy.selectAll("text").attr("x", 4).attr("dy", -4);
+    gy.selectAll('g').classed('gridline', true);
+    gy.selectAll('text').attr('x', 4).attr('dy', -4);
 
-    var gx = chart.append("g")
-      .attr("class", "vertical x axis")
-      .attr("transform", "translate(0," + chartHeight + ")")
+    var gx = chart.append('g')
+      .attr('class', 'vertical x axis')
+      .attr('transform', 'translate(0,' + chartHeight + ')')
       .call(vertical_xAxis);
 
-    var layer = chart.selectAll(".layer")
+    var layer = chart.selectAll('.layer')
         .data(layers)
-        .enter().append("g")
-        .attr("class", "layer")
-        .style("fill", function(d, i)  {return color(d[0].category); });
+        .enter().append('g')
+        .attr('class', 'layer')
+        .style('fill', function(d, i)  {return color(d[0].category); });
 
-    var rect = layer.selectAll("rect")
+    var rect = layer.selectAll('rect')
         .data(function(d) { return d; })
-        .enter().append("rect")
-        .attr("y", chartHeight)
-        .attr("x", function(d) { return verticalX(d.x); })
-        .attr("height", 0)
-        .attr("fill", barColor)
-        .attr("width", verticalX.rangeBand())
+        .enter().append('rect')
+        .attr('y', chartHeight)
+        .attr('x', function(d) { return verticalX(d.x); })
+        .attr('height', 0)
+        .attr('fill', barColor)
+        .attr('width', verticalX.rangeBand())
 
     rect
         .transition()
         .delay(function(d, i) { return i * 40; })
-        .attr("y", function(d) {return verticalY(d.y0 + d.y);})
-        .attr("height", function(d) { return verticalY(d.y0) - verticalY(d.y0 + d.y)});
+        .attr('y', function(d) {return verticalY(d.y0 + d.y);})
+        .attr('height', function(d) { return verticalY(d.y0) - verticalY(d.y0 + d.y)});
 
-    var text = chart.selectAll(".value")
+    var text = chart.selectAll('.value')
         .data(lastLayer(layers))
-        .enter().append("text")
-        .attr("text-anchor", "middle")
-        .attr("y", function(d) {return (verticalY(d.y0 + d.y)) - 4 ; })
-        .attr("x", function(d) { return verticalX(d.x)+verticalX.rangeBand()/2; })
-        .attr("class","value")
+        .enter().append('text')
+        .attr('text-anchor', 'middle')
+        .attr('y', function(d) {return (verticalY(d.y0 + d.y)) - 4 ; })
+        .attr('x', function(d) { return verticalX(d.x)+verticalX.rangeBand()/2; })
+        .attr('class','value')
         .text(textFormat);
   }
 
@@ -186,50 +186,50 @@ d3.charts.stackedBuilder = function(selection, data, config) {
         .tickPadding(3)
         .tickFormat(format)
         .outerTickSize([0])
-        .orient("bottom");
+        .orient('bottom');
 
     yAxis.scale(y)
         .tickSize(0)
         .tickPadding(10)
-        .orient("left");
+        .orient('left');
 
-    chart.append("g")
-        .attr("class", "horizontal y axis")
+    chart.append('g')
+        .attr('class', 'horizontal y axis')
         .call(yAxis);
 
-    var gx = chart.append("g")
-        .attr("class", "horizontal x axis number")
-        .attr("transform", "translate(0," + chartHeight + ")")
+    var gx = chart.append('g')
+        .attr('class', 'horizontal x axis number')
+        .attr('transform', 'translate(0,' + chartHeight + ')')
         .call(xAxis);
-    gx.selectAll("g").classed("gridline", true);
-    gx.selectAll("text").attr("x", 18)
+    gx.selectAll('g').classed('gridline', true);
+    gx.selectAll('text').attr('x', 18)
 
-    var layer = chart.selectAll(".layer")
+    var layer = chart.selectAll('.layer')
         .data(layers)
-        .enter().append("g")
-        .attr("class", "layer");
+        .enter().append('g')
+        .attr('class', 'layer');
 
-    var rect = layer.selectAll("rect")
+    var rect = layer.selectAll('rect')
         .data(function(d) { return d; })
-        .enter().append("rect")
-        .attr("x", 0)
-        .attr("y", function(d) { return y(d.x); })
-        .attr("width", 0)
-        .attr("fill", barColor)
-        .attr("height", y.rangeBand())
+        .enter().append('rect')
+        .attr('x', 0)
+        .attr('y', function(d) { return y(d.x); })
+        .attr('width', 0)
+        .attr('fill', barColor)
+        .attr('height', y.rangeBand())
 
     rect
         .transition()
         .delay(function(d, i) { return i * 40; })
-        .attr("x", function(d) { return x(d.y0); })
-        .attr("width", function(d) { return x(d.y); });
+        .attr('x', function(d) { return x(d.y0); })
+        .attr('width', function(d) { return x(d.y); });
 
-    var text = chart.selectAll(".value")
+    var text = chart.selectAll('.value')
         .data(lastLayer(layers))
-        .enter().append("text")
-        .attr("x", function(d) { return x(d.y + d.y0)+5; })
-        .attr("y", function(d) { return y(d.x)+y.rangeBand()/2+4; })
-        .attr("class","value")
+        .enter().append('text')
+        .attr('x', function(d) { return x(d.y + d.y0)+5; })
+        .attr('y', function(d) { return y(d.x)+y.rangeBand()/2+4; })
+        .attr('class','value')
         .text(textFormat);
   }
 
