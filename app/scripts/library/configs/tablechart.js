@@ -11,7 +11,7 @@ this.d3.charts.tablechart = function() {
       .config('leftLabels', true)
       .config('bottomLabels', false)
       .config('topLabels', true)
-      .config('titleOn', false)
+      .config('titleOn', true)
       .config('chartType', 'line')
       .config('className', 'tablechart')
       .config('width', 900)

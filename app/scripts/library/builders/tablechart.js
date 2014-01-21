@@ -23,9 +23,9 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
 
     drawTable();
 
+    if (config.titleOn) { builder.drawTitle(); }
     if (empty) { builder.drawNoDataLabel(); }
     if (config.svgArea) { builder.svgArea(); }
-    if (config.titleOn) { builder.drawTitle(); }
     if (config.chartArea) { builder.chartArea(); }
     if (config.graphicArea) { builder.graphicArea(); }
   };

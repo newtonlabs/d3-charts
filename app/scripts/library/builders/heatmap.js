@@ -110,7 +110,7 @@ d3.charts.heatmapBuilder = function(selection, data, config) {
         .domain(_.map(config.legendData, function(d) {return d.name}))
         .range(_.map(config.legendData, function(d) {return d.color}));
 
-    legend.y(builder.legendMarginTop()).x(builder.legendMarginLeft());
+    legend.y(builder.legendMarginTop()).x(builder.legendMarginLeft()).color(color);
     builder.svg().datum(_.map(config.legendData, function(d) { return d.name })).call(legend);
   }
 

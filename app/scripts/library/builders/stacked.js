@@ -25,7 +25,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
     empty ? setupNoData() : setupData();
 
     config.vertical ? drawVertical() : drawHorizontal();
-
+    if (config.titleOn) { builder.drawTitle(); }
     if (empty) { builder.drawNoDataLabel(); }
     if (config.legend) { drawLegend(); }
     if (config.chartArea) { builder.chartArea(); }

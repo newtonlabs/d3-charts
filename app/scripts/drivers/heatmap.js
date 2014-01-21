@@ -56,6 +56,7 @@ d3.csv('data/heatmap.csv', function(error, data) {
   d3.select('#heatmap').datum(scrubbed).call(heatmapChart);
 
   heatmapChart.legendData(legend).title('LEGEND TEST');
+  heatmapChart.legend(true).title('LEGEND TEST');
   d3.select('#heatmap-legend').datum(scrubbed).call(heatmapChart);
 
   heatmapChart.cellFont('medium')
