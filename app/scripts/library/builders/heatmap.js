@@ -139,6 +139,7 @@ d3.charts.heatmapBuilder = function(selection, data, config) {
     var rowLabel = rows.selectAll('g.left-nav .text').data(y.domain());
     rowLabel.enter().append('svg:foreignObject').attr('class', 'text').append('xhtml:div')
         .attr('class', 'row-label ' + config.rowFont)
+        .attr('style', 'height:' + y.rangeBand()   + 'px; width:' +168+ 'px;')
       .append('xhtml:div')
         .html(function(schema) {return schema;});;
     rowLabel
@@ -147,7 +148,7 @@ d3.charts.heatmapBuilder = function(selection, data, config) {
         .attr('height', y.rangeBand())
         .attr('x', function(d) {return x(x.domain()[0])})
         .attr('y', function(d) {return y(d)})
-        .attr('style', 'line-height:'+y.rangeBand()+'px')
+        // .attr('style', 'line-height:'+y.rangeBand()+'px')
     rowLabel.exit().remove();
   }
 
