@@ -1008,7 +1008,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
       focus.append('circle')
           .attr('class', 'circle')
           .style('fill', function(d) { return lastData.color; })
-          .attr('cx', function(d) { return miniX(lastData.date); })
+          .attr('cx', function(d) { return (miniX(lastData.date) - 1); }) // padding for circle
           .attr('cy', function(d) { return miniY(lastData.value); })
           .attr('r', 3);
     }
@@ -1508,7 +1508,7 @@ this.d3.charts.tablechart = function() {
   'use strict';
 
   var chart  = d3.charts.baseChart()
-      .config('svgArea', false)
+      .config('svgArea', true)
       .config('chartArea', false)
       .config('graphicArea', false)
       .config('legend', false)

@@ -230,7 +230,7 @@ d3.charts.tablechartBuilder = function(selection, data, config) {
       focus.append('circle')
           .attr('class', 'circle')
           .style('fill', function(d) { return lastData.color; })
-          .attr('cx', function(d) { return miniX(lastData.date); })
+          .attr('cx', function(d) { return (miniX(lastData.date) - 1); }) // padding for circle
           .attr('cy', function(d) { return miniY(lastData.value); })
           .attr('r', 3);
     }

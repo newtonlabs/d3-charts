@@ -4,7 +4,7 @@ this.d3.charts.tablechart = function() {
   'use strict';
 
   var chart  = d3.charts.baseChart()
-      .config('svgArea', false)
+      .config('svgArea', true)
       .config('chartArea', false)
       .config('graphicArea', false)
       .config('legend', false)
