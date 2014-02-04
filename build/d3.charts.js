@@ -1179,8 +1179,8 @@ d3.charts.timeseriesBuilder = function(selection, data, config) {
   var setupData = function() {
     x.range([0, builder.graphicWidth()]);
     y.range([builder.graphicHeight(), 0]);
-    xAxis.scale(x).orient('top').tickFormat(d3.utilities.customTimeFormat).outerTickSize([0]).ticks(8);
-    yAxis.scale(y).orient('right').ticks(10);
+    xAxis.scale(x).orient('top').tickFormat(d3.utilities.customTimeFormat).outerTickSize([0]).ticks(8).tickSize(3).tickPadding(2);
+    yAxis.scale(y).orient('right').ticks(8);
 
     var lowerDomain = d3.min(data, function(d) { return d3.min(d.data, function(c) {return c.value; }); }),
     upperDomain = d3.max(data, function(d) { return d3.max(d.data, function(c) {return c.value; }); }),
