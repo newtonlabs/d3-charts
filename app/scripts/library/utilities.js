@@ -57,6 +57,35 @@ this.d3.utilities = {
     }
   },
 
+  // Generic function for checking property existence
+  has: function has(obj, prop) {
+    if (typeof(obj) == "object") {
+     return Object.prototype.hasOwnProperty.call(obj, prop);
+    }
+  },
+
+  dictionary: function(obj, prop, transform) {
+    if (this.has(transform, prop)) {
+      return obj[transform[prop]]
+    }
+    return obj[prop];
+  },
+
+  commonProperties: ['xAxis', 'yAxis', 'category', 'subcategory', 'value', 'trend', 'color', 'target'],
+
+  transform: function(obj, transform) {
+    var util = this;
+    return _.reduce(util.commonProperties, function(memo, d) {
+      var value = util.dictionary(obj, d, transform);
+      if (value)  { memo[d] = util.dictionary(obj, d, transform); }
+      return memo;
+    }, {});
+  },
+
+  transformSet: function(set, transform) {
+    var util = this;
+    return _.map(set, function(d) {return util.transform(d, transform)});
+  },
 
   resizeHandles: function(d, height) {
     var e = +(d == "e"),

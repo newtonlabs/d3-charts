@@ -1,5 +1,6 @@
 var barChart = d3.charts.barchart();
 d3.csv("data/barchart.csv", function(error, data) {
+  data = d3.utilities.transformSet(data);
 
   var uniqueProperties = function(data, property) {
     return _.reduce(data, function(memo, d) {

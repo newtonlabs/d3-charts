@@ -34,6 +34,7 @@ var legend = [
 var heatmapChart = d3.charts.heatmap();
 
 d3.csv('data/heatmap.csv', function(error, data) {
+  data = d3.utilities.transformSet(data);
   // Maintain order from the JSON object
   var scrubbed = _.reduce(data, function(memo, obj) {
 

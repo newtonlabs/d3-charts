@@ -6,6 +6,7 @@ var timeseriesChart = d3.charts.timeseries()
 var parseDate = d3.time.format("%Y%m%d").parse;
 
 d3.csv("data/timeseries.csv", function(error, data) {
+  data = d3.utilities.transformSet(data);
 
   var series = d3.utilities.uniqueProperties(data, "category");
   _.each(data, function(d) { d.date = parseDate(d.xAxis); d.value = +d.value});
