@@ -17,7 +17,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
 
   builder.draw = function() {
     var empty = _.isEmpty(data);
-
+    
     setupMargins();
     builder.setupSvg();
     builder.setupChart();

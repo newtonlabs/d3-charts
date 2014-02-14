@@ -65,7 +65,7 @@ this.d3.utilities = {
   },
 
   dictionary: function(obj, prop, transform) {
-    if (this.has(transform, prop)) {
+    if (this.has(transform, prop) && !_.isEmpty(transform[prop])) {
       return obj[transform[prop]]
     }
     return obj[prop];

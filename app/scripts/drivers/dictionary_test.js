@@ -1,7 +1,8 @@
 var transform =  {
   xAxis: "region",
   yAxis: "state",
-  value: "price"
+  value: "price",
+  category: ""
 };
 
 var data = [{

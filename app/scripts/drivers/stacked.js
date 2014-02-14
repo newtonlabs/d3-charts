@@ -1,5 +1,5 @@
 var stacked = d3.charts.stacked().vertical(undefined);
-d3.csv("data/stacked.csv", function(error, data) {
+d3.csv("data/stacked_simple.csv", function(error, data) {
   data = d3.utilities.transformSet(data);
   var group = _.groupBy(data, function(d) { return d.category })
   layers = _.map(group, function(d, category) {
