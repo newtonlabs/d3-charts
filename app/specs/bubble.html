@@ -1,0 +1,58 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width">
+      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+      <!-- build:css({.tmp,app}) styles/main.css -->
+      <link rel="stylesheet" href="../styles/main.css">
+      <!-- endbuild -->
+      <!-- build:js scripts/vendor/modernizr.js -->
+      <script src="../bower_components/modernizr/modernizr.js"></script>
+      <!-- endbuild -->
+  </head>
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="../index.html">D3 Charts</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav" id="navigation">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="span9">
+          <div id="bubble"></div>
+      </div>
+    </div>
+
+    <!-- build:js scripts/main.js -->
+    <script src="../bower_components/d3/d3.min.js"></script>
+    <script src="../bower_components/lodash/lodash.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/library/utilities.js"></script>
+    <script src="../scripts/library/legend.js"></script>
+    <script src="../scripts/library/nodata.js"></script>
+    <script src="../scripts/library/chartTitle.js"></script>
+    <script src="../scripts/library/builders/basechart.js"></script>
+    <script src="../scripts/library/builders/bubble.js"></script>
+    <script src="../scripts/library/configs/basechart.js"></script>
+    <script src="../scripts/library/configs/bubble.js"></script>
+    <script src="../scripts/drivers/bubble.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
+
+
+

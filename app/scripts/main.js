@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var data = ['timeseries', 'stacked', 'heatmap', 'tablechart', 'template', 'filter', 'load'];
+  var data = ['timeseries', 'stacked', 'heatmap', 'tablechart', 'template', 'filter', 'load','bubble'];
   var navigation = d3.select('#navigation');
 
   navigation.selectAll('li').data(data).enter()

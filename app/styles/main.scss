@@ -19,6 +19,11 @@ $charttitlecolor: #203566;
     width: 960px;
 }
 
+body{
+  padding-top:60px;
+}
+
+
 // For dev work only
 svg {
   // border-style:solid;
@@ -163,6 +168,35 @@ svg {
   }
   .value {
     font-size: $largelabelfontsize;
+  }
+}
+
+.bubble {
+  @extend .commonCharts;
+  .horizontal {
+    &.x.axis path {
+      display: none;
+    }
+    &.y.axis text {
+      fill: $nonblack;
+    }
+  }
+  .vertical {
+    &.x.axis text {
+      fill: $nonblack;
+    }
+    &.x.axis path {
+      display: none;
+    }
+    &.y.axis path {
+      display: none;
+    }
+  }
+  .value {
+    font-size: $largelabelfontsize;
+  }
+  .dot {
+    stroke: #000;
   }
 }
 
