@@ -18,7 +18,7 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
 
   builder.draw = function() {
     var empty = _.isEmpty(data);
-    
+
     setupMargins();
     builder.setupSvg();
     builder.setupChart();
@@ -45,15 +45,9 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
   }
 
   var setupData = function() {
-    console.log(data,"data")
-    //layers = stack(data);
-
-    // var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); }),
-    //     padding = d3.utilities.padDomain(builder.graphicWidth(), yStackMax, barTextPadding);
-
-    x.domain(d3.extent(data, function(d) { return d.sepalWidth; })).nice();
-    y.domain(d3.extent(data, function(d) { return d.sepalLength; })).nice();
-    r.domain(d3.extent(data, function(d) { return d.petalWidth; })).nice();
+    x.domain(d3.extent(data, function(d) { return d.xAxis; })).nice();
+    y.domain(d3.extent(data, function(d) { return d.yAxis; })).nice();
+    r.domain(d3.extent(data, function(d) { return d.value; })).nice();
     // color.domain(categories()).range(colors());
     // legend.color(color);
   }
@@ -73,14 +67,6 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
     return _.reduce(layers, function(memo, d) { memo.push(d[0].category); return memo}, []);
   }
 
-  // var barColor = function(d) {
-  //   return _.isEmpty(d.color) ? color(d.category) : d.color;
-  // }
-
-  // var lastLayer = function(layers) {
-  //   return _.isEmpty(layers) ? [] : _.last(layers);
-  // }
-
   var legendItems = function() {
     return config.vertical ? categories().slice().reverse() : categories()
   }
@@ -89,25 +75,6 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
     legend.y(builder.legendMarginTop()).x(builder.legendMarginLeft());
     builder.svg().datum(legendItems()).call(legend);
   }
-
-  var isInt = function(d) {
-    return d % 1 === 0;
-  }
-
-  var textFormat = function(d) {
-    var number = d.y + d.y0;
-
-    if (isInt(number)) {
-      if (number > 999) {
-        return format(number);
-      } else {
-        return number;
-      }
-    } else {
-      return format(number);
-    }
-  }
-
 
   var drawBubbleChart = function() {
     var chartHeight = builder.graphicHeight(),
@@ -152,13 +119,12 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
-      .attr("r", function(d){ 
-        return r(d.petalWidth)
-        //return 3.5 
+      .attr("r", function(d){
+        return r(d.value)
       })
-      .attr("cx", function(d) { return x(d.sepalWidth); })
-      .attr("cy", function(d) { return y(d.sepalLength); })
-      .style("fill", function(d) { return color(d.species); });
+      .attr("cx", function(d) { return x(d.xAxis); })
+      .attr("cy", function(d) { return y(d.yAxis); })
+      .style("fill", function(d) { return color(d.category); });
 
   }
 
