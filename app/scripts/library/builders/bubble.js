@@ -40,7 +40,7 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
     y.domain(d3.extent(data, function(d) { return d.yAxis; })).nice();
     r.domain(d3.extent(data, function(d) { return d.value; })).nice();
     categories = d3.utilities.uniqueProperties(data, 'category');
-    color.domain(categories).range(d3.utilities.stackColors)
+    color.domain(categories).range(d3.utilities.colorWheel)
   }
 
   var drawLegend = function() {
