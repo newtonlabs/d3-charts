@@ -4,8 +4,7 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
   'use strict';
 
   var builder = d3.charts.baseBuilder(selection, data, config),
-      layers,
-      barTextPadding = 50,
+      categories,
       y = d3.scale.linear(),
       x = d3.scale.linear(),
       r = d3.scale.linear(),
@@ -13,13 +12,11 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
       yAxis = d3.svg.axis(),
       color = d3.scale.ordinal(),
       format = d3.format('.3s'),
-      stack = d3.layout.stack(),
       legend = d3.charts.legend();
 
   builder.draw = function() {
     var empty = _.isEmpty(data);
 
-    setupMargins();
     builder.setupSvg();
     builder.setupChart();
     builder.setupGraphic();
@@ -33,14 +30,8 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
     if (config.graphicArea) { builder.graphicArea(); }
   };
 
-  var setupMargins = function() {
-    if (config.vertical) { config.margin.leftLabel = barTextPadding; }
-  }
-
   var setupNoData = function() {
-    layers = [];
     color.domain(['TBD']).range(['#E6E6E6']);
-    y.domain(_.map(_.range(7), function(d) {return ('Label - ' + d)}));
     legend.color(color);
   }
 
@@ -48,32 +39,14 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
     x.domain(d3.extent(data, function(d) { return d.xAxis; })).nice();
     y.domain(d3.extent(data, function(d) { return d.yAxis; })).nice();
     r.domain(d3.extent(data, function(d) { return d.value; })).nice();
-    // color.domain(categories()).range(colors());
-    // legend.color(color);
-  }
-
-  var colors = function() {
-    return _.reduce(layers, function(memo, d, i) {
-      var color = d[0].color ? d[0].color : d3.utilities.stackColors[i];
-      memo.push(color);
-      return memo;
-    }, []);
-  }
-
-  var categories = function() {
-    if (_.isEmpty(layers)) {
-      return ['TBD'];
-    }
-    return _.reduce(layers, function(memo, d) { memo.push(d[0].category); return memo}, []);
-  }
-
-  var legendItems = function() {
-    return config.vertical ? categories().slice().reverse() : categories()
+    categories = d3.utilities.uniqueProperties(data, 'category');
+    color.domain(categories).range(d3.utilities.stackColors)
   }
 
   var drawLegend = function() {
+    legend.color(color);
     legend.y(builder.legendMarginTop()).x(builder.legendMarginLeft());
-    builder.svg().datum(legendItems()).call(legend);
+    builder.svg().datum(categories).call(legend);
   }
 
   var drawBubbleChart = function() {
@@ -84,8 +57,6 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
     y.rangeRound([chartHeight,0]);
     x.rangeRound([0, chartWidth]);
     r.rangeRound([3,20])
-
-    var color = d3.scale.category10();
 
     xAxis.scale(x)
         .tickSize(-chartHeight)
@@ -119,11 +90,7 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
-      .attr("stroke", "none")
-      // .attr("shape-rendering", "crispEdges")
-      .attr("r", function(d){
-        return r(d.value)
-      })
+      .attr("r", function(d) { return r(d.value) })
       .attr("cx", function(d) { return x(d.xAxis); })
       .attr("cy", function(d) { return y(d.yAxis); })
       .attr("fill", function(d) { return color(d.category); });

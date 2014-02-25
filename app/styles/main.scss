@@ -196,7 +196,7 @@ svg {
     font-size: $largelabelfontsize;
   }
   .dot {
-    stroke: #000;
+    stroke: $nonblack;
     stroke-width: 1;
   }
 }
