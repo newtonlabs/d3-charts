@@ -81,9 +81,9 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
         chartWidth = builder.graphicWidth(),
         chart = builder.graphic();
 
-    y.range([chartHeight,0]);
-    x.range([0, chartWidth]);
-    r.range([3,20])
+    y.rangeRound([chartHeight,0]);
+    x.rangeRound([0, chartWidth]);
+    r.rangeRound([3,20])
 
     var color = d3.scale.category10();
 
@@ -119,12 +119,14 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
       .data(data)
     .enter().append("circle")
       .attr("class", "dot")
+      .attr("stroke", "none")
+      // .attr("shape-rendering", "crispEdges")
       .attr("r", function(d){
         return r(d.value)
       })
       .attr("cx", function(d) { return x(d.xAxis); })
       .attr("cy", function(d) { return y(d.yAxis); })
-      .style("fill", function(d) { return color(d.category); });
+      .attr("fill", function(d) { return color(d.category); });
 
   }
 
