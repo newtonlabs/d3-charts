@@ -17,12 +17,14 @@ d3.charts.stackedBuilder = function(selection, data, config) {
 
   builder.draw = function() {
     var empty = _.isEmpty(data);
-    
+
     setupMargins();
     builder.setupSvg();
     builder.setupChart();
     builder.setupGraphic();
     empty ? setupNoData() : setupData();
+
+    console.log('groupged', config.grouped);
 
     config.vertical ? drawVertical() : drawHorizontal();
     if (config.titleOn) { builder.drawTitle(); }
