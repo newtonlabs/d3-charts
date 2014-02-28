@@ -36,9 +36,11 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
   }
 
   var setupData = function() {
-    x.domain(d3.extent(data, function(d) { return d.xAxis; })).nice();
-    y.domain(d3.extent(data, function(d) { return d.yAxis; })).nice();
+    x.domain(d3.extent(data, function(d) { return parseFloat(d.xAxis); }));
+    y.domain(d3.extent(data, function(d) { return parseFloat(d.yAxis); }));
     r.domain(d3.extent(data, function(d) { return d.value; })).nice();
+    // TODO DEMO HACK FOR PADDING
+    x.domain([x.domain()[0] - 3, x.domain()[1] + 3]);
     categories = d3.utilities.uniqueProperties(data, 'category');
     color.domain(categories).range(d3.utilities.colorWheel)
   }
@@ -91,7 +93,8 @@ d3.charts.bubbleBuilder = function(selection, data, config) {
     .enter().append("circle")
       .attr("class", "dot")
       .attr("r", function(d) { return r(d.value) })
-      .attr("cx", function(d) { return x(d.xAxis); })
+      .attr("cx", function(d) {
+        return x(d.xAxis); })
       .attr("cy", function(d) { return y(d.yAxis); })
       .attr("fill", function(d) { return color(d.category); });
 
