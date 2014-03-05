@@ -666,7 +666,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
 
   builder.draw = function() {
     var empty = _.isEmpty(data);
-    
+
     setupMargins();
     builder.setupSvg();
     builder.setupChart();
@@ -696,10 +696,19 @@ d3.charts.stackedBuilder = function(selection, data, config) {
     layers = stack(data);
 
     var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); }),
+        yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); }),
         padding = d3.utilities.padDomain(builder.graphicWidth(), yStackMax, barTextPadding);
 
+    if (config.grouped) {
+      padding = d3.utilities.padDomain(builder.graphicWidth(), yGroupMax, barTextPadding);
+      x.domain([0, (yGroupMax + padding)]);
+    }
+    else {
+      padding = d3.utilities.padDomain(builder.graphicWidth(), yStackMax, barTextPadding);
+      x.domain([0, (yStackMax + padding)]);
+    }
+
     y.domain(_.map(layers[0], function(d) { return d.x; }));
-    x.domain([0, (yStackMax + padding)]);
     color.domain(categories()).range(colors());
     legend.color(color);
   }
@@ -728,7 +737,11 @@ d3.charts.stackedBuilder = function(selection, data, config) {
   }
 
   var legendItems = function() {
-    return config.vertical ? categories().slice().reverse() : categories()
+    if (config.vertical && !config.grouped) {
+      console.log('inverting');
+      return categories().slice().reverse();
+    }
+    return categories();
   }
 
   var drawLegend = function() {
@@ -797,22 +810,38 @@ d3.charts.stackedBuilder = function(selection, data, config) {
         .attr('class', 'layer')
         .style('fill', function(d, i)  {return color(d[0].category); });
 
-    var rect = layer.selectAll('rect')
-        .data(function(d) { return d; })
-        .enter().append('rect')
-        .attr('y', chartHeight)
-        .attr('x', function(d) { return verticalX(d.x); })
-        .attr('height', 0)
-        .attr('fill', barColor)
-        .attr('width', verticalX.rangeBand())
+    if (config.grouped) {
+      var n = layers.length;
 
-    rect
-        .transition()
-        .delay(function(d, i) { return i * 40; })
-        .attr('y', function(d) {return verticalY(d.y0 + d.y);})
-        .attr('height', function(d) { return verticalY(d.y0) - verticalY(d.y0 + d.y)});
+      var rect = layer.selectAll("rect")
+          .data(function(d) { return d; })
+          .enter().append('rect')
+          .attr("x", function(d, i, j) { return verticalX(d.x) + verticalX.rangeBand() / n * j; })
+          .attr('fill', barColor)
+          .attr("width", verticalX.rangeBand() / n)
+      rect
+          .transition()
+          .delay(function(d, i) { return i * 40; })
+          .attr("y", function(d) { return verticalY(d.y); })
+          .attr("height", function(d) { return chartHeight - verticalY(d.y); });
+    }
+    else {
+      var rect = layer.selectAll('rect')
+          .data(function(d) { return d; })
+          .enter().append('rect')
+          .attr('y', chartHeight)
+          .attr('x', function(d) { return verticalX(d.x); })
+          .attr('height', 0)
+          .attr('fill', barColor)
+          .attr('width', verticalX.rangeBand())
 
-    var text = chart.selectAll('.value')
+      rect
+          .transition()
+          .delay(function(d, i) { return i * 40; })
+          .attr('y', function(d) {return verticalY(d.y0 + d.y);})
+          .attr('height', function(d) { return verticalY(d.y0) - verticalY(d.y0 + d.y)});
+
+      var text = chart.selectAll('.value')
         .data(lastLayer(layers))
         .enter().append('text')
         .attr('text-anchor', 'middle')
@@ -820,6 +849,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
         .attr('x', function(d) { return verticalX(d.x)+verticalX.rangeBand()/2; })
         .attr('class','value')
         .text(textFormat);
+    }
   }
 
   var drawHorizontal = function() {
@@ -858,28 +888,45 @@ d3.charts.stackedBuilder = function(selection, data, config) {
         .enter().append('g')
         .attr('class', 'layer');
 
-    var rect = layer.selectAll('rect')
-        .data(function(d) { return d; })
-        .enter().append('rect')
-        .attr('x', 0)
-        .attr('y', function(d) { return y(d.x); })
-        .attr('width', 0)
-        .attr('fill', barColor)
-        .attr('height', y.rangeBand())
+    if (config.grouped) {
+      var n = layers.length;
 
-    rect
-        .transition()
-        .delay(function(d, i) { return i * 40; })
-        .attr('x', function(d) { return x(d.y0); })
-        .attr('width', function(d) { return x(d.y); });
+      var rect = layer.selectAll("rect")
+          .data(function(d) { return d; })
+          .enter().append('rect')
+          .attr("y", function(d, i, j) { return y(d.x) + y.rangeBand() / n * j; })
+          .attr('fill', barColor)
+          .attr("height", y.rangeBand() / n)
+      rect
+          .transition()
+          .delay(function(d, i) { return i * 40; })
+          .attr("x", 0)
+          .attr("width", function(d) { return x(d.y); });
+    }
+    else {
+      var rect = layer.selectAll('rect')
+          .data(function(d) { return d; })
+          .enter().append('rect')
+          .attr('x', 0)
+          .attr('y', function(d) { return y(d.x); })
+          .attr('width', 0)
+          .attr('fill', barColor)
+          .attr('height', y.rangeBand())
 
-    var text = chart.selectAll('.value')
-        .data(lastLayer(layers))
-        .enter().append('text')
-        .attr('x', function(d) { return x(d.y + d.y0)+5; })
-        .attr('y', function(d) { return y(d.x)+y.rangeBand()/2+4; })
-        .attr('class','value')
-        .text(textFormat);
+      rect
+          .transition()
+          .delay(function(d, i) { return i * 40; })
+          .attr('x', function(d) { return x(d.y0); })
+          .attr('width', function(d) { return x(d.y); });
+
+      var text = chart.selectAll('.value')
+          .data(lastLayer(layers))
+          .enter().append('text')
+          .attr('x', function(d) { return x(d.y + d.y0)+5; })
+          .attr('y', function(d) { return y(d.x)+y.rangeBand()/2+4; })
+          .attr('class','value')
+          .text(textFormat);
+    }
   }
 
   return builder;
@@ -1624,6 +1671,7 @@ this.d3.charts.stacked = function() {
       .config('titleOn', true)
       .config('vertical', false)
       .config('className', 'stacked')
+      .config('grouped', false)
       .builder(d3.charts.stackedBuilder);
 
   return chart;
