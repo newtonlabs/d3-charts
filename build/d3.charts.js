@@ -654,6 +654,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
 
   var builder = d3.charts.baseBuilder(selection, data, config),
       layers,
+      layerData,
       barTextPadding = 50,
       y = d3.scale.ordinal(),
       x = d3.scale.linear(),
@@ -687,6 +688,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
 
   var setupNoData = function() {
     layers = [];
+    layerData = [];
     color.domain(['TBD']).range(['#E6E6E6']);
     y.domain(_.map(_.range(7), function(d) {return ('Label - ' + d)}));
     legend.color(color);
@@ -694,6 +696,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
 
   var setupData = function() {
     layers = stack(data);
+    layerData = config.stackLabels ? _.flatten(layers) : lastLayer(layers) ;
 
     var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); }),
         yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); }),
@@ -738,7 +741,6 @@ d3.charts.stackedBuilder = function(selection, data, config) {
 
   var legendItems = function() {
     if (config.vertical && !config.grouped) {
-      console.log('inverting');
       return categories().slice().reverse();
     }
     return categories();
@@ -754,7 +756,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
   }
 
   var textFormat = function(d) {
-    var number = d.y + d.y0;
+    var number = config.stackLabels ? d.y :  d.y + d.y0;
 
     if (isInt(number)) {
       if (number > 999) {
@@ -824,6 +826,15 @@ d3.charts.stackedBuilder = function(selection, data, config) {
           .delay(function(d, i) { return i * 40; })
           .attr("y", function(d) { return verticalY(d.y); })
           .attr("height", function(d) { return chartHeight - verticalY(d.y); });
+
+      var text = layer.selectAll('.value')
+        .data(function(d) { return d; })
+        .enter().append('text')
+        .attr('text-anchor', 'middle')
+        .attr('y', function(d) { return (verticalY(d.y)) - 4 ; })
+        .attr("x", function(d, i, j) { return verticalX(d.x) + verticalX.rangeBand() / n * j + (verticalX.rangeBand() / n)/2; })
+        .attr('class','h_value')
+        .text(textFormat);
     }
     else {
       var rect = layer.selectAll('rect')
@@ -842,7 +853,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
           .attr('height', function(d) { return verticalY(d.y0) - verticalY(d.y0 + d.y)});
 
       var text = chart.selectAll('.value')
-        .data(lastLayer(layers))
+        .data(layerData)
         .enter().append('text')
         .attr('text-anchor', 'middle')
         .attr('y', function(d) {return (verticalY(d.y0 + d.y)) - 4 ; })
@@ -902,6 +913,14 @@ d3.charts.stackedBuilder = function(selection, data, config) {
           .delay(function(d, i) { return i * 40; })
           .attr("x", 0)
           .attr("width", function(d) { return x(d.y); });
+
+      var text = layer.selectAll('.value')
+          .data(function(d) { return d; })
+          .enter().append('text')
+          .attr('x', function(d) { return x(d.y)+5; })
+          .attr("y", function(d, i, j) { return y(d.x) + y.rangeBand() / n * j + (y.rangeBand() / n)/2 + 4;  })
+          .attr('class','h_value')
+          .text(textFormat);
     }
     else {
       var rect = layer.selectAll('rect')
@@ -920,7 +939,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
           .attr('width', function(d) { return x(d.y); });
 
       var text = chart.selectAll('.value')
-          .data(lastLayer(layers))
+          .data(layerData)
           .enter().append('text')
           .attr('x', function(d) { return x(d.y + d.y0)+5; })
           .attr('y', function(d) { return y(d.x)+y.rangeBand()/2+4; })
@@ -1671,7 +1690,8 @@ this.d3.charts.stacked = function() {
       .config('titleOn', true)
       .config('vertical', false)
       .config('className', 'stacked')
-      .config('grouped', false)
+      .config('grouped', true)
+      .config('stackLabels', false)
       .builder(d3.charts.stackedBuilder);
 
   return chart;

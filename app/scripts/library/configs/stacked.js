@@ -12,7 +12,8 @@ this.d3.charts.stacked = function() {
       .config('titleOn', true)
       .config('vertical', false)
       .config('className', 'stacked')
-      .config('grouped', false)
+      .config('grouped', true)
+      .config('stackLabels', false)
       .builder(d3.charts.stackedBuilder);
 
   return chart;

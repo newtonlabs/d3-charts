@@ -6,11 +6,10 @@ d3.csv("data/stacked.csv", function(error, data) {
     return _.map(d, function(o) { return {x: o.yAxis, y: o.value++, category: category, color: o.color}; });
   });
 
-  stacked.grouped(true);
   d3.select("#stacked").datum(layers).call(stacked);
   d3.select("#stacked-empty").datum(undefined).call(stacked);
 
-  stacked.vertical(true).grouped(true);
+  stacked.vertical(true);
   d3.select("#stacked-vertical").datum(layers).call(stacked);
   d3.select("#stacked-vertical-empty").datum(undefined).call(stacked);
 });
