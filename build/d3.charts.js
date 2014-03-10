@@ -1809,6 +1809,14 @@ this.d3.charts.filter = function() {
     return svg;
   };
 
+  my.title = function(value)        {return my;};
+  my.subtitle = function(value)     {return my;};
+  my.titleOn = function(value)      {return my;};
+  my.bottomLabels = function(value) {return my;};
+  my.legend = function(value)       {return my;};
+  my.graphicArea = function(value)  {return my;};
+  my.chartArea = function(value)    {return my;};
+
   return my;
 };
 
