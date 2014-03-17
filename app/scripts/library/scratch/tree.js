@@ -1,30 +1,82 @@
-
 window.canvas.tree = function() {
-  var children = _.where(canvas.data, function(d) {
-    return d.quality_aspect === 'Metro' || d.quality_aspect === 'NGPT'
-  });
+  var nodeHeight = 40;
+  var nodeWidth  = 135;
+  var nodeCurve = 10;
+  var nodeSpace = 210;
+  var truncAmount = 25;
+  var nodeColor = '#ffd966';
+  var nodeColorSelected = 'lightyellow';
+  var leafColor = d3.scale.ordinal().domain(_.range(4)).range(['#c8daf8', '#c8daf8', '#6d9deb', '#6d9deb', '#1155cc'])
+  var margin = {top: 0, right: 0, bottom: 0, left: 0},
+      width = 1000
+      height = 650;
 
-  var grandChildren = function(d) {
-    return _.map(_.where(canvas.data, function(o) {
-      return o.quality_aspect != 'Metro' && o.quality_aspect != 'NGPT' && d.type === o.type;
+  var i = 0,
+      duration = 250,
+      root;
+
+  var round = function(num) {
+    return Math.round(num * 100) / 100
+  }
+  var changed = function(d) {
+    return round((d.response - d.change_response) * 100);
+  }
+  var current = function(d) {
+    return round(d.response * 100);
+  }
+  var isLeaf = function(d) {
+    if (d.depth === 3) {
+      return true;
+    }
+    return false;
+  }
+
+  String.prototype.trunc = String.prototype.trunc ||
+    function(n){
+      return this.length>n ? this.substr(0,n-1)+'...' : this;
+    };
+
+  var greatGrandChildren = function(parent) {
+    return _.map(_.where(canvas.data, function(d) {
+      return d.type == parent.type && d.quality_aspect == parent.quality_aspect && d.question !== 'Overall'
+    }), function(d) {
+      return {
+        name: d.question,
+        response: current(d),
+        change: changed(d),
+        importance: d.importance
+      }
+  })};
+
+  var grandChildren = function(parent) {
+    return _.map(_.where(canvas.data, function(d) {
+      return d.type == parent.type && d.question === 'Overall'
     }), function(d) {
       return {
         name: d.quality_aspect,
-        satisfied: d.satisfied,
-        unsatisfied: d.unsatisfied
+        response: current(d),
+        change: changed(d),
+        children: greatGrandChildren(d)
+      }
+  })};
+
+  var children = function() {
+    return _.map(_.where(canvas.data, function(d) {
+      return d.quality_aspect === 'Metro' || d.quality_aspect === 'NGPT'
+    }), function(d) {
+      return {
+        name: d.quality_aspect,
+        response: current(d),
+        change: changed(d),
+        children: grandChildren(d)
       }
   })};
 
   var treeData = {
     name: 'Overall',
-    children: _.map(children, function(d) {
-      return {
-        name: d.type,
-        satisfied: d.satisfied,
-        unsatisfied: d.unsatisfied,
-        children: grandChildren(d)
-      }
-    })
+    response: '85',
+    change: '5',
+    children: children()
   }
 
   var draw = function() {
@@ -52,7 +104,7 @@ window.canvas.tree = function() {
       d.children = d._children;
       d._children = null;
     }
-    update(d);
+    isLeaf(d) ? console.log('d', d) : update(d);
   }
 
   function update(source) {
@@ -61,7 +113,9 @@ window.canvas.tree = function() {
         links = tree.links(nodes);
 
     // Normalize for fixed-depth.
-    nodes.forEach(function(d) { d.y = d.depth * 180; });
+    nodes.forEach(function(d) {
+      d.y = d.depth * nodeSpace;
+    });
 
     // Update the nodes…
     var node = svg.selectAll("g.node")
@@ -70,35 +124,66 @@ window.canvas.tree = function() {
     // Enter any new nodes at the parent's previous position.
     var nodeEnter = node.enter().append("g")
         .attr("class", "node")
-        .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+        .attr("transform", function(d) { return "translate(" + source.y0 + "," + (source.x0 - nodeHeight/2) + ")"; })
         .on("click", click);
 
-    nodeEnter.append("circle")
-        .attr("r", 1e-6)
-        .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+    nodeEnter.append("rect")
+        // .attr("r", 1e-6)
+        .attr('height', nodeHeight)
+        .attr('width', nodeWidth)
+        .attr('rx', nodeCurve)
+        .attr('ry', nodeCurve)
+        .style("fill", color)
 
     nodeEnter.append("text")
-        .attr("x", function(d) { return d.children || d._children ? -20 : 20; })
+        .attr("x", function(d) { return d.children || d._children ? 5 : 5; })
+        .attr("y", function(d) { return 12 })
         .attr("dy", ".35em")
-        .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-        .text(function(d) { return d.name; })
+        .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "start"; })
+        .text(function(d) { return d.name.trunc(truncAmount); })
         .style("fill-opacity", 1e-6);
+
+    nodeEnter.append("text")
+        .attr("x", function(d) { return d.children || d._children ? 5 : 5; })
+        .attr("y", function(d) { return 28 })
+        .attr("dy", ".35em")
+        .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "start"; })
+        .text(function(d) { return d.response + '%'; });
+
+    nodeEnter.append("text")
+        .attr("x", function(d) { return d.children || d._children ? 40 : 40; })
+        .attr("y", function(d) { return 28 })
+        .attr("dy", ".35em")
+        .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "start"; })
+        .text(function(d) { return d.change + '%'; });
 
     // Transition nodes to their new position.
     var nodeUpdate = node.transition()
         .duration(duration)
-        .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+        .attr("transform", function(d) { return "translate(" + (d.y) + "," + (d.x - nodeHeight/2) + ")"; });
 
     var color = function(d) {
-      if (d.satisfied) {
-        return d.satisfied > d.unsatisfied ? 'green' : 'red';
+      if (isLeaf(d)) {
+        return leafColor(d.importance);
       }
-      return d._children ? "lightsteelblue" : "#fff";
+      if (d._children == null) {
+        return nodeColorSelected;
+      }
+      return nodeColor;
     }
 
-    nodeUpdate.select("circle")
-        .attr("r", 15)
-        .style("fill", color);
+    var borderColor = function(d) {
+      return  "#666666";
+    }
+
+    nodeUpdate.select("rect")
+        // .attr("r", 15)
+        .attr('height', nodeHeight)
+        .attr('width', nodeWidth)
+        .attr('rx', nodeCurve)
+        .attr('ry', nodeCurve)
+        .style("fill", color)
+        .attr("stroke", borderColor);
 
     nodeUpdate.select("text")
         .style("fill-opacity", 1);
@@ -106,11 +191,15 @@ window.canvas.tree = function() {
     // Transition exiting nodes to the parent's new position.
     var nodeExit = node.exit().transition()
         .duration(duration)
-        .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+        .attr("transform", function(d) { return "translate(" + source.y + "," + (source.x  - nodeHeight/2)+ ")"; })
         .remove();
 
-    nodeExit.select("circle")
-        .attr("r", 1e-6);
+    nodeExit.select("rect")
+        .attr('rx', nodeCurve)
+        .attr('ry', nodeCurve)
+        .attr('height', nodeHeight)
+        .attr('width', nodeWidth)
+        // .attr("r", 1e-6);
 
     nodeExit.select("text")
         .style("fill-opacity", 1e-6);
@@ -148,16 +237,8 @@ window.canvas.tree = function() {
     });
   }
 
-  var margin = {top: 20, right: 120, bottom: 20, left: 120},
-    width = 1260 - margin.right - margin.left,
-    height = 400 - margin.top - margin.bottom;
-
-  var i = 0,
-      duration = 750,
-      root;
-
   var tree = d3.layout.tree()
-      .size([height, width]);
+     .size([height, width])
 
   var diagonal = d3.svg.diagonal()
       .projection(function(d) { return [d.y, d.x]; });
