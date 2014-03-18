@@ -1,28 +1,34 @@
 window.canvas.tree = function() {
-  var nodeHeight = 40;
-  var nodeWidth  = 135;
-  var nodeCurve = 10;
-  var nodeSpace = 210;
+  var data = canvas.data;
+  var nodeHeight = 60;
+  var nodeWidth = 155;
+  var nodeCurve = 3;
+  var nodeSpace = 300;
   var truncAmount = 25;
-  var nodeColor = '#ffd966';
+  var nodeColor = '#ffffff';
   var nodeColorSelected = 'lightyellow';
+  var deltaX = 85;
+  var deltaY = 25;
   var leafColor = d3.scale.ordinal().domain(_.range(4)).range(['#c8daf8', '#c8daf8', '#6d9deb', '#6d9deb', '#1155cc'])
   var margin = {top: 0, right: 0, bottom: 0, left: 0},
-      width = 1000
+      width = 1100
       height = 650;
 
   var i = 0,
-      duration = 250,
+      duration = 450,
       root;
 
   var round = function(num) {
     return Math.round(num * 100) / 100
   }
   var changed = function(d) {
-    return round((d.response - d.change_response) * 100);
+    return round((d.change_response - d.response) * 100);
   }
   var current = function(d) {
     return round(d.response * 100);
+  }
+  var changeColor = function(d) {
+    return (d.change > 0) ? 'green' : 'red'
   }
   var isLeaf = function(d) {
     if (d.depth === 3) {
@@ -37,7 +43,7 @@ window.canvas.tree = function() {
     };
 
   var greatGrandChildren = function(parent) {
-    return _.map(_.where(canvas.data, function(d) {
+    return _.map(_.where(data, function(d) {
       return d.type == parent.type && d.quality_aspect == parent.quality_aspect && d.question !== 'Overall'
     }), function(d) {
       return {
@@ -49,7 +55,7 @@ window.canvas.tree = function() {
   })};
 
   var grandChildren = function(parent) {
-    return _.map(_.where(canvas.data, function(d) {
+    return _.map(_.where(data, function(d) {
       return d.type == parent.type && d.question === 'Overall'
     }), function(d) {
       return {
@@ -61,7 +67,7 @@ window.canvas.tree = function() {
   })};
 
   var children = function() {
-    return _.map(_.where(canvas.data, function(d) {
+    return _.map(_.where(data, function(d) {
       return d.quality_aspect === 'Metro' || d.quality_aspect === 'NGPT'
     }), function(d) {
       return {
@@ -128,7 +134,6 @@ window.canvas.tree = function() {
         .on("click", click);
 
     nodeEnter.append("rect")
-        // .attr("r", 1e-6)
         .attr('height', nodeHeight)
         .attr('width', nodeWidth)
         .attr('rx', nodeCurve)
@@ -145,15 +150,29 @@ window.canvas.tree = function() {
 
     nodeEnter.append("text")
         .attr("x", function(d) { return d.children || d._children ? 5 : 5; })
-        .attr("y", function(d) { return 28 })
-        .attr("dy", ".35em")
+        .attr("y", function(d) { return 12 })
+        .attr("dy", "1.2em")
+        .attr("class", "response")
         .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "start"; })
         .text(function(d) { return d.response + '%'; });
 
-    nodeEnter.append("text")
-        .attr("x", function(d) { return d.children || d._children ? 40 : 40; })
-        .attr("y", function(d) { return 28 })
-        .attr("dy", ".35em")
+    var deltaBlock = nodeEnter.append("g")
+        .attr("class","delta")
+        .attr("transform", function(d) { return "translate(" + deltaX + "," + deltaY + ")"})
+
+    deltaBlock.append("rect")
+      .attr("height", 25)
+      .attr("width", 58)
+      .attr("x", 0)
+      .attr("y", 0)
+      .style("fill", changeColor)
+
+    deltaBlock.append("text")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("dy", "1em")
+        .attr("dx", ".3em")
+        .attr("class", "delta")
         .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "start"; })
         .text(function(d) { return d.change + '%'; });
 
@@ -177,7 +196,6 @@ window.canvas.tree = function() {
     }
 
     nodeUpdate.select("rect")
-        // .attr("r", 15)
         .attr('height', nodeHeight)
         .attr('width', nodeWidth)
         .attr('rx', nodeCurve)
@@ -199,7 +217,6 @@ window.canvas.tree = function() {
         .attr('ry', nodeCurve)
         .attr('height', nodeHeight)
         .attr('width', nodeWidth)
-        // .attr("r", 1e-6);
 
     nodeExit.select("text")
         .style("fill-opacity", 1e-6);
@@ -238,7 +255,8 @@ window.canvas.tree = function() {
   }
 
   var tree = d3.layout.tree()
-     .size([height, width])
+      .size([height, width])
+     // .nodeSize([nodeHeight, nodeWidth + 20])
 
   var diagonal = d3.svg.diagonal()
       .projection(function(d) { return [d.y, d.x]; });
