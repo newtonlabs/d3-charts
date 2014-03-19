@@ -3,13 +3,18 @@ window.canvas.tree = function() {
   var nodeHeight = 60;
   var nodeWidth = 155;
   var nodeCurve = 3;
-  var nodeSpace = 300;
+  var nodeSpace = 250;
   var truncAmount = 25;
   var nodeColor = '#ffffff';
   var nodeColorSelected = 'lightyellow';
   var deltaX = 85;
   var deltaY = 25;
-  var leafColor = d3.scale.ordinal().domain(_.range(4)).range(['#c8daf8', '#c8daf8', '#6d9deb', '#6d9deb', '#1155cc'])
+  var leafColor = d3.scale.ordinal().domain(_.range(4)).range([
+    '#85d3e5',
+    '#85d3e5',
+    '#1d4e97',
+    '#1d4e97',
+    '#2f347d'])
   var margin = {top: 0, right: 0, bottom: 0, left: 0},
       width = 1100
       height = 650;
@@ -22,7 +27,7 @@ window.canvas.tree = function() {
     return Math.round(num * 100) / 100
   }
   var changed = function(d) {
-    return round((d.change_response - d.response) * 100);
+    return round(d.delta_response * 100);
   }
   var current = function(d) {
     return round(d.response * 100);
@@ -35,6 +40,15 @@ window.canvas.tree = function() {
       return true;
     }
     return false;
+  }
+  var strokeWidth = function(d) {
+    return isLeaf(d.target) ? 2.5 : 2.5;
+  }
+  var strokeColor = function(d) {
+    return isLeaf(d.target) ? leafColor(d.target.importance) : "#252626";
+  }
+  var borderColor = function(d) {
+    return isLeaf(d) ? leafColor(d.importance) : "#252626";
   }
 
   String.prototype.trunc = String.prototype.trunc ||
@@ -130,7 +144,7 @@ window.canvas.tree = function() {
     // Enter any new nodes at the parent's previous position.
     var nodeEnter = node.enter().append("g")
         .attr("class", "node")
-        .attr("transform", function(d) { return "translate(" + source.y0 + "," + (source.x0 - nodeHeight/2) + ")"; })
+        .attr("transform", function(d) { return "translate(" + (source.y0) + "," + (source.x0 - nodeHeight/2) + ")"; })
         .on("click", click);
 
     nodeEnter.append("rect")
@@ -138,6 +152,7 @@ window.canvas.tree = function() {
         .attr('width', nodeWidth)
         .attr('rx', nodeCurve)
         .attr('ry', nodeCurve)
+        .attr('stroke-width', "2.5")
         .style("fill", color)
 
     nodeEnter.append("text")
@@ -162,13 +177,26 @@ window.canvas.tree = function() {
 
     deltaBlock.append("rect")
       .attr("height", 25)
-      .attr("width", 58)
+      .attr("width", 60)
       .attr("x", 0)
       .attr("y", 0)
+      .attr('stroke-width', "2.5")
       .style("fill", changeColor)
 
-    deltaBlock.append("text")
-        .attr("x", 0)
+    var deltaDescription = deltaBlock.append("g")
+        .attr("transform", function(d) { return "translate(" + 5 + "," + 0 + ")"})
+
+    deltaDescription.append("line")
+        .attr('stroke', 'white')
+        .attr("x1", 6)
+        .attr("x2", 6)
+        .attr("y1", function(d) { return d.change >= 0 ? 22 : 3})
+        .attr("y2", function(d) { return d.change >= 0 ? 10 : 15})
+        .attr("stroke-width", 3)
+        .attr("marker-end", "url(#triangle)")
+
+    deltaDescription.append("text")
+        .attr("x", 7)
         .attr("y", 0)
         .attr("dy", "1em")
         .attr("dx", ".3em")
@@ -179,20 +207,17 @@ window.canvas.tree = function() {
     // Transition nodes to their new position.
     var nodeUpdate = node.transition()
         .duration(duration)
-        .attr("transform", function(d) { return "translate(" + (d.y) + "," + (d.x - nodeHeight/2) + ")"; });
+        .attr("transform", function(d) { return "translate(" + (d.y ) + "," + (d.x - nodeHeight/2) + ")"; });
 
     var color = function(d) {
       if (isLeaf(d)) {
-        return leafColor(d.importance);
+        // return leafColor(d.importance);
+        return nodeColor;
       }
       if (d._children == null) {
         return nodeColorSelected;
       }
       return nodeColor;
-    }
-
-    var borderColor = function(d) {
-      return  "#666666";
     }
 
     nodeUpdate.select("rect")
@@ -201,6 +226,7 @@ window.canvas.tree = function() {
         .attr('rx', nodeCurve)
         .attr('ry', nodeCurve)
         .style("fill", color)
+        .attr('stroke-width', "2.5")
         .attr("stroke", borderColor);
 
     nodeUpdate.select("text")
@@ -228,6 +254,8 @@ window.canvas.tree = function() {
     // Enter any new links at the parent's previous position.
     link.enter().insert("path", "g")
         .attr("class", "link")
+        .attr("stroke", strokeColor )
+        .attr("stroke-width", strokeWidth)
         .attr("d", function(d) {
           var o = {x: source.x0, y: source.y0};
           return diagonal({source: o, target: o});
@@ -264,7 +292,23 @@ window.canvas.tree = function() {
   var svg = d3.select("#tree").append("svg")
       .attr("width", width + margin.right + margin.left)
       .attr("height", height + margin.top + margin.bottom)
-    .append("g")
+
+  var newSvg =  d3.select("#marker").append("svg").attr("width", 500).attr("height",500);
+
+  var triangle = svg.append("marker")
+      .attr("id", "triangle")
+      .attr('viewBox','0 0 10 10')
+      .attr('refX', '0')
+      .attr('refY', '5')
+      .attr('markerUnits', 'strokeWidth')
+      .attr('markerWidth', '3')
+      .attr('markerHeight', '3')
+      .attr('fill', 'white')
+      .attr('orient', 'auto')
+
+  triangle.append('path').attr('d','M 0 0 L 10 5 L 0 10 z')
+
+  svg.append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   draw();
