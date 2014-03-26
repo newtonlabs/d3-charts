@@ -1,10 +1,19 @@
 var stacked = d3.charts.stacked().vertical(undefined);
 d3.csv("data/stacked.csv", function(error, data) {
   data = d3.utilities.transformSet(data);
-  var group = _.groupBy(data, function(d) { return d.category })
-  layers = _.map(group, function(d, category) {
-    return _.map(d, function(o) { return {x: o.yAxis, y: o.value++, category: category, color: o.color}; });
+  var group = _.groupBy(data, function(d) { return d.category });
+  var sortIndex = group[data[0].category];
+
+  layers = _.map(group, function(yAxises, category) {
+    var layer = [];
+    _.each(sortIndex, function(i) {
+      var o = _.find(yAxises, function(yAxis) {return yAxis.yAxis === i.yAxis});
+      layer.push({x: o.yAxis, y: o.value++, category: category, color: o.color})
+    })
+    return layer;
+    // return _.map(yAxises, function(o) { return {x: o.yAxis, y: o.value++, category: category, color: o.color}; });
   });
+  console.log('layers', layers);
 
   d3.select("#stacked").datum(layers).call(stacked);
   d3.select("#stacked-empty").datum(undefined).call(stacked);
