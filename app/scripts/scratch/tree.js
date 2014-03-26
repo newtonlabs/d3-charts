@@ -1,23 +1,23 @@
 window.canvas.tree = function() {
   var data = canvas.data;
-  var nodeHeight = 60;
-  var nodeWidth = 155;
+  var nodeHeight = 90;
+  var nodeWidth = 180;
   var nodeCurve = 3;
   var nodeSpace = 250;
   var truncAmount = 25;
   var nodeColor = '#ffffff';
   var nodeColorSelected = 'lightyellow';
-  var deltaX = 85;
-  var deltaY = 25;
+  var deltaX = 90;
+  var deltaY = 40;
   var leafColor = d3.scale.ordinal().domain(_.range(4)).range([
     '#85d3e5',
     '#85d3e5',
     '#1d4e97',
     '#1d4e97',
     '#2f347d'])
-  var margin = {top: 0, right: 0, bottom: 0, left: 0},
+  var margin = {top: 0, right: 0, bottom: 0, left: 70},
       width = 1100
-      height = 650;
+      height = 850;
 
   var i = 0,
       duration = 450,
@@ -27,7 +27,7 @@ window.canvas.tree = function() {
     return Math.round(num * 100) / 100
   }
   var changed = function(d) {
-    return round(d.delta_response * 100);
+    return round(d.previous_quarter_response_delta * 100);
   }
   var current = function(d) {
     return round(d.response * 100);
@@ -50,6 +50,12 @@ window.canvas.tree = function() {
   var borderColor = function(d) {
     return isLeaf(d) ? leafColor(d.importance) : "#252626";
   }
+  var responseTotal = function(d) {
+    return _.map(_.range(6), function(o) { return d["response_total_"+ (o+1)]});
+  }
+  var changeResponseTotal = function(d) {
+    return _.map(_.range(6), function(o) { return d["change_response_total_"+ (o+1)]});
+  }
 
   String.prototype.trunc = String.prototype.trunc ||
     function(n){
@@ -61,8 +67,11 @@ window.canvas.tree = function() {
       return d.type == parent.type && d.quality_aspect == parent.quality_aspect && d.question !== 'Overall'
     }), function(d) {
       return {
+        type: d.type,
         name: d.question,
         response: current(d),
+        responseTotal: responseTotal(d),
+        changeResponseTotal: changeResponseTotal(d),
         change: changed(d),
         importance: d.importance
       }
@@ -75,6 +84,8 @@ window.canvas.tree = function() {
       return {
         name: d.quality_aspect,
         response: current(d),
+        responseTotal: responseTotal(d),
+        changeResponseTotal: changeResponseTotal(d),
         change: changed(d),
         children: greatGrandChildren(d)
       }
@@ -87,6 +98,8 @@ window.canvas.tree = function() {
       return {
         name: d.quality_aspect,
         response: current(d),
+        responseTotal: responseTotal(d),
+        changeResponseTotal: changeResponseTotal(d),
         change: changed(d),
         children: grandChildren(d)
       }
@@ -99,24 +112,32 @@ window.canvas.tree = function() {
     children: children()
   }
 
+  function collapse(d) {
+    if (d.children) {
+      d._children = d.children;
+      d._children.forEach(collapse);
+      d.children = null;
+    }
+  }
+
   var draw = function() {
     root = treeData;
     root.x0 = height / 2;
     root.y0 = 0;
-
-    function collapse(d) {
-      if (d.children) {
-        d._children = d.children;
-        d._children.forEach(collapse);
-        d.children = null;
-      }
-    }
-
     root.children.forEach(collapse);
     update(root);
   }
 
+  var collapseSiblings = function (d) {
+    _.each(_.where(tree.nodes(root), function(node) { return node.depth === d.depth && node.name !== d.name }), 
+      function(node) {
+        collapse(node);
+      }
+    )
+  }
+
   function click(d) {
+    collapseSiblings(d);
     if (d.children) {
       d._children = d.children;
       d.children = null;
@@ -124,7 +145,15 @@ window.canvas.tree = function() {
       d.children = d._children;
       d._children = null;
     }
-    isLeaf(d) ? console.log('d', d) : update(d);
+    if (isLeaf(d)) {
+      window.canvas.detailChart(d);
+      makeActive($('.toptab')[0]);
+      $('.toptab:first').tab('show');
+      $('#detailChart').modal('show');
+    }
+    else {
+      update(d);
+    }
   }
 
   function update(source) {
@@ -156,16 +185,16 @@ window.canvas.tree = function() {
         .style("fill", color)
 
     nodeEnter.append("text")
-        .attr("x", function(d) { return d.children || d._children ? 5 : 5; })
-        .attr("y", function(d) { return 12 })
+        .attr("x", function(d) { return d.children || d._children ? 10 : 10; })
+        .attr("y", function(d) { return 18 })
         .attr("dy", ".35em")
         .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "start"; })
         .text(function(d) { return d.name.trunc(truncAmount); })
         .style("fill-opacity", 1e-6);
 
     nodeEnter.append("text")
-        .attr("x", function(d) { return d.children || d._children ? 5 : 5; })
-        .attr("y", function(d) { return 12 })
+        .attr("x", function(d) { return d.children || d._children ? 10 : 10; })
+        .attr("y", function(d) { return 31 })
         .attr("dy", "1.2em")
         .attr("class", "response")
         .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "start"; })
@@ -176,8 +205,8 @@ window.canvas.tree = function() {
         .attr("transform", function(d) { return "translate(" + deltaX + "," + deltaY + ")"})
 
     deltaBlock.append("rect")
-      .attr("height", 25)
-      .attr("width", 60)
+      .attr("height", 40)
+      .attr("width", 75)
       .attr("x", 0)
       .attr("y", 0)
       .attr('stroke-width', "2.5")
@@ -187,17 +216,17 @@ window.canvas.tree = function() {
         .attr("transform", function(d) { return "translate(" + 5 + "," + 0 + ")"})
 
     deltaDescription.append("line")
-        .attr('stroke', 'white')
+        .attr('stroke', changeColor)
         .attr("x1", 6)
         .attr("x2", 6)
-        .attr("y1", function(d) { return d.change >= 0 ? 22 : 3})
-        .attr("y2", function(d) { return d.change >= 0 ? 10 : 15})
+        .attr("y1", function(d) { return d.change >= 0 ? 25 : 14})
+        .attr("y2", function(d) { return d.change >= 0 ? 24 : 15})
         .attr("stroke-width", 3)
         .attr("marker-end", "url(#triangle)")
 
     deltaDescription.append("text")
-        .attr("x", 7)
-        .attr("y", 0)
+        .attr("x", 9)
+        .attr("y", 4)
         .attr("dy", "1em")
         .attr("dx", ".3em")
         .attr("class", "delta")
@@ -207,7 +236,7 @@ window.canvas.tree = function() {
     // Transition nodes to their new position.
     var nodeUpdate = node.transition()
         .duration(duration)
-        .attr("transform", function(d) { return "translate(" + (d.y ) + "," + (d.x - nodeHeight/2) + ")"; });
+        .attr("transform", function(d) { return "translate(" + (d.y - 70 ) + "," + (d.x - nodeHeight/2) + ")"; });
 
     var color = function(d) {
       if (isLeaf(d)) {
@@ -264,14 +293,15 @@ window.canvas.tree = function() {
     // Transition links to their new position.
     link.transition()
         .duration(duration)
-        .attr("d", diagonal);
+        .attr("d", function(d) {
+          return lineLink([{x: d.source.y, y: d.source.x },{x: d.target.y, y: d.target.x }])
+        });
 
     // Transition exiting nodes to the parent's new position.
     link.exit().transition()
         .duration(duration)
         .attr("d", function(d) {
-          var o = {x: source.x, y: source.y};
-          return diagonal({source: o, target: o});
+          return lineLink([{x: d.source.y, y: d.source.x },{x: d.source.y, y: d.source.x }])
         })
         .remove();
 
@@ -284,16 +314,24 @@ window.canvas.tree = function() {
 
   var tree = d3.layout.tree()
       .size([height, width])
-     // .nodeSize([nodeHeight, nodeWidth + 20])
 
   var diagonal = d3.svg.diagonal()
       .projection(function(d) { return [d.y, d.x]; });
 
+  var lineLink = d3.svg.line().interpolate("step")
+     .x(function(d) { return d.x; })
+     .y(function(d) { return d.y; });
+
+  var line = d3.svg.line()
+    .x(function(d) { return d.x; })
+    .y(function(d) { return d.y; });
+
+
   var svg = d3.select("#tree").append("svg")
       .attr("width", width + margin.right + margin.left)
       .attr("height", height + margin.top + margin.bottom)
-
-  var newSvg =  d3.select("#marker").append("svg").attr("width", 500).attr("height",500);
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   var triangle = svg.append("marker")
       .attr("id", "triangle")
@@ -307,9 +345,6 @@ window.canvas.tree = function() {
       .attr('orient', 'auto')
 
   triangle.append('path').attr('d','M 0 0 L 10 5 L 0 10 z')
-
-  svg.append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   draw();
 }
