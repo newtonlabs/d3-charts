@@ -1,3 +1,4 @@
+
 window.canvas.tree = function() {
   var data = canvas.data;
   var nodeHeight = 90;
@@ -9,58 +10,27 @@ window.canvas.tree = function() {
   var nodeColorSelected = 'lightyellow';
   var deltaX = 90;
   var deltaY = 40;
-  var leafColor = d3.scale.ordinal().domain(_.range(4)).range([
-    '#85d3e5',
-    '#85d3e5',
-    '#1d4e97',
-    '#1d4e97',
-    '#2f347d'])
   var margin = {top: 0, right: 0, bottom: 0, left: 70},
-      width = 1100
-      height = 850;
-
-  var i = 0,
+      width = 1000,
+      height = 250,
+      i = 0,
       duration = 450,
       root;
 
-  var round = function(num) {
-    return Math.round(num * 100) / 100
-  }
-  var changed = function(d) {
-    return round(d.previous_quarter_response_delta * 100);
-  }
-  var current = function(d) {
-    return round(d.response * 100);
-  }
-  var changeColor = function(d) {
-    return (d.change > 0) ? 'green' : 'red'
-  }
-  var isLeaf = function(d) {
-    if (d.depth === 3) {
-      return true;
-    }
-    return false;
-  }
-  var strokeWidth = function(d) {
-    return isLeaf(d.target) ? 2.5 : 2.5;
-  }
-  var strokeColor = function(d) {
-    return isLeaf(d.target) ? leafColor(d.target.importance) : "#252626";
-  }
-  var borderColor = function(d) {
-    return isLeaf(d) ? leafColor(d.importance) : "#252626";
-  }
-  var responseTotal = function(d) {
-    return _.map(_.range(6), function(o) { return d["response_total_"+ (o+1)]});
-  }
-  var changeResponseTotal = function(d) {
-    return _.map(_.range(6), function(o) { return d["change_response_total_"+ (o+1)]});
-  }
+  var leafColor = d3.scale.ordinal().domain(_.range(4)).range(['#85d3e5', '#85d3e5', '#1d4e97', '#1d4e97', '#2f347d']);
+  var round = function(num) {return Math.round(num * 100) / 100 }
+  var changed = function(d) {return round(d.previous_quarter_response_delta * 100); }
+  var current = function(d) {return round(d.response * 100); }
+  var changeColor = function(d) {return (d.change > 0) ? 'green' : 'red'}
+  var isLeaf = function(d) {return d.depth === 3};
+  var strokeWidth = function(d) {return isLeaf(d.target) ? 2.5 : 2.5; }
+  var strokeColor = function(d) {return isLeaf(d.target) ? leafColor(d.target.importance) : "#252626"; }
+  var borderColor = function(d) {return isLeaf(d) ? leafColor(d.importance) : "#252626"; }
+  var responseTotal = function(d) {return _.map(_.range(6), function(o) { return d["response_total_"+ (o+1)]}); }
+  var changeResponseTotal = function(d) {return _.map(_.range(6), function(o) { return d["change_response_total_"+ (o+1)]}); }
 
   String.prototype.trunc = String.prototype.trunc ||
-    function(n){
-      return this.length>n ? this.substr(0,n-1)+'...' : this;
-    };
+    function(n){return this.length>n ? this.substr(0,n-1)+'...' : this; };
 
   var greatGrandChildren = function(parent) {
     return _.map(_.where(data, function(d) {
@@ -128,8 +98,12 @@ window.canvas.tree = function() {
     update(root);
   }
 
+  var getSiblings = function(d) {
+    return _.where(tree.nodes(root), function(node) { return node.depth === d.depth && node.name !== d.name });
+  }
+
   var collapseSiblings = function (d) {
-    _.each(_.where(tree.nodes(root), function(node) { return node.depth === d.depth && node.name !== d.name }), 
+    _.each(getSiblings(d),
       function(node) {
         collapse(node);
       }
@@ -150,14 +124,32 @@ window.canvas.tree = function() {
       makeActive($('.toptab')[0]);
       $('.toptab:first').tab('show');
       $('#detailChart').modal('show');
+      $('#parent').html(d.parent.name);
+      $('#leaf').html(d.name);
     }
     else {
       update(d);
     }
   }
 
+  var longestBranch = function() {
+    return _.reduce(tree.nodes(root), function(memo, node) {
+      var children = node.children || [];
+      memo = memo < children.length ? children.length : memo;
+      return memo;
+    }, 0);
+  }
+
   function update(source) {
+    var newHeight = Math.max(250, longestBranch() * nodeHeight * 1.4 + margin.top + margin.bottom);
+
+    d3.select("svg").transition()
+        .duration(duration)
+        .attr("height", newHeight);
+
     // Compute the new tree layout.
+    tree = d3.layout.tree().size([newHeight, width]);
+
     var nodes = tree.nodes(root).reverse(),
         links = tree.links(nodes);
 
@@ -182,7 +174,7 @@ window.canvas.tree = function() {
         .attr('rx', nodeCurve)
         .attr('ry', nodeCurve)
         .attr('stroke-width', "2.5")
-        .style("fill", color)
+        .style("fill", color);
 
     nodeEnter.append("text")
         .attr("x", function(d) { return d.children || d._children ? 10 : 10; })
@@ -206,7 +198,7 @@ window.canvas.tree = function() {
 
     deltaBlock.append("rect")
       .attr("height", 40)
-      .attr("width", 75)
+      .attr("width", 80)
       .attr("x", 0)
       .attr("y", 0)
       .attr('stroke-width', "2.5")
@@ -236,11 +228,12 @@ window.canvas.tree = function() {
     // Transition nodes to their new position.
     var nodeUpdate = node.transition()
         .duration(duration)
-        .attr("transform", function(d) { return "translate(" + (d.y - 70 ) + "," + (d.x - nodeHeight/2) + ")"; });
+        .attr("transform", function(d) {
+          return "translate(" + (d.y - 70 ) + "," + (d.x - nodeHeight/2) + ")";
+        });
 
     var color = function(d) {
       if (isLeaf(d)) {
-        // return leafColor(d.importance);
         return nodeColor;
       }
       if (d._children == null) {
@@ -313,7 +306,6 @@ window.canvas.tree = function() {
   }
 
   var tree = d3.layout.tree()
-      .size([height, width])
 
   var diagonal = d3.svg.diagonal()
       .projection(function(d) { return [d.y, d.x]; });
@@ -321,11 +313,6 @@ window.canvas.tree = function() {
   var lineLink = d3.svg.line().interpolate("step")
      .x(function(d) { return d.x; })
      .y(function(d) { return d.y; });
-
-  var line = d3.svg.line()
-    .x(function(d) { return d.x; })
-    .y(function(d) { return d.y; });
-
 
   var svg = d3.select("#tree").append("svg")
       .attr("width", width + margin.right + margin.left)

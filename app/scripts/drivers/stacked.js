@@ -11,9 +11,7 @@ d3.csv("data/stacked.csv", function(error, data) {
       layer.push({x: o.yAxis, y: o.value++, category: category, color: o.color})
     })
     return layer;
-    // return _.map(yAxises, function(o) { return {x: o.yAxis, y: o.value++, category: category, color: o.color}; });
   });
-  console.log('layers', layers);
 
   d3.select("#stacked").datum(layers).call(stacked);
   d3.select("#stacked-empty").datum(undefined).call(stacked);
