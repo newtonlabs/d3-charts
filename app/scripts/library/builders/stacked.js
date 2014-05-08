@@ -46,9 +46,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
   }
 
   var setupData = function() {
-    console.log('data', data);
     layers = stack(data);
-    console.log('layers', layers);
     layerData = config.stackLabels ? _.flatten(layers) : lastLayer(layers) ;
 
     var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); }),
