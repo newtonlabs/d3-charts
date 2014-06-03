@@ -8,6 +8,7 @@ this.d3.charts.filter = function() {
   'use strict';
   var width = 960,
   height = 500,
+  selected = undefined,
   svg = {};
 
   function my(selection) {
@@ -19,6 +20,7 @@ this.d3.charts.filter = function() {
       options.enter().append("option")
         .attr("value", function(d) { return d; })
         .attr("subcategory", function(d) { return d; })
+        .attr("selected", function(d) {return d === selected ? 'selected' : null})
         .text(function(d) { return d; });
 
     });
@@ -34,6 +36,12 @@ this.d3.charts.filter = function() {
   my.height = function(value) {
     if (!arguments.length) { return height; }
     height = value;
+    return my;
+  };
+
+  my.selected = function(value) {
+    if (!arguments.length) { return selected; }
+    selected = value;
     return my;
   };
 
