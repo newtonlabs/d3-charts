@@ -97,8 +97,12 @@ d3.charts.heatmapBuilder = function(selection, data, config) {
         .attr('y', function(d) { return y(d.yAxis);})
         .attr('dy', function() { return y.rangeBand()/2 + 4;})
         .attr('dx', function() { return x.rangeBand()/2;})
-        .attr('class', 'cell value ' + config.cellFont + ' ' + config.cellFontColor)
-        .text(function(d) {return d.value;} )
+        .attr('class', 'cell value ' + config.cellFont + ' ' + config.cellFontColor);
+
+    if (config.cellValue) {
+      value.text(function(d) {return d.value;} )
+    }
+
     value.exit().remove();
   };
 

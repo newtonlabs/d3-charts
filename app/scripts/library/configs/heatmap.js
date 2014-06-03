@@ -22,6 +22,7 @@ this.d3.charts.heatmap = function() {
       .config('cellFontColor', 'white')
       .config('className', 'heatmap')
       .config('legendData', false)
+      .config('cellValue', true)
       .builder(d3.charts.heatmapBuilder);
 
   return chart;

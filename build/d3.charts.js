@@ -690,8 +690,12 @@ d3.charts.heatmapBuilder = function(selection, data, config) {
         .attr('y', function(d) { return y(d.yAxis);})
         .attr('dy', function() { return y.rangeBand()/2 + 4;})
         .attr('dx', function() { return x.rangeBand()/2;})
-        .attr('class', 'cell value ' + config.cellFont + ' ' + config.cellFontColor)
-        .text(function(d) {return d.value;} )
+        .attr('class', 'cell value ' + config.cellFont + ' ' + config.cellFontColor);
+
+    if (config.cellValue) {
+      value.text(function(d) {return d.value;} )
+    }
+
     value.exit().remove();
   };
 
@@ -799,9 +803,7 @@ d3.charts.stackedBuilder = function(selection, data, config) {
   }
 
   var setupData = function() {
-    console.log('data', data);
     layers = stack(data);
-    console.log('layers', layers);
     layerData = config.stackLabels ? _.flatten(layers) : lastLayer(layers) ;
 
     var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); }),
@@ -1795,6 +1797,7 @@ this.d3.charts.heatmap = function() {
       .config('cellFontColor', 'white')
       .config('className', 'heatmap')
       .config('legendData', false)
+      .config('cellValue', true)
       .builder(d3.charts.heatmapBuilder);
 
   return chart;
